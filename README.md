@@ -11,9 +11,65 @@ This is that missing harness. No judge model, no API key, no LLM call.
 
 ```bash
 npm install
-node bench/fetch-prs.mjs --repo pocketbase --limit 20   # build the case set
+node bench/fetch-prs.mjs --repo pocketbase --limit 50   # build the case set
 node bench/run.mjs       --repo pocketbase --k 10       # score the retrievers
+node bench/report.mjs                                   # pooled cross-repo table
 ```
+
+## Results
+
+**186 cases · 4 repos · 4 languages.** Natural condition (the query a developer
+would actually type), k=10:
+
+| retriever | R@1 | R@5 | R@10 | MRR | hit% | 95% CI | tok/query |
+|---|---|---|---|---|---|---|---|
+| `graft ask` | 13.2% | 37.0% | 48.5% | 0.293 | 57.5% | [50–64%] | 811 |
+| **`bm25`** (no graph) | **26.9%** | **56.1%** | **66.5%** | **0.449** | **75.3%** | **[69–81%]** | **147** |
+| `gitgrep` | 10.4% | 37.1% | 47.0% | 0.244 | 53.8% | [47–61%] | 142 |
+
+```
+paired graft − bm25 on R@10:  −18.0 pts
+95% CI [−24.4, −11.5]   t = −5.46   n = 186   → significant at p<0.05
+```
+
+It loses on every repo — including TypeScript, the language graft itself is
+written in and lists as full-fidelity:
+
+| repo | language | graft | bm25 |
+|---|---|---|---|
+| pocketbase | Go | 58.0% | **63.2%** |
+| django | Python | 52.0% | **61.0%** |
+| spring-boot | Java | 51.0% | **76.0%** |
+| nest | TypeScript | 27.7% | **65.7%** |
+
+### The token claim, where it actually holds
+
+`graft skeleton` is the one command whose savings claim survives scrutiny,
+because the realistic alternative to "show me this file's API surface" *is*
+reading the file. Measured over 325 files (`bench/skeleton-savings.mjs`):
+
+| repo | reduction vs whole file | files ≥1000 tok |
+|---|---|---|
+| pocketbase | **−91.2%** | −92.5% |
+| nest | **−81.5%** | −88.1% |
+| django | **−76.5%** | −77.0% |
+
+The saving **inverts on small files** — for 12% of nest files the skeleton costs
+more than the source it summarises.
+
+So: token reduction is real, but it comes from `skeleton`/`callers`/`map`, not
+from `ask`, which costs 5.5× a no-graph baseline and finds 18 points less.
+
+### Scope — please read before quoting this
+
+- This judges **`graft ask`**, not `map` / `callers` / `skeleton` / the MCP
+  server. "graft's search loses to BM25" is supported; "graft doesn't work" is
+  not.
+- It measures **retrieval**, not agent correctness and not end-to-end cost.
+- It says nothing about graft's SWE-bench claims, which are a different
+  experiment on a different axis.
+- graft's engineering is not in question here: 622 tests pass, the tree-sitter
+  tier is deterministic and fast, there is no telemetry, and the licence is MIT.
 
 ## What it measures
 
