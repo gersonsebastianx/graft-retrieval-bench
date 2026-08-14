@@ -1,0 +1,1477 @@
+{
+  "repo": {
+    "id": "spring-boot",
+    "slug": "spring-projects/spring-boot",
+    "lang": "java",
+    "exts": [
+      ".java"
+    ],
+    "note": "Large Java repo, issue-linked PRs."
+  },
+  "generatedAt": "2026-08-14T01:19:27.146Z",
+  "rejected": {
+    "title": 14,
+    "files": 31,
+    "base": 0,
+    "query": 5,
+    "leak": 0
+  },
+  "cases": [
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51348,
+      "title": "Description of spring.graphql.websocket.connection-init-timeout does not render correctly in the reference guide",
+      "querySource": "pr",
+      "base": "e665232b96cf451b8f01cca6c068554564ec3b52",
+      "mergeCommit": "7313b5f2c4ec7d49776a9da57fafb80b53e33a65",
+      "queries": {
+        "natural": "spring graphql websocket connection init timeout render correctly reference guide Reference",
+        "stemblind": "spring websocket connection init timeout render correctly reference guide Reference"
+      },
+      "stemblindWords": 10,
+      "gold": [
+        "module/spring-boot-graphql/src/main/java/org/springframework/boot/graphql/autoconfigure/GraphQlProperties.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-graphql/src/main/java/org/springframework/boot/graphql/autoconfigure/GraphQlProperties.java"
+      ],
+      "droppedForLeak": [
+        "graphql"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51156,
+      "title": "Structured logging: a failed JSON encode corrupts the next log event written on the same thread",
+      "querySource": "pr",
+      "base": "175702174462775baa8a66f8b0e21542ed6807a8",
+      "mergeCommit": "af69828ce6cbdc159c8847067ec9c85f22bcdb30",
+      "queries": {
+        "natural": "Structured logging failed JSON encode corrupts next log event written thread See reached throws part way partially written bytes stay instance held cache hands dirty instance next caller thread structured logging means one failed event corrupts next event invalid JSON reported resets cached instance handed rather drained buffer clean regardless previous use ended covers early return alternative resetting failure path",
+        "stemblind": "Structured logging failed encode corrupts next log event written thread See reached throws part way partially written bytes stay instance held cache hands dirty instance next caller thread structured logging means one failed event corrupts next event invalid reported resets cached instance handed rather drained buffer clean regardless previous use ended covers early return alternative resetting failure path added covers"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "core/spring-boot/src/main/java/org/springframework/boot/json/AppendableByteArray.java",
+        "core/spring-boot/src/main/java/org/springframework/boot/json/WritableJson.java"
+      ],
+      "changedAll": [
+        "core/spring-boot/src/main/java/org/springframework/boot/json/AppendableByteArray.java",
+        "core/spring-boot/src/main/java/org/springframework/boot/json/WritableJson.java",
+        "core/spring-boot/src/test/java/org/springframework/boot/json/AppendableByteArrayTests.java"
+      ],
+      "droppedForLeak": [
+        "json",
+        "tests"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51175,
+      "title": "Correct exception type documented by resolveConfigLocation",
+      "querySource": "pr",
+      "base": "e61ef57f308e2007f3bac3d82cce058766282ea1",
+      "mergeCommit": "d0f67c74147cf3ea545146772bae764d2823ef8b",
+      "queries": {
+        "natural": "Correct exception type documented resolveConfigLocation documents asserts throws Spring Framework javadoc says much points case",
+        "stemblind": "Correct exception type documented resolveConfigLocation documents asserts throws Spring Framework javadoc says much points case"
+      },
+      "stemblindWords": 15,
+      "gold": [
+        "module/spring-boot-hazelcast/src/main/java/org/springframework/boot/hazelcast/autoconfigure/HazelcastProperties.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-hazelcast/src/main/java/org/springframework/boot/hazelcast/autoconfigure/HazelcastProperties.java"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50886,
+      "title": "Micrometer registries pin the application context",
+      "querySource": "pr",
+      "base": "39c87d595e24091a4966be36404c87d0dffab9a7",
+      "mergeCommit": "e1a1e1be824c1720aad9817388394fe55e89e189",
+      "queries": {
+        "natural": "Micrometer registries pin application context Related spring framework tracks registries added registration time instead snapshotting beans constructor often runs registries exist remove tracked registries global registry them Add tests default explicitly configured mirroring existing Reactor global resources customizer preventing cached test contexts pinned via Micrometer Test plan",
+        "stemblind": "registries pin application context Related spring framework tracks registries added registration time instead snapshotting beans constructor often runs registries exist remove tracked registries global them Add default explicitly configured mirroring existing Reactor global resources customizer preventing cached contexts pinned via plan"
+      },
+      "stemblindWords": 41,
+      "gold": [
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/MeterRegistryCloser.java",
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/MeterRegistryPostProcessor.java",
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/MetricsAutoConfiguration.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/MeterRegistryCloser.java",
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/MeterRegistryPostProcessor.java",
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/MetricsAutoConfiguration.java",
+        "module/spring-boot-micrometer-metrics/src/test/java/org/springframework/boot/micrometer/metrics/autoconfigure/MeterRegistryCloserTests.java",
+        "module/spring-boot-micrometer-metrics/src/test/java/org/springframework/boot/micrometer/metrics/autoconfigure/MeterRegistryPostProcessorTests.java",
+        "module/spring-boot-micrometer-metrics/src/test/java/org/springframework/boot/micrometer/metrics/autoconfigure/MetricsAutoConfigurationTests.java"
+      ],
+      "droppedForLeak": [
+        "micrometer",
+        "registry",
+        "tests",
+        "test"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50891,
+      "title": "Support timeout option in RetryPolicySettings",
+      "querySource": "pr",
+      "base": "e7741bf1522ee61298b28d9214cbc38a0a168956",
+      "mergeCommit": "39bc9e91db80fe14e0f3160a730fc68b69fd974b",
+      "queries": {
+        "natural": "Support timeout option RetryPolicySettings Overview Adds support configuring parameter RetryPolicy Spring Boot RetryPolicySettings Background Spring Framework introduced property RetryPolicy However parameter yet counterpart Spring Boot RetryPolicySettings adds users leverage option via RetryPolicySettings like configuration files etc",
+        "stemblind": "Support timeout option Overview Adds support configuring parameter RetryPolicy Spring Background Spring Framework introduced property RetryPolicy However parameter yet counterpart Spring adds users leverage option via like configuration files etc"
+      },
+      "stemblindWords": 30,
+      "gold": [
+        "core/spring-boot/src/main/java/org/springframework/boot/retry/RetryPolicySettings.java"
+      ],
+      "changedAll": [
+        "core/spring-boot/src/main/java/org/springframework/boot/retry/RetryPolicySettings.java",
+        "core/spring-boot/src/test/java/org/springframework/boot/retry/RetryPolicySettingsTests.java"
+      ],
+      "droppedForLeak": [
+        "retrypolicysettings",
+        "boot"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51117,
+      "title": "Temporary file is not deleted when ExportedImageTar construction fails",
+      "querySource": "pr",
+      "base": "2d896e25efca8a822cdc56447aac99bc11692894",
+      "mergeCommit": "39c87d595e24091a4966be36404c87d0dffab9a7",
+      "queries": {
+        "natural": "Temporary file deleted ExportedImageTar construction fails creates temporary file constructor copies exported image builds layer factory caller relies try resources clean file throws constructor fails temporary file created instance never assigned never runs throw tar neither nor happen malformed unexpected image export file left behind temp directory wraps constructor body temporary file deleted either step fails matching cleanup already done",
+        "stemblind": "Temporary file deleted construction fails creates temporary file constructor copies builds layer factory caller relies try resources clean file throws constructor fails temporary file created instance never assigned never runs throw neither nor happen malformed unexpected export file left behind temp directory wraps constructor body temporary file deleted either step fails matching cleanup already done mirrors kind leak included temp"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "buildpack/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/docker/ExportedImageTar.java"
+      ],
+      "changedAll": [
+        "buildpack/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/docker/ExportedImageTar.java",
+        "buildpack/spring-boot-buildpack-platform/src/test/java/org/springframework/boot/buildpack/platform/docker/ExportedImageTarTests.java"
+      ],
+      "droppedForLeak": [
+        "exportedimagetar",
+        "exported",
+        "image",
+        "tar",
+        "buildpack",
+        "platform"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51128,
+      "title": "Use GracefulHandler rather than StatisticsHandler to coordinate graceful shutdown of Jetty",
+      "querySource": "issue#50268",
+      "base": "ccf6767e00f63475292a142fb74ccd8c479ab406",
+      "mergeCommit": "9142b18312befe659a394933e93242a09aba744c",
+      "queries": {
+        "natural": "Use GracefulHandler rather StatisticsHandler coordinate graceful shutdown Jetty Boot switched default server shutdown graceful adds overhead Jetty time mechanism Jetty available graceful shutdowns Since Jetty implements Boot look using instead even implementation less overhead one Jetty maintains need measure decide want maintain handler use one Jetty provides Benchmarks show possibly large effect processing every request even wanted shutdown",
+        "stemblind": "Use GracefulHandler rather StatisticsHandler coordinate graceful shutdown switched default shutdown graceful adds overhead time mechanism available graceful shutdowns Since implements look using instead even implementation less overhead one maintains need measure decide want maintain handler use one provides Benchmarks show possibly large effect processing every request even wanted shutdown"
+      },
+      "stemblindWords": 49,
+      "gold": [
+        "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/JettyWebServer.java",
+        "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/reactive/JettyReactiveWebServerFactory.java",
+        "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/servlet/JettyServletWebServerFactory.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/JettyWebServer.java",
+        "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/reactive/JettyReactiveWebServerFactory.java",
+        "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/servlet/JettyServletWebServerFactory.java",
+        "module/spring-boot-jetty/src/test/java/org/springframework/boot/jetty/autoconfigure/reactive/JettyReactiveWebServerAutoConfigurationTests.java"
+      ],
+      "droppedForLeak": [
+        "jetty",
+        "boot",
+        "server"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50899,
+      "title": "Add support for image-based build caches",
+      "querySource": "pr",
+      "base": "c539367ea2e7cad05519627205615d00058d07bb",
+      "mergeCommit": "ccf6767e00f63475292a142fb74ccd8c479ab406",
+      "queries": {
+        "natural": "Add support image based build caches Added new image cache option uses lifecycle argument creator analyzer restorer exporter phases build cache stored image shared between hosts via image registry Exposed option Maven Gradle plugins Reject image caches configured launch cache lifecycle support",
+        "stemblind": "Add support based Added new option uses argument phases stored shared between hosts via registry Exposed option plugins Reject configured launch support"
+      },
+      "stemblindWords": 22,
+      "gold": [
+        "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/tasks/bundling/BootBuildImage.java",
+        "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/tasks/bundling/CacheSpec.java",
+        "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/tasks/bundling/LocalCacheSpec.java",
+        "build-plugin/spring-boot-maven-plugin/src/main/java/org/springframework/boot/maven/CacheInfo.java",
+        "build-plugin/spring-boot-maven-plugin/src/main/java/org/springframework/boot/maven/Image.java",
+        "build-plugin/spring-boot-maven-plugin/src/main/java/org/springframework/boot/maven/LocalCacheInfo.java"
+      ],
+      "changedAll": [
+        "build-plugin/spring-boot-gradle-plugin/src/docs/antora/modules/gradle-plugin/examples/packaging/boot-build-image-image-caches.gradle",
+        "build-plugin/spring-boot-gradle-plugin/src/docs/antora/modules/gradle-plugin/examples/packaging/boot-build-image-image-caches.gradle.kts",
+        "build-plugin/spring-boot-gradle-plugin/src/docs/antora/modules/gradle-plugin/pages/packaging-oci-image.adoc",
+        "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/tasks/bundling/BootBuildImage.java",
+        "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/tasks/bundling/CacheSpec.java",
+        "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/tasks/bundling/LocalCacheSpec.java",
+        "build-plugin/spring-boot-gradle-plugin/src/test/java/org/springframework/boot/gradle/docs/PackagingDocumentationTests.java",
+        "build-plugin/spring-boot-gradle-plugin/src/test/java/org/springframework/boot/gradle/tasks/bundling/BootBuildImageTests.java",
+        "build-plugin/spring-boot-maven-plugin/src/docs/antora/modules/maven-plugin/examples/packaging-oci-image/image-caches-pom.xml",
+        "build-plugin/spring-boot-maven-plugin/src/docs/antora/modules/maven-plugin/pages/build-image.adoc",
+        "build-plugin/spring-boot-maven-plugin/src/main/java/org/springframework/boot/maven/CacheInfo.java",
+        "build-plugin/spring-boot-maven-plugin/src/main/java/org/springframework/boot/maven/Image.java",
+        "build-plugin/spring-boot-maven-plugin/src/main/java/org/springframework/boot/maven/LocalCacheInfo.java",
+        "build-plugin/spring-boot-maven-plugin/src/test/java/org/springframework/boot/maven/ImageTests.java",
+        "buildpack/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/BuildRequest.java",
+        "buildpack/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Cache.java",
+        "buildpack/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/ImageCache.java",
+        "buildpack/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+        "buildpack/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/LocalCache.java",
+        "buildpack/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+        "buildpack/spring-boot-buildpack-platform/src/test/java/org/springframework/boot/buildpack/platform/build/BuildRequestTests.java",
+        "buildpack/spring-boot-buildpack-platform/src/test/java/org/springframework/boot/buildpack/platform/build/LifecycleTests.java",
+        "buildpack/spring-boot-buildpack-platform/src/test/java/org/springframework/boot/buildpack/platform/build/PhaseTests.java",
+        "buildpack/spring-boot-buildpack-platform/src/test/resources/org/springframework/boot/buildpack/platform/build/lifecycle-analyzer-image-cache.json",
+        "buildpack/spring-boot-buildpack-platform/src/test/resources/org/springframework/boot/buildpack/platform/build/lifecycle-creator-image-cache.json",
+        "buildpack/spring-boot-buildpack-platform/src/test/resources/org/springframework/boot/buildpack/platform/build/lifecycle-exporter-image-cache.json",
+        "buildpack/spring-boot-buildpack-platform/src/test/resources/org/springframework/boot/buildpack/platform/build/lifecycle-restorer-image-cache.json"
+      ],
+      "droppedForLeak": [
+        "image",
+        "build",
+        "caches",
+        "cache",
+        "lifecycle",
+        "creator",
+        "analyzer",
+        "restorer",
+        "exporter",
+        "maven",
+        "gradle"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50799,
+      "title": "spring.grpc.server.health.include-overall-health is not taken into account",
+      "querySource": "pr",
+      "base": "d107f342f06ba4cc6b95cacc0e1bf91d646406d1",
+      "mergeCommit": "ace30667b88cb92237105522fc48e8d9fbe1ca5c",
+      "queries": {
+        "natural": "spring grpc server health include overall health taken account bound used auto configured gRPC health components overall server component always created scheduled gRPC health updates still evaluated health contributors even overall health reporting disabled change makes auto configured server component nullable omits overall health reporting disabled Service specific health components continue created settings Verification RED failed GREEN GREEN GREEN GREEN",
+        "stemblind": "spring include overall taken account bound used overall component always created scheduled updates still evaluated contributors even overall reporting disabled change makes component nullable omits overall reporting disabled Service specific continue created settings Verification RED failed GREEN GREEN GREEN GREEN"
+      },
+      "stemblindWords": 40,
+      "gold": [
+        "module/spring-boot-grpc-server/src/main/java/org/springframework/boot/grpc/server/autoconfigure/health/AutoConfiguredHealthCheckedGrpcComponents.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-grpc-server/src/main/java/org/springframework/boot/grpc/server/autoconfigure/health/AutoConfiguredHealthCheckedGrpcComponents.java",
+        "module/spring-boot-grpc-server/src/test/java/org/springframework/boot/grpc/server/autoconfigure/health/AutoConfiguredHealthCheckedGrpcComponentsTests.java",
+        "module/spring-boot-grpc-server/src/test/java/org/springframework/boot/grpc/server/autoconfigure/health/GrpcServerHealthAutoConfigurationTests.java"
+      ],
+      "droppedForLeak": [
+        "grpc",
+        "server",
+        "health",
+        "auto",
+        "configured",
+        "components"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51091,
+      "title": "Correct function types in ClassPath to avoid nullability warning",
+      "querySource": "pr",
+      "base": "bfce39af6fed1cc1f902efae8439cb2a16bc4c00",
+      "mergeCommit": "38e03cfa97c44ee9cbcfa7f37ad2b8ad60151e5d",
+      "queries": {
+        "natural": "Correct function types ClassPath avoid nullability warning Previously first parameter equivalent passed call function cannot accept parameter Address changing relevant parameter types discovered working NullAway cause warning future version NullAway",
+        "stemblind": "Correct function types avoid nullability warning Previously first parameter equivalent passed call function cannot accept parameter Address changing relevant parameter types discovered working NullAway cause warning future version NullAway"
+      },
+      "stemblindWords": 29,
+      "gold": [
+        "build-plugin/spring-boot-maven-plugin/src/main/java/org/springframework/boot/maven/ClassPath.java"
+      ],
+      "changedAll": [
+        "build-plugin/spring-boot-maven-plugin/src/main/java/org/springframework/boot/maven/ClassPath.java",
+        "build-plugin/spring-boot-maven-plugin/src/test/java/org/springframework/boot/maven/ClassPathTests.java"
+      ],
+      "droppedForLeak": [
+        "classpath"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50968,
+      "title": "PropertiesLauncher does not log nested archive paths",
+      "querySource": "pr",
+      "base": "629a01adf1e0c3c20102c4ee7428cf470ace7a91",
+      "mergeCommit": "3f48c2b65a42f8346caf298c84b3291f8aaa1e1e",
+      "queries": {
+        "natural": "PropertiesLauncher log nested archive paths playing around noticed logging looks like confused Nested archive paths null realized logging using always place using field",
+        "stemblind": "log nested archive paths playing around noticed logging looks like confused Nested archive paths null realized logging using always place using field"
+      },
+      "stemblindWords": 22,
+      "gold": [
+        "loader/spring-boot-loader/src/main/java/org/springframework/boot/loader/launch/PropertiesLauncher.java"
+      ],
+      "changedAll": [
+        "loader/spring-boot-loader/src/main/java/org/springframework/boot/loader/launch/PropertiesLauncher.java",
+        "loader/spring-boot-loader/src/test/java/org/springframework/boot/loader/launch/PropertiesLauncherTests.java"
+      ],
+      "droppedForLeak": [
+        "propertieslauncher"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50972,
+      "title": "Methods that return the result of Map#remove are not declared with a @Nullable return type",
+      "querySource": "pr",
+      "base": "b5fd50f295d4638d62191f1d3428f83e71a3defd",
+      "mergeCommit": "629a01adf1e0c3c20102c4ee7428cf470ace7a91",
+      "queries": {
+        "natural": "Methods return result Map remove declared Nullable return type next release NullAway treats returning leading errors locations them marking return type",
+        "stemblind": "Methods return result Map remove declared Nullable return type next release NullAway treats returning leading errors locations them marking return type"
+      },
+      "stemblindWords": 21,
+      "gold": [
+        "module/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/restart/RestartScopeInitializer.java",
+        "module/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/restart/Restarter.java"
+      ],
+      "changedAll": [
+        "core/spring-boot-testcontainers/src/dockerTest/java/org/springframework/boot/testcontainers/lifecycle/TestcontainersLifecycleOrderWithScopeIntegrationTests.java",
+        "module/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/restart/RestartScopeInitializer.java",
+        "module/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/restart/Restarter.java",
+        "module/spring-boot-webmvc-test/src/main/java/org/springframework/boot/webmvc/test/autoconfigure/WebDriverScope.java"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50433,
+      "title": "NativeImageResourceProvider flattens Flyway migration paths in subdirectories",
+      "querySource": "issue#50422",
+      "base": "f83576eb2954c007464c696d1dabc7a871a7becc",
+      "mergeCommit": "21cb821f9553c048566b9a1779729c78167439a0",
+      "queries": {
+        "natural": "NativeImageResourceProvider flattens Flyway migration paths subdirectories Context Spring Boot version follows forward port appears recursive resource discovery part line forward port tracker original described second required part needs preserve full classpath relative path resources found subdirectories Problem now uses recursive pattern discovers Flyway migration scripts subdirectories discovered resource converted Flyway path still built migration produces subdirectory lost Flyway read resource",
+        "stemblind": "flattens migration paths subdirectories Context Spring version follows forward port appears recursive discovery part line forward port tracker original described second required part needs preserve full classpath relative path resources found subdirectories Problem now uses recursive pattern discovers migration scripts subdirectories discovered converted path still built migration produces subdirectory lost read flattened path exist classpath Expected behavior migration scripts subdirectories"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/NativeImageResourceProvider.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/NativeImageResourceProvider.java",
+        "module/spring-boot-flyway/src/test/java/org/springframework/boot/flyway/autoconfigure/NativeImageResourceProviderTests.java"
+      ],
+      "droppedForLeak": [
+        "nativeimageresourceprovider",
+        "flyway",
+        "boot",
+        "resource"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50432,
+      "title": "Add configuration property for leaveGroupOnClose in Kafka Streams",
+      "querySource": "pr",
+      "base": "42e725db10c06054db8960b587e891fea0add6ae",
+      "mergeCommit": "66b7a98edcdd83f50f5e4f14fa04ad09cf0b21a4",
+      "queries": {
+        "natural": "Add configuration property leaveGroupOnClose Kafka Streams Setting option leave group Kafka Streams often deployment time concern rather build time rolling deployments Kubernetes Earlier internal leave group property Kafka Streams removed replaced API option uses set code change makes possible set option leave group time using application properties default default change behaviour unless property explicitly set",
+        "stemblind": "Add property leaveGroupOnClose Setting option leave group often deployment time concern rather build time rolling deployments Kubernetes Earlier internal leave group property removed replaced API option uses set code change makes possible set option leave group time using application default default change behaviour unless property explicitly set"
+      },
+      "stemblindWords": 47,
+      "gold": [
+        "module/spring-boot-kafka/src/main/java/org/springframework/boot/kafka/autoconfigure/KafkaProperties.java",
+        "module/spring-boot-kafka/src/main/java/org/springframework/boot/kafka/autoconfigure/KafkaStreamsAnnotationDrivenConfiguration.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-kafka/src/main/java/org/springframework/boot/kafka/autoconfigure/KafkaProperties.java",
+        "module/spring-boot-kafka/src/main/java/org/springframework/boot/kafka/autoconfigure/KafkaStreamsAnnotationDrivenConfiguration.java",
+        "module/spring-boot-kafka/src/test/java/org/springframework/boot/kafka/autoconfigure/KafkaAutoConfigurationTests.java"
+      ],
+      "droppedForLeak": [
+        "configuration",
+        "kafka",
+        "streams",
+        "properties"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50957,
+      "title": "Add configurable timeout for JMS health indicator",
+      "querySource": "issue#50926",
+      "base": "9d472e84717a1eb22843f694a61081e1ebf3e334",
+      "mergeCommit": "42e725db10c06054db8960b587e891fea0add6ae",
+      "queries": {
+        "natural": "Add configurable timeout support JmsHealthIndicator mentioned HealthIndicator uses time interval seconds cases important overwrite value example service broker pressure respond within seconds health intervalls configured fire often many parallel pods corresponding health checks Thus value configurable",
+        "stemblind": "Add configurable timeout support mentioned HealthIndicator uses time interval seconds cases important overwrite value example service broker pressure respond within seconds intervalls configured fire often many parallel pods corresponding checks Thus value configurable"
+      },
+      "stemblindWords": 33,
+      "gold": [
+        "module/spring-boot-jms/src/main/java/org/springframework/boot/jms/autoconfigure/health/JmsHealthContributorAutoConfiguration.java",
+        "module/spring-boot-jms/src/main/java/org/springframework/boot/jms/autoconfigure/health/JmsHealthIndicatorProperties.java",
+        "module/spring-boot-jms/src/main/java/org/springframework/boot/jms/health/JmsHealthIndicator.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-jms/src/main/java/org/springframework/boot/jms/autoconfigure/health/JmsHealthContributorAutoConfiguration.java",
+        "module/spring-boot-jms/src/main/java/org/springframework/boot/jms/autoconfigure/health/JmsHealthIndicatorProperties.java",
+        "module/spring-boot-jms/src/main/java/org/springframework/boot/jms/health/JmsHealthIndicator.java",
+        "module/spring-boot-jms/src/test/java/org/springframework/boot/jms/autoconfigure/health/JmsHealthContributorAutoConfigurationTests.java",
+        "module/spring-boot-jms/src/test/java/org/springframework/boot/jms/health/JmsHealthIndicatorTests.java"
+      ],
+      "droppedForLeak": [
+        "jmshealthindicator",
+        "health"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50949,
+      "title": "JarFile is not closed when finding main class from archive",
+      "querySource": "pr",
+      "base": "f01e7750828622c4bfc8b6606b3d795fceceff78",
+      "mergeCommit": "15bb54a41fd6975d9c8111183605645ea3fad633",
+      "queries": {
+        "natural": "JarFile finding main class archive Problem Solves opens points archive passes API jar caller owns resource Ant task never leaving file handle open rest JVM lifetime finalization Almost every call site repository already uses try resources plugins loader tools buildSrc checks etc Evidence Red green unit proof verified Wrap archive path try resources jar main class search returns Related leak",
+        "stemblind": "JarFile finding archive Problem Solves opens points archive passes API jar caller owns resource task never leaving file handle open rest JVM lifetime finalization Almost every call site repository already uses try resources plugins loader tools buildSrc checks etc Evidence Red green unit proof verified Wrap archive path try resources jar search returns Related leak prior cleanups InspectingOutputStream URLClassLoader Introduced"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "build-plugin/spring-boot-antlib/src/main/java/org/springframework/boot/ant/FindMainClass.java"
+      ],
+      "changedAll": [
+        "build-plugin/spring-boot-antlib/src/main/java/org/springframework/boot/ant/FindMainClass.java"
+      ],
+      "droppedForLeak": [
+        "main",
+        "class",
+        "ant"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50877,
+      "title": "Make ResourceHandlerRegistrationCustomizer public",
+      "querySource": "issue#50792",
+      "base": "57aa6d26d8218b39b06ad130208718df0e925eb9",
+      "mergeCommit": "467fde153f1471ace3163696568d7f559c5b4ce4",
+      "queries": {
+        "natural": "Provide callback interface customizing WebMvc resource handler registrations Currently WebMvc publicly exposed However WebFlux one possible align expose WebMvc publicly WebFlux one exposed",
+        "stemblind": "Provide callback interface customizing registrations Currently publicly exposed However WebFlux one possible align expose publicly WebFlux one exposed"
+      },
+      "stemblindWords": 18,
+      "gold": [
+        "module/spring-boot-webmvc/src/main/java/org/springframework/boot/webmvc/autoconfigure/ResourceHandlerRegistrationCustomizer.java",
+        "module/spring-boot-webmvc/src/main/java/org/springframework/boot/webmvc/autoconfigure/WebMvcAutoConfiguration.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-webmvc/src/main/java/org/springframework/boot/webmvc/autoconfigure/ResourceHandlerRegistrationCustomizer.java",
+        "module/spring-boot-webmvc/src/main/java/org/springframework/boot/webmvc/autoconfigure/WebMvcAutoConfiguration.java"
+      ],
+      "droppedForLeak": [
+        "webmvc",
+        "resource",
+        "handler"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50194,
+      "title": "Expose Path getters on ApplicationHome and ApplicationTemp",
+      "querySource": "pr",
+      "base": "6d28fc10f9386a039d6dbfe14ba8a240456abd93",
+      "mergeCommit": "6644a6cbff48265ecf8d25ca10b87d8b3e013e5c",
+      "queries": {
+        "natural": "Expose Path getters ApplicationHome ApplicationTemp already uses internally exposes via Callers want use NIO API round trip change makes public adds mirror existing methods",
+        "stemblind": "Expose Path getters already uses internally exposes via Callers want use NIO API round trip change makes public adds mirror existing methods"
+      },
+      "stemblindWords": 22,
+      "gold": [
+        "core/spring-boot/src/main/java/org/springframework/boot/system/ApplicationHome.java",
+        "core/spring-boot/src/main/java/org/springframework/boot/system/ApplicationTemp.java"
+      ],
+      "changedAll": [
+        "core/spring-boot/src/main/java/org/springframework/boot/system/ApplicationHome.java",
+        "core/spring-boot/src/main/java/org/springframework/boot/system/ApplicationTemp.java",
+        "core/spring-boot/src/test/java/org/springframework/boot/system/ApplicationHomeTests.java",
+        "core/spring-boot/src/test/java/org/springframework/boot/system/ApplicationTempTests.java"
+      ],
+      "droppedForLeak": [
+        "applicationhome",
+        "applicationtemp"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50779,
+      "title": "Application-managed JUL bridge handler should only be removed if installed",
+      "querySource": "pr",
+      "base": "2eedeabe9ac1b70e7cbe7db012fbc1332ac9ef1d",
+      "mergeCommit": "b75932f259ccabfa8d2c628e82c8f0ce854fb225",
+      "queries": {
+        "natural": "Application managed JUL bridge handler removed installed addresses asymmetry described install JUL bridge handler application already managing itself JUL root logger using single However removed bridge handler whenever bridge class merely present classpath result application installs manages JUL bridge handler Spring Boot still uninstall context shutdown tearing handler never installed change tracks whether bridge handler installed Spring Boot removes cleanup",
+        "stemblind": "Application managed JUL bridge handler removed installed addresses asymmetry described install JUL bridge handler application already managing itself JUL root logger using single However removed bridge handler whenever bridge class merely present classpath result application installs manages JUL bridge handler Spring still uninstall context shutdown tearing handler never installed change tracks whether bridge handler installed Spring removes cleanup case making"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "core/spring-boot/src/main/java/org/springframework/boot/logging/log4j2/Log4J2LoggingSystem.java",
+        "core/spring-boot/src/main/java/org/springframework/boot/logging/logback/LogbackLoggingSystem.java"
+      ],
+      "changedAll": [
+        "core/spring-boot/src/main/java/org/springframework/boot/logging/log4j2/Log4J2LoggingSystem.java",
+        "core/spring-boot/src/main/java/org/springframework/boot/logging/logback/LogbackLoggingSystem.java",
+        "core/spring-boot/src/test/java/org/springframework/boot/logging/log4j2/Log4J2LoggingSystemTests.java",
+        "core/spring-boot/src/test/java/org/springframework/boot/logging/logback/LogbackLoggingSystemTests.java"
+      ],
+      "droppedForLeak": [
+        "boot"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50801,
+      "title": "JpaBaseConfiguration#entityManagerConfiguration can cause a dependency loop on beans declaring AsyncTaskExecutor",
+      "querySource": "pr",
+      "base": "46ed3df7e636f7f23a339a78c111792731456a49",
+      "mergeCommit": "1c423ab57d10163c171984fbe4af2c9e1683e389",
+      "queries": {
+        "natural": "JpaBaseConfiguration entityManagerConfiguration cause dependency loop beans declaring AsyncTaskExecutor addresses Broken behavior injects parameter pick fallback executor used background JPA bootstrapping method parameter eagerly container creating forces every bean initialized early even background bootstrapping enabled defaults application defines depends directly transitively premature initialization produces context fails start regression fallback executor now lazily stores fallback invokes background bootstrapping actually required time new",
+        "stemblind": "entityManagerConfiguration cause dependency loop beans declaring AsyncTaskExecutor addresses Broken behavior injects parameter pick fallback executor used background bootstrapping method parameter eagerly container creating forces every bean initialized early even background bootstrapping enabled defaults application defines depends directly transitively premature initialization produces context fails start regression fallback executor now lazily stores fallback invokes background bootstrapping actually required time new based constructor"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "module/spring-boot-data-jpa/src/main/java/org/springframework/boot/data/jpa/autoconfigure/DataJpaRepositoriesAutoConfiguration.java",
+        "module/spring-boot-jpa/src/main/java/org/springframework/boot/jpa/EntityManagerFactoryBuilder.java",
+        "module/spring-boot-jpa/src/main/java/org/springframework/boot/jpa/autoconfigure/JpaBaseConfiguration.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-data-jpa/src/main/java/org/springframework/boot/data/jpa/autoconfigure/DataJpaRepositoriesAutoConfiguration.java",
+        "module/spring-boot-hibernate/src/test/java/org/springframework/boot/hibernate/autoconfigure/HibernateJpaAutoConfigurationTests.java",
+        "module/spring-boot-jpa/src/main/java/org/springframework/boot/jpa/EntityManagerFactoryBuilder.java",
+        "module/spring-boot-jpa/src/main/java/org/springframework/boot/jpa/autoconfigure/JpaBaseConfiguration.java",
+        "module/spring-boot-jpa/src/test/java/org/springframework/boot/jpa/EntityManagerFactoryBuilderTests.java"
+      ],
+      "droppedForLeak": [
+        "jpabaseconfiguration",
+        "jpa"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50916,
+      "title": "Context refresh fails on reactive Cloud Foundry when using Actuator without spring-boot-health",
+      "querySource": "pr",
+      "base": "d5cde2ece12cc63ea5a95ca85e28e86bbe9c770c",
+      "mergeCommit": "f8e62d6f182d4d4c39aa7f5924992fc91e331e34",
+      "queries": {
+        "natural": "Context refresh fails reactive Cloud Foundry using Actuator without spring boot health Follow servlet Cloud Foundry actuator auto configuration noted unverified sibling confirms reactive sibling failing test absent parsing reactive Cloud Foundry actuator configuration health method signature causing context refresh fail registered Changes Move nested guarded Testing new fails change pass",
+        "stemblind": "Context refresh fails using without spring health Follow servlet noted unverified sibling confirms sibling failing absent parsing health method signature causing context refresh fail registered Changes Move nested guarded Testing new fails change pass"
+      },
+      "stemblindWords": 34,
+      "gold": [
+        "module/spring-boot-cloudfoundry/src/main/java/org/springframework/boot/cloudfoundry/autoconfigure/actuate/endpoint/reactive/CloudFoundryReactiveActuatorAutoConfiguration.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-cloudfoundry/src/main/java/org/springframework/boot/cloudfoundry/autoconfigure/actuate/endpoint/reactive/CloudFoundryReactiveActuatorAutoConfiguration.java",
+        "module/spring-boot-cloudfoundry/src/test/java/org/springframework/boot/cloudfoundry/autoconfigure/actuate/endpoint/reactive/CloudFoundryReactiveActuatorAutoConfigurationTests.java"
+      ],
+      "droppedForLeak": [
+        "reactive",
+        "cloud",
+        "foundry",
+        "actuator",
+        "boot",
+        "auto",
+        "configuration",
+        "test"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50858,
+      "title": "Context refresh fails when using Actuator on Jersey without spring-boot-health",
+      "querySource": "pr",
+      "base": "2f13d62aa4c925b6e0b2b123e016c743bcf80400",
+      "mergeCommit": "00fa8e01459a2650669aa900e758236a657fb239",
+      "queries": {
+        "natural": "Context refresh fails using Actuator Jersey without spring boot health See Previously failed parse absent method referenced directly Changes Move additional health endpoint paths registrar nested Make static Testing",
+        "stemblind": "refresh fails using Actuator without spring health See Previously failed parse absent method referenced directly Changes Move additional health paths registrar nested Make static Testing"
+      },
+      "stemblindWords": 25,
+      "gold": [
+        "module/spring-boot-jersey/src/main/java/org/springframework/boot/jersey/autoconfigure/actuate/web/JerseyWebEndpointManagementContextConfiguration.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-jersey/src/main/java/org/springframework/boot/jersey/autoconfigure/actuate/web/JerseyWebEndpointManagementContextConfiguration.java",
+        "module/spring-boot-jersey/src/test/java/org/springframework/boot/jersey/autoconfigure/actuate/web/JerseyWebEndpointManagementContextConfigurationTests.java"
+      ],
+      "droppedForLeak": [
+        "context",
+        "jersey",
+        "boot",
+        "endpoint"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50857,
+      "title": "Context refresh fails on Cloud Foundry when using Actuator without spring-boot-health",
+      "querySource": "pr",
+      "base": "4c5aee76c7b788cf20329d10b3a1e8acf68bf992",
+      "mergeCommit": "2f13d62aa4c925b6e0b2b123e016c743bcf80400",
+      "queries": {
+        "natural": "Context refresh fails Cloud Foundry using Actuator without spring boot health See Previously failed parse absent method referenced directly Changes Move nested Testing",
+        "stemblind": "Context refresh fails using without spring health See Previously failed parse absent method referenced directly Changes Move nested Testing"
+      },
+      "stemblindWords": 19,
+      "gold": [
+        "module/spring-boot-cloudfoundry/src/main/java/org/springframework/boot/cloudfoundry/autoconfigure/actuate/endpoint/servlet/CloudFoundryActuatorAutoConfiguration.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-cloudfoundry/src/main/java/org/springframework/boot/cloudfoundry/autoconfigure/actuate/endpoint/servlet/CloudFoundryActuatorAutoConfiguration.java",
+        "module/spring-boot-cloudfoundry/src/test/java/org/springframework/boot/cloudfoundry/autoconfigure/actuate/endpoint/servlet/CloudFoundryActuatorAutoConfigurationTests.java"
+      ],
+      "droppedForLeak": [
+        "cloud",
+        "foundry",
+        "actuator",
+        "boot"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50866,
+      "title": "Remove @Nullable from local variable declarations",
+      "querySource": "pr",
+      "base": "428963e02d171711e0ce25c01d2b3cc0da366ce9",
+      "mergeCommit": "3edbc80a9f7095e6f583c39e50cd249d4faadc81",
+      "queries": {
+        "natural": "Remove Nullable local variable declarations aren applied local variables least root types applied type arguments array components reason possible infer whether variable null based values assigned variable",
+        "stemblind": "Remove Nullable local variable declarations aren applied local variables least root types applied type arguments array components reason possible infer whether variable null based values assigned variable"
+      },
+      "stemblindWords": 27,
+      "gold": [
+        "core/spring-boot/src/main/java/org/springframework/boot/json/BasicJsonParser.java",
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/PropertiesMeterFilter.java"
+      ],
+      "changedAll": [
+        "core/spring-boot/src/main/java/org/springframework/boot/json/BasicJsonParser.java",
+        "module/spring-boot-jackson/src/test/java/org/springframework/boot/jackson/autoconfigure/jsontest/app/ExampleJacksonComponent.java",
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/PropertiesMeterFilter.java",
+        "smoke-test/spring-boot-smoke-test-integration/src/test/java/smoketest/integration/producer/ProducerApplication.java",
+        "smoke-test/spring-boot-smoke-test-parent-context/src/test/java/smoketest/parent/producer/ProducerApplication.java"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50867,
+      "title": "Update OpenTelemetryResourceAttributes documentation",
+      "querySource": "pr",
+      "base": "73e30d65fa8adf6efa17bcd1473733477f8fc9a5",
+      "mergeCommit": "428963e02d171711e0ce25c01d2b3cc0da366ce9",
+      "queries": {
+        "natural": "Update OpenTelemetryResourceAttributes documentation Clarify service name service namespace defaults remove obsolete service group documentation",
+        "stemblind": "Update documentation Clarify service name service namespace defaults remove obsolete service group documentation"
+      },
+      "stemblindWords": 13,
+      "gold": [
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/OpenTelemetryResourceAttributes.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/OpenTelemetryResourceAttributes.java"
+      ],
+      "droppedForLeak": [
+        "opentelemetryresourceattributes"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50755,
+      "title": "Inconsistent handling of empty string values of spring.security.oauth2.resourceserver.jwt issuer-uri and jwk-set-uri",
+      "querySource": "pr",
+      "base": "cd562c19de277fc9f966f4e9ad5c758f78ddcd98",
+      "mergeCommit": "4fe692e9d25de4fd259425dc73e1c7ad10cd9da0",
+      "queries": {
+        "natural": "Inconsistent handling empty string values spring security oauth2 resourceserver jwt issuer uri jwk set uri updates JWT decoder auto configuration empty value treated absent Previously JWK Set URI based decoder created property present empty configured result JWK Set URI based decoder issuer uri based decoder created regression test added case configured present empty value",
+        "stemblind": "Inconsistent handling empty string values spring resourceserver issuer updates empty value treated absent Previously based created property present empty configured result based issuer based created regression added case configured present empty value"
+      },
+      "stemblindWords": 32,
+      "gold": [
+        "module/spring-boot-security-oauth2-resource-server/src/main/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/ConditionalOnJwkSetUriJwtDecoder.java",
+        "module/spring-boot-security-oauth2-resource-server/src/main/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/JwkSetUriCondition.java",
+        "module/spring-boot-security-oauth2-resource-server/src/main/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/reactive/ReactiveOAuth2ResourceServerJwtConfiguration.java",
+        "module/spring-boot-security-oauth2-resource-server/src/main/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/servlet/OAuth2ResourceServerJwtConfiguration.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-security-oauth2-resource-server/src/main/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/ConditionalOnJwkSetUriJwtDecoder.java",
+        "module/spring-boot-security-oauth2-resource-server/src/main/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/JwkSetUriCondition.java",
+        "module/spring-boot-security-oauth2-resource-server/src/main/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/reactive/ReactiveOAuth2ResourceServerJwtConfiguration.java",
+        "module/spring-boot-security-oauth2-resource-server/src/main/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/servlet/OAuth2ResourceServerJwtConfiguration.java",
+        "module/spring-boot-security-oauth2-resource-server/src/test/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/reactive/ReactiveOAuth2ResourceServerAutoConfigurationTests.java",
+        "module/spring-boot-security-oauth2-resource-server/src/test/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/servlet/OAuth2ResourceServerAutoConfigurationTests.java"
+      ],
+      "droppedForLeak": [
+        "security",
+        "oauth2",
+        "jwt",
+        "uri",
+        "jwk",
+        "set",
+        "decoder",
+        "auto",
+        "configuration",
+        "test"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50418,
+      "title": "Add WAR TLD loader integration test",
+      "querySource": "pr",
+      "base": "58cb433cd0bf507948641d791f6fa9e8c9e25cea",
+      "mergeCommit": "3d280c4354a127e9f08bb1ea782b02165bbbfa7e",
+      "queries": {
+        "natural": "Add WAR TLD loader integration test adds Tomcat WAR loader integration test executable WARs exercise TLD scanning new test fixture builds WAR application JSP taglibs runs via loader integration test suite test verifies application starts successfully known TLD scanning failure signatures absent help catch regressions like one described Verification",
+        "stemblind": "Add TLD adds Tomcat executable WARs exercise TLD scanning new fixture builds taglibs runs via suite verifies starts successfully known TLD scanning failure signatures absent help catch regressions like one described Verification"
+      },
+      "stemblindWords": 32,
+      "gold": [
+        "integration-test/spring-boot-loader-integration-tests/spring-boot-loader-tests-war/src/main/java/org/springframework/boot/loaderwarapp/LoaderWarTestApplication.java"
+      ],
+      "changedAll": [
+        "integration-test/spring-boot-loader-integration-tests/build.gradle",
+        "integration-test/spring-boot-loader-integration-tests/spring-boot-loader-tests-war/build.gradle",
+        "integration-test/spring-boot-loader-integration-tests/spring-boot-loader-tests-war/settings.gradle",
+        "integration-test/spring-boot-loader-integration-tests/spring-boot-loader-tests-war/src/main/java/org/springframework/boot/loaderwarapp/LoaderWarTestApplication.java",
+        "integration-test/spring-boot-loader-integration-tests/spring-boot-loader-tests-war/src/main/webapp/WEB-INF/jsp/welcome.jsp",
+        "integration-test/spring-boot-loader-integration-tests/src/dockerTest/java/org/springframework/boot/loader/LoaderIntegrationTests.java"
+      ],
+      "droppedForLeak": [
+        "war",
+        "loader",
+        "integration",
+        "test",
+        "application",
+        "jsp"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50798,
+      "title": "IllegalStateException when binding properties to a @Validated class that contains a map whose value type is a wildcard",
+      "querySource": "issue#50795",
+      "base": "3d280c4354a127e9f08bb1ea782b02165bbbfa7e",
+      "mergeCommit": "0836e3673a74e47a2e5eed3a8e8ad45cfa4a0ccf",
+      "queries": {
+        "natural": "java lang IllegalStateException validation configuration properties Spring Boot team Recently upgrading Spring Boot encountered custom investigating seems bugs introduced commit integration introduction line case kotlin spring boot app configuration properties allow flexible value types templating minimal example reproduce following time workarounds remove replace case option lot",
+        "stemblind": "lang IllegalStateException configuration Spring team Recently upgrading Spring encountered custom investigating seems bugs introduced commit integration introduction line case kotlin spring app configuration allow flexible value types templating minimal example reproduce following time workarounds remove replace case option lot"
+      },
+      "stemblindWords": 39,
+      "gold": [
+        "core/spring-boot/src/main/java/org/springframework/boot/context/properties/bind/validation/ValidationBindHandler.java"
+      ],
+      "changedAll": [
+        "core/spring-boot/src/main/java/org/springframework/boot/context/properties/bind/validation/ValidationBindHandler.java",
+        "core/spring-boot/src/test/java/org/springframework/boot/context/properties/bind/validation/ValidationBindHandlerTests.java"
+      ],
+      "droppedForLeak": [
+        "java",
+        "validation",
+        "properties",
+        "boot"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50650,
+      "title": "W3CHeaderParser's decoding is not compliant with RFC 3986",
+      "querySource": "pr",
+      "base": "9de4f8d0d44e50a8d513859414a56e3fd3ba5b6c",
+      "mergeCommit": "ac9d3c06014b078458612de6ebeb3f801ddf4f37",
+      "queries": {
+        "natural": "W3CHeaderParser decoding compliant RFC Replace ensure RFC compliant decoding Unlike URI decoding treat space decodes percent encoded sequences",
+        "stemblind": "decoding compliant RFC Replace ensure RFC compliant decoding Unlike URI decoding treat space decodes percent encoded sequences"
+      },
+      "stemblindWords": 17,
+      "gold": [
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/W3CHeaderParser.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/W3CHeaderParser.java",
+        "module/spring-boot-opentelemetry/src/test/java/org/springframework/boot/opentelemetry/autoconfigure/W3CHeaderParserTests.java"
+      ],
+      "droppedForLeak": [
+        "w3cheaderparser"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50734,
+      "title": "High number of connections due to Mongo health indicator",
+      "querySource": "pr",
+      "base": "790f66c37a6fe69ea6e40c0c09212fab007d345f",
+      "mergeCommit": "33bf9d3777eac3f6bc13909571b612d0d2702233",
+      "queries": {
+        "natural": "High number connections due Mongo health indicator Problem run command against every database returned reactive indicator per database commands issued parallel via health check deployment many databases reachable connection opens roughly one connection per database reported caused large increase connection usage upgrading Spring Boot connections across fleet services share Mongo user therefore see many databases formerly server level command whose",
+        "stemblind": "High number connections due Problem run command against every database returned per database commands issued parallel via check deployment many databases reachable connection opens roughly one connection per database reported caused large increase connection usage upgrading Spring connections across fleet services share user therefore see many databases formerly server level command whose response including independent database addressed need run change"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "module/spring-boot-mongodb/src/main/java/org/springframework/boot/mongodb/health/MongoHealthIndicator.java",
+        "module/spring-boot-mongodb/src/main/java/org/springframework/boot/mongodb/health/MongoReactiveHealthIndicator.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-mongodb/src/main/java/org/springframework/boot/mongodb/health/MongoHealthIndicator.java",
+        "module/spring-boot-mongodb/src/main/java/org/springframework/boot/mongodb/health/MongoReactiveHealthIndicator.java",
+        "module/spring-boot-mongodb/src/test/java/org/springframework/boot/mongodb/health/MongoHealthIndicatorTests.java",
+        "module/spring-boot-mongodb/src/test/java/org/springframework/boot/mongodb/health/MongoReactiveHealthIndicatorTests.java"
+      ],
+      "droppedForLeak": [
+        "mongo",
+        "health",
+        "indicator",
+        "reactive",
+        "boot"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50800,
+      "title": "Fix documentation inconsistencies",
+      "querySource": "pr",
+      "base": "3a5f7964322b359df80375b35a7fe92d226e3104",
+      "mergeCommit": "f61b91c2538f3ae991ecd1451db0d147aa46888b",
+      "queries": {
+        "natural": "documentation inconsistencies found five documentation issues still appear present current RestTemplateBuilder docs reference deprecated API documentation still describes behavior deprecated favor Introduced LiveReload documented deprecated one place active elsewhere devtools reference documentation marks LiveReload deprecated Maven plugin hotswapping documentation still present LiveReload active devtools feature without mentioning deprecation Introduced RabbitMQ Streams docs mention non SSL port service connection docs state",
+        "stemblind": "inconsistencies found five issues still appear present current RestTemplateBuilder deprecated API still describes behavior deprecated favor Introduced LiveReload documented deprecated one place active elsewhere devtools marks LiveReload deprecated Maven plugin still present LiveReload active devtools feature without mentioning deprecation Introduced RabbitMQ Streams mention non SSL port service connection state RabbitMQ Streams containers need port exposed SSL configured connection details code"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "module/spring-boot-security-oauth2-client/src/main/java/org/springframework/boot/security/oauth2/client/autoconfigure/OAuth2ClientProperties.java"
+      ],
+      "changedAll": [
+        "build-plugin/spring-boot-maven-plugin/src/docs/antora/modules/maven-plugin/pages/run.adoc",
+        "documentation/spring-boot-docs/src/docs/antora/modules/how-to/pages/hotswapping.adoc",
+        "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/dev-services.adoc",
+        "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/logging.adoc",
+        "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/security/oauth2.adoc",
+        "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/spring-boot-applications.adoc",
+        "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/testcontainers.adoc",
+        "module/spring-boot-security-oauth2-client/src/main/java/org/springframework/boot/security/oauth2/client/autoconfigure/OAuth2ClientProperties.java"
+      ],
+      "droppedForLeak": [
+        "documentation",
+        "docs",
+        "reference",
+        "hotswapping"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50737,
+      "title": "PropertiesWebClientHttpServiceGroupConfigurer has highest precedence, preventing other configurers from being ordered ahead of it",
+      "querySource": "issue#50736",
+      "base": "a1e784e1d8c14940ab749ff5cadf750765ef044f",
+      "mergeCommit": "5439c672675f00f55f1cc2b45b9aa82b7f89bb69",
+      "queries": {
+        "natural": "PropertiesWebClientHttpServiceGroupConfigurer highest precedence preventing configurers ordered ahead still returns RestClient sibling changed leaves WebClient backed HTTP service groups limitation RestClient ordered say cannot supply initial properties configurer runs first creates default builder variant initializing callback fails Client builder already initialized considered bug okay submit small",
+        "stemblind": "highest precedence preventing configurers ordered ahead still returns RestClient sibling changed leaves backed groups limitation RestClient ordered say cannot supply initial runs first creates default builder variant initializing callback fails builder already initialized considered bug okay submit small"
+      },
+      "stemblindWords": 38,
+      "gold": [
+        "module/spring-boot-webclient/src/main/java/org/springframework/boot/webclient/autoconfigure/service/PropertiesWebClientHttpServiceGroupConfigurer.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-webclient/src/main/java/org/springframework/boot/webclient/autoconfigure/service/PropertiesWebClientHttpServiceGroupConfigurer.java"
+      ],
+      "droppedForLeak": [
+        "propertieswebclienthttpservicegroupconfigurer",
+        "webclient",
+        "http",
+        "service",
+        "properties",
+        "configurer",
+        "client"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50773,
+      "title": "Map properties bound from empty strings fail with ConverterNotFoundException",
+      "querySource": "issue#50756",
+      "base": "f71e7977614682ced49221321a38bb5cb18bc938",
+      "mergeCommit": "fe554ff822bf48ee9b04fbc511f54332aa2ca10b",
+      "queries": {
+        "natural": "Configuration properties containing empty arrays collections maps fail ConverterNotFoundException Configuring Map property empty collection longer possible working Instead application starting empty map property startup fails error caused following config class result error startup",
+        "stemblind": "Configuration containing empty arrays collections maps fail ConverterNotFoundException Configuring property empty collection longer possible working Instead application starting empty property startup fails error caused following config class result error startup"
+      },
+      "stemblindWords": 30,
+      "gold": [
+        "core/spring-boot/src/main/java/org/springframework/boot/context/properties/bind/MapBinder.java"
+      ],
+      "changedAll": [
+        "core/spring-boot/src/main/java/org/springframework/boot/context/properties/bind/MapBinder.java",
+        "core/spring-boot/src/test/java/org/springframework/boot/context/properties/bind/MapBinderTests.java"
+      ],
+      "droppedForLeak": [
+        "properties",
+        "map"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50781,
+      "title": "Setting 'server.servlet.session.cookie.partitioned' to false still emits the 'Partitioned' cookie attribute",
+      "querySource": "issue#50774",
+      "base": "262437f94cada5846a1353402d5233450f707ff8",
+      "mergeCommit": "4b542efc0c3c6a5b753a7ec198b7162d2879b99e",
+      "queries": {
+        "natural": "still emits cookie attribute Setting still produces session cookie regression commit first released filters reaches consumer lambda ignores actual Boolean value always sets attribute Tomcat emits attribute explicit rendered attribute set container agnostic mapping applies Jetty changed sets assert checks internal attribute value resulting header Reproduction header level test against Tomcat fails current code Actual session cookie header Possible mapping",
+        "stemblind": "still emits cookie attribute Setting still produces session cookie regression commit first released filters reaches consumer lambda ignores actual Boolean value always sets attribute Tomcat emits attribute explicit rendered attribute set container agnostic mapping applies Jetty changed sets assert checks internal attribute value resulting header Reproduction header level test against Tomcat fails current code Actual session cookie header Possible mapping"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "module/spring-boot-web-server/src/main/java/org/springframework/boot/web/server/servlet/ServletContextInitializers.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-web-server/src/main/java/org/springframework/boot/web/server/servlet/ServletContextInitializers.java",
+        "module/spring-boot-web-server/src/testFixtures/java/org/springframework/boot/web/server/servlet/AbstractServletWebServerFactoryTests.java"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50699,
+      "title": "Fix Javadoc for GraylogExtendedLogFormatProperties",
+      "querySource": "pr",
+      "base": "2556ef46be7521ee7f18102264801483b272c37c",
+      "mergeCommit": "91ed06d8517bb823e68c96c7255ff22f11e79ace",
+      "queries": {
+        "natural": "Javadoc GraylogExtendedLogFormatProperties class level Javadoc component copied nested record adapted type described Service details although properties record described version application component Align parallel Properties structured logging Javadoc behavior change",
+        "stemblind": "Javadoc class level Javadoc component copied nested record adapted type described Service details although record described version application component Align parallel Javadoc behavior change"
+      },
+      "stemblindWords": 24,
+      "gold": [
+        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/GraylogExtendedLogFormatProperties.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/GraylogExtendedLogFormatProperties.java"
+      ],
+      "droppedForLeak": [
+        "graylogextendedlogformatproperties",
+        "properties",
+        "structured",
+        "logging"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50640,
+      "title": "NullPointerException in reactor-netty SniProvider and unmapped SSL bundle with RSocket",
+      "querySource": "pr",
+      "base": "98048ef12edd485abaecb4cf9127d517e25b94bb",
+      "mergeCommit": "89597d49c0376156cee31219d27bbc90c88ee481",
+      "queries": {
+        "natural": "NullPointerException reactor netty SniProvider unmapped SSL bundle RSocket RSocket WebSocket transport returns SNI provider lookup server name mapped SSL bundle reactor netty calls throws TLS handshake failure shared RSocket keeps copy lookup modularized layout missed Changes Fall back default via unmapped server names Testing",
+        "stemblind": "NullPointerException reactor SniProvider unmapped SSL bundle WebSocket transport returns SNI provider lookup name mapped SSL bundle reactor calls throws TLS handshake failure shared keeps copy lookup modularized layout missed Changes Fall back default via unmapped names Testing"
+      },
+      "stemblindWords": 37,
+      "gold": [
+        "module/spring-boot-rsocket/src/main/java/org/springframework/boot/rsocket/netty/NettyRSocketServerFactory.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-rsocket/src/main/java/org/springframework/boot/rsocket/netty/NettyRSocketServerFactory.java",
+        "module/spring-boot-rsocket/src/test/java/org/springframework/boot/rsocket/netty/NettyRSocketServerFactoryTests.java"
+      ],
+      "droppedForLeak": [
+        "netty",
+        "rsocket",
+        "server"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50639,
+      "title": "Close FileOutputStream delegate in InspectingOutputStream",
+      "querySource": "pr",
+      "base": "3cafe9b602a969db9f52f4683dc2875708e03b18",
+      "mergeCommit": "cc90a0862a50b21433bba5c6427ea04235cbba68",
+      "queries": {
+        "natural": "FileOutputStream delegate InspectingOutputStream extends override content exceeds approximately replaces delegate try resources calls inherits leaving open leaking file descriptor commit overrides delegate underlying stream",
+        "stemblind": "FileOutputStream delegate InspectingOutputStream extends override exceeds approximately replaces delegate try resources calls inherits leaving open leaking file descriptor commit overrides delegate underlying stream"
+      },
+      "stemblindWords": 23,
+      "gold": [
+        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/io/InspectedContent.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/io/InspectedContent.java"
+      ],
+      "droppedForLeak": [
+        "content"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50624,
+      "title": "SSL should not be enabled when a SSL bundle is overridden to an empty string",
+      "querySource": "pr",
+      "base": "8288b8fc367608d9a07fe4a49bb33244e2df4a12",
+      "mergeCommit": "a009ea4bee6d1176b831125bad67d1950592900a",
+      "queries": {
+        "natural": "SSL enabled SSL bundle overridden empty string Follow treated empty RabbitMQ SSL bundle unset Cassandra Redis MongoDB still derived enablement empty value enabled SSL instead treated unset now use matching RabbitMQ existing Couchbase behavior Testing",
+        "stemblind": "SSL enabled SSL bundle overridden empty string Follow treated empty RabbitMQ SSL bundle unset MongoDB still derived enablement empty value enabled SSL instead treated unset now use matching RabbitMQ existing Couchbase behavior Testing"
+      },
+      "stemblindWords": 33,
+      "gold": [
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/cassandra/CassandraProperties.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/data/redis/RedisProperties.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mongo/MongoProperties.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/cassandra/CassandraProperties.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/data/redis/RedisProperties.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mongo/MongoProperties.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/test/java/org/springframework/boot/autoconfigure/cassandra/CassandraPropertiesTests.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/test/java/org/springframework/boot/autoconfigure/data/redis/RedisPropertiesTests.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/test/java/org/springframework/boot/autoconfigure/mail/MailSenderAutoConfigurationTests.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/test/java/org/springframework/boot/autoconfigure/mongo/MongoPropertiesTests.java"
+      ],
+      "droppedForLeak": [
+        "cassandra",
+        "redis"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50451,
+      "title": "Docker Compose support does not restore thread interrupt flag when catching InterruptedException",
+      "querySource": "issue#50450",
+      "base": "3e5ad73f0118849865039ce2105410f0fafce21b",
+      "mergeCommit": "bb30ecc6676b231ad7919275d8ba69c7041d95dc",
+      "queries": {
+        "natural": "ProcessRunner restore interrupt flag InterruptedException two catch blocks restore thread interrupt flag throwing returning line catches throws without calling first without chaining original exception line catches returns without restoring interrupt flag inconsistent every handler codebase restore flag Without restoring flag code higher call stack Docker Compose lifecycle shutdown handling cannot detect thread interrupted",
+        "stemblind": "restore interrupt flag InterruptedException two catch blocks restore thread interrupt flag throwing returning line catches throws without calling first without chaining original exception line catches returns without restoring interrupt flag inconsistent every handler codebase restore flag Without restoring flag code higher call stack lifecycle shutdown handling cannot detect thread interrupted"
+      },
+      "stemblindWords": 50,
+      "gold": [
+        "spring-boot-project/spring-boot-docker-compose/src/main/java/org/springframework/boot/docker/compose/core/ProcessRunner.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot-docker-compose/src/main/java/org/springframework/boot/docker/compose/core/ProcessRunner.java"
+      ],
+      "droppedForLeak": [
+        "processrunner",
+        "docker",
+        "compose"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50447,
+      "title": "Use new Maven Resolver API for ModifiedClassPathClassLoader",
+      "querySource": "pr",
+      "base": "351a82627b9d7224446d720f5d68847d04ae5495",
+      "mergeCommit": "3e5ad73f0118849865039ce2105410f0fafce21b",
+      "queries": {
+        "natural": "Use new Maven Resolver API ModifiedClassPathClassLoader Use box implementation recommended alternative new supplier module maven resolver supplier",
+        "stemblind": "Use new Maven Resolver API Use box implementation recommended alternative new supplier module maven resolver supplier"
+      },
+      "stemblindWords": 16,
+      "gold": [
+        "spring-boot-project/spring-boot-tools/spring-boot-test-support/src/main/java/org/springframework/boot/testsupport/classpath/ModifiedClassPathClassLoader.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot-parent/build.gradle",
+        "spring-boot-project/spring-boot-tools/spring-boot-test-support/build.gradle",
+        "spring-boot-project/spring-boot-tools/spring-boot-test-support/src/main/java/org/springframework/boot/testsupport/classpath/ModifiedClassPathClassLoader.java"
+      ],
+      "droppedForLeak": [
+        "modifiedclasspathclassloader"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50429,
+      "title": "RabbitProperties enables SSL even when spring.rabbitmq.ssl.bundle is overridden to an empty string",
+      "querySource": "issue#50426",
+      "base": "d33962f37b33841af7936dde69f8ec216b7fc7a9",
+      "mergeCommit": "19c7f5aff034d0a7779734dffd571907b1509a9d",
+      "queries": {
+        "natural": "RabbitProperties enable SSL overridden empty string believe bug Spring Boot RabbitMQ auto configuration configured SSL bundle overridden empty string profile specific configuration Problem base configuration sets RabbitMQ SSL bundle profile specific configuration tries disable empty string override disable SSL expected relevant default profile uses SSL bundle profile wants switch RabbitMQ back plain AMQP localhost Example Base Profile specific Actual behavior",
+        "stemblind": "enable SSL overridden empty string believe bug Spring RabbitMQ auto configuration configured SSL bundle overridden empty string profile specific configuration Problem base configuration sets RabbitMQ SSL bundle profile specific configuration tries disable empty string override disable SSL expected relevant default profile uses SSL bundle profile wants switch RabbitMQ back plain localhost Example Base Profile specific Actual behavior RabbitMQ SSL still"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/amqp/RabbitProperties.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/amqp/RabbitProperties.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/test/java/org/springframework/boot/autoconfigure/amqp/RabbitPropertiesTests.java"
+      ],
+      "droppedForLeak": [
+        "rabbitproperties",
+        "boot",
+        "amqp"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50301,
+      "title": "NullPointerException in reactor-netty SniProvider when SSL bundle uses client-auth or server truststore without server-name-bundles",
+      "querySource": "pr",
+      "base": "b58a5b1e81a718015f4177b18270fa7f98b71206",
+      "mergeCommit": "d33962f37b33841af7936dde69f8ec216b7fc7a9",
+      "queries": {
+        "natural": "NullPointerException reactor netty SniProvider SSL bundle uses client auth server truststore without server name bundles Falls back default SNI hostname present lookup logic extracted package private method make directly testable unit test used instead end end test synchronous SNI lookup exception silently swallowed inside Netty SslClientHelloHandler handshake falls back default SslContext NPE surface response level see",
+        "stemblind": "NullPointerException reactor SniProvider bundle uses client auth truststore without name bundles Falls back default SNI hostname present lookup logic extracted package private method make directly testable unit used instead end end synchronous SNI lookup exception silently swallowed inside SslClientHelloHandler handshake falls back default SslContext NPE surface response level see"
+      },
+      "stemblindWords": 49,
+      "gold": [
+        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/embedded/netty/SslServerCustomizer.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/embedded/netty/SslServerCustomizer.java",
+        "spring-boot-project/spring-boot/src/test/java/org/springframework/boot/web/embedded/netty/SslServerCustomizerTests.java"
+      ],
+      "droppedForLeak": [
+        "netty",
+        "ssl",
+        "server",
+        "test"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50501,
+      "title": "Layer written outside the output location of '//' exception is thrown when using extract layers in root directory",
+      "querySource": "issue#50495",
+      "base": "bfd1b8c096ab6c87f774454e0d9064601d734f3c",
+      "mergeCommit": "29e2456b5bca95cf32c102ce9a4f5b032775427f",
+      "queries": {
+        "natural": "Layer tools lost support buildng root Seems like patch introduced new restriction build process Root build location don supports now don think intended change work fail",
+        "stemblind": "Layer lost support buildng root Seems like patch introduced new restriction build process Root build location don supports now don think intended change work fail"
+      },
+      "stemblindWords": 25,
+      "gold": [
+        "spring-boot-project/spring-boot-tools/spring-boot-jarmode-tools/src/main/java/org/springframework/boot/jarmode/tools/ExtractCommand.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot-tools/spring-boot-jarmode-tools/src/main/java/org/springframework/boot/jarmode/tools/ExtractCommand.java",
+        "spring-boot-project/spring-boot-tools/spring-boot-jarmode-tools/src/test/java/org/springframework/boot/jarmode/tools/ExtractCommandTests.java"
+      ],
+      "droppedForLeak": [
+        "tools"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50383,
+      "title": "Remove compatibility code for EOL dependency versions",
+      "querySource": "pr",
+      "base": "30744f15bf3e4e18f32844e338f1e33852e4eeca",
+      "mergeCommit": "6b9ccdca8e87150a466f21897d8342b4d979e90b",
+      "queries": {
+        "natural": "Remove compatibility code EOL dependency versions Spring Boot bumped minimum dependency versions well past versions guarded blocks removed code paths dead code never execute supported dependency versions Removals Tomcat Remove guard Boot uses making deployment Tomcat impossible Tomcat pre Remove guard Method exists Tomcat added forked Hazelcast Remove reflective constructor fallback Managed version Hazelcast Jetty Remove check reflective fallback Managed",
+        "stemblind": "Remove compatibility code EOL dependency versions Spring bumped minimum dependency versions well past versions guarded blocks removed code paths dead code never execute supported dependency versions Removals Remove guard uses making deployment impossible pre Remove guard Method exists added forked Remove reflective constructor fallback Managed version Remove check reflective fallback Managed version Comment updates code change Updated comments existing compat"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "module/spring-boot-cache/src/main/java/org/springframework/boot/cache/metrics/HazelcastCacheMeterBinderProvider.java",
+        "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration.java",
+        "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/FlywayMigrationInitializer.java",
+        "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/GracefulShutdown.java",
+        "module/spring-boot-tomcat/src/main/java/org/springframework/boot/tomcat/DisableReferenceClearingContextCustomizer.java",
+        "module/spring-boot-tomcat/src/main/java/org/springframework/boot/tomcat/autoconfigure/TomcatWebServerFactoryCustomizer.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-cache/src/main/java/org/springframework/boot/cache/metrics/HazelcastCacheMeterBinderProvider.java",
+        "module/spring-boot-cache/src/test/java/org/springframework/boot/cache/metrics/HazelcastCacheMeterBinderProviderTests.java",
+        "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration.java",
+        "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/FlywayMigrationInitializer.java",
+        "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/GracefulShutdown.java",
+        "module/spring-boot-tomcat/src/main/java/org/springframework/boot/tomcat/DisableReferenceClearingContextCustomizer.java",
+        "module/spring-boot-tomcat/src/main/java/org/springframework/boot/tomcat/autoconfigure/TomcatWebServerFactoryCustomizer.java"
+      ],
+      "droppedForLeak": [
+        "boot",
+        "tomcat",
+        "hazelcast",
+        "jetty",
+        "flyway"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50419,
+      "title": "Polish code to use instanceof pattern matching in conditions",
+      "querySource": "pr",
+      "base": "c66ea4136776e91022faf8f0e9e1ac3b1b71f474",
+      "mergeCommit": "d5c5fb6d7aeea5941bc893707d3bd6b3e87ea999",
+      "queries": {
+        "natural": "Polish code use instanceof pattern matching conditions updates two condition related code paths use pattern matching checked value immediately cast afterward Specifically keeps code consistent surrounding style removes redundant explicit casts without changing behavior Verification",
+        "stemblind": "Polish code use instanceof pattern matching conditions updates two related code paths use pattern matching checked value immediately cast afterward Specifically keeps code consistent surrounding style removes redundant explicit casts without changing behavior Verification"
+      },
+      "stemblindWords": 34,
+      "gold": [
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/ConditionEvaluationReport.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnBeanCondition.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/ConditionEvaluationReport.java",
+        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnBeanCondition.java"
+      ],
+      "droppedForLeak": [
+        "condition"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50273,
+      "title": "ConfigurationPropertiesReportEndpoint exposes AOP proxy internals",
+      "querySource": "pr",
+      "base": "328c65daeaeaa3e821bf0264433fa078325d9922",
+      "mergeCommit": "c66ea4136776e91022faf8f0e9e1ac3b1b71f474",
+      "queries": {
+        "natural": "ConfigurationPropertiesReportEndpoint exposes AOP proxy internals actuator endpoint serializes bean using bean factory instance instance AOP proxy commonly CGLIB scoped proxy created applies AOP proxy serializer picks interface getters proxy exposes configured walk reaches inflating response per refresh scoped bean change unwraps AOP proxies via delegating serializer user defined configuration properties exposed unwrap wrapped failure obtain target falls back existing behaviour",
+        "stemblind": "exposes AOP proxy internals actuator serializes bean using bean factory instance instance AOP proxy commonly CGLIB scoped proxy created applies AOP proxy serializer picks interface getters proxy exposes configured walk reaches inflating response per refresh scoped bean change unwraps AOP proxies via delegating serializer user defined exposed unwrap wrapped failure obtain target falls back existing behaviour added creates based CGLIB"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/context/properties/ConfigurationPropertiesReportEndpoint.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/context/properties/ConfigurationPropertiesReportEndpoint.java",
+        "spring-boot-project/spring-boot-actuator/src/test/java/org/springframework/boot/actuate/context/properties/ConfigurationPropertiesReportEndpointSerializationTests.java"
+      ],
+      "droppedForLeak": [
+        "configurationpropertiesreportendpoint",
+        "endpoint",
+        "configuration",
+        "properties",
+        "test"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50303,
+      "title": "Created StackTracePrinter instances have no access to the Environment",
+      "querySource": "pr",
+      "base": "9b00740823bf57ebd96c0c3b854625db39a89581",
+      "mergeCommit": "328c65daeaeaa3e821bf0264433fa078325d9922",
+      "queries": {
+        "natural": "Created StackTracePrinter instances access Environment able create StackTracePrinter delegates StandardStackTracePrinter lacks flexibility custom StackTracePrinter access Environment change add Environment StackTracePrinter instantiator custom StackTracePrinter implementations customize StandardStackTracePrinter according environment property values",
+        "stemblind": "Created StackTracePrinter instances access Environment able create StackTracePrinter delegates StandardStackTracePrinter lacks flexibility custom StackTracePrinter access Environment change add Environment StackTracePrinter instantiator custom StackTracePrinter implementations customize StandardStackTracePrinter according environment property values"
+      },
+      "stemblindWords": 30,
+      "gold": [
+        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/StructuredLogFormatterFactory.java",
+        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/StructuredLoggingJsonProperties.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/StructuredLogFormatterFactory.java",
+        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/StructuredLoggingJsonProperties.java",
+        "spring-boot-project/spring-boot/src/test/java/org/springframework/boot/logging/structured/StructuredLoggingJsonPropertiesTests.java"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50373,
+      "title": "MappingsEndpoint reports the context's own ID as parentId when a parent exists",
+      "querySource": "issue#50368",
+      "base": "f6ef0c1f69ae9ae0b4d6c7066c670f3cde5c1b6a",
+      "mergeCommit": "9b00740823bf57ebd96c0c3b854625db39a89581",
+      "queries": {
+        "natural": "MappingsEndpoint reports context parentId parent exists sets context parent exists rather parent already keys response map descriptor ends equal map key parent present prevents reconstructing context tree response actuator endpoints field use separate parity observation between two classes webmvc wraps static provider list webflux uses size mutable via submit accepted Let know whether bundle skip alignment",
+        "stemblind": "reports context parentId parent exists sets context parent exists rather parent already keys response map descriptor ends equal map key parent present prevents reconstructing context tree response actuator endpoints field use separate parity observation between two classes webmvc wraps static provider list webflux uses size mutable via submit accepted Let know whether bundle skip alignment"
+      },
+      "stemblindWords": 55,
+      "gold": [
+        "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/web/mappings/MappingsEndpoint.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-actuator/src/test/java/org/springframework/boot/actuate/web/mappings/MappingsEndpointTests.java",
+        "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/web/mappings/MappingsEndpoint.java"
+      ],
+      "droppedForLeak": [
+        "mappingsendpoint"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50382,
+      "title": "Buildpack module does not validate long-to-int casts",
+      "querySource": "pr",
+      "base": "0ecdaa659e8ee465b30ec950f2ca59a8f75380e3",
+      "mergeCommit": "f6ef0c1f69ae9ae0b4d6c7066c670f3cde5c1b6a",
+      "queries": {
+        "natural": "Buildpack module validate long int casts Add explicit size checks casting values two locations buildpack module external data file sizes Docker stream headers exceed returns cast without validation Files larger 2GB silently produce incorrect possibly negative size values corrupting tar entry headers Now throws actual file size message parameter parsed Docker multiplexed stream header unsigned bytes max 4GB Values exceeding",
+        "stemblind": "module validate long int casts Add explicit size checks casting values two locations module external data file sizes stream headers exceed returns cast without validation Files larger 2GB silently produce incorrect possibly negative size values corrupting tar entry headers Now throws actual file size message parameter parsed multiplexed stream header unsigned bytes max 4GB Values exceeding cause allocating byte array"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/docker/LogUpdateEvent.java",
+        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/io/Content.java"
+      ],
+      "changedAll": [
+        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/docker/LogUpdateEvent.java",
+        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/io/Content.java",
+        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/test/java/org/springframework/boot/buildpack/platform/docker/LogUpdateEventTests.java",
+        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/test/java/org/springframework/boot/buildpack/platform/io/ContentTests.java"
+      ],
+      "droppedForLeak": [
+        "buildpack",
+        "docker"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50405,
+      "title": "Gradle gRPC support fails if protobuf-java dependency is used instead of protobuf-java-util",
+      "querySource": "issue#50401",
+      "base": "8a449c52e638b2adeb766d87ccd7816dbad947c8",
+      "mergeCommit": "1bd43a0f4229dbd46127f41326434666669e11e8",
+      "queries": {
+        "natural": "gRPC client project build fails Spring Boot Gradle plugin helpfully tries set gRPC plugin dependencies knows gRPC project works server starter fails client seems line plugin problem dependency version null",
+        "stemblind": "gRPC client project build fails Spring helpfully tries set gRPC dependencies knows gRPC project works server starter fails client seems line problem dependency version null"
+      },
+      "stemblindWords": 25,
+      "gold": [
+        "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/plugin/ProtobufPluginAction.java"
+      ],
+      "changedAll": [
+        "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/plugin/ProtobufPluginAction.java",
+        "build-plugin/spring-boot-gradle-plugin/src/test/java/org/springframework/boot/gradle/plugin/ProtobufPluginActionIntegrationTests.java",
+        "build-plugin/spring-boot-gradle-plugin/src/test/resources/org/springframework/boot/gradle/plugin/ProtobufPluginActionIntegrationTests.gradle"
+      ],
+      "droppedForLeak": [
+        "boot",
+        "gradle",
+        "plugin"
+      ]
+    }
+  ]
+}

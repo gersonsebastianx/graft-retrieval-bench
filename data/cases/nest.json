@@ -1,0 +1,1068 @@
+{
+  "repo": {
+    "id": "nest",
+    "slug": "nestjs/nest",
+    "lang": "typescript",
+    "exts": [
+      ".ts",
+      ".tsx"
+    ],
+    "note": "Large TS repo with disciplined PR hygiene."
+  },
+  "generatedAt": "2026-08-14T01:18:07.597Z",
+  "rejected": {
+    "title": 91,
+    "files": 139,
+    "base": 0,
+    "query": 0,
+    "leak": 0
+  },
+  "cases": [
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17350,
+      "title": "fix(fastify): avoid double prefixing inherited middleware",
+      "querySource": "issue#11802",
+      "base": "1def88d0a2a0ad6ccfd4994f17a4625b009a0278",
+      "mergeCommit": "5303b819a67b06de345e32e845ddafc6ee512ada",
+      "queries": {
+        "natural": "Fastify middleware doesn apply correctly matched against routes registered via Fastify plugin existing searched existing issues Current behavior currently working NestJS module registers endpoints via Fastify plugin using prefix registering middleware routes matching prefix middleware won trigger Minimum reproduction code Steps reproduce yarn install docker compose yarn start dev visit Expected behavior configured routes endpoint reached trigger middleware provided Package",
+        "stemblind": "middleware doesn apply correctly matched against routes registered via plugin existing searched existing issues Current behavior currently working NestJS module registers endpoints via plugin using prefix registering middleware routes matching prefix middleware won trigger Minimum reproduction code Steps reproduce yarn install docker compose yarn start dev visit Expected behavior configured routes endpoint reached trigger middleware provided Package don know 3rd"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/platform-fastify/adapters/middie/fastify-middie.ts"
+      ],
+      "changedAll": [
+        "integration/hello-world/e2e/repro-11802.spec.ts",
+        "packages/platform-fastify/adapters/middie/fastify-middie.ts",
+        "packages/platform-fastify/test/adapters/middie.spec.ts"
+      ],
+      "droppedForLeak": [
+        "fastify"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17377,
+      "title": "fix(fastify): run middleware on routes excluded from global prefix",
+      "querySource": "pr",
+      "base": "5061da357866cf1c6618b97e12826010823a025b",
+      "mergeCommit": "1def88d0a2a0ad6ccfd4994f17a4625b009a0278",
+      "queries": {
+        "natural": "fastify run middleware routes excluded global prefix check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior excludes concrete route route scoped middleware applied fastify adapter prefixes",
+        "stemblind": "run routes excluded global prefix check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior excludes concrete route route scoped applied prefixes every non prefixed path rewriting"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/platform-fastify/adapters/fastify-adapter.ts"
+      ],
+      "changedAll": [
+        "integration/hello-world/e2e/middleware-fastify.spec.ts",
+        "packages/platform-fastify/adapters/fastify-adapter.ts"
+      ],
+      "droppedForLeak": [
+        "fastify",
+        "middleware",
+        "adapter"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17416,
+      "title": "fix(core): convert adjacent wildcard segments in legacy route converter",
+      "querySource": "pr",
+      "base": "9879885ea0aa1b83f2c6f40ceec39c15fc9e3d4f",
+      "mergeCommit": "5061da357866cf1c6618b97e12826010823a025b",
+      "queries": {
+        "natural": "core convert adjacent wildcard segments legacy route converter commit message follows guidelines Tests changes added bug features Docs added updated bug features Type Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number rewrites legacy wildcard routes named syntax path regexp Express requires middle wildcard branch uses consumes",
+        "stemblind": "convert adjacent wildcard segments commit message follows guidelines Tests changes added bug features Docs added updated bug features Type Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number rewrites wildcard routes named syntax path regexp Express requires middle wildcard branch uses consumes slash two adjacent segments share"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/core/router/legacy-route-converter.ts"
+      ],
+      "changedAll": [
+        "packages/core/router/legacy-route-converter.ts",
+        "packages/core/test/router/legacy-route-converter.spec.ts"
+      ],
+      "droppedForLeak": [
+        "core",
+        "legacy",
+        "route",
+        "converter"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17435,
+      "title": "fix(common): match string file types containing regex metacharacters",
+      "querySource": "pr",
+      "base": "8b759fe36b200797d8bbeb76969b55157c1fa7dd",
+      "mergeCommit": "9879885ea0aa1b83f2c6f40ceec39c15fc9e3d4f",
+      "queries": {
+        "natural": "common match string file types containing regex metacharacters commit message follows guidelines Tests changes added bug features Docs added updated bug features public API change documented behaviour starts working Type Bugfix current behavior Number matches MIME type string coerces MIME type contains regex metacharacter compiled pattern cannot match string written common case validator configured exact type client actually sent rejects",
+        "stemblind": "match string types containing regex metacharacters commit message follows guidelines Tests changes added bug features Docs added updated bug features public API change documented behaviour starts working Bugfix current behavior Number matches MIME string coerces MIME contains regex metacharacter compiled pattern cannot match string written case configured exact client actually sent rejects upload resulting error message names twice hits two"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/common/pipes/file/file-type.validator.ts"
+      ],
+      "changedAll": [
+        "packages/common/pipes/file/file-type.validator.ts",
+        "packages/common/test/pipes/file/file-type.validator.spec.ts"
+      ],
+      "droppedForLeak": [
+        "common",
+        "file",
+        "type",
+        "validator"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17430,
+      "title": "fix(core): share existing singleton providers with lazily loaded modules",
+      "querySource": "issue#17428",
+      "base": "9a064ccaf9ddfc75851f4ed35d4a207c0d84c37c",
+      "mergeCommit": "8b759fe36b200797d8bbeb76969b55157c1fa7dd",
+      "queries": {
+        "natural": "LazyModuleLoader constructs singleton providers already initialized modules every load lazy consumers don share eager instances cached reloads construct discard new ones existing searched existing issues Current behavior module lazily loaded via imports module already initialized eager graph imported module providers constructed lazy consumer receives fresh instance root graph keeps original plain singletons default scope Every subsequent module returns cached module",
+        "stemblind": "LazyModuleLoader constructs singleton providers already initialized modules every load consumers don share eager instances cached reloads construct discard new ones existing searched existing issues Current behavior lazily loaded via imports already initialized eager graph imported providers constructed consumer receives fresh instance root graph keeps original plain singletons default scope Every subsequent returns cached ref still runs graph constructors discarding results"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/core/injector/container.ts",
+        "packages/core/injector/internal-core-module/internal-core-module-factory.ts",
+        "packages/core/scanner.ts",
+        "packages/microservices/microservices-module.ts"
+      ],
+      "changedAll": [
+        "packages/core/injector/container.ts",
+        "packages/core/injector/internal-core-module/internal-core-module-factory.ts",
+        "packages/core/scanner.ts",
+        "packages/core/test/injector/lazy-module-loader/lazy-module-loader.spec.ts",
+        "packages/microservices/microservices-module.ts",
+        "packages/microservices/test/client/client-kafka.spec.ts"
+      ],
+      "droppedForLeak": [
+        "lazy",
+        "module"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17436,
+      "title": " feat: narrow body parser options to the selected parser for Express",
+      "querySource": "pr",
+      "base": "a2c25c27d192a8e8458b7479c6019bf1b7427a71",
+      "mergeCommit": "b6bdd79c48439f5a0d74e836ff6d84f4f8f56d84",
+      "queries": {
+        "natural": "feat narrow body parser options selected parser Express check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number method never checked options argument type occurs inside",
+        "stemblind": "feat narrow selected check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number method never checked argument type occurs inside non inferrable position always fell back"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/platform-express/adapters/express-adapter.ts",
+        "packages/platform-express/adapters/utils/get-body-parser-options.util.ts",
+        "packages/platform-express/interfaces/nest-express-application.interface.ts",
+        "packages/platform-express/interfaces/nest-express-body-parser-options.interface.ts",
+        "packages/platform-express/interfaces/nest-express-body-parser.interface.ts"
+      ],
+      "changedAll": [
+        "integration/nest-application/use-body-parser/e2e/express.spec.ts",
+        "packages/platform-express/adapters/express-adapter.ts",
+        "packages/platform-express/adapters/utils/get-body-parser-options.util.ts",
+        "packages/platform-express/interfaces/nest-express-application.interface.ts",
+        "packages/platform-express/interfaces/nest-express-body-parser-options.interface.ts",
+        "packages/platform-express/interfaces/nest-express-body-parser.interface.ts",
+        "packages/platform-express/test/adapters/utils/get-body-parser-options.util.spec.ts"
+      ],
+      "droppedForLeak": [
+        "body",
+        "parser",
+        "options",
+        "express"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17421,
+      "title": "fix(express): map missing multer field nesting error",
+      "querySource": "pr",
+      "base": "0688dc85ca96562224b11bd030b79bdc982856c4",
+      "mergeCommit": "4e4f8f0e7c6f2bca5b2d35cabfede6b9b7d9faad",
+      "queries": {
+        "natural": "express map missing multer field nesting error check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Multipart requests exceed configurable option HTTP Multer emits error code",
+        "stemblind": "express map missing field nesting error check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Multipart requests exceed configurable option HTTP emits error code map raw"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/platform-express/multer/multer/multer.utils.ts"
+      ],
+      "changedAll": [
+        "packages/platform-express/multer/multer/multer.utils.ts",
+        "packages/platform-express/test/multer/multer/multer.utils.spec.ts"
+      ],
+      "droppedForLeak": [
+        "multer"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17028,
+      "title": "feat(microservices): expose transport server getter",
+      "querySource": "pr",
+      "base": "4ea0381e9339eac8b5d0255ee7314eba9a5f5752",
+      "mergeCommit": "a2c25c27d192a8e8458b7479c6019bf1b7427a71",
+      "queries": {
+        "natural": "feat microservices expose transport server getter check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Currently way stop transport layer without triggering full application shutdown lifecycle",
+        "stemblind": "feat expose getter check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Currently way stop layer without triggering full application shutdown lifecycle call method stops triggers"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/common/index.ts",
+        "packages/common/interfaces/index.ts",
+        "packages/common/interfaces/microservices/transport-server.interface.ts",
+        "packages/common/interfaces/nest-microservice.interface.ts",
+        "packages/microservices/nest-microservice.ts",
+        "packages/microservices/server/server.ts"
+      ],
+      "changedAll": [
+        "packages/common/index.ts",
+        "packages/common/interfaces/index.ts",
+        "packages/common/interfaces/microservices/transport-server.interface.ts",
+        "packages/common/interfaces/nest-microservice.interface.ts",
+        "packages/microservices/nest-microservice.ts",
+        "packages/microservices/server/server.ts",
+        "packages/microservices/test/nest-microservice.spec.ts"
+      ],
+      "droppedForLeak": [
+        "microservices",
+        "transport",
+        "server"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17394,
+      "title": "fix(microservices): nullify grpcclient on close when tryshutdown fails",
+      "querySource": "pr",
+      "base": "b7a6534311b9705d75fb09535654064ece9f693e",
+      "mergeCommit": "6a45a61c13283f01ee6f1d64f290cf8fbaee6bdf",
+      "queries": {
+        "natural": "microservices nullify grpcclient tryshutdown fails check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior called graceful shutdown enabled invokes callback error promise rejects client reference cleared",
+        "stemblind": "nullify grpcclient tryshutdown fails check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior called graceful shutdown enabled invokes callback error promise rejects client reference cleared Current"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/microservices/server/server-grpc.ts"
+      ],
+      "changedAll": [
+        "packages/microservices/server/server-grpc.ts",
+        "packages/microservices/test/server/server-grpc.spec.ts"
+      ],
+      "droppedForLeak": [
+        "microservices"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17360,
+      "title": "fix(core): serialize SSE retry field when value is zero",
+      "querySource": "pr",
+      "base": "a639a0befa922b6f45d7e7d922d93d7d8c9b1fc8",
+      "mergeCommit": "2edb01d0f606f5ba5281ede9afd6d15f2316c7b7",
+      "queries": {
+        "natural": "core serialize SSE retry field value zero Truthy checks omitted retry clients never received explicit zero reconnection delay Use isNil like MessageEvent fields check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related",
+        "stemblind": "serialize retry field value zero Truthy checks omitted retry clients never received explicit zero reconnection delay Use isNil like MessageEvent fields check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/core/router/sse-stream.ts"
+      ],
+      "changedAll": [
+        "packages/core/router/sse-stream.ts",
+        "packages/core/test/router/sse-stream.spec.ts"
+      ],
+      "droppedForLeak": [
+        "core",
+        "sse"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17399,
+      "title": "fix(common): exclude pipe options from validator options",
+      "querySource": "pr",
+      "base": "51cef822037f7f3fe7e82574fc0582188def4d0b",
+      "mergeCommit": "a639a0befa922b6f45d7e7d922d93d7d8c9b1fc8",
+      "queries": {
+        "natural": "common exclude pipe options validator options check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior now excluded Providing one specific options longer causes",
+        "stemblind": "exclude options validator options check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior now excluded Providing one specific options longer causes executed original"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/common/pipes/validation.pipe.ts"
+      ],
+      "changedAll": [
+        "packages/common/pipes/validation.pipe.ts",
+        "packages/common/test/pipes/validation.pipe.spec.ts"
+      ],
+      "droppedForLeak": [
+        "common",
+        "pipe"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17400,
+      "title": "refactor(core): remove async promise executor anti-patterns",
+      "querySource": "pr",
+      "base": "f42a34a4cf1fe16f5177971f1c3bd5645aa1526e",
+      "mergeCommit": "51cef822037f7f3fe7e82574fc0582188def4d0b",
+      "queries": {
+        "natural": "refactor core remove async promise executor anti patterns check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Three methods use async executor anti pattern promise returned",
+        "stemblind": "refactor remove async promise executor anti patterns check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Three methods use async executor anti pattern promise returned async"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/core/injector/module-ref.ts",
+        "packages/core/nest-application-context.ts",
+        "packages/microservices/client/client-kafka.ts"
+      ],
+      "changedAll": [
+        "packages/core/injector/module-ref.ts",
+        "packages/core/nest-application-context.ts",
+        "packages/microservices/client/client-kafka.ts"
+      ],
+      "droppedForLeak": [
+        "core"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17393,
+      "title": "fix(core): resolve barrier immediately when target count is zero",
+      "querySource": "pr",
+      "base": "fafe503bd8ca073f2fdd41ed7138081af84c478e",
+      "mergeCommit": "0011b830c20dbc928ff88e198ae6d891fa4dbe2d",
+      "queries": {
+        "natural": "core barrier immediately target count zero check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number promise inside injector creates barrier per class sized dependency count",
+        "stemblind": "immediately target count zero check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number promise inside injector creates per class sized dependency count property count class"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/core/helpers/barrier.ts"
+      ],
+      "changedAll": [
+        "packages/core/helpers/barrier.ts",
+        "packages/core/test/helpers/barrier.spec.ts"
+      ],
+      "droppedForLeak": [
+        "core",
+        "barrier"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 16070,
+      "title": "test(sample): add comprehensive tests for 26-queues sample",
+      "querySource": "pr",
+      "base": "842be738257dda3a0455bac61913a66e78d92d24",
+      "mergeCommit": "ae9cc02131c5b5512beb38fcacfe35ad8f0296a0",
+      "queries": {
+        "natural": "test sample add comprehensive tests queues sample Adds comprehensive unit E2E tests queues sample Test Coverage tests total Unit Tests AudioController job queuing parameter validation concurrent handling AudioProcessor job processing logging behavior sequential execution E2E Tests Endpoint validation mocked Bull queue Redis dependency Status codes concurrent requests HTTP method restrictions error handling Key Features tests pass E2E tests mock BullModule",
+        "stemblind": "test add comprehensive tests queues Adds comprehensive unit tests queues Test Coverage tests total Unit Tests AudioController job queuing parameter validation concurrent handling AudioProcessor job processing logging behavior sequential execution Tests Endpoint validation mocked Bull queue Redis dependency Status codes concurrent requests HTTP method restrictions error handling Key Features tests pass tests mock BullModule Redis needed Comprehensive coverage queue functionality"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "sample/26-queues/e2e/audio/audio.e2e-spec.ts",
+        "sample/26-queues/src/app.module.ts"
+      ],
+      "changedAll": [
+        ".circleci/config.yml",
+        "sample/26-queues/e2e/audio/audio.e2e-spec.ts",
+        "sample/26-queues/e2e/jest-e2e.json",
+        "sample/26-queues/jest.json",
+        "sample/26-queues/package.json",
+        "sample/26-queues/src/app.module.ts",
+        "sample/26-queues/src/audio/audio.controller.spec.ts",
+        "sample/26-queues/src/audio/audio.processor.spec.ts"
+      ],
+      "droppedForLeak": [
+        "sample",
+        "e2e"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17194,
+      "title": "fix: reject hex and non-numeric strings in float pipe",
+      "querySource": "pr",
+      "base": "6d3f3c04aa94083e367ff430342b55ebf3227c70",
+      "mergeCommit": "4ea0381e9339eac8b5d0255ee7314eba9a5f5752",
+      "queries": {
+        "natural": "reject hex non numeric strings float pipe check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior uses coerces via validation uses conversion parse differently returns silent",
+        "stemblind": "reject hex non numeric strings check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior uses coerces via validation uses conversion differently returns silent truncation returns Number"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/common/pipes/parse-float.pipe.ts"
+      ],
+      "changedAll": [
+        "packages/common/pipes/parse-float.pipe.ts",
+        "packages/common/test/pipes/parse-float.pipe.spec.ts"
+      ],
+      "droppedForLeak": [
+        "float",
+        "pipe",
+        "parse"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17327,
+      "title": "feat(core): support sse comments",
+      "querySource": "pr",
+      "base": "9bf31433d8c457126e3ff3471b7f9da61c854d87",
+      "mergeCommit": "41d9f37b320a4021da007fcbf2d9d578625f399c",
+      "queries": {
+        "natural": "feat core support sse comments check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior serialize SSE comment lines Number new behavior accepts optional field optional comment",
+        "stemblind": "feat support comments check fulfills following requirements commit follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior serialize comment lines Number new behavior accepts optional field optional comment frames represented example serialized"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/common/interfaces/http/message-event.interface.ts",
+        "packages/core/router/sse-stream.ts"
+      ],
+      "changedAll": [
+        "packages/common/interfaces/http/message-event.interface.ts",
+        "packages/core/router/sse-stream.ts",
+        "packages/core/test/router/sse-stream.spec.ts"
+      ],
+      "droppedForLeak": [
+        "core",
+        "sse",
+        "message"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17335,
+      "title": "fix(core): drop the g flag from middleware overlap regexes",
+      "querySource": "pr",
+      "base": "3f03234edaf13d13390e9ccb72087a5d5bd4a6c0",
+      "mergeCommit": "9bf31433d8c457126e3ff3471b7f9da61c854d87",
+      "queries": {
+        "natural": "core drop flag middleware overlap regexes commit message follows guidelines Tests changes added Docs added updated applicable internal behaviour public API change Type Bugfix current behavior Number builds one regex per parameterized route reuses filtering every route regexes created flag global regex advances successful next call resumes mid string fails anchor Overlap detection therefore depended iteration order Reproducing exact logic",
+        "stemblind": "drop flag overlap regexes commit message follows guidelines Tests changes added Docs added updated applicable internal behaviour public API change Type Bugfix current behavior Number builds one regex per parameterized route reuses filtering every route regexes created flag global regex advances successful next call resumes mid string fails anchor Overlap detection therefore depended iteration order Reproducing exact logic isolation route"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/core/middleware/builder.ts"
+      ],
+      "changedAll": [
+        "packages/core/middleware/builder.ts",
+        "packages/core/test/middleware/builder.spec.ts"
+      ],
+      "droppedForLeak": [
+        "core",
+        "middleware"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17333,
+      "title": "feat(common): add override mimetype option to file type validator",
+      "querySource": "pr",
+      "base": "303478d49839843bcad604f3567889bd10b56db8",
+      "mergeCommit": "3f03234edaf13d13390e9ccb72087a5d5bd4a6c0",
+      "queries": {
+        "natural": "feat common add override mimetype option file type validator check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior uses magic number detection validate actual file type",
+        "stemblind": "feat add override mimetype option check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior uses magic number detection validate actual based content However detected MIME used internally"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/common/pipes/file/file-type.validator.ts"
+      ],
+      "changedAll": [
+        "packages/common/pipes/file/file-type.validator.ts",
+        "packages/common/test/pipes/file/file-type.validator.spec.ts"
+      ],
+      "droppedForLeak": [
+        "common",
+        "file",
+        "type",
+        "validator"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17331,
+      "title": "fix(microservices): correct pub/sub client type in redis listeners",
+      "querySource": "pr",
+      "base": "83440ddd0fbe9a0702284433f5891a8b87590bd2",
+      "mergeCommit": "195f4af29596917afafbd8ea3b3da9d9e13d6ea1",
+      "queries": {
+        "natural": "microservices correct client type redis listeners check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior Index labeled index labeled matching Added regression test",
+        "stemblind": "correct client type listeners check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior Index labeled index labeled matching Added regression fails without introduce"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/microservices/server/server-redis.ts"
+      ],
+      "changedAll": [
+        "packages/microservices/server/server-redis.ts",
+        "packages/microservices/test/server/server-redis.spec.ts"
+      ],
+      "droppedForLeak": [
+        "microservices",
+        "redis",
+        "test"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17337,
+      "title": "Fix/doc and pipe cleanup",
+      "querySource": "pr",
+      "base": "3a6d07bf235c3b7c89fecf503360d234139d8ae6",
+      "mergeCommit": "f182a1b0d46abacdbc7a972c36eb9036845d579a",
+      "queries": {
+        "natural": "pipe cleanup check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Two minor issues JSDoc says instead JSDoc says param instead missing annotation type name inconsistent",
+        "stemblind": "pipe cleanup check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Two minor issues JSDoc says instead JSDoc says param instead missing annotation type name inconsistent"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/common/exceptions/misdirected.exception.ts",
+        "packages/common/exceptions/not-acceptable.exception.ts",
+        "packages/common/pipes/parse-array.pipe.ts",
+        "packages/common/pipes/parse-date.pipe.ts"
+      ],
+      "changedAll": [
+        "packages/common/exceptions/misdirected.exception.ts",
+        "packages/common/exceptions/not-acceptable.exception.ts",
+        "packages/common/pipes/parse-array.pipe.ts",
+        "packages/common/pipes/parse-date.pipe.ts"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17328,
+      "title": "chore: update multerExceptions constant",
+      "querySource": "pr",
+      "base": "6bd43b18805a5fbf8d4a51063262794d72e64619",
+      "mergeCommit": "ead02d3f3fa2b36ecdd8c6b98ed767cd38afc1a6",
+      "queries": {
+        "natural": "chore update multerExceptions constant check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe Bringing constant line upstream current behavior LIMIT_FIELD_NESTING mapped returns new behavior LIMIT_FIELD_NESTING returns introduce breaking",
+        "stemblind": "chore update multerExceptions constant check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe Bringing constant line upstream current behavior LIMIT_FIELD_NESTING mapped returns new behavior LIMIT_FIELD_NESTING returns introduce breaking"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/platform-express/multer/multer/multer.constants.ts"
+      ],
+      "changedAll": [
+        "packages/platform-express/multer/multer/multer.constants.ts"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17141,
+      "title": "fix(core): stop import lookup after first direct export match",
+      "querySource": "issue#17136",
+      "base": "816ef76dd99c19fb6563479d830932e49d6a4609",
+      "mergeCommit": "db504f5c3f980b630f3622eed9ca885d5c46abeb",
+      "queries": {
+        "natural": "Global provider wins imported controllers providers module existing searched existing issues Current behavior dynamic module exposes global imported feature module provider token class Providers feature module imported instance Controllers feature module global instance Reproduction console output Runtime instrumentation optional confirmed two distinct instances module Consumer Logger prefix Instance global feature stable regardless import order without feature module Minimum reproduction code",
+        "stemblind": "Global provider wins imported controllers providers module existing searched existing issues Current behavior dynamic module exposes global imported module provider token class Providers module imported instance Controllers module global instance Reproduction console output Runtime instrumentation optional confirmed two distinct instances module Consumer Logger prefix Instance global stable regardless import order without module Minimum reproduction code Steps reproduce pnpm reports ignored"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/core/injector/injector.ts"
+      ],
+      "changedAll": [
+        "integration/injector/e2e/for-root-for-feature-resolution.spec.ts",
+        "packages/core/injector/injector.ts",
+        "packages/core/test/injector/injector.spec.ts"
+      ],
+      "droppedForLeak": [
+        "feature"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17040,
+      "title": "fix(core): prevent partial resource cleanup when a shutdown hook rejects",
+      "querySource": "issue#17039",
+      "base": "601e23907e468454e5fb4e512a3c702d01982ae3",
+      "mergeCommit": "6d3f3c04aa94083e367ff430342b55ebf3227c70",
+      "queries": {
+        "natural": "Shutdown lifecycle hooks skip remaining providers one throws Promise fail fast existing searched existing issues Current behavior provider hook throws rejects fails fast following seem silently skipped remaining providers module transient scoped providers module module class instance hook subsequent modules shutdown sequence means connections file handles message queue connections etc left open shutdown Minimum reproduction code Steps reproduce Register two",
+        "stemblind": "lifecycle skip remaining providers one throws Promise fail fast existing searched existing issues Current behavior provider throws rejects fails fast following seem silently skipped remaining providers transient scoped providers class instance subsequent modules sequence means connections file handles message queue connections etc left open Minimum reproduction code Steps reproduce Register two providers implement Make first provider Send SIGTERM call Observe"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/core/hooks/before-app-shutdown.hook.ts",
+        "packages/core/hooks/on-app-shutdown.hook.ts",
+        "packages/core/hooks/on-module-destroy.hook.ts"
+      ],
+      "changedAll": [
+        "packages/core/hooks/before-app-shutdown.hook.ts",
+        "packages/core/hooks/on-app-shutdown.hook.ts",
+        "packages/core/hooks/on-module-destroy.hook.ts",
+        "packages/core/test/hooks/before-app-shutdown.hook.spec.ts",
+        "packages/core/test/hooks/on-app-shutdown.hook.spec.ts",
+        "packages/core/test/hooks/on-module-destroy.hook.spec.ts"
+      ],
+      "droppedForLeak": [
+        "shutdown",
+        "hooks",
+        "hook",
+        "module"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17239,
+      "title": "fix(core): trigger teardown of SSE producer Observable on client disconnect with interceptor",
+      "querySource": "issue#17190",
+      "base": "78c7d6924e536bc3321aae143ee2b8790aebd747",
+      "mergeCommit": "053a31627b060de5e8110d6964f2bb62d32ea52d",
+      "queries": {
+        "natural": "POST Sse lifecycle regression interceptors existing searched existing issues Current behavior Follow still isn tried new release against regression test still fails one important variant SSE route interceptor current appears cover direct Promise result case client disconnects promise subscription still undefined handler records closeRequested promise Nest subscribes returned Observable immediately tears interceptor value passed RouterResponseController sse already outer Observable Nest",
+        "stemblind": "POST lifecycle regression existing searched existing issues Current behavior Follow still isn tried new release against regression still fails one important variant route interceptor current appears cover direct Promise result case client disconnects promise subscription still undefined handler records closeRequested promise Nest subscribes returned Observable immediately tears interceptor value passed RouterResponseController already outer Observable Nest interceptor pipeline outer Observable defers"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "integration/nest-application/sse/e2e/utils.ts",
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/interceptors/interceptors-consumer.ts"
+      ],
+      "changedAll": [
+        "integration/nest-application/sse/e2e/express.spec.ts",
+        "integration/nest-application/sse/e2e/fastify.spec.ts",
+        "integration/nest-application/sse/e2e/utils.ts",
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/interceptors/interceptors-consumer.ts",
+        "packages/core/test/interceptors/interceptors-consumer.spec.ts",
+        "packages/core/test/router/router-response-controller.spec.ts"
+      ],
+      "droppedForLeak": [
+        "sse",
+        "interceptors",
+        "test"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17241,
+      "title": "feat(core): include auto-converted route in legacy route path warning",
+      "querySource": "pr",
+      "base": "e8eb1bc8fd388dab98fa8dab952b9f65b49863b5",
+      "mergeCommit": "78c7d6924e536bc3321aae143ee2b8790aebd747",
+      "queries": {
+        "natural": "feat core include auto converted route legacy route path warning commit message follows guidelines Tests changes added Docs added updated applicable warning message Type Bugfix improvement current behavior warning prints offending often global prefixed path nobody ever wrote actually code wildcard matcher prefix prepended Nest user greps codebase locate offending call find nothing Worse matcher frequently lives inside third party",
+        "stemblind": "feat include auto converted path warning commit message follows guidelines Tests changes added Docs added updated applicable warning message Type Bugfix improvement current behavior warning prints offending often global prefixed path nobody ever wrote actually code wildcard matcher prefix prepended Nest user greps codebase locate offending call find nothing Worse matcher frequently lives inside third party module developer owns neither"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/core/router/legacy-route-converter.ts"
+      ],
+      "changedAll": [
+        "packages/core/router/legacy-route-converter.ts",
+        "packages/core/test/router/legacy-route-converter.spec.ts"
+      ],
+      "droppedForLeak": [
+        "core",
+        "route",
+        "legacy"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17257,
+      "title": "fix(common): Add missing exception classes to HttpErrorByCode",
+      "querySource": "pr",
+      "base": "5367c403d2721867263a9283fcc5b549ef4d900a",
+      "mergeCommit": "5f2e2552399896e3e1b1ebde1e48a40718ffd1f2",
+      "queries": {
+        "natural": "common Add missing exception classes HttpErrorByCode check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior map missing classes exist disk exported absent type union Using pipe",
+        "stemblind": "Add missing exception classes HttpErrorByCode check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior map missing classes exist disk exported absent type union Using pipe options causes"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/common/utils/http-error-by-code.util.ts"
+      ],
+      "changedAll": [
+        "packages/common/test/utils/http-error-by-code.util.spec.ts",
+        "packages/common/utils/http-error-by-code.util.ts"
+      ],
+      "droppedForLeak": [
+        "common",
+        "code"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17207,
+      "title": "fix(microservices): skip function-valued members in scanForClientHooks (match #17188)",
+      "querySource": "pr",
+      "base": "bd3f4db68770632990ab551dcd5f772792ebe5e3",
+      "mergeCommit": "3c73ed03516662643789163bccd5d6314c0a4f48",
+      "queries": {
+        "natural": "microservices skip function valued members scanForClientHooks match guards method members comes always string guard dead code function valued members never skipped client metadata read microservices twin websockets correct type guard check value key applied identical websockets microservices explorer left untouched Verified ways regression test fails old guard function valued member surfaces client hook passes existing tests stay green passing exits",
+        "stemblind": "skip function valued members scanForClientHooks match guards method members comes always string guard dead code function valued members never skipped client read twin websockets correct type guard check value key applied identical websockets left untouched Verified ways regression fails old guard function valued member surfaces client hook passes existing tests stay green passing exits"
+      },
+      "stemblindWords": 54,
+      "gold": [
+        "packages/microservices/listener-metadata-explorer.ts"
+      ],
+      "changedAll": [
+        "packages/microservices/listener-metadata-explorer.ts",
+        "packages/microservices/test/listeners-metadata-explorer.spec.ts"
+      ],
+      "droppedForLeak": [
+        "microservices",
+        "metadata",
+        "explorer",
+        "test"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17188,
+      "title": "fix(websockets): correct type guard to check value not key",
+      "querySource": "pr",
+      "base": "57d74129159a9e137861dc01def49e52653b9a80",
+      "mergeCommit": "7daddc5fa3dec65080bfbd12d0eb389a03a3c492",
+      "queries": {
+        "natural": "websockets correct type guard check value key check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior GatewayMetadataExplorer scanForServerHooks isFunction guard checks always string instead actual property",
+        "stemblind": "correct type guard check value key check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior scanForServerHooks isFunction guard checks always string instead actual property value guard"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/websockets/gateway-metadata-explorer.ts"
+      ],
+      "changedAll": [
+        "packages/websockets/gateway-metadata-explorer.ts"
+      ],
+      "droppedForLeak": [
+        "websockets",
+        "gatewaymetadataexplorer"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17138,
+      "title": "fix(platform-fastify): fouRoutes middleware ending slash ",
+      "querySource": "pr",
+      "base": "426ed52ed743d10e10336b9361b715d1efb4e3e2",
+      "mergeCommit": "85206421330005c6118caa7eb868ca0961405570",
+      "queries": {
+        "natural": "platform fastify fouRoutes middleware ending slash check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information",
+        "stemblind": "platform fouRoutes ending slash check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information"
+      },
+      "stemblindWords": 54,
+      "gold": [
+        "packages/platform-fastify/adapters/fastify-adapter.ts"
+      ],
+      "changedAll": [
+        "integration/hello-world/e2e/middleware-fastify.spec.ts",
+        "packages/platform-fastify/adapters/fastify-adapter.ts"
+      ],
+      "droppedForLeak": [
+        "fastify",
+        "middleware"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17131,
+      "title": "fix(core): sse async handlers teardown issue",
+      "querySource": "pr",
+      "base": "c721cd7b19a085383ed751f1b5a9af207576c8fb",
+      "mergeCommit": "426ed52ed743d10e10336b9361b715d1efb4e3e2",
+      "queries": {
+        "natural": "core sse async handlers teardown check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information",
+        "stemblind": "async handlers teardown check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information"
+      },
+      "stemblindWords": 53,
+      "gold": [
+        "integration/nest-application/sse/e2e/utils.ts",
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/router/router-response-controller.ts"
+      ],
+      "changedAll": [
+        "integration/nest-application/sse/e2e/express.spec.ts",
+        "integration/nest-application/sse/e2e/fastify.spec.ts",
+        "integration/nest-application/sse/e2e/utils.ts",
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/router/router-response-controller.ts",
+        "packages/core/test/router/router-response-controller.spec.ts"
+      ],
+      "droppedForLeak": [
+        "core",
+        "sse"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17107,
+      "title": "fix(common): include field paths in standard schema validation errors",
+      "querySource": "pr",
+      "base": "d1b055eab9cb3f89774b3d55e72bd95c8f0628ab",
+      "mergeCommit": "601e23907e468454e5fb4e512a3c702d01982ae3",
+      "queries": {
+        "natural": "common include field paths standard schema validation errors Problem default pipe invalid requests return flat array paths even nested fields like Standard Schema issues already include optional data default factory mapping dropping path context entirely Without paths clients cannot tell message belongs fields Minimal repro NestJS Zod ESM Example several invalid nested fields returns messages cannot mapped back default exception",
+        "stemblind": "include field paths errors Problem default invalid requests return flat array paths even nested fields like issues already include optional data default factory mapping dropping path context entirely Without paths clients cannot tell message belongs fields Minimal repro NestJS Zod ESM Example several invalid nested fields returns messages cannot mapped back default exception factory errors include field paths flattened strings"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/common/pipes/standard-schema-validation.pipe.ts"
+      ],
+      "changedAll": [
+        "packages/common/pipes/standard-schema-validation.pipe.ts",
+        "packages/common/test/pipes/standard-schema-validation.pipe.spec.ts"
+      ],
+      "droppedForLeak": [
+        "common",
+        "standard",
+        "schema",
+        "validation",
+        "pipe"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17099,
+      "title": "fix(core): post sse endpoint empty response #17098",
+      "querySource": "pr",
+      "base": "442aae396c77562208695f586d1437e5ffc3f7ea",
+      "mergeCommit": "16e21c13541dc8cb7db34d27594f31f75f5f5ce1",
+      "queries": {
+        "natural": "core post sse endpoint empty response check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information",
+        "stemblind": "post endpoint empty check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information"
+      },
+      "stemblindWords": 53,
+      "gold": [
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/router/router-response-controller.ts"
+      ],
+      "changedAll": [
+        "integration/nest-application/sse/e2e/express.spec.ts",
+        "integration/nest-application/sse/e2e/fastify.spec.ts",
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/router/router-response-controller.ts",
+        "packages/core/test/router/router-execution-context.spec.ts",
+        "packages/core/test/router/router-response-controller.spec.ts"
+      ],
+      "droppedForLeak": [
+        "core",
+        "sse",
+        "response"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17094,
+      "title": "fix(platform-fastify): remove pathname ending slash",
+      "querySource": "pr",
+      "base": "7fc8fa69a893bd1a6da2d9eb0e4fb5a3cf2dd766",
+      "mergeCommit": "3a1da4974476e42913cb6f837e2270ed5f14ec37",
+      "queries": {
+        "natural": "platform fastify remove pathname ending slash check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information",
+        "stemblind": "platform remove pathname ending slash check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information"
+      },
+      "stemblindWords": 55,
+      "gold": [
+        "packages/platform-fastify/adapters/fastify-adapter.ts"
+      ],
+      "changedAll": [
+        "integration/hello-world/e2e/middleware-fastify.spec.ts",
+        "packages/platform-fastify/adapters/fastify-adapter.ts"
+      ],
+      "droppedForLeak": [
+        "fastify"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17091,
+      "title": "chore(fastify): remove invalid eslint directive",
+      "querySource": "pr",
+      "base": "817560fedfaa70dd12e91d19ac0fced61d63792e",
+      "mergeCommit": "7fc8fa69a893bd1a6da2d9eb0e4fb5a3cf2dd766",
+      "queries": {
+        "natural": "chore fastify remove invalid eslint directive check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce describe code cleanup current behavior contains invalid ESLint directive comment new behavior Removes invalid directive file passes lint without introduce breaking change information Verified",
+        "stemblind": "chore remove invalid eslint directive check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce describe code cleanup current behavior contains invalid ESLint directive comment new behavior Removes invalid directive file passes lint without introduce breaking change information Verified"
+      },
+      "stemblindWords": 51,
+      "gold": [
+        "packages/platform-fastify/adapters/middie/fastify-middie.ts"
+      ],
+      "changedAll": [
+        "packages/platform-fastify/adapters/middie/fastify-middie.ts"
+      ],
+      "droppedForLeak": [
+        "fastify"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17018,
+      "title": "fix(core): register SSE close listener before async setup",
+      "querySource": "issue#17017",
+      "base": "1cbed79f7c68709e71a89df7c12e64c625eb3648",
+      "mergeCommit": "c1ba9c251b5f57ffb711b894ec5946fbfa567ffe",
+      "queries": {
+        "natural": "SSE listener registered late disconnects missed listeners leak existing searched existing issues Current behavior attaches request listener Observable subscription created creates two concrete problems current branch handler returns client disconnects promise event missed SSE setup still continue request already gone observable completes synchronously enough completion path removes listener added runs afterward leaves stale listener attached completed request object relevant code",
+        "stemblind": "listener registered late disconnects missed listeners leak existing searched existing issues Current behavior attaches request listener Observable subscription created creates two concrete problems current branch returns client disconnects promise event missed setup still continue request already gone observable completes synchronously enough completion path removes listener added runs afterward leaves stale listener attached completed request object relevant code currently subscription creation"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "integration/nest-application/sse/e2e/utils.ts",
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/helpers/handler-metadata-storage.ts",
+        "packages/core/router/router-execution-context.ts",
+        "packages/core/router/router-response-controller.ts"
+      ],
+      "changedAll": [
+        "integration/nest-application/sse/e2e/express.spec.ts",
+        "integration/nest-application/sse/e2e/fastify.spec.ts",
+        "integration/nest-application/sse/e2e/utils.ts",
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/helpers/handler-metadata-storage.ts",
+        "packages/core/router/router-execution-context.ts",
+        "packages/core/router/router-response-controller.ts",
+        "packages/core/test/router/router-execution-context.spec.ts",
+        "packages/core/test/router/router-response-controller.spec.ts"
+      ],
+      "droppedForLeak": [
+        "sse",
+        "handler"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17024,
+      "title": "fix(microservices): reject pending Redis requests on close",
+      "querySource": "issue#17016",
+      "base": "83ca41f2bf75af85ab184285a153c0c674e14554",
+      "mergeCommit": "98c3a31044ad29e8b8ae3e56072ad815d9a9acb5",
+      "queries": {
+        "natural": "send never errors connection drops routingMap cleared existing searched existing issues Current behavior Redis connection drops unexpectedly called flight requests callbacks never invoked returned hangs forever error completion lead memory leak Minimum reproduction code Steps reproduce Set make call observable yet completed Kill Redis server call observable never errors completes Expected behavior Pending observables error something like rather hanging indefinitely",
+        "stemblind": "send never errors connection drops routingMap cleared existing searched existing issues Current behavior connection drops unexpectedly called flight requests callbacks never invoked returned hangs forever error completion lead memory leak Minimum reproduction code Steps reproduce Set make call observable yet completed Kill server call observable never errors completes Expected behavior Pending observables error something like rather hanging indefinitely already handles"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/microservices/client/client-redis.ts"
+      ],
+      "changedAll": [
+        "packages/microservices/client/client-redis.ts",
+        "packages/microservices/test/client/client-redis.spec.ts"
+      ],
+      "droppedForLeak": [
+        "redis"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17026,
+      "title": "docs(common): add JSDoc to Req and Res aliases",
+      "querySource": "pr",
+      "base": "ad0d7788f2022485b6ae7a52f1a8cfd68cd282f8",
+      "mergeCommit": "3b32e0d083cd433ecca2ee584111ebf569a46e25",
+      "queries": {
+        "natural": "docs common add JSDoc Req Res aliases check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe Documentation current behavior Req Res aliases Request Response currently lack JSDoc comments",
+        "stemblind": "docs add JSDoc Req Res aliases check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe Documentation current behavior Req Res aliases Request Response currently lack JSDoc comments Number"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "packages/common/decorators/http/route-params.decorator.ts"
+      ],
+      "changedAll": [
+        "packages/common/decorators/http/route-params.decorator.ts"
+      ],
+      "droppedForLeak": [
+        "common"
+      ]
+    }
+  ]
+}

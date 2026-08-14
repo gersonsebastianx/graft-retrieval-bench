@@ -1,0 +1,12 @@
+# Cloned corpora — 1.1GB, fully reproducible from bench/corpus.json via fetch-prs.mjs
+repos/
+
+node_modules/
+
+# OS noise
+.DS_Store
+*.log
+
+# NOT ignored, on purpose:
+#   data/cases/*.json   the case sets — the ground truth, must be auditable
+#   results/*.json      the measured runs — the evidence

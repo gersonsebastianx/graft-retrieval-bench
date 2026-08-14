@@ -1,0 +1,1456 @@
+{
+  "repo": {
+    "id": "django",
+    "slug": "django/django",
+    "lang": "python",
+    "exts": [
+      ".py"
+    ],
+    "note": "Appears in Graft's own SWE-bench examples (django-11532, django-16263)."
+  },
+  "generatedAt": "2026-08-14T01:15:34.201Z",
+  "rejected": {
+    "title": 2,
+    "files": 78,
+    "base": 0,
+    "query": 1,
+    "leak": 0
+  },
+  "cases": [
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21746,
+      "title": "Fixed #37254 -- Added fields.E323 for models referenced by ManyToManyFields.",
+      "querySource": "pr",
+      "base": "082b3df4067c3899dd4d57e8c2eca5baea9d07bb",
+      "mergeCommit": "c6be0bf3bb744d234947cefd6def9f31d9655800",
+      "queries": {
+        "natural": "Added fields E323 models referenced ManyToManyFields Trac ticket number ticket Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number applicable ends period see guidelines requested request automated review",
+        "stemblind": "Added E323 referenced ManyToManyFields Trac ticket number ticket Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number applicable ends period see guidelines requested request automated review"
+      },
+      "stemblindWords": 50,
+      "gold": [
+        "django/db/models/fields/related.py"
+      ],
+      "changedAll": [
+        "django/db/models/fields/related.py",
+        "docs/ref/checks.txt",
+        "docs/releases/6.1.1.txt",
+        "tests/invalid_models_tests/test_relative_fields.py"
+      ],
+      "droppedForLeak": [
+        "fields",
+        "models"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21759,
+      "title": "Fixed #37270, #24580 -- Fixed incorrect values for second-degree relations in ModelAdmin.list_display.",
+      "querySource": "pr",
+      "base": "6df8fe3bc1879265958b8e59c637a4145995e93c",
+      "mergeCommit": "082b3df4067c3899dd4d57e8c2eca5baea9d07bb",
+      "queries": {
+        "natural": "incorrect values second degree relations ModelAdmin list_display Trac ticket number ticket ticket Branch Django shows icons second degree attempt avoid specializing exposed infelicity branch second degree fields wasn problematic Follow solve Regression RobKuipers work Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit",
+        "stemblind": "incorrect values second degree relations ModelAdmin Trac ticket number ticket ticket Branch shows icons second degree attempt avoid specializing exposed infelicity branch second degree fields wasn problematic Follow solve Regression RobKuipers work Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/admin/templatetags/admin_list.py"
+      ],
+      "changedAll": [
+        "django/contrib/admin/templatetags/admin_list.py",
+        "docs/releases/6.1.1.txt",
+        "tests/admin_changelist/models.py",
+        "tests/admin_changelist/tests.py"
+      ],
+      "droppedForLeak": [
+        "list_display",
+        "django"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21755,
+      "title": "Fixed #37264 -- Handled malformed _source_model values in admin popup add views.",
+      "querySource": "pr",
+      "base": "2b4c88b2ce753a44b5ba867e5e52a20e07b258e6",
+      "mergeCommit": "616e8c52ded7f4c7b00cae5a95f5a5d12a6a39b9",
+      "queries": {
+        "natural": "Handled malformed _source_model values admin popup add views Trac ticket number ticket Branch unpacked parameter error handling value without dot separator like raised returned HTTP object already saved handles together existing branch invalid values falling back default popup response error message instead crashing Regression Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output Claude Fable",
+        "stemblind": "Handled malformed _source_model values popup add views Trac ticket number ticket Branch unpacked parameter error handling value without dot separator like raised returned HTTP object already saved handles together existing branch invalid values falling back default popup response error message instead crashing Regression Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output Claude Fable nearly"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/admin/options.py"
+      ],
+      "changedAll": [
+        "django/contrib/admin/options.py",
+        "tests/admin_views/tests.py"
+      ],
+      "droppedForLeak": [
+        "admin"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21747,
+      "title": "Fixed #37257, Refs #35738 -- Prevented double-dot deprecation warnings for template literals.",
+      "querySource": "pr",
+      "base": "c9eb16a87e60c305fb3651459639f647cce498db",
+      "mergeCommit": "b5388a3a80cafcce2e34196d8e81cf5b48eb33bb",
+      "queries": {
+        "natural": "Refs Prevented double dot deprecation warnings template literals Trac ticket number ticket Branch deprecation warning double dot variable lookups checked constants literal value rather lookup expression Templates containing string translated numeric literals two consecutive dots therefore emitted spurious even though variable lookup involved breaking test suites run error putting valid templates track become hard errors Django check now fires filter",
+        "stemblind": "Refs Prevented double dot deprecation warnings literals Trac ticket number ticket Branch deprecation warning double dot variable lookups checked constants literal value rather lookup expression Templates containing string translated numeric literals two consecutive dots therefore emitted spurious even though variable lookup involved breaking suites run error putting valid templates track become hard errors check now fires filter expression variable actual"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/template/base.py"
+      ],
+      "changedAll": [
+        "django/template/base.py",
+        "docs/releases/6.1.1.txt",
+        "tests/template_tests/syntax_tests/test_basic.py"
+      ],
+      "droppedForLeak": [
+        "template",
+        "test",
+        "django"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21235,
+      "title": "Fixed #36784 -- Added csp_nonce_attr template tag for CSP nonce inclusion.",
+      "querySource": "pr",
+      "base": "21de00b097187d1e4e479ea877df64bee22b60c9",
+      "mergeCommit": "5686ce41958b21f0ae5bfa290e8d4420a6349c1b",
+      "queries": {
+        "natural": "Added csp_nonce_attr template tag CSP nonce inclusion Trac ticket number ticket Branch New default tag added explicit CSP nonce inclusion elements renders present template context renders nothing otherwise renders object assets nonce attr applied tag Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output Claude Sonnet used mechanical work renames doing general review code consistency",
+        "stemblind": "Added tag inclusion Trac ticket number ticket Branch New default tag added explicit inclusion elements renders present renders nothing otherwise renders object assets applied tag Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output Claude Sonnet used mechanical work renames doing general review code consistency accuracy follows contribution guidelines disclose security vulnerability see vulnerability reporting"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/forms/widgets.py",
+        "django/template/context_processors.py",
+        "django/template/defaulttags.py",
+        "django/utils/csp.py"
+      ],
+      "changedAll": [
+        "django/forms/widgets.py",
+        "django/template/context_processors.py",
+        "django/template/defaulttags.py",
+        "django/utils/csp.py",
+        "docs/howto/csp.txt",
+        "docs/ref/csp.txt",
+        "docs/ref/templates/builtins.txt",
+        "docs/releases/6.1.txt",
+        "docs/topics/forms/media.txt",
+        "tests/forms_tests/tests/test_media.py",
+        "tests/template_tests/syntax_tests/test_csp_nonce_attr.py"
+      ],
+      "droppedForLeak": [
+        "csp_nonce_attr",
+        "template",
+        "csp",
+        "nonce",
+        "context",
+        "attr"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21239,
+      "title": "Fixed #37085 -- Added support for object-based form media stylesheet assets.",
+      "querySource": "pr",
+      "base": "21c51c2623a966ba1ad8fd10e36bc8bbec93b70e",
+      "mergeCommit": "8096b5251090bf7539c59956e398b027c7525529",
+      "queries": {
+        "natural": "Added support object based form media stylesheet assets Trac ticket number ticket Branch Extracted Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period see guidelines requested request automated review checked patch ticket flag Trac",
+        "stemblind": "Added support object based form stylesheet assets Trac ticket number ticket Branch Extracted Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period see guidelines requested request automated review checked patch ticket flag Trac system"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/forms/widgets.py"
+      ],
+      "changedAll": [
+        "django/forms/widgets.py",
+        "docs/releases/6.1.txt",
+        "docs/topics/forms/media.txt",
+        "tests/forms_tests/tests/test_media.py"
+      ],
+      "droppedForLeak": [
+        "media"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21725,
+      "title": "Refs #36905 -- Fixed outdated docs for JSONResponse safe parameter.",
+      "querySource": "pr",
+      "base": "4243ab11dc957fd14a1875e6b715ff5e6114a415",
+      "mergeCommit": "c9eb16a87e60c305fb3651459639f647cce498db",
+      "queries": {
+        "natural": "Refs outdated docs JSONResponse safe parameter Trac ticket number ticket Branch Follow deprecation parameter docstring reference docs still described defaulting restricted default contradicts current behavior page Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output tools used Claude Code identified inconsistency drafted patch reviewed verified changes against current implementation follows contribution guidelines disclose security vulnerability",
+        "stemblind": "Refs outdated JSONResponse safe parameter Trac ticket number ticket Branch Follow deprecation parameter docstring reference still described defaulting restricted default contradicts current behavior page Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output tools used Claude Code identified inconsistency drafted patch reviewed verified changes against current implementation follows contribution guidelines disclose security vulnerability see vulnerability"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/http/response.py"
+      ],
+      "changedAll": [
+        "django/http/response.py",
+        "docs/ref/request-response.txt"
+      ],
+      "droppedForLeak": [
+        "docs"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 20811,
+      "title": "Fixed #29969 -- Omitted inlines without add permission on save-as-new.",
+      "querySource": "pr",
+      "base": "dfc52e53f1d19a2730854d68b602fb4dba8bf0c5",
+      "mergeCommit": "89e82866dc2746383c336c7b10e050b9da3ae1ef",
+      "queries": {
+        "natural": "Omitted inlines without add permission save new Trac ticket number ticket Branch admin behavior view inlines POSTs parent cleared early cause view inline formsets render parent form displayed validation error path rerender flow Clear initial total form counts user doesn add permission inline using copy submitted formset data regression test covers save new parent validation error view inline custom implementation",
+        "stemblind": "Omitted inlines without add permission save new Trac ticket number ticket Branch behavior view inlines POSTs parent cleared early cause view inline formsets render parent form displayed validation error path rerender flow Clear initial total form counts user doesn add permission inline using copy submitted formset data regression test covers save new parent validation error view inline custom implementation returning"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/admin/options.py"
+      ],
+      "changedAll": [
+        "django/contrib/admin/options.py",
+        "tests/admin_views/tests.py"
+      ],
+      "droppedForLeak": [
+        "admin"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21735,
+      "title": "Added missing lang override in translation fetching helper for Serbian (Latin script).",
+      "querySource": "pr",
+      "base": "8f52e9199b260cdacc5ad372692cddf2dcf76558",
+      "mergeCommit": "30ebe0001c1d10bebc68567f796d821f7b309f4d",
+      "queries": {
+        "natural": "Added missing lang override translation fetching helper Serbian Latin script See Without override script fetched files skipped compilation locale",
+        "stemblind": "Added missing lang override translation fetching helper Serbian Latin script See Without override script fetched files skipped compilation locale"
+      },
+      "stemblindWords": 19,
+      "gold": [
+        "scripts/manage_translations.py"
+      ],
+      "changedAll": [
+        "scripts/manage_translations.py"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21694,
+      "title": "Fixed #37239 -- Cleared stale db_default when pk comes from related object expression.",
+      "querySource": "pr",
+      "base": "f00270d05e3510f2edc8ae012418d1dfe34d99f5",
+      "mergeCommit": "cef2346abf8d6e9e61a5a3599fbcf72163e6a6e5",
+      "queries": {
+        "natural": "Cleared stale db_default comes related object expression Trac ticket number ticket Branch stale object lingered related object assigned second object ultimately causing db_default expression evaluated second object saved instead related object used Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written",
+        "stemblind": "Cleared stale db_default comes related object expression Trac ticket number ticket Branch stale object lingered related object assigned second object ultimately causing db_default expression evaluated second object saved instead related object used Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/db/models/base.py"
+      ],
+      "changedAll": [
+        "django/db/models/base.py",
+        "tests/field_defaults/models.py",
+        "tests/field_defaults/tests.py"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21663,
+      "title": "Refs #36735 -- Added DatabaseFeatures.supports_uuid4_function_in_default feature flag.",
+      "querySource": "pr",
+      "base": "7d75c0b9285f0e29cb796c647cc27f2076f9d49c",
+      "mergeCommit": "f00270d05e3510f2edc8ae012418d1dfe34d99f5",
+      "queries": {
+        "natural": "Refs Added DatabaseFeatures supports_uuid4_function_in_default feature flag ticket test failing test runs Oracle supported UUID SELECT contexts use column defaults fails Earlier manually tested SELECT contexts",
+        "stemblind": "Refs Added DatabaseFeatures supports_uuid4_function_in_default feature flag ticket test failing test runs supported UUID SELECT contexts use column defaults fails Earlier manually tested SELECT contexts"
+      },
+      "stemblindWords": 24,
+      "gold": [
+        "django/db/backends/base/features.py",
+        "django/db/backends/mysql/features.py",
+        "django/db/backends/oracle/features.py",
+        "django/db/backends/postgresql/features.py",
+        "django/db/backends/sqlite3/features.py"
+      ],
+      "changedAll": [
+        "django/db/backends/base/features.py",
+        "django/db/backends/mysql/features.py",
+        "django/db/backends/oracle/features.py",
+        "django/db/backends/postgresql/features.py",
+        "django/db/backends/sqlite3/features.py",
+        "tests/inline_formsets/models.py",
+        "tests/inline_formsets/tests.py"
+      ],
+      "droppedForLeak": [
+        "oracle"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21696,
+      "title": "Refs #28586 -- Renamed RAISE fetch mode to FETCH_RAISE.",
+      "querySource": "pr",
+      "base": "5637bec7a033d67407694316bdda74304449488e",
+      "mergeCommit": "7dee35f5eea131ddf807788c533da1264e571c61",
+      "queries": {
+        "natural": "Refs Renamed RAISE fetch mode FETCH_RAISE charettes idea prevent confusion particularly namespace grouping three fetch modes related made realize potentially rename given exposed global namespace given many different interpretation attempted used Thoughts",
+        "stemblind": "Refs Renamed RAISE mode charettes idea prevent confusion particularly namespace grouping three related made realize potentially rename given exposed global namespace given many different interpretation attempted used Thoughts"
+      },
+      "stemblindWords": 28,
+      "gold": [
+        "django/db/models/__init__.py",
+        "django/db/models/fetch_modes.py"
+      ],
+      "changedAll": [
+        "django/db/models/__init__.py",
+        "django/db/models/fetch_modes.py",
+        "docs/ref/exceptions.txt",
+        "docs/releases/6.1.txt",
+        "docs/topics/db/fetch-modes.txt",
+        "tests/basic/tests.py",
+        "tests/defer/tests.py",
+        "tests/generic_relations/tests.py",
+        "tests/many_to_one/tests.py",
+        "tests/one_to_one/tests.py",
+        "tests/prefetch_related/tests.py",
+        "tests/queryset_pickle/tests.py",
+        "tests/raw_query/tests.py"
+      ],
+      "droppedForLeak": [
+        "fetch",
+        "fetch_raise",
+        "modes"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21712,
+      "title": "Fixed #37242 -- Fixed reading null time fields in LayerMapping.",
+      "querySource": "pr",
+      "base": "60121939f6b225c7a719dd561e372e1d8e5e2c4a",
+      "mergeCommit": "2cace96be6d64b7dde7eb66d3ffc2c7f08ef644f",
+      "queries": {
+        "natural": "reading null time fields LayerMapping Trac ticket number ticket Branch Follow Bring implementation alignment properties Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output problem diagnosis using Codex debug proposed test didn work test now follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends",
+        "stemblind": "reading null time fields LayerMapping Trac ticket number ticket Branch Follow Bring implementation alignment properties Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output problem diagnosis using Codex debug proposed didn work now follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period see"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/gis/gdal/field.py"
+      ],
+      "changedAll": [
+        "django/contrib/gis/gdal/field.py",
+        "tests/gis_tests/data/has_nulls/has_nulls.geojson",
+        "tests/gis_tests/gdal_tests/test_ds.py"
+      ],
+      "droppedForLeak": [
+        "test"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21650,
+      "title": "Fixed #36027 -- Made error response rendering thread-sensitive.",
+      "querySource": "pr",
+      "base": "2a5da9d00555beef8e5f6307cfcbfc029d45491e",
+      "mergeCommit": "6fc8150005256db2052b01812d65dff737563a1b",
+      "queries": {
+        "natural": "Made error response rendering thread sensitive Trac ticket number ticket Branch Error response handling frequently makes use database use request specific connection sensitive worker thread Previously response_for_exception dispatched event loop default executor potentially leads pool exhaustion deadlock using database pooling options large number permanently held open database connections using pooling Connections held open subject cleanup server side reported connection seen",
+        "stemblind": "Made error response rendering thread sensitive Trac ticket number ticket Branch Error response handling frequently makes use database use request specific connection sensitive worker thread Previously dispatched event loop default executor potentially leads pool exhaustion deadlock using database pooling options large number permanently held open database connections using pooling Connections held open subject cleanup server side reported connection seen application"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/staticfiles/handlers.py",
+        "django/core/handlers/exception.py"
+      ],
+      "changedAll": [
+        "django/contrib/staticfiles/handlers.py",
+        "django/core/handlers/exception.py",
+        "docs/releases/6.2.txt",
+        "tests/asgi/tests.py",
+        "tests/asgi/urls.py",
+        "tests/staticfiles_tests/test_handlers.py"
+      ],
+      "droppedForLeak": [
+        "response_for_exception"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21310,
+      "title": "Fixed #36626 -- geodjango -- Preserved milliseconds when parsing GPX …",
+      "querySource": "pr",
+      "base": "ea303dee45f4b703b31f73ceb235f11742d3c518",
+      "mergeCommit": "60121939f6b225c7a719dd561e372e1d8e5e2c4a",
+      "queries": {
+        "natural": "geodjango Preserved milliseconds parsing GPX Trac ticket number ticket Branch parsing time fields read export GPX files include milliseconds seconds using another GDAL wrapped API GetFieldAsDateTimeEx Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output Codex better understanding follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions",
+        "stemblind": "geodjango Preserved milliseconds parsing GPX Trac ticket number ticket Branch parsing time fields read export GPX files include milliseconds seconds using another wrapped API GetFieldAsDateTimeEx Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output Codex better understanding follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/gis/gdal/field.py",
+        "django/contrib/gis/gdal/prototypes/ds.py"
+      ],
+      "changedAll": [
+        "django/contrib/gis/gdal/field.py",
+        "django/contrib/gis/gdal/prototypes/ds.py",
+        "docs/ref/contrib/gis/gdal.txt",
+        "docs/releases/6.2.txt",
+        "tests/gis_tests/data/has_nulls/has_nulls.geojson",
+        "tests/gis_tests/gdal_tests/test_ds.py"
+      ],
+      "droppedForLeak": [
+        "gdal"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21709,
+      "title": "Fixed #37236 -- Allowed altering spatial indexes on RasterField.",
+      "querySource": "pr",
+      "base": "06463d3c11b3ce132075283d5f9368a269d66343",
+      "mergeCommit": "ea303dee45f4b703b31f73ceb235f11742d3c518",
+      "queries": {
+        "natural": "Allowed altering spatial indexes RasterField Trac ticket number ticket Branch PostGIS treated toggling indexes never added removed alter Use geometry raster fields handled Raster index SQL already uses Assistance Disclosure REQUIRED tools used disclosed ones fully reviewed verified output tools Codex assisted implementation independent read review code tests reviewed verified manually submission follows contribution guidelines disclose security vulnerability see vulnerability",
+        "stemblind": "Allowed altering spatial indexes RasterField Trac ticket number ticket Branch treated toggling indexes never added removed alter Use geometry raster fields handled Raster index SQL already uses Assistance Disclosure REQUIRED tools used disclosed ones fully reviewed verified output tools Codex assisted implementation independent read review code reviewed verified manually submission follows contribution guidelines disclose security vulnerability see vulnerability reporting targets"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/gis/db/backends/postgis/schema.py"
+      ],
+      "changedAll": [
+        "AUTHORS",
+        "django/contrib/gis/db/backends/postgis/schema.py",
+        "tests/gis_tests/gis_migrations/test_operations.py"
+      ],
+      "droppedForLeak": [
+        "postgis",
+        "tests"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21693,
+      "title": "Fixed #37238 -- Fixed unintentional fallback to python default for a db_default.",
+      "querySource": "pr",
+      "base": "9465349120ef8a0b0689e12bcbfd05f3d173ebdf",
+      "mergeCommit": "902e5c0fb2d3f0772efbfebc8ff135926a2bb47a",
+      "queries": {
+        "natural": "unintentional fallback python default db_default Trac ticket number ticket Branch started considering count having set took different branch foreign keys primary keys MTI python default unexpectedly picked instead one database defaults apparently backend dependent Eventually suppose want commented assertion passing another kettle fish goes back farther needs triage see ticket Regression Assistance Disclosure REQUIRED tools used preparing tools used disclosed",
+        "stemblind": "unintentional fallback python default db_default Trac ticket number ticket Branch started considering count having set took different branch foreign keys primary keys MTI python default unexpectedly picked instead one database defaults apparently backend dependent Eventually suppose want commented assertion passing another kettle fish goes back farther needs triage see ticket Regression Assistance Disclosure REQUIRED tools used preparing tools used disclosed"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/db/models/base.py"
+      ],
+      "changedAll": [
+        "django/db/models/base.py",
+        "docs/ref/models/instances.txt",
+        "docs/releases/6.1.txt",
+        "tests/field_defaults/models.py",
+        "tests/field_defaults/tests.py"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21699,
+      "title": "Fixed #37235 -- Added compatibility for sqlparse 0.5.5.",
+      "querySource": "pr",
+      "base": "ca14173f968cf36115f22d6c6785f738de4391ed",
+      "mergeCommit": "8c83e9c0ea39099b213478a893cbebe9faa837ba",
+      "queries": {
+        "natural": "Added compatibility sqlparse Trac ticket number ticket Branch tested using existing test described ticket think requires specific test happy overturned Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number applicable ends period see guidelines requested request",
+        "stemblind": "Added compatibility sqlparse Trac ticket number ticket Branch tested using existing test described ticket think requires specific test happy overturned Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number applicable ends period see guidelines requested request"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/db/backends/base/operations.py"
+      ],
+      "changedAll": [
+        "django/db/backends/base/operations.py",
+        "docs/releases/6.0.8.txt"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21700,
+      "title": "Fixed #37240 -- Fixed simplify_regex() with multiple unnamed groups.",
+      "querySource": "pr",
+      "base": "1c5927f04a853c79ac9b098eab92fb328ff9e4ad",
+      "mergeCommit": "ca14173f968cf36115f22d6c6785f738de4391ed",
+      "queries": {
+        "natural": "simplify_regex multiple unnamed groups Trac ticket number ticket Branch emits whole pattern prefix per capture group containing two unnamed capture groups rendered duplicated malformed path corruption compounds additional group three unnamed groups produce callers affected admindocs Views page passes straight context value management command added Cause first iteration correctly emits Every later iteration appends text between previous group one correct",
+        "stemblind": "simplify_regex multiple unnamed groups Trac ticket number ticket Branch emits whole pattern prefix per capture group containing two unnamed capture groups rendered duplicated malformed path corruption compounds additional group three unnamed groups produce callers affected admindocs Views page passes straight context value management command added Cause first iteration correctly emits Every later iteration appends text between previous group one correct"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/urls/utils.py"
+      ],
+      "changedAll": [
+        "django/urls/utils.py",
+        "tests/urlpatterns/tests.py"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21677,
+      "title": "Fixed #37234 -- Fixed bulk_create() for late-saved related primary keys.",
+      "querySource": "pr",
+      "base": "2936a0a99719e3c3777039a0d6968deecb55c752",
+      "mergeCommit": "c9ff757a55392b1f50968eb89fe775f6155168d8",
+      "queries": {
+        "natural": "bulk_create late saved related primary keys Trac ticket number ticket Branch classified objects preparing related fields related object supplied primary key saved assignment insert succeeded Django raise assertion error afterward databases return rows bulk inserts prepares related fields final classification preserving existing primary key default behavior adds regression test Django release Tested full SQLite suite tests PostgreSQL MariaDB HTML spelling",
+        "stemblind": "late saved related primary keys Trac ticket number ticket Branch classified objects preparing related fields related object supplied primary key saved assignment insert succeeded raise assertion error afterward databases return rows bulk inserts prepares related fields final classification preserving existing primary key default behavior adds regression test release Tested full SQLite suite PostgreSQL MariaDB HTML spelling documentation builds pass Assistance"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/db/models/query.py"
+      ],
+      "changedAll": [
+        "django/db/models/query.py",
+        "docs/releases/6.0.8.txt",
+        "tests/bulk_create/tests.py"
+      ],
+      "droppedForLeak": [
+        "bulk_create",
+        "django",
+        "tests"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21679,
+      "title": "Fixed #37233 -- Prevented sort controls for unordered __str__ admin columns.",
+      "querySource": "pr",
+      "base": "50e5264a458961134d34d6340a00d9a1b269df7a",
+      "mergeCommit": "92e1d9e3619ae5274a64b38f26177064486892f2",
+      "queries": {
+        "natural": "Prevented sort controls unordered __str__ admin columns Trac ticket number ticket Branch treated name containing sortable made default column show sort control even though ordering field change limits implicit sorting names values model fields keeps valid related field paths sortable without exposing sort controls columns Regression tests cover three cases Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones",
+        "stemblind": "Prevented sort controls unordered __str__ columns Trac ticket number ticket Branch treated name containing sortable made default column show sort control even though ordering field change limits implicit sorting names values model fields keeps valid related field paths sortable without exposing sort controls columns Regression cover three cases Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/admin/templatetags/admin_list.py"
+      ],
+      "changedAll": [
+        "AUTHORS",
+        "django/contrib/admin/templatetags/admin_list.py",
+        "tests/admin_changelist/tests.py",
+        "tests/admin_views/tests.py"
+      ],
+      "droppedForLeak": [
+        "admin",
+        "tests"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 20488,
+      "title": "Fixed #27752 -- Fixed ordering by Model.__str__ in the admin.",
+      "querySource": "pr",
+      "base": "e1feeee45ea8bcd4325554c9b94fcd75fcd8dbdc",
+      "mergeCommit": "2936a0a99719e3c3777039a0d6968deecb55c752",
+      "queries": {
+        "natural": "ordering Model __str__ admin Trac ticket number ticket Branch set model method using fails make column sortable happens returns generic class instead actual method causing attribute lost Updated return instead field name ensures attributes attached method like preserved respected Admin Added verify returns method correctly detected targets branch commit message written past tense mentions ticket number ends period checked patch",
+        "stemblind": "ordering Model __str__ Trac ticket number ticket Branch set model method using fails make column sortable happens returns generic class instead actual method causing attribute lost Updated return instead field name ensures attributes attached method like preserved respected Added verify returns method correctly detected targets branch commit message written past tense mentions ticket number ends period checked patch ticket flag"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/admin/utils.py",
+        "django/contrib/admin/views/main.py"
+      ],
+      "changedAll": [
+        "django/contrib/admin/utils.py",
+        "django/contrib/admin/views/main.py",
+        "tests/admin_utils/models.py",
+        "tests/admin_utils/tests.py",
+        "tests/admin_views/models.py",
+        "tests/admin_views/tests.py"
+      ],
+      "droppedForLeak": [
+        "admin"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21673,
+      "title": "Fixed #37230 -- Fixed a crash for second-degree relations in ModelAdmin.list_display.",
+      "querySource": "pr",
+      "base": "09c8b50bc8e59f7ec2d97df1bfb3fbd3ae0d4522",
+      "mergeCommit": "92470ad3742524902b29769d2c822dbe791630db",
+      "queries": {
+        "natural": "crash second degree relations ModelAdmin list_display Trac ticket number ticket Branch branch solve attribute error admin panel lookup path ends relation field Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output used github copilot regression tests follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number",
+        "stemblind": "crash second degree relations ModelAdmin Trac ticket number ticket Branch branch solve attribute error panel lookup path ends relation field Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output used github copilot regression follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number applicable ends period"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/admin/templatetags/admin_list.py",
+        "django/contrib/admin/utils.py"
+      ],
+      "changedAll": [
+        "AUTHORS",
+        "django/contrib/admin/templatetags/admin_list.py",
+        "django/contrib/admin/utils.py",
+        "tests/admin_utils/models.py",
+        "tests/admin_utils/tests.py"
+      ],
+      "droppedForLeak": [
+        "list_display",
+        "admin",
+        "tests"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21685,
+      "title": "Refs #22712 -- Restored django.contrib.staticfiles.finders.BaseFinder.find().",
+      "querySource": "pr",
+      "base": "c2517faff335f683e1cbe55d9844910b3fb40670",
+      "mergeCommit": "5e32c82a5a896e1d942cfc9dd9a2ebbe86741258",
+      "queries": {
+        "natural": "Refs Restored django contrib staticfiles finders BaseFinder find Trac ticket number ticket Branch overzealously removed need backporting stable branch Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number applicable ends period see guidelines requested request automated",
+        "stemblind": "Refs Restored BaseFinder find Trac ticket number ticket Branch overzealously removed need backporting stable branch Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number applicable ends period see guidelines requested request automated review checked patch ticket"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/staticfiles/finders.py"
+      ],
+      "changedAll": [
+        "django/contrib/staticfiles/finders.py",
+        "tests/staticfiles_tests/test_finders.py"
+      ],
+      "droppedForLeak": [
+        "django",
+        "contrib",
+        "staticfiles",
+        "finders"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21583,
+      "title": "Fixed #37198 -- Fixed content_disposition_header() quoting of filenames ending with newlines.",
+      "querySource": "pr",
+      "base": "ea6b17b4815d36f6cc7780fdec303d27997eca49",
+      "mergeCommit": "c2517faff335f683e1cbe55d9844910b3fb40670",
+      "queries": {
+        "natural": "content_disposition_header quoting filenames ending newlines Trac ticket number ticket Branch Currently regex excludes trailing new line end filename leading introduction new line resulting header Hence replaced capture till end string avoid evading Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written",
+        "stemblind": "content_disposition_header quoting filenames ending newlines Trac ticket number ticket Branch Currently regex excludes trailing new line end filename leading introduction new line resulting header Hence replaced capture till end string avoid evading Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/utils/http.py"
+      ],
+      "changedAll": [
+        "django/utils/http.py",
+        "tests/utils_tests/test_http.py"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21511,
+      "title": "Fixed #37160 -- Made admin views raise PermissionDenied consistently.",
+      "querySource": "pr",
+      "base": "8a162076e1988ddf9453edfb8329d5df1573dc38",
+      "mergeCommit": "4ea38d54c10e0f44e189605c217a55cdfe9fdde8",
+      "queries": {
+        "natural": "Made admin views raise PermissionDenied consistently Trac ticket number ticket Branch admin view_on_site history views now return HTTP response staff user lacks view change permission target model consistent changeform autocomplete views Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output Claude code used assist test writing follows contribution guidelines disclose security vulnerability see vulnerability reporting",
+        "stemblind": "Made views raise PermissionDenied consistently Trac ticket number ticket Branch view_on_site history views now return HTTP response staff user lacks view change permission target model consistent changeform autocomplete views Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output Claude code used assist test writing follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/admin/options.py",
+        "django/contrib/admin/sites.py"
+      ],
+      "changedAll": [
+        "django/contrib/admin/options.py",
+        "django/contrib/admin/sites.py",
+        "docs/releases/6.2.txt",
+        "tests/admin_views/tests.py"
+      ],
+      "droppedForLeak": [
+        "admin"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 20541,
+      "title": "Fixed #36694 -- Restored missing index options in PostGISSchemaEditor._create_spatial_index_sql().",
+      "querySource": "pr",
+      "base": "4ef959ab0c7dde0459041a795359c9bc040df2b7",
+      "mergeCommit": "76e1bca1311ae7073a1fa4add6f9d19d709f0f09",
+      "queries": {
+        "natural": "Restored missing index options PostGISSchemaEditor _create_spatial_index_sql Trac ticket number ticket Branch Provide concise overview rationale behind proposed changes Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period checked patch ticket flag Trac system added",
+        "stemblind": "Restored missing index options PostGISSchemaEditor _create_spatial_index_sql Trac ticket number ticket Branch Provide concise overview rationale behind proposed changes Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period checked patch ticket flag Trac system added"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/gis/db/backends/postgis/schema.py"
+      ],
+      "changedAll": [
+        "django/contrib/gis/db/backends/postgis/schema.py",
+        "tests/gis_tests/geoapp/test_indexes.py"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21590,
+      "title": "Fixed #37203 -- Used normalized field names in inspectdb composite primary keys.",
+      "querySource": "pr",
+      "base": "d8cedcab5241725003eef059dd76c533f24c5430",
+      "mergeCommit": "2a5da9d00555beef8e5f6307cfcbfc029d45491e",
+      "queries": {
+        "natural": "Used normalized field names inspectdb composite primary keys Trac ticket number ticket Branch builds database column names returned introspection column names later rewritten used model field names cases generated composite primary key refer original database column name instead generated model field name patch delays emitting model fields processed uses mapping already uses generated model metadata keeps related literal rendering cleanups",
+        "stemblind": "Used normalized field names composite primary keys Trac ticket number ticket Branch builds database column names returned introspection column names later rewritten used model field names cases generated composite primary key refer original database column name instead generated model field name patch delays emitting model fields processed uses mapping already uses generated model metadata keeps related literal rendering cleanups found"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/core/management/commands/inspectdb.py"
+      ],
+      "changedAll": [
+        "django/core/management/commands/inspectdb.py",
+        "tests/inspectdb/models.py",
+        "tests/inspectdb/tests.py"
+      ],
+      "droppedForLeak": [
+        "inspectdb"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21565,
+      "title": "Fixed #37093 -- Edited pull request instructions and error messages.",
+      "querySource": "pr",
+      "base": "ad289c1de4c39cc2b35748dc7a5ac84c7cbdf10a",
+      "mergeCommit": "274df4df0bca7fcfb5c1c1d49567f770df147eeb",
+      "queries": {
+        "natural": "Edited pull request instructions error messages Trac ticket number ticket Branch Edits format phrasing pull request instructions error messages aimed clarification making errors feel less alarming especially mind toward experience first time contributors Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message",
+        "stemblind": "Edited instructions error messages Trac ticket number ticket Branch Edits format phrasing instructions error messages aimed clarification making feel less alarming especially mind toward experience first time contributors Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "scripts/pr_quality/check_pr.py",
+        "scripts/pr_quality/errors.py"
+      ],
+      "changedAll": [
+        ".github/pull_request_template.md",
+        "scripts/pr_quality/check_pr.py",
+        "scripts/pr_quality/errors.py",
+        "scripts/pr_quality/tests/test_check_pr.py"
+      ],
+      "droppedForLeak": [
+        "pull",
+        "request",
+        "errors"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21157,
+      "title": "Fixed #32915 -- Suppressed fewer ImportErrors in management commands.",
+      "querySource": "pr",
+      "base": "cae38ec9b9bd394f630bdcbffa013c2761e831e9",
+      "mergeCommit": "537c6df3e641ebc21e9da76c86aea4d36e6a32e2",
+      "queries": {
+        "natural": "Suppressed fewer ImportErrors management commands Trac ticket number ticket Continued review feedback applied squash confirming review swallowed management commands regardless whether escaped settings module Now unless new attribute case error swallowed traceback appear unrelated settings module printed message related settings module bcail",
+        "stemblind": "Suppressed fewer ImportErrors Trac ticket number ticket Continued review feedback applied squash confirming review swallowed regardless whether escaped settings module Now unless new attribute case error swallowed traceback appear unrelated settings module printed message related settings module bcail"
+      },
+      "stemblindWords": 38,
+      "gold": [
+        "django/conf/__init__.py",
+        "django/core/management/__init__.py",
+        "django/core/management/base.py",
+        "django/core/management/commands/makemessages.py",
+        "django/core/management/commands/shell.py",
+        "django/core/management/commands/startapp.py",
+        "django/core/management/commands/startproject.py"
+      ],
+      "changedAll": [
+        "django/conf/__init__.py",
+        "django/core/management/__init__.py",
+        "django/core/management/base.py",
+        "django/core/management/commands/makemessages.py",
+        "django/core/management/commands/shell.py",
+        "django/core/management/commands/startapp.py",
+        "django/core/management/commands/startproject.py",
+        "docs/howto/custom-management-commands.txt",
+        "docs/releases/6.2.txt",
+        "tests/admin_scripts/tests.py",
+        "tests/settings_tests/tests.py"
+      ],
+      "droppedForLeak": [
+        "management",
+        "commands"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21606,
+      "title": "Fixed #37210 -- Logged cached_db session cache delete failures.",
+      "querySource": "pr",
+      "base": "065a4a4b8d55451c4ffba02e447faf9cf5e8d807",
+      "mergeCommit": "a486b48d4ea0d34babe58cae215b2123748aacbd",
+      "queries": {
+        "natural": "Logged cached_db session cache delete failures Trac ticket number ticket Branch session backend already handles logs cache write failures cache delete failures still allowed propagate makes cache delete failures non fatal logs them sessions logger matching existing write failure behavior adds sync async regression tests delete paths Local verification Reproduced failure new regression tests implementation change Assistance Disclosure REQUIRED tools",
+        "stemblind": "Logged session delete failures Trac ticket number ticket Branch session backend already handles logs write failures delete failures still allowed propagate makes delete failures non fatal logs them logger matching existing write failure behavior adds sync async regression delete paths Local verification Reproduced failure new regression implementation change Assistance Disclosure REQUIRED tools used disclosed ones fully reviewed verified output tools"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/sessions/backends/cached_db.py"
+      ],
+      "changedAll": [
+        "django/contrib/sessions/backends/cached_db.py",
+        "docs/topics/http/sessions.txt",
+        "tests/cache/failing_cache.py",
+        "tests/sessions_tests/tests.py"
+      ],
+      "droppedForLeak": [
+        "cached_db",
+        "cache",
+        "sessions",
+        "tests"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21553,
+      "title": "Fixed #37187, #37190 -- Pointed ModelAdmin warnings to the deprecated code.",
+      "querySource": "pr",
+      "base": "260d136920acf27dbd3cae9bc80eba2a43b44bba",
+      "mergeCommit": "2e48636c54910e435eb31e1b7d8a8089c84233ad",
+      "queries": {
+        "natural": "Pointed ModelAdmin warnings deprecated code Trac ticket number ticket ticket Branch Created utility issuing warnings particular code isn currently call stack Used deprecation warnings return value missing parameters problem warnings point rather subclass using deprecated functionality Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output PyCharm Assistant next edit suggestions general editing GPT discussing approaches",
+        "stemblind": "Pointed warnings deprecated code Trac ticket number ticket ticket Branch Created utility issuing warnings particular code isn currently call stack Used warnings return value missing parameters problem warnings point rather subclass using deprecated functionality Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output PyCharm Assistant next edit suggestions general editing GPT discussing approaches correct use"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/admin/options.py",
+        "django/utils/deprecation.py"
+      ],
+      "changedAll": [
+        "django/contrib/admin/options.py",
+        "django/utils/deprecation.py",
+        "tests/admin_views/test_actions.py",
+        "tests/deprecation/test_warn_about_implementation.py",
+        "tests/modeladmin/tests.py"
+      ],
+      "droppedForLeak": [
+        "modeladmin",
+        "deprecation"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21254,
+      "title": "Fixed #29303 -- Avoided mutating original view in non_atomic_requests().",
+      "querySource": "pr",
+      "base": "7112007fcaf7a7db8a4a6bb1d45b51d8fa41d0b7",
+      "mergeCommit": "bdbda29c3e126754c3ae04ceb5c5d35d49aae01c",
+      "queries": {
+        "natural": "Avoided mutating original view non_atomic_requests applied multiple times view function mutated attribute original function instead returning new wrapper returning based wrapper original view left untouched Trac ticket number ticket Branch bug mutated attribute original view function instead returning new wrapper patch returns based wrapper original view left untouched adds regression test includes release Assistance Disclosure REQUIRED tools used preparing tools",
+        "stemblind": "Avoided mutating original view non_atomic_requests applied multiple times view function mutated attribute original function instead returning new wrapper returning based wrapper original view left untouched Trac ticket number ticket Branch bug mutated attribute original view function instead returning new wrapper patch returns based wrapper original view left untouched adds regression test includes release Assistance Disclosure REQUIRED tools used preparing tools"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/db/transaction.py"
+      ],
+      "changedAll": [
+        "django/db/transaction.py",
+        "tests/handlers/tests.py"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21317,
+      "title": "Fixed #36864 -- Added support for module and submodule loading in import_string.",
+      "querySource": "pr",
+      "base": "f51347964a85bd4881caabf3c736b2c54d75262f",
+      "mergeCommit": "65a9f14196c338d70889bd54753370606b3fb4eb",
+      "queries": {
+        "natural": "Added support module submodule loading import_string Trac ticket number ticket Branch Adds support importing modules utils module_loading import_string function worth noting signature cached_import changed take module path load rather attempting getattr call well since seems caching functionality centered around module loading function appear documentation believe public Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output",
+        "stemblind": "Added support submodule import_string Trac ticket number ticket Branch Adds support importing modules import_string function worth noting signature cached_import changed take path load rather attempting getattr call well since seems caching functionality centered around function appear documentation believe public Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/auth/password_validation.py",
+        "django/db/backends/base/creation.py",
+        "django/utils/module_loading.py"
+      ],
+      "changedAll": [
+        "django/contrib/auth/password_validation.py",
+        "django/db/backends/base/creation.py",
+        "django/utils/module_loading.py",
+        "docs/ref/utils.txt",
+        "docs/releases/6.2.txt",
+        "tests/auth_tests/test_models.py",
+        "tests/auth_tests/test_validators.py",
+        "tests/utils_tests/test_module/collision/__init__.py",
+        "tests/utils_tests/test_module/collision/collider.py",
+        "tests/utils_tests/test_module_loading.py"
+      ],
+      "droppedForLeak": [
+        "module",
+        "loading",
+        "utils",
+        "module_loading"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21411,
+      "title": "Fixed #37122 -- Updated JSONField has_changed method to check for disabled status.",
+      "querySource": "pr",
+      "base": "c087b7e8c169f009ff6113647685df4ea9fefe88",
+      "mergeCommit": "e26cdc556eabd8ea443401c38e8b2f9c7f7f046c",
+      "queries": {
+        "natural": "Updated JSONField has_changed method check disabled status Trac ticket number ticket Branch problem disabled JSONField still reports changes via has_changed method additional check disabled add check disabled set return False afterwards Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output Used Codex create test reviewed generated work verified output follows contribution guidelines disclose security vulnerability",
+        "stemblind": "Updated has_changed method check disabled status Trac ticket number ticket Branch problem disabled still reports changes via has_changed method additional check disabled add check disabled set return False afterwards Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output Used Codex create reviewed generated work verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/forms/fields.py"
+      ],
+      "changedAll": [
+        "django/forms/fields.py",
+        "tests/forms_tests/field_tests/test_jsonfield.py"
+      ],
+      "droppedForLeak": [
+        "jsonfield",
+        "test"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 18966,
+      "title": "Fixed #35581 -- Updated django.core.mail to Python's modern email API.",
+      "querySource": "pr",
+      "base": "20c62199ffe0de1410083657a6d5bac799592210",
+      "mergeCommit": "9ab1991689000821a4d86b8617e1c1455a327482",
+      "queries": {
+        "natural": "Updated django core mail Python modern email API Trac ticket number ticket Branch Switch django core mail using Python legacy email API newer modern email API believe ready review marked draft now merged land two security issues Python modern email API included tests fail addressed Edit security issues addressed issuecomment targets branch commit message written past tense mentions ticket number",
+        "stemblind": "Updated Python modern API Trac ticket number ticket Branch Switch using Python legacy API newer modern API believe ready review marked draft now merged land two security issues Python modern API included fail addressed Edit security issues addressed issuecomment targets branch commit written past tense mentions ticket number ends period checked patch ticket flag Trac system added updated relevant added"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/core/mail/__init__.py",
+        "django/core/mail/backends/smtp.py",
+        "django/core/mail/message.py"
+      ],
+      "changedAll": [
+        "django/core/mail/__init__.py",
+        "django/core/mail/backends/smtp.py",
+        "django/core/mail/message.py",
+        "docs/internals/deprecation.txt",
+        "docs/releases/6.0.txt",
+        "docs/topics/email.txt",
+        "tests/auth_tests/test_forms.py",
+        "tests/mail/test_deprecated.py",
+        "tests/mail/tests.py"
+      ],
+      "droppedForLeak": [
+        "django",
+        "core",
+        "mail",
+        "email",
+        "tests",
+        "message"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21178,
+      "title": "Refs #35514 -- Added warn_about_external_use() deprecation utility.",
+      "querySource": "pr",
+      "base": "a49be25e6128a3272960ed4f6f6506d147596395",
+      "mergeCommit": "32a3b4aa695e76ced1b2829b178e630b9ac62dce",
+      "queries": {
+        "natural": "Refs Added warn_about_external_use deprecation utility Trac ticket number ticket Branch Implements currently unused Cherry picked future version Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output PyCharm Assistant next edit suggestions general coding GPT mini GPT code review test case analysis Gemini Flash optimizing get_fq_name follows contribution guidelines disclose security vulnerability see vulnerability reporting targets",
+        "stemblind": "Refs Added utility Trac ticket number ticket Branch Implements currently unused Cherry picked future version Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output PyCharm Assistant next edit suggestions general coding GPT mini GPT code review case analysis Gemini Flash optimizing get_fq_name follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/conf/__init__.py",
+        "django/utils/deprecation.py"
+      ],
+      "changedAll": [
+        "django/conf/__init__.py",
+        "django/utils/deprecation.py",
+        "tests/deprecation/internal.py",
+        "tests/deprecation/test_warn_about_external_use.py"
+      ],
+      "droppedForLeak": [
+        "warn_about_external_use",
+        "deprecation",
+        "test"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21284,
+      "title": "Refs #36664 -- Updated SMTP EmailBackend tests for Python 3.15.",
+      "querySource": "pr",
+      "base": "ed5486376989c08b34cc62e7c8ba4a07bd60047d",
+      "mergeCommit": "25cf1cbb1cb92c6c57b76cc43d697cfdc61f568f",
+      "queries": {
+        "natural": "Refs Updated SMTP EmailBackend tests Python Trac ticket number ticket Updated work Python CPython issues Branch Provide concise overview rationale behind proposed changes Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output PyCharm Assistant next edit suggestions follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket",
+        "stemblind": "Refs Updated EmailBackend Python Trac ticket number ticket Updated work Python CPython issues Branch Provide concise overview rationale behind proposed changes Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output PyCharm Assistant next edit suggestions follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/core/mail/backends/smtp.py"
+      ],
+      "changedAll": [
+        "django/core/mail/backends/smtp.py",
+        "tests/mail/test_backends.py"
+      ],
+      "droppedForLeak": [
+        "smtp",
+        "tests"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21530,
+      "title": "Fixed #37166 -- Added system check for non-production EmailBackend.",
+      "querySource": "pr",
+      "base": "99a14b6be85793f3371779cd9bf6fb9d9247f475",
+      "mergeCommit": "61e078ecab9a9e8de9d283adf9fa554b6a145ce8",
+      "queries": {
+        "natural": "Added system check non production EmailBackend Trac ticket number ticket Branch Added deployment system check detect one Django production use email backends default entry Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output PyCharm Assistant next edit suggestions general coding Gemini cloud Google search testing system check registered deployment follows contribution guidelines disclose security vulnerability",
+        "stemblind": "Added system check non production EmailBackend Trac ticket number ticket Branch Added deployment system check detect one production use email backends default entry Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output PyCharm Assistant next edit suggestions general coding Gemini cloud Google search testing system check registered deployment follows contribution guidelines disclose security vulnerability see"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/core/checks/mail.py"
+      ],
+      "changedAll": [
+        "django/core/checks/mail.py",
+        "docs/ref/checks.txt",
+        "docs/releases/6.1.txt",
+        "tests/check_framework/test_mail.py"
+      ],
+      "droppedForLeak": [
+        "django"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21548,
+      "title": "Clarified \"plaintext\" vs. \"plain-text\" in password hashers docs.",
+      "querySource": "pr",
+      "base": "356e5b0f5ddb473eec3ed96d8ad9a37f3f8585eb",
+      "mergeCommit": "e78991410b78391bc07a4b5010b273dfec814ff6",
+      "queries": {
+        "natural": "Clarified plaintext plain text password hashers docs Trac ticket number typo Branch Replaced plain text plaintext used describe unencrypted input password hashing function reduces ambiguity whether expects UTF encoded Unicode text plain text bytes unencrypted material user password plaintext bytes See ticket Plaintext already used way elsewhere Django docs current uses plain text plain text docs including one elsewhere describing",
+        "stemblind": "Clarified plaintext plain text password Trac ticket number typo Branch Replaced plain text plaintext used describe unencrypted input password hashing function reduces ambiguity whether expects UTF encoded Unicode text plain text bytes unencrypted material user password plaintext bytes See ticket Plaintext already used way elsewhere current uses plain text plain text including one elsewhere describing text plain unformatted rich text"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/auth/hashers.py"
+      ],
+      "changedAll": [
+        "django/contrib/auth/hashers.py",
+        "docs/topics/auth/passwords.txt"
+      ],
+      "droppedForLeak": [
+        "hashers",
+        "docs",
+        "django"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21558,
+      "title": "Fixed #37191 -- Prevented ValueError in FileBasedCache.touch() for expired keys",
+      "querySource": "pr",
+      "base": "99672c672a1537aeb0d1fd5911ca6f04154cc091",
+      "mergeCommit": "d058058976496cedf3f36fa303a0327af38cdeaa",
+      "queries": {
+        "natural": "Prevented ValueError FileBasedCache touch expired keys Trac ticket number ticket Branch bug raises called expired cache key stems fact automatically underlying file descriptor key timeout elapsed However block still blindly executes file descriptor already retrieving file number unlock routing utilities triggers wrapped statement safety check guarantee attempts unlock file descriptors still active regression test verifying scenario added Assistance Disclosure REQUIRED",
+        "stemblind": "Prevented ValueError FileBasedCache touch expired keys Trac ticket number ticket Branch bug raises called expired key stems fact automatically underlying file descriptor key timeout elapsed However block still blindly executes file descriptor already retrieving file number unlock routing utilities triggers wrapped statement safety check guarantee attempts unlock file descriptors still active regression test verifying scenario added Assistance Disclosure REQUIRED tools"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/core/cache/backends/filebased.py"
+      ],
+      "changedAll": [
+        "django/core/cache/backends/filebased.py",
+        "tests/cache/tests.py"
+      ],
+      "droppedForLeak": [
+        "cache"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21552,
+      "title": "Fixed #37184 -- Allowed non-UTF-8 bytes passwords in the PBKDF2 and MD5 password hashers.",
+      "querySource": "pr",
+      "base": "d058058976496cedf3f36fa303a0327af38cdeaa",
+      "mergeCommit": "356e5b0f5ddb473eec3ed96d8ad9a37f3f8585eb",
+      "queries": {
+        "natural": "Allowed non UTF bytes passwords PBKDF2 MD5 password hashers Trac ticket number ticket Branch unnecessary call hasher raised perfectly valid password values introducing UTF encodability constraint MD5 hasher similar however commit introduced bug happened allow bytes general preserve support removing constraint UTF validity concatenating like Regression Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output",
+        "stemblind": "Allowed non UTF bytes passwords PBKDF2 MD5 password Trac ticket number ticket Branch unnecessary call hasher raised perfectly valid password values introducing UTF encodability constraint MD5 hasher similar however commit introduced bug happened allow bytes general preserve support removing constraint UTF validity concatenating like Regression Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output used"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/auth/hashers.py"
+      ],
+      "changedAll": [
+        "django/contrib/auth/hashers.py",
+        "docs/releases/6.0.7.txt",
+        "tests/auth_tests/test_hashers.py"
+      ],
+      "droppedForLeak": [
+        "hashers"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21551,
+      "title": "Refs #36593, #37187 -- Avoided spurious select_related() warning in ModelAdmin.",
+      "querySource": "pr",
+      "base": "d5797ae57d4822ee77091c8e8e5d35e5f4efca53",
+      "mergeCommit": "99672c672a1537aeb0d1fd5911ca6f04154cc091",
+      "queries": {
+        "natural": "Refs Avoided spurious select_related warning ModelAdmin Trac ticket number ticket Branch quick problem ticket separately working problem related ticket Changed QuerySet select_related called arguments deprecation warning issued called outside Django prevents confusing cascading warning ModelAdmin issues warning list_select_related True see calls QuerySet select_related implement deprecated behavior Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output",
+        "stemblind": "Refs Avoided spurious select_related warning ModelAdmin Trac ticket number ticket Branch quick problem ticket separately working problem related ticket Changed QuerySet select_related called arguments deprecation warning issued called outside prevents confusing cascading warning ModelAdmin issues warning list_select_related True see calls QuerySet select_related implement deprecated behavior Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/db/models/query.py"
+      ],
+      "changedAll": [
+        "django/db/models/query.py"
+      ],
+      "droppedForLeak": [
+        "django"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 19489,
+      "title": "Fixed #36405 -- Fixed Aggregate.order_by using OuterRef.",
+      "querySource": "pr",
+      "base": "b8e5a8a9a2a767f584cbe89a878a42363706f939",
+      "mergeCommit": "c2615a050036eda0bca090c707191076220cee9f",
+      "queries": {
+        "natural": "Aggregate order_by using OuterRef Trac ticket number ticket ticket Branch Three commits regression ticket latent exposed described comment file regression ticket targets branch commit message written past tense mentions ticket number ends period checked patch ticket flag Trac system added updated relevant tests added updated relevant docs including release notes applicable attached screenshots light dark modes changes",
+        "stemblind": "Aggregate order_by using OuterRef Trac ticket number ticket ticket Branch Three commits regression ticket latent exposed described comment file regression ticket targets branch commit message written past tense mentions ticket number ends period checked patch ticket flag Trac system added updated relevant added updated relevant including release notes applicable attached screenshots light dark modes changes"
+      },
+      "stemblindWords": 55,
+      "gold": [
+        "django/db/models/aggregates.py"
+      ],
+      "changedAll": [
+        "django/db/models/aggregates.py",
+        "docs/releases/5.2.2.txt",
+        "tests/aggregation/tests.py",
+        "tests/postgres_tests/test_aggregates.py"
+      ],
+      "droppedForLeak": [
+        "tests",
+        "docs"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21540,
+      "title": "Refs #36984 -- Preserved translator comment on separator string.",
+      "querySource": "pr",
+      "base": "b3a4ce3695a952f83488b89adb4dd19fa428efb7",
+      "mergeCommit": "8013cf61c6a1aff9839af2953c5bdda804efdff4",
+      "queries": {
+        "natural": "Refs Preserved translator comment separator string Trac ticket number ticket needs backport Branch inclusion comment file works comment line directly Now message extracted comment appears Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period",
+        "stemblind": "Refs Preserved translator comment separator string Trac ticket number ticket needs backport Branch inclusion comment file works comment line directly Now message extracted comment appears Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/admin/options.py"
+      ],
+      "changedAll": [
+        "django/contrib/admin/options.py"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21531,
+      "title": "Fixed #37183 -- Prevented writing unserializable attributes in syndication entries.",
+      "querySource": "pr",
+      "base": "9dce456105e8e182dde6db4774ced79b222a68f9",
+      "mergeCommit": "67c407585ccdc01b76d78e33c082f23d46346747",
+      "queries": {
+        "natural": "Prevented writing unserializable attributes syndication entries Trac ticket number ticket Branch match behavior XML serializers writing syndication feed entries encountering control character allowed XML spec raise instead silently writing unparseable XML Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past",
+        "stemblind": "Prevented writing unserializable attributes syndication entries Trac ticket number ticket Branch match behavior writing syndication feed entries encountering control character allowed spec raise instead silently writing unparseable Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/core/serializers/xml_serializer.py",
+        "django/utils/xmlutils.py"
+      ],
+      "changedAll": [
+        "django/core/serializers/xml_serializer.py",
+        "django/utils/xmlutils.py",
+        "tests/serializers/test_xml.py",
+        "tests/syndication_tests/feeds.py",
+        "tests/syndication_tests/tests.py",
+        "tests/syndication_tests/urls.py"
+      ],
+      "droppedForLeak": [
+        "xml",
+        "serializers"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21516,
+      "title": "Fixed #37101, #37174 -- Used netstring delimiter to prevent collisions in cache keys.",
+      "querySource": "pr",
+      "base": "02f94d2a899b6573f90dee5417afb8a763ee7f25",
+      "mergeCommit": "0383d12ea3451a75be184bd1783f11031903e7ee",
+      "queries": {
+        "natural": "Used netstring delimiter prevent collisions cache keys Trac ticket number ticket cached pages ticket cached template fragments Branch two locations either weren using delimiter between header values using delimiter without length prefix susceptible collisions Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output used Claude double check using reasonable convention delimiter doing learned convention called",
+        "stemblind": "Used netstring delimiter prevent collisions keys Trac ticket number ticket cached pages ticket cached template fragments Branch two locations either weren using delimiter between header values using delimiter without length prefix susceptible collisions Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output used Claude double check using reasonable convention delimiter doing learned convention called netstring"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/core/cache/utils.py",
+        "django/utils/cache.py"
+      ],
+      "changedAll": [
+        "django/core/cache/utils.py",
+        "django/utils/cache.py",
+        "docs/releases/6.1.txt",
+        "docs/topics/cache.txt",
+        "tests/cache/tests.py"
+      ],
+      "droppedForLeak": [
+        "cache"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 18361,
+      "title": "Fixed #35444 -- Added generic support for Aggregate.order_by",
+      "querySource": "pr",
+      "base": "4b977a5d7283e7ca51288cc0ed0860e0004653ca",
+      "mergeCommit": "1759c1dbd1e3cd4c9fcd345269e0d25796468f7f",
+      "queries": {
+        "natural": "Added generic support Aggregate order_by Trac ticket number ticket Branch three commits draft represent three phases change Deprecate argument PostgreSQL aggregate functions replace create consistent naming convention Add generic support migrate Postgres specific class shared module deprecating Postgres version Deprecate targets branch commit message written past tense mentions ticket number ends period checked patch ticket flag Trac system added updated",
+        "stemblind": "Added generic support Aggregate order_by Trac ticket number ticket Branch three commits draft represent three phases change Deprecate argument aggregate functions replace create consistent naming convention Add generic support migrate specific class shared module deprecating version Deprecate targets branch commit message written past tense mentions ticket number ends period checked patch ticket flag Trac system added updated relevant added updated"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/contrib/gis/db/models/aggregates.py",
+        "django/contrib/postgres/aggregates/general.py",
+        "django/contrib/postgres/aggregates/mixins.py",
+        "django/db/backends/base/features.py",
+        "django/db/backends/mysql/features.py",
+        "django/db/backends/oracle/features.py",
+        "django/db/backends/postgresql/features.py",
+        "django/db/backends/sqlite3/features.py",
+        "django/db/models/aggregates.py",
+        "django/db/models/expressions.py"
+      ],
+      "changedAll": [
+        "django/contrib/gis/db/models/aggregates.py",
+        "django/contrib/postgres/aggregates/general.py",
+        "django/contrib/postgres/aggregates/mixins.py",
+        "django/db/backends/base/features.py",
+        "django/db/backends/mysql/features.py",
+        "django/db/backends/oracle/features.py",
+        "django/db/backends/postgresql/features.py",
+        "django/db/backends/sqlite3/features.py",
+        "django/db/models/aggregates.py",
+        "django/db/models/expressions.py",
+        "docs/internals/deprecation.txt",
+        "docs/ref/contrib/postgres/aggregates.txt",
+        "docs/ref/models/expressions.txt",
+        "docs/ref/models/querysets.txt",
+        "docs/releases/6.0.txt",
+        "tests/aggregation/models.py",
+        "tests/aggregation/tests.py",
+        "tests/expressions_window/tests.py",
+        "tests/postgres_tests/test_aggregates.py"
+      ],
+      "droppedForLeak": [
+        "postgresql",
+        "postgres",
+        "tests"
+      ]
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21510,
+      "title": "Fixed #37170 -- Applied the no-argument form of sensitive_post_parameters to MultiValueDict.",
+      "querySource": "pr",
+      "base": "61e078ecab9a9e8de9d283adf9fa554b6a145ce8",
+      "mergeCommit": "56050acb96abc7ac2079d83ffdd232056732bb47",
+      "queries": {
+        "natural": "Applied argument form sensitive_post_parameters MultiValueDict Trac ticket number ticket Branch Omission Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period see guidelines requested request automated review checked patch ticket flag Trac system added updated",
+        "stemblind": "Applied argument form sensitive_post_parameters MultiValueDict Trac ticket number ticket Branch Omission Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period see guidelines requested request automated review checked patch ticket flag Trac system added updated"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/views/debug.py"
+      ],
+      "changedAll": [
+        "django/views/debug.py",
+        "tests/view_tests/tests/test_debug.py",
+        "tests/view_tests/views.py"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "pr": 21529,
+      "title": "Fixed #37161 -- Added system check for \"default\" entry in MAILERS setting.",
+      "querySource": "pr",
+      "base": "7903ee10bce75e9fab36e93bb77b3cb9fbf2630d",
+      "mergeCommit": "99a14b6be85793f3371779cd9bf6fb9d9247f475",
+      "queries": {
+        "natural": "Added system check default entry MAILERS setting Mike Edmunds reviews Trac ticket number ticket Branch See Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period see guidelines requested request automated review checked patch ticket",
+        "stemblind": "Added system check default entry MAILERS setting Mike Edmunds reviews Trac ticket number ticket Branch See Assistance Disclosure REQUIRED tools used preparing tools used disclosed ones fully reviewed verified output follows contribution guidelines disclose security vulnerability see vulnerability reporting targets branch commit message written past tense mentions ticket number ends period see guidelines requested request automated review checked patch ticket"
+      },
+      "stemblindWords": 60,
+      "gold": [
+        "django/core/checks/__init__.py",
+        "django/core/checks/mail.py",
+        "django/core/checks/registry.py"
+      ],
+      "changedAll": [
+        "django/core/checks/__init__.py",
+        "django/core/checks/mail.py",
+        "django/core/checks/registry.py",
+        "docs/ref/checks.txt",
+        "docs/releases/6.1.txt",
+        "tests/check_framework/test_mail.py"
+      ],
+      "droppedForLeak": []
+    }
+  ]
+}

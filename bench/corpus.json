@@ -1,0 +1,32 @@
+{
+  "repos": [
+    {
+      "id": "pocketbase",
+      "slug": "pocketbase/pocketbase",
+      "lang": "go",
+      "exts": [".go"],
+      "note": "Chosen deliberately: the only repo Graft published per-repo numbers for."
+    },
+    {
+      "id": "django",
+      "slug": "django/django",
+      "lang": "python",
+      "exts": [".py"],
+      "note": "Appears in Graft's own SWE-bench examples (django-11532, django-16263)."
+    },
+    {
+      "id": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "exts": [".ts", ".tsx"],
+      "note": "Large TS repo with disciplined PR hygiene."
+    },
+    {
+      "id": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "exts": [".java"],
+      "note": "Large Java repo, issue-linked PRs."
+    }
+  ]
+}
