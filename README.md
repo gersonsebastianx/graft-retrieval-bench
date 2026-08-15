@@ -60,6 +60,41 @@ more than the source it summarises.
 So: token reduction is real, but it comes from `skeleton`/`callers`/`map`, not
 from `ask`, which costs 5.5× a no-graph baseline and finds 18 points less.
 
+### Why it under-retrieves — two diagnoses, tested
+
+Both explanations started as hunches from a single observation each. Tested over
+the same 186 cases (`bench/verify-hypotheses.mjs`), one survived:
+
+**Morphology — REFUTED.** A query for "atomically" failing to surface
+`writeJsonAtomic` suggested missing stemming. Pre-expanding queries with stems
+and camelCase splits does **not** help: 48.5% → 47.6% pooled (−1.0 pts), and the
+sign disagrees across repos (pocketbase −6.8, spring-boot +2.0).
+
+**One hop — CONFIRMED.** Computed on graft's own `wiring.json`: for every gold
+file `ask` missed, is it one edge (`imports`/`calls`/`extends`) from a file it
+*did* return?
+
+| repo | files | misses | captured at 1 hop | reach | lift vs chance |
+|---|---|---|---|---|---|
+| pocketbase | 283 | 76 | 52.6% | 20.4% | 2.6× |
+| nest | 1,746 | 49 | 4.1% | 2.4% | 1.7× |
+| django | 2,962 | 47 | 46.8% | 6.2% | 7.6× |
+| spring-boot | 8,483 | 43 | 34.9% | 0.8% | **45.0×** |
+| **pooled** | | **215** | **36.7%** | **7.8%** | **4.7×** |
+
+The extractor builds the right edges; the ranker doesn't walk them.
+
+**A 2-hop variant — DISCARDED.** It captured 64.5% of misses, which looked like
+the headline until the chance level was computed: the 2-hop neighbourhood covers
+~69% of pocketbase, i.e. *below* chance there and only 1.3× pooled. The
+reach-vs-chance check is now part of the script — without it, a non-result would
+have shipped as a finding.
+
+Bounding the surviving one: the neighbourhood is 42–183 files in absolute terms,
+so this is a **candidate-generation** signal, not a predicted ranking gain. And
+it is weakest (1.7×) exactly where graft is weakest (nest), so it would not
+explain the TypeScript case.
+
 ### Scope — please read before quoting this
 
 - This judges **`graft ask`**, not `map` / `callers` / `skeleton` / the MCP
@@ -126,11 +161,13 @@ suspect.
 
 ### Fairness notes (both found by validating, both material)
 
-- **`graft ask` ranks symbols, not files.** Several symbols share one file, so
-  `-n 10` yielded only ~4.35 unique files where the file-ranking baselines got a
-  full 5. The runner now over-requests symbols and cuts at *k unique files*, so
-  every retriever is judged on the same number of candidates. This raised graft's
-  R@10 from 47.5% → 57.5%.
+- **`graft ask` ranks symbols, not files.** Several symbols routinely share one
+  file, so asking for `-n k` returns fewer than k distinct files — over the
+  top-5 sampled, 4.35 unique files against a full 5 for the file-ranking
+  baselines. The runner now over-requests symbols and cuts at *k unique files*,
+  so every retriever is judged on the same number of candidates. On the 20-case
+  validation set this raised graft's R@10 from 47.5% → 57.5%; the pooled 186-case
+  figures already include the fix.
 - **Build time is never charged to query time.** A user builds once and queries
   many times. It is measured and reported separately.
 - **Pack cost is measured on emitted text only** — never against a hypothetical
@@ -159,6 +196,9 @@ auditable, not just asserted.
 - `git grep` substitutes for ripgrep (not installed here); same class of tool,
   and it makes the harness reproducible anywhere git exists. Swap it in
   `bench/retrievers/gitgrep.mjs`.
+- Measured against **`@nanonets/graft` 0.10.1**, default `graft build` — no
+  `--deep`, no LSP enrichment. That project ships often; re-run before quoting
+  these numbers against a later version.
 
 ## Layout
 
@@ -168,5 +208,9 @@ bench/run.mjs              the runner
 bench/lib/query.mjs        query construction + contamination defense
 bench/lib/metrics.mjs      recall@k, MRR, budget-constrained recall, Wilson CI
 bench/retrievers/*.mjs     graft | bm25 | gitgrep
+bench/verify-hypotheses.mjs  why it under-retrieves (with a chance-level check)
+bench/skeleton-savings.mjs   the token-reduction claim, measured
 results/<repo>-k<K>-b<B>.json
+results/ALL.json             pooled cross-repo summary
+results/HYPOTHESES.json      the two diagnoses, verdicts included
 ```
