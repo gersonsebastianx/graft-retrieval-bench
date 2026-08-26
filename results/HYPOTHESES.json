@@ -1,21 +1,21 @@
 {
   "generatedAt": "2026-08-15T01:06:58.494Z",
-  "n": 186,
+  "n": 161,
   "perRepo": [
     {
       "repo": "pocketbase",
-      "n": 50,
+      "n": 25,
       "h1": {
-        "base": 0.5804444444444443,
-        "expanded": 0.5124444444444444
+        "base": 0.5604444444444444,
+        "expanded": 0.5324444444444444
       },
       "h2": {
-        "missed": 76,
-        "oneHop": 40,
-        "twoHop": 49,
-        "cov1": 0.2037260665546469,
-        "cov2": 0.6874162923535805,
-        "nFiles": 282.96
+        "missed": 39,
+        "oneHop": 20,
+        "twoHop": 25,
+        "cov1": 0.21511382159314915,
+        "cov2": 0.6944351596935004,
+        "nFiles": 298.16
       }
     },
     {
@@ -70,20 +70,21 @@
   "pooled": {
     "h1": {
       "verdict": "REFUTED",
-      "baseR10": 0.48525772316094895,
-      "expandedR10": 0.47574671445639183,
-      "deltaPts": -0.9511008704557129
+      "baseR10": 0.4673715863156857,
+      "expandedR10": 0.47315389924085577,
+      "deltaPts": 0.5782312925170042
     },
     "h2": {
       "verdict": "SUPPORTED at 1 hop; 2-hop DISCARDED (below chance)",
-      "misses": 215,
-      "oneHopCaptured": 79,
-      "oneHopRate": 0.3674418604651163,
-      "oneHopChance": 0.07825948566078451,
-      "oneHopLift": 4.695173465077343,
-      "twoHopRate": 0.7674418604651163,
-      "twoHopChance": 0.5967294442600393,
-      "twoHopLift": 1.2860800951707103
+      "misses": 178,
+      "oneHopCaptured": 59,
+      "oneHopRate": 0.33146067415730335,
+      "oneHopChance": 0.06054538226709505,
+      "oneHopLift": 5.474582234778361,
+      "twoHopRate": 0.7921348314606742,
+      "twoHopChance": 0.5837375217827688,
+      "twoHopLift": 1.3570051639672702
     }
-  }
+  },
+  "correction": "pocketbase deduplicated after issue #117 (50 rows -> 25 unique PRs)."
 }

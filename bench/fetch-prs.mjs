@@ -96,15 +96,21 @@ async function main() {
   const clone = ensureClone(repo, reposDir);
 
   process.stderr.write(`  scanning up to ${scan} merged PRs for ${repo.slug}…\n`);
+  // Dedupe by PR number while paging. `sort=updated` reorders under us on an
+  // active repo, so the same PR can land on more than one page — which silently
+  // produced 50 rows over 25 unique PRs for pocketbase, double-counting half the
+  // set in every mean. Caught by @Frankie-Xu on issue #117; see DEDUPE-FIX in
+  // the README.
   const perPage = 100;
   const pages = Math.ceil(scan / perPage);
-  let prs = [];
+  const byNumber = new Map();
   for (let p = 1; p <= pages; p++) {
     const batch = gh(`repos/${repo.slug}/pulls?state=closed&sort=updated&direction=desc&per_page=${perPage}&page=${p}`);
     if (!batch || !batch.length) break;
-    prs = prs.concat(batch.filter((pr) => pr.merged_at));
-    if (prs.length >= scan) break;
+    for (const pr of batch) if (pr.merged_at && !byNumber.has(pr.number)) byNumber.set(pr.number, pr);
+    if (byNumber.size >= scan) break;
   }
+  const prs = [...byNumber.values()];
   process.stderr.write(`  ${prs.length} merged PRs to filter\n`);
   if (!prs.length) {
     console.error(`\nFATAL: 0 merged PRs returned for ${repo.slug}. This is an API/paging failure, not a filtering result — refusing to write an empty case file.`);
@@ -114,8 +120,11 @@ async function main() {
   const cases = [];
   const rejected = { title: 0, files: 0, base: 0, query: 0, leak: 0 };
 
+  const admitted = new Set();
   for (const pr of prs) {
     if (cases.length >= limit) break;
+    if (admitted.has(pr.number)) continue; // belt and braces alongside the paging dedupe
+    admitted.add(pr.number);
     if (SKIP_TITLE.test(pr.title || '')) { rejected.title++; continue; }
     if (!pr.merge_commit_sha) { rejected.base++; continue; }
 

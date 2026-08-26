@@ -71,7 +71,15 @@ async function main() {
     process.exit(1);
   }
   const { repo, cases: allCases } = JSON.parse(readFileSync(casesFile, 'utf8'));
-  const cases = allCases.slice(0, LIMIT);
+  // Defensive dedupe: a case file with the same PR twice double-counts that PR
+  // in every mean and fakes the sample size. This happened (pocketbase: 50 rows,
+  // 25 PRs) and the fix belongs at both ends, not only in fetch-prs.
+  const seenPr = new Set();
+  const deduped = allCases.filter((c) => (seenPr.has(c.pr) ? false : seenPr.add(c.pr)));
+  if (deduped.length !== allCases.length) {
+    console.log(`note: dropped ${allCases.length - deduped.length} duplicate PR row(s) from the case file`);
+  }
+  const cases = deduped.slice(0, LIMIT);
   const repoDir = join(ROOT, 'repos', repo.id);
   const graftBin = resolveGraftBin();
 

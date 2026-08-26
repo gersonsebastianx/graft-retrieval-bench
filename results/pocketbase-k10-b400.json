@@ -10,110 +10,110 @@
   },
   "k": 10,
   "budget": 400,
-  "generatedAt": "2026-08-14T01:24:15.315Z",
+  "generatedAt": "2026-08-26T20:24:28.391Z",
   "summary": {
     "natural": {
       "graft": {
-        "n": 50,
-        "recall1": 0.14800000000000002,
-        "recall5": 0.39199999999999996,
-        "recall10": 0.5804444444444443,
-        "mrr": 0.30699999999999994,
-        "hitRate": 0.7,
+        "n": 25,
+        "recall1": 0.188,
+        "recall5": 0.43199999999999994,
+        "recall10": 0.5604444444444444,
+        "mrr": 0.33944444444444444,
+        "hitRate": 0.68,
         "hitRateCI": [
-          0.562493877226366,
-          0.8089661091039063
+          0.48409913734576715,
+          0.8279501248310885
         ],
-        "packTokens": 528.34,
+        "packTokens": 532.88,
         "budgetRecall": 0.5204444444444444,
-        "ms": 224.18,
-        "buildMs": 4281.26,
+        "ms": 238.96,
+        "buildMs": 4642.32,
         "errors": 0
       },
       "bm25": {
-        "n": 50,
-        "recall1": 0.354,
-        "recall5": 0.5824444444444444,
-        "recall10": 0.6324444444444444,
-        "mrr": 0.5157777777777778,
-        "hitRate": 0.7,
+        "n": 25,
+        "recall1": 0.324,
+        "recall5": 0.5924444444444444,
+        "recall10": 0.6524444444444444,
+        "mrr": 0.5124444444444444,
+        "hitRate": 0.72,
         "hitRateCI": [
-          0.562493877226366,
-          0.8089661091039063
+          0.524230281034417,
+          0.8571632616261843
         ],
-        "packTokens": 59.68,
-        "budgetRecall": 0.6324444444444444,
-        "ms": 100.94,
+        "packTokens": 60.24,
+        "budgetRecall": 0.6524444444444444,
+        "ms": 110.08,
         "buildMs": null,
         "errors": 0
       },
       "gitgrep": {
-        "n": 50,
-        "recall1": 0.16,
-        "recall5": 0.3924444444444444,
-        "recall10": 0.5564444444444444,
-        "mrr": 0.3062142857142857,
-        "hitRate": 0.62,
+        "n": 25,
+        "recall1": 0.18,
+        "recall5": 0.4524444444444444,
+        "recall10": 0.5764444444444444,
+        "mrr": 0.3364920634920635,
+        "hitRate": 0.64,
         "hitRateCI": [
-          0.48150195022393577,
-          0.7413740415742277
+          0.44518154601046633,
+          0.7975234356826436
         ],
-        "packTokens": 56.66,
-        "budgetRecall": 0.5564444444444444,
-        "ms": 157.78,
+        "packTokens": 56.48,
+        "budgetRecall": 0.5764444444444444,
+        "ms": 165.52,
         "buildMs": null,
         "errors": 0
       }
     },
     "stemblind": {
       "graft": {
-        "n": 50,
+        "n": 25,
         "recall1": 0.08,
         "recall5": 0.244,
-        "recall10": 0.4124444444444444,
-        "mrr": 0.18099999999999997,
-        "hitRate": 0.48,
+        "recall10": 0.3724444444444444,
+        "mrr": 0.17566666666666667,
+        "hitRate": 0.44,
         "hitRateCI": [
-          0.347969123955057,
-          0.6148848774119157
+          0.2666537494700257,
+          0.6293298298043556
         ],
-        "packTokens": 523.02,
-        "budgetRecall": 0.3524444444444444,
-        "ms": 219.44,
-        "buildMs": 4281.26,
+        "packTokens": 538.2,
+        "budgetRecall": 0.3324444444444444,
+        "ms": 228.36,
+        "buildMs": 4642.32,
         "errors": 0
       },
       "bm25": {
-        "n": 50,
-        "recall1": 0.294,
-        "recall5": 0.5024444444444444,
-        "recall10": 0.5624444444444444,
-        "mrr": 0.46194444444444444,
+        "n": 25,
+        "recall1": 0.284,
+        "recall5": 0.4724444444444444,
+        "recall10": 0.5524444444444444,
+        "mrr": 0.4527777777777778,
         "hitRate": 0.64,
         "hitRateCI": [
-          0.5014076201030194,
-          0.7586143703281713
+          0.44518154601046633,
+          0.7975234356826436
         ],
-        "packTokens": 59.1,
-        "budgetRecall": 0.5624444444444444,
-        "ms": 98.98,
+        "packTokens": 59.76,
+        "budgetRecall": 0.5524444444444444,
+        "ms": 107.6,
         "buildMs": null,
         "errors": 0
       },
       "gitgrep": {
-        "n": 50,
+        "n": 25,
         "recall1": 0.1,
-        "recall5": 0.3724444444444444,
-        "recall10": 0.47644444444444445,
-        "mrr": 0.2562142857142857,
-        "hitRate": 0.54,
+        "recall5": 0.4124444444444444,
+        "recall10": 0.49644444444444447,
+        "mrr": 0.26538095238095233,
+        "hitRate": 0.56,
         "hitRateCI": [
-          0.40398634328388083,
-          0.6703056539821737
+          0.37067017019564436,
+          0.7333462505299743
         ],
-        "packTokens": 55.78,
-        "budgetRecall": 0.47644444444444445,
-        "ms": 158,
+        "packTokens": 55.8,
+        "budgetRecall": 0.49644444444444447,
+        "ms": 163.96,
         "buildMs": null,
         "errors": 0
       }
@@ -142,8 +142,8 @@
             "anyHit": false,
             "packTokens": 829,
             "budgetRecall": 0,
-            "ms": 388,
-            "buildMs": 10204,
+            "ms": 374,
+            "buildMs": 10232,
             "error": null,
             "top": [
               "ui/src/utils/CommonHelper.js",
@@ -161,7 +161,7 @@
             "anyHit": true,
             "packTokens": 63,
             "budgetRecall": 1,
-            "ms": 249,
+            "ms": 236,
             "buildMs": null,
             "error": null,
             "top": [
@@ -201,8 +201,8 @@
             "anyHit": false,
             "packTokens": 802,
             "budgetRecall": 0,
-            "ms": 331,
-            "buildMs": 10204,
+            "ms": 313,
+            "buildMs": 10232,
             "error": null,
             "top": [
               "ui/src/utils/CommonHelper.js",
@@ -219,7 +219,7 @@
             "anyHit": true,
             "packTokens": 65,
             "budgetRecall": 0.5,
-            "ms": 210,
+            "ms": 197,
             "buildMs": null,
             "error": null,
             "top": [
@@ -238,7 +238,7 @@
             "anyHit": false,
             "packTokens": 65,
             "budgetRecall": 0,
-            "ms": 185,
+            "ms": 186,
             "buildMs": null,
             "error": null,
             "top": [
@@ -273,8 +273,8 @@
             "anyHit": false,
             "packTokens": 499,
             "budgetRecall": 0,
-            "ms": 376,
-            "buildMs": 10278,
+            "ms": 361,
+            "buildMs": 10058,
             "error": null,
             "top": [
               "plugins/jsvm/internal/types/generated/types.d.ts",
@@ -292,7 +292,7 @@
             "anyHit": false,
             "packTokens": 71,
             "budgetRecall": 0,
-            "ms": 210,
+            "ms": 203,
             "buildMs": null,
             "error": null,
             "top": [
@@ -311,7 +311,7 @@
             "anyHit": true,
             "packTokens": 48,
             "budgetRecall": 1,
-            "ms": 193,
+            "ms": 191,
             "buildMs": null,
             "error": null,
             "top": [
@@ -332,8 +332,8 @@
             "anyHit": false,
             "packTokens": 278,
             "budgetRecall": 0,
-            "ms": 341,
-            "buildMs": 10278,
+            "ms": 334,
+            "buildMs": 10058,
             "error": null,
             "top": [
               "ui/src/stores/collections.js",
@@ -351,7 +351,7 @@
             "anyHit": false,
             "packTokens": 70,
             "budgetRecall": 0,
-            "ms": 203,
+            "ms": 198,
             "buildMs": null,
             "error": null,
             "top": [
@@ -370,7 +370,7 @@
             "anyHit": true,
             "packTokens": 55,
             "budgetRecall": 1,
-            "ms": 190,
+            "ms": 188,
             "buildMs": null,
             "error": null,
             "top": [
@@ -405,8 +405,8 @@
             "anyHit": true,
             "packTokens": 732,
             "budgetRecall": 1,
-            "ms": 410,
-            "buildMs": 10183,
+            "ms": 404,
+            "buildMs": 10134,
             "error": null,
             "top": [
               "tools/security/random_by_regex.go",
@@ -424,7 +424,7 @@
             "anyHit": true,
             "packTokens": 70,
             "budgetRecall": 1,
-            "ms": 213,
+            "ms": 201,
             "buildMs": null,
             "error": null,
             "top": [
@@ -443,7 +443,7 @@
             "anyHit": true,
             "packTokens": 62,
             "budgetRecall": 1,
-            "ms": 190,
+            "ms": 193,
             "buildMs": null,
             "error": null,
             "top": [
@@ -464,8 +464,8 @@
             "anyHit": false,
             "packTokens": 942,
             "budgetRecall": 0,
-            "ms": 424,
-            "buildMs": 10183,
+            "ms": 411,
+            "buildMs": 10134,
             "error": null,
             "top": [
               "plugins/jsvm/internal/types/generated/types.d.ts",
@@ -483,7 +483,7 @@
             "anyHit": true,
             "packTokens": 74,
             "budgetRecall": 1,
-            "ms": 207,
+            "ms": 201,
             "buildMs": null,
             "error": null,
             "top": [
@@ -502,7 +502,7 @@
             "anyHit": false,
             "packTokens": 52,
             "budgetRecall": 0,
-            "ms": 190,
+            "ms": 189,
             "buildMs": null,
             "error": null,
             "top": [
@@ -537,8 +537,8 @@
             "anyHit": false,
             "packTokens": 568,
             "budgetRecall": 0,
-            "ms": 371,
-            "buildMs": 10299,
+            "ms": 354,
+            "buildMs": 10087,
             "error": null,
             "top": [
               "core/collection_model_view_options_test.go",
@@ -556,7 +556,7 @@
             "anyHit": true,
             "packTokens": 58,
             "budgetRecall": 1,
-            "ms": 205,
+            "ms": 198,
             "buildMs": null,
             "error": null,
             "top": [
@@ -575,7 +575,7 @@
             "anyHit": true,
             "packTokens": 49,
             "budgetRecall": 1,
-            "ms": 188,
+            "ms": 190,
             "buildMs": null,
             "error": null,
             "top": [
@@ -596,8 +596,8 @@
             "anyHit": false,
             "packTokens": 1030,
             "budgetRecall": 0,
-            "ms": 334,
-            "buildMs": 10299,
+            "ms": 332,
+            "buildMs": 10087,
             "error": null,
             "top": [
               "ui/src/stores/collections.js",
@@ -615,7 +615,7 @@
             "anyHit": true,
             "packTokens": 59,
             "budgetRecall": 1,
-            "ms": 204,
+            "ms": 198,
             "buildMs": null,
             "error": null,
             "top": [
@@ -634,7 +634,7 @@
             "anyHit": true,
             "packTokens": 53,
             "budgetRecall": 1,
-            "ms": 192,
+            "ms": 189,
             "buildMs": null,
             "error": null,
             "top": [
@@ -669,8 +669,8 @@
             "anyHit": true,
             "packTokens": 555,
             "budgetRecall": 1,
-            "ms": 286,
-            "buildMs": 10150,
+            "ms": 296,
+            "buildMs": 10199,
             "error": null,
             "top": [
               "tools/auth/patreon.go",
@@ -688,7 +688,7 @@
             "anyHit": true,
             "packTokens": 69,
             "budgetRecall": 1,
-            "ms": 202,
+            "ms": 201,
             "buildMs": null,
             "error": null,
             "top": [
@@ -707,7 +707,7 @@
             "anyHit": false,
             "packTokens": 62,
             "budgetRecall": 0,
-            "ms": 192,
+            "ms": 190,
             "buildMs": null,
             "error": null,
             "top": [
@@ -728,8 +728,8 @@
             "anyHit": false,
             "packTokens": 644,
             "budgetRecall": 0,
-            "ms": 284,
-            "buildMs": 10150,
+            "ms": 281,
+            "buildMs": 10199,
             "error": null,
             "top": [
               "apis/record_auth_email_change_request.go",
@@ -747,7 +747,7 @@
             "anyHit": false,
             "packTokens": 62,
             "budgetRecall": 0,
-            "ms": 200,
+            "ms": 196,
             "buildMs": null,
             "error": null,
             "top": [
@@ -766,7 +766,7 @@
             "anyHit": false,
             "packTokens": 63,
             "budgetRecall": 0,
-            "ms": 194,
+            "ms": 186,
             "buildMs": null,
             "error": null,
             "top": [
@@ -801,8 +801,8 @@
             "anyHit": true,
             "packTokens": 545,
             "budgetRecall": 1,
-            "ms": 262,
-            "buildMs": 8733,
+            "ms": 269,
+            "buildMs": 8725,
             "error": null,
             "top": [
               "daos/log.go",
@@ -820,7 +820,7 @@
             "anyHit": true,
             "packTokens": 63,
             "budgetRecall": 1,
-            "ms": 147,
+            "ms": 140,
             "buildMs": null,
             "error": null,
             "top": [
@@ -839,7 +839,7 @@
             "anyHit": true,
             "packTokens": 56,
             "budgetRecall": 1,
-            "ms": 172,
+            "ms": 173,
             "buildMs": null,
             "error": null,
             "top": [
@@ -860,8 +860,8 @@
             "anyHit": true,
             "packTokens": 545,
             "budgetRecall": 1,
-            "ms": 250,
-            "buildMs": 8733,
+            "ms": 261,
+            "buildMs": 8725,
             "error": null,
             "top": [
               "daos/log.go",
@@ -879,7 +879,7 @@
             "anyHit": true,
             "packTokens": 63,
             "budgetRecall": 1,
-            "ms": 143,
+            "ms": 140,
             "buildMs": null,
             "error": null,
             "top": [
@@ -898,7 +898,7 @@
             "anyHit": true,
             "packTokens": 56,
             "budgetRecall": 1,
-            "ms": 173,
+            "ms": 169,
             "buildMs": null,
             "error": null,
             "top": [
@@ -933,67 +933,8 @@
             "anyHit": false,
             "packTokens": 870,
             "budgetRecall": 0,
-            "ms": 300,
-            "buildMs": 8136,
-            "error": null,
-            "top": [
-              "ui/src/utils/ApiClient.js",
-              "ui/src/utils/CommonHelper.js",
-              "ui/public/libs/tinymce/tinymce.min.js",
-              "ui/src/stores/collections.js",
-              "ui/public/libs/tinymce/plugins/code/plugin.min.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 61,
-            "budgetRecall": 0,
-            "ms": 125,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/migratecmd/migratecmd.go",
-              "forms/record_upsert.go",
-              "apis/realtime.go",
-              "apis/record_auth.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 65,
-            "budgetRecall": 0,
-            "ms": 173,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "forms/collection_upsert_test.go",
-              "plugins/jsvm/internal/types/types.go",
-              "forms/collection_upsert.go",
-              "plugins/migratecmd/migratecmd_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 870,
-            "budgetRecall": 0,
-            "ms": 306,
-            "buildMs": 8136,
+            "ms": 315,
+            "buildMs": 8196,
             "error": null,
             "top": [
               "ui/src/utils/ApiClient.js",
@@ -1030,7 +971,66 @@
             "anyHit": false,
             "packTokens": 65,
             "budgetRecall": 0,
-            "ms": 164,
+            "ms": 168,
+            "buildMs": null,
+            "error": null,
+            "top": [
+              "forms/record_upsert.go",
+              "forms/collection_upsert_test.go",
+              "plugins/jsvm/internal/types/types.go",
+              "forms/collection_upsert.go",
+              "plugins/migratecmd/migratecmd_test.go"
+            ]
+          }
+        },
+        "stemblind": {
+          "graft": {
+            "recall1": 0,
+            "recall5": 0,
+            "recall10": 0,
+            "mrr": 0,
+            "anyHit": false,
+            "packTokens": 870,
+            "budgetRecall": 0,
+            "ms": 298,
+            "buildMs": 8196,
+            "error": null,
+            "top": [
+              "ui/src/utils/ApiClient.js",
+              "ui/src/utils/CommonHelper.js",
+              "ui/public/libs/tinymce/tinymce.min.js",
+              "ui/src/stores/collections.js",
+              "ui/public/libs/tinymce/plugins/code/plugin.min.js"
+            ]
+          },
+          "bm25": {
+            "recall1": 0,
+            "recall5": 0,
+            "recall10": 0,
+            "mrr": 0,
+            "anyHit": false,
+            "packTokens": 61,
+            "budgetRecall": 0,
+            "ms": 123,
+            "buildMs": null,
+            "error": null,
+            "top": [
+              "plugins/jsvm/internal/types/types.go",
+              "plugins/migratecmd/migratecmd.go",
+              "forms/record_upsert.go",
+              "apis/realtime.go",
+              "apis/record_auth.go"
+            ]
+          },
+          "gitgrep": {
+            "recall1": 0,
+            "recall5": 0,
+            "recall10": 0,
+            "mrr": 0,
+            "anyHit": false,
+            "packTokens": 65,
+            "budgetRecall": 0,
+            "ms": 168,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1065,8 +1065,8 @@
             "anyHit": true,
             "packTokens": 971,
             "budgetRecall": 1,
-            "ms": 258,
-            "buildMs": 8170,
+            "ms": 275,
+            "buildMs": 8135,
             "error": null,
             "top": [
               "apis/api_error.go",
@@ -1084,7 +1084,7 @@
             "anyHit": true,
             "packTokens": 52,
             "budgetRecall": 1,
-            "ms": 129,
+            "ms": 124,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1103,2626 +1103,19 @@
             "anyHit": true,
             "packTokens": 56,
             "budgetRecall": 1,
-            "ms": 164,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/jsvm/binds.go",
-              "core/base.go",
-              "models/schema/schema_field.go",
-              "apis/middlewares.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.16666666666666666,
-            "anyHit": true,
-            "packTokens": 971,
-            "budgetRecall": 1,
-            "ms": 269,
-            "buildMs": 8170,
-            "error": null,
-            "top": [
-              "apis/api_error.go",
-              "plugins/jsvm/internal/types/generated/types.d.ts",
-              "models/request_info.go",
-              "tools/auth/base_provider.go",
-              "migrations/logs/1677760279_uppsercase_method.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 52,
-            "budgetRecall": 1,
-            "ms": 121,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/record_helpers.go",
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/jsvm/binds.go",
-              "tools/mailer/smtp.go",
-              "apis/realtime.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.125,
-            "anyHit": true,
-            "packTokens": 56,
-            "budgetRecall": 1,
-            "ms": 168,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/jsvm/binds.go",
-              "core/base.go",
-              "models/schema/schema_field.go",
-              "apis/middlewares.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 2726,
-      "queries": {
-        "natural": "Remove unnecessary Dao TotalAdmins call reason ask total admin count already known user indeed admin",
-        "stemblind": "Remove unnecessary Dao TotalAdmins call reason ask total admin count already known user indeed admin"
-      },
-      "querySource": "pr",
-      "gold": [
-        "apis/middlewares.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.1,
-            "anyHit": true,
-            "packTokens": 439,
-            "budgetRecall": 0,
-            "ms": 266,
-            "buildMs": 7525,
-            "error": null,
-            "top": [
-              "ui/src/stores/admin.js",
-              "daos/admin.go",
-              "apis/base.go",
-              "ui/src/stores/toasts.js",
-              "ui/src/utils/ApiClient.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.3333333333333333,
-            "anyHit": true,
-            "packTokens": 51,
-            "budgetRecall": 1,
-            "ms": 109,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/base.go",
-              "daos/admin.go",
-              "apis/middlewares.go",
-              "daos/admin_test.go",
-              "apis/admin_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 45,
-            "budgetRecall": 0,
-            "ms": 166,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tests/app.go",
-              "apis/base.go",
-              "daos/admin.go",
-              "forms/collections_import_test.go",
-              "plugins/ghupdate/ghupdate.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.1,
-            "anyHit": true,
-            "packTokens": 439,
-            "budgetRecall": 0,
-            "ms": 264,
-            "buildMs": 7525,
-            "error": null,
-            "top": [
-              "ui/src/stores/admin.js",
-              "daos/admin.go",
-              "apis/base.go",
-              "ui/src/stores/toasts.js",
-              "ui/src/utils/ApiClient.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.3333333333333333,
-            "anyHit": true,
-            "packTokens": 51,
-            "budgetRecall": 1,
-            "ms": 112,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/base.go",
-              "daos/admin.go",
-              "apis/middlewares.go",
-              "daos/admin_test.go",
-              "apis/admin_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 45,
-            "budgetRecall": 0,
-            "ms": 170,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tests/app.go",
-              "apis/base.go",
-              "daos/admin.go",
-              "forms/collections_import_test.go",
-              "plugins/ghupdate/ghupdate.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 2527,
-      "queries": {
-        "natural": "remove unnecessary code line necessary loop run desired result returned anyway",
-        "stemblind": "remove unnecessary code line necessary loop run desired result returned anyway"
-      },
-      "querySource": "pr",
-      "gold": [
-        "tools/list/list.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 415,
-            "budgetRecall": 0,
-            "ms": 240,
-            "buildMs": 7614,
-            "error": null,
-            "top": [
-              "resolvers/record_field_resolve_runner.go",
-              "forms/base.go",
-              "tools/migrate/runner.go",
-              "tools/cron/cron.go",
-              "daos/base.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 66,
-            "budgetRecall": 0,
-            "ms": 114,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/schema/schema.go",
-              "tools/filesystem/filesystem_test.go",
-              "daos/record_table_sync.go",
-              "tools/archive/extract_test.go",
-              "tools/rest/json_serializer.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 71,
-            "budgetRecall": 0,
             "ms": 167,
             "buildMs": null,
             "error": null,
             "top": [
-              "tools/filesystem/filesystem_test.go",
-              "models/schema/schema.go",
-              "models/record.go",
-              "models/schema/schema_test.go",
-              "tools/auth/base_provider_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 415,
-            "budgetRecall": 0,
-            "ms": 232,
-            "buildMs": 7614,
-            "error": null,
-            "top": [
-              "resolvers/record_field_resolve_runner.go",
-              "forms/base.go",
-              "tools/migrate/runner.go",
-              "tools/cron/cron.go",
-              "daos/base.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 66,
-            "budgetRecall": 0,
-            "ms": 115,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/schema/schema.go",
-              "tools/filesystem/filesystem_test.go",
-              "daos/record_table_sync.go",
-              "tools/archive/extract_test.go",
-              "tools/rest/json_serializer.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 71,
-            "budgetRecall": 0,
-            "ms": 165,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem_test.go",
-              "models/schema/schema.go",
-              "models/record.go",
-              "models/schema/schema_test.go",
-              "tools/auth/base_provider_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 1578,
-      "queries": {
-        "natural": "Allows files read FileSystem interface functionality needed Pocketbase used embedded mode Currently way read file content Pocketbase embedded except Downloading HTTP mocking http request via httptest package exposes file reader via public method client calling method responsible closing reader",
-        "stemblind": "Allows files read interface functionality needed Pocketbase used embedded mode Currently way read file content Pocketbase embedded except Downloading HTTP mocking http request via httptest package exposes file reader via public method client calling method responsible closing reader"
-      },
-      "querySource": "pr",
-      "gold": [
-        "tools/filesystem/filesystem.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.1111111111111111,
-            "anyHit": true,
-            "packTokens": 261,
-            "budgetRecall": 1,
-            "ms": 196,
-            "buildMs": 2037,
-            "error": null,
-            "top": [
-              "tools/filesystem/file.go",
-              "plugins/jsvm/migrations.go",
-              "tools/subscriptions/client.go",
-              "tools/rest/uploaded_file.go",
-              "tools/rest/multi_binder.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 73,
-            "budgetRecall": 1,
-            "ms": 95,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem.go",
-              "tools/filesystem/filesystem_test.go",
-              "forms/record_upsert_test.go",
-              "forms/validators/file_test.go",
-              "forms/record_upsert.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.1111111111111111,
-            "anyHit": true,
-            "packTokens": 58,
-            "budgetRecall": 1,
-            "ms": 158,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "tools/filesystem/file.go",
-              "core/app.go",
-              "models/schema/schema_field.go",
-              "tests/app.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 242,
-            "budgetRecall": 0,
-            "ms": 191,
-            "buildMs": 2037,
-            "error": null,
-            "top": [
-              "tools/filesystem/file.go",
-              "plugins/jsvm/migrations.go",
-              "tools/subscriptions/client.go",
-              "tools/rest/uploaded_file.go",
-              "tools/rest/multi_binder.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 67,
-            "budgetRecall": 1,
-            "ms": 91,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert_test.go",
-              "tools/filesystem/filesystem.go",
-              "tools/rest/multi_binder.go",
-              "forms/validators/file_test.go",
-              "tools/auth/gitee.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 50,
-            "budgetRecall": 0,
-            "ms": 159,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "core/app.go",
-              "models/schema/schema_field.go",
-              "daos/record.go",
-              "resolvers/record_field_resolver.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 1420,
-      "queries": {
-        "natural": "Add filesystem NewFileFromBytes adds greatly help uploading files events lot libraries output bytes pointless save file read able test nor able even compile Baby steps",
-        "stemblind": "Add NewFileFromBytes adds greatly help uploading files events lot libraries output bytes pointless save read able nor able even compile Baby steps"
-      },
-      "querySource": "pr",
-      "gold": [
-        "tools/filesystem/file.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.25,
-            "anyHit": true,
-            "packTokens": 791,
-            "budgetRecall": 1,
-            "ms": 192,
-            "buildMs": 1919,
-            "error": null,
-            "top": [
-              "tools/filesystem/file_test.go",
-              "tools/filesystem/filesystem_test.go",
-              "forms/record_upsert_test.go",
-              "tools/filesystem/file.go",
-              "tools/rest/uploaded_file_test.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.1111111111111111,
-            "anyHit": true,
-            "packTokens": 67,
-            "budgetRecall": 1,
-            "ms": 87,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "forms/validators/file_test.go",
-              "tools/rest/uploaded_file_test.go",
-              "tools/rest/uploaded_file.go",
-              "tools/filesystem/filesystem_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 60,
-            "budgetRecall": 0,
-            "ms": 157,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "tests/app.go",
-              "core/base.go",
-              "apis/record_crud_test.go",
-              "tools/filesystem/filesystem_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 595,
-            "budgetRecall": 1,
-            "ms": 205,
-            "buildMs": 1919,
-            "error": null,
-            "top": [
-              "tools/filesystem/file.go",
-              "plugins/jsvm/migrations.go",
-              "forms/record_upsert.go",
-              "tools/rest/uploaded_file.go",
-              "forms/validators/file.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 67,
-            "budgetRecall": 0,
-            "ms": 86,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/rest/uploaded_file_test.go",
-              "forms/record_upsert.go",
-              "apis/file_test.go",
-              "plugins/migratecmd/migratecmd_test.go",
-              "tests/api.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 48,
-            "budgetRecall": 0,
-            "ms": 154,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "tests/app.go",
-              "apis/record_crud_test.go",
-              "apis/collection_test.go",
-              "apis/file_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 1343,
-      "queries": {
-        "natural": "file upload error caused underscore metadata underscore original_filename metadata causing SignatureDoesNotMatch error uploading files storage Changing metadata name original filename",
-        "stemblind": "file upload error caused underscore metadata underscore original_filename metadata causing SignatureDoesNotMatch error uploading files storage Changing metadata name original filename"
-      },
-      "querySource": "pr",
-      "gold": [
-        "tools/filesystem/filesystem.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 777,
-            "budgetRecall": 1,
-            "ms": 185,
-            "buildMs": 1932,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem.go",
-              "forms/record_upsert.go",
-              "tools/filesystem/file.go",
-              "apis/api_error.go",
-              "apis/file.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 60,
-            "budgetRecall": 1,
-            "ms": 86,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem.go",
-              "tools/filesystem/filesystem_test.go",
-              "forms/record_upsert.go",
-              "apis/file.go",
-              "tools/rest/uploaded_file_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 72,
-            "budgetRecall": 1,
-            "ms": 149,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem_test.go",
-              "tools/filesystem/filesystem.go",
-              "forms/record_upsert.go",
-              "forms/record_upsert_test.go",
-              "forms/validators/record_data.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 777,
-            "budgetRecall": 1,
-            "ms": 196,
-            "buildMs": 1932,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem.go",
-              "forms/record_upsert.go",
-              "tools/filesystem/file.go",
-              "apis/api_error.go",
-              "apis/file.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 60,
-            "budgetRecall": 1,
-            "ms": 86,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem.go",
-              "tools/filesystem/filesystem_test.go",
-              "forms/record_upsert.go",
-              "apis/file.go",
-              "tools/rest/uploaded_file_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 72,
-            "budgetRecall": 1,
-            "ms": 148,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem_test.go",
-              "tools/filesystem/filesystem.go",
-              "forms/record_upsert.go",
-              "forms/record_upsert_test.go",
-              "forms/validators/record_data.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 1233,
-      "queries": {
-        "natural": "Add healthcheck endpoint Wonderful project deploying Pocketbase Dokku nice endpoint accessed without authorization help zero downtime deploys",
-        "stemblind": "Add healthcheck endpoint Wonderful project deploying Pocketbase Dokku nice endpoint accessed without authorization help zero downtime deploys"
-      },
-      "querySource": "issue#1203",
-      "gold": [
-        "apis/base.go"
-      ],
-      "goldNew": 1,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 303,
-            "budgetRecall": 0,
-            "ms": 183,
-            "buildMs": 1876,
-            "error": null,
-            "top": [
-              "plugins/migratecmd/templates.go",
-              "tools/types/datetime.go",
-              "migrations/logs/1660821103_add_user_ip_column.go",
-              "pocketbase.go",
-              "models/schema/schema.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 61,
-            "budgetRecall": 0,
-            "ms": 86,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "pocketbase.go",
-              "apis/middlewares.go",
-              "models/settings/settings_test.go",
-              "apis/middlewares_test.go",
-              "tools/types/datetime_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 48,
-            "budgetRecall": 0,
-            "ms": 160,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/record_auth.go",
-              "core/base.go",
-              "models/settings/settings_test.go",
-              "apis/realtime.go",
-              "resolvers/record_field_resolver.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 303,
-            "budgetRecall": 0,
-            "ms": 178,
-            "buildMs": 1876,
-            "error": null,
-            "top": [
-              "plugins/migratecmd/templates.go",
-              "tools/types/datetime.go",
-              "migrations/logs/1660821103_add_user_ip_column.go",
-              "pocketbase.go",
-              "models/schema/schema.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 61,
-            "budgetRecall": 0,
-            "ms": 85,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "pocketbase.go",
-              "apis/middlewares.go",
-              "models/settings/settings_test.go",
-              "apis/middlewares_test.go",
-              "tools/types/datetime_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 48,
-            "budgetRecall": 0,
-            "ms": 160,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/record_auth.go",
-              "core/base.go",
-              "models/settings/settings_test.go",
-              "apis/realtime.go",
-              "resolvers/record_field_resolver.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 887,
-      "queries": {
-        "natural": "feat Add Spotify OAuth2 provider working adding Spotify OAuth2 provider since common OAuth2 provider music related apps like one working auth tests passing practice working intended think right comes implementation try use provider app keep getting Spotify digging around found seems suggest string needs base64 encoded tried see changes sure correct still working marked draft now super familiar OAuth2 exactly",
-        "stemblind": "feat Add OAuth2 provider working adding OAuth2 provider since common OAuth2 provider music related apps like one working tests passing practice working intended think right comes implementation try use provider app keep getting digging around found seems suggest string needs base64 encoded tried see changes sure correct still working marked draft now super familiar OAuth2 exactly sure investigate next lucky"
-      },
-      "querySource": "pr",
-      "gold": [
-        "core/settings.go",
-        "tools/auth/auth.go"
-      ],
-      "goldNew": 1,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0.5,
-            "recall10": 0.5,
-            "mrr": 0.2,
-            "anyHit": true,
-            "packTokens": 406,
-            "budgetRecall": 0.5,
-            "ms": 202,
-            "buildMs": 1739,
-            "error": null,
-            "top": [
-              "tools/auth/base_provider.go",
-              "daos/record_test.go",
-              "tools/auth/base_provider_test.go",
-              "forms/record_oauth2_login.go",
-              "tools/auth/auth.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 56,
-            "budgetRecall": 0,
-            "ms": 75,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/base.go",
-              "cmd/temp_upgrade.go",
-              "daos/record.go",
-              "apis/middlewares.go",
-              "tools/filesystem/filesystem.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 59,
-            "budgetRecall": 1,
-            "ms": 148,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/auth/base_provider.go",
-              "tools/auth/auth.go",
-              "core/settings.go",
-              "cmd/temp_upgrade.go",
-              "forms/record_oauth2_login.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 537,
-            "budgetRecall": 0,
-            "ms": 190,
-            "buildMs": 1739,
-            "error": null,
-            "top": [
-              "forms/record_oauth2_login.go",
-              "tools/search/provider.go",
-              "tools/search/provider_test.go",
-              "forms/record_oauth2_login_test.go",
-              "daos/record_test.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 53,
-            "budgetRecall": 0,
-            "ms": 75,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/base.go",
-              "apis/middlewares.go",
-              "cmd/temp_upgrade.go",
-              "tools/filesystem/filesystem.go",
-              "daos/record.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 59,
-            "budgetRecall": 1,
-            "ms": 149,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/auth/base_provider.go",
-              "tools/auth/auth.go",
-              "core/settings.go",
-              "cmd/temp_upgrade.go",
-              "forms/record_oauth2_login.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 794,
-      "queries": {
-        "natural": "comment typos typos located code comments small quality changes",
-        "stemblind": "comment typos typos located code comments small quality changes"
-      },
-      "querySource": "pr",
-      "gold": [
-        "core/base.go",
-        "daos/collection.go",
-        "daos/user.go",
-        "models/schema/schema_field.go",
-        "tools/search/filter.go",
-        "tools/search/provider.go",
-        "tools/subscriptions/client.go",
-        "tools/types/datetime.go",
-        "tools/types/json_array.go",
-        "tools/types/json_map.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 68,
-            "budgetRecall": 0,
-            "ms": 153,
-            "buildMs": 1550,
-            "error": null,
-            "top": [
-              "ui/src/utils/CommonHelper.js",
-              "ui/src/utils/ApiClient.js",
-              "ui/src/stores/admin.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 61,
-            "budgetRecall": 0,
-            "ms": 71,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/mailer/html2text_test.go",
-              "mails/templates/layout.go",
-              "tools/mailer/html2text.go",
-              "tools/rest/api_error_test.go",
-              "forms/user_oauth2_login_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 53,
-            "budgetRecall": 0,
-            "ms": 153,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/record.go",
-              "models/record_test.go",
-              "apis/user_test.go",
-              "tools/search/provider_test.go",
-              "tools/rest/api_error_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 68,
-            "budgetRecall": 0,
-            "ms": 176,
-            "buildMs": 1550,
-            "error": null,
-            "top": [
-              "ui/src/utils/CommonHelper.js",
-              "ui/src/utils/ApiClient.js",
-              "ui/src/stores/admin.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 61,
-            "budgetRecall": 0,
-            "ms": 68,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/mailer/html2text_test.go",
-              "mails/templates/layout.go",
-              "tools/mailer/html2text.go",
-              "tools/rest/api_error_test.go",
-              "forms/user_oauth2_login_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 53,
-            "budgetRecall": 0,
-            "ms": 150,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/record.go",
-              "models/record_test.go",
-              "apis/user_test.go",
-              "tools/search/provider_test.go",
-              "tools/rest/api_error_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 661,
-      "queries": {
-        "natural": "serve css files content type Currently css files served server trivial detect css file types similar svg files css files served instead become unusable stylesheets browser served via api commit generalize svg detection detect css files serve specific extensions respective mimetypes",
-        "stemblind": "serve css files content type Currently css files served server trivial detect css file types similar svg files css files served instead become unusable stylesheets browser served via api commit generalize svg detection detect css files serve specific extensions respective mimetypes"
-      },
-      "querySource": "pr",
-      "gold": [
-        "tools/filesystem/filesystem.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 478,
-            "budgetRecall": 0,
-            "ms": 164,
-            "buildMs": 1584,
-            "error": null,
-            "top": [
-              "ui/src/utils/ApiClient.js",
-              "ui/src/utils/CommonHelper.js",
-              "ui/src/stores/toasts.js",
-              "ui/src/stores/admin.js",
-              "ui/embed.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 57,
-            "budgetRecall": 1,
-            "ms": 68,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/file.go",
-              "tools/filesystem/filesystem.go",
-              "apis/base.go",
-              "tools/filesystem/filesystem_test.go",
-              "cmd/serve.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.14285714285714285,
-            "anyHit": true,
-            "packTokens": 49,
-            "budgetRecall": 1,
-            "ms": 154,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/schema/schema_field.go",
-              "models/record.go",
-              "apis/file.go",
-              "apis/user.go",
-              "apis/user_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 478,
-            "budgetRecall": 0,
-            "ms": 165,
-            "buildMs": 1584,
-            "error": null,
-            "top": [
-              "ui/src/utils/ApiClient.js",
-              "ui/src/utils/CommonHelper.js",
-              "ui/src/stores/toasts.js",
-              "ui/src/stores/admin.js",
-              "ui/embed.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 57,
-            "budgetRecall": 1,
-            "ms": 70,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/file.go",
-              "tools/filesystem/filesystem.go",
-              "apis/base.go",
-              "tools/filesystem/filesystem_test.go",
-              "cmd/serve.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.14285714285714285,
-            "anyHit": true,
-            "packTokens": 49,
-            "budgetRecall": 1,
-            "ms": 151,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/schema/schema_field.go",
-              "models/record.go",
-              "apis/file.go",
-              "apis/user.go",
-              "apis/user_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 585,
-      "queries": {
-        "natural": "Respect EXIF auto orientation tag uploading image mobile device generated thumbnails rotated according EXIF tag results thumbnails potentially generated wrong orientation imaging package supports reading EXIF tag adding support simple",
-        "stemblind": "Respect EXIF auto orientation tag uploading image mobile device generated thumbnails rotated according EXIF tag results thumbnails potentially generated wrong orientation imaging package supports reading EXIF tag adding support simple"
-      },
-      "querySource": "pr",
-      "gold": [
-        "tools/filesystem/filesystem.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.3333333333333333,
-            "anyHit": true,
-            "packTokens": 322,
-            "budgetRecall": 1,
-            "ms": 169,
-            "buildMs": 1582,
-            "error": null,
-            "top": [
-              "tools/search/simple_field_resolver.go",
-              "models/admin.go",
-              "tools/filesystem/filesystem.go",
-              "core/app.go",
-              "cmd/migrate.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 68,
-            "budgetRecall": 1,
-            "ms": 69,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem.go",
-              "tools/search/simple_field_resolver.go",
-              "tools/auth/twitter.go",
-              "mails/templates/layout.go",
-              "tools/mailer/html2text.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.2,
-            "anyHit": true,
-            "packTokens": 57,
-            "budgetRecall": 1,
-            "ms": 151,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "mails/templates/layout.go",
-              "tools/filesystem/filesystem_test.go",
-              "forms/record_upsert_test.go",
-              "apis/file_test.go",
-              "tools/filesystem/filesystem.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.3333333333333333,
-            "anyHit": true,
-            "packTokens": 322,
-            "budgetRecall": 1,
-            "ms": 172,
-            "buildMs": 1582,
-            "error": null,
-            "top": [
-              "tools/search/simple_field_resolver.go",
-              "models/admin.go",
-              "tools/filesystem/filesystem.go",
-              "core/app.go",
-              "cmd/migrate.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 68,
-            "budgetRecall": 1,
-            "ms": 71,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem.go",
-              "tools/search/simple_field_resolver.go",
-              "tools/auth/twitter.go",
-              "mails/templates/layout.go",
-              "tools/mailer/html2text.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.2,
-            "anyHit": true,
-            "packTokens": 57,
-            "budgetRecall": 1,
-            "ms": 150,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "mails/templates/layout.go",
-              "tools/filesystem/filesystem_test.go",
-              "forms/record_upsert_test.go",
-              "apis/file_test.go",
-              "tools/filesystem/filesystem.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 207,
-      "queries": {
-        "natural": "use read scopes github auth According github doc scope includes write access profile info Read scope sufficient auth flow ref",
-        "stemblind": "use read scopes According doc scope includes write access profile info Read scope sufficient flow ref"
-      },
-      "querySource": "pr",
-      "gold": [
-        "tools/auth/github.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 449,
-            "budgetRecall": 1,
-            "ms": 171,
-            "buildMs": 1434,
-            "error": null,
-            "top": [
-              "tools/auth/github.go",
-              "tools/auth/base_provider.go",
-              "tools/auth/auth.go",
-              "apis/user.go",
-              "tools/auth/google.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.2,
-            "anyHit": true,
-            "packTokens": 54,
-            "budgetRecall": 1,
-            "ms": 61,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/auth/auth.go",
-              "tools/auth/base_provider_test.go",
-              "tools/auth/google.go",
-              "tools/auth/base_provider.go",
-              "tools/auth/github.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 51,
-            "budgetRecall": 1,
-            "ms": 153,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/auth/github.go",
-              "tools/auth/base_provider.go",
-              "tools/auth/auth.go",
-              "tools/auth/gitlab.go",
-              "apis/user_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 222,
-            "budgetRecall": 0,
-            "ms": 162,
-            "buildMs": 1434,
-            "error": null,
-            "top": [
-              "ui/src/stores/toasts.js",
-              "ui/src/stores/collections.js",
-              "ui/src/utils/CommonHelper.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.1111111111111111,
-            "anyHit": true,
-            "packTokens": 54,
-            "budgetRecall": 1,
-            "ms": 64,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/auth/auth.go",
-              "tools/auth/base_provider_test.go",
-              "daos/record.go",
-              "tools/auth/google.go",
-              "tools/security/encrypt.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 56,
-            "budgetRecall": 1,
-            "ms": 159,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/auth/base_provider.go",
-              "tools/auth/github.go",
-              "daos/user.go",
-              "tools/auth/base_provider_test.go",
-              "tools/filesystem/filesystem.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 163,
-      "queries": {
-        "natural": "migrate always reverts migrations testing migration noticed reverts migrations including init one peek code never gets incremented perhaps change",
-        "stemblind": "always reverts migrations testing migration noticed reverts migrations including init one peek code never gets incremented perhaps change"
-      },
-      "querySource": "issue#161",
-      "gold": [
-        "tools/migrate/runner.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.2,
-            "anyHit": true,
-            "packTokens": 744,
-            "budgetRecall": 1,
-            "ms": 185,
-            "buildMs": 1426,
-            "error": null,
-            "top": [
-              "cmd/migrate.go",
-              "migrations/1640988000_init.go",
-              "migrations/logs/1640988000_init.go",
-              "cmd/serve.go",
-              "tools/migrate/runner.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 61,
-            "budgetRecall": 1,
-            "ms": 61,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/migrate/runner.go",
-              "cmd/migrate.go",
-              "tools/migrate/list.go",
-              "cmd/serve.go",
-              "tools/migrate/runner_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 57,
-            "budgetRecall": 1,
-            "ms": 151,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/migrate/runner.go",
-              "cmd/migrate.go",
-              "tools/migrate/runner_test.go",
-              "tools/migrate/list_test.go",
-              "tools/migrate/list.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.16666666666666666,
-            "anyHit": true,
-            "packTokens": 590,
-            "budgetRecall": 1,
-            "ms": 174,
-            "buildMs": 1426,
-            "error": null,
-            "top": [
-              "migrations/1640988000_init.go",
-              "migrations/logs/1640988000_init.go",
-              "cmd/migrate.go",
-              "cmd/serve.go",
-              "tools/migrate/list.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 58,
-            "budgetRecall": 1,
-            "ms": 61,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/migrate/runner.go",
-              "cmd/migrate.go",
-              "cmd/serve.go",
-              "tools/migrate/list.go",
-              "tools/migrate/runner_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 54,
-            "budgetRecall": 1,
-            "ms": 150,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/migrate/runner.go",
-              "cmd/migrate.go",
-              "tools/migrate/list.go",
-              "tools/migrate/runner_test.go",
-              "migrations/1640988000_init.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 114,
-      "queries": {
-        "natural": "simplified code returning early added cap slices Simplified code early return Added cap slices append Removed unnecessary parentheses doc typos",
-        "stemblind": "simplified code returning early added cap slices Simplified code early return Added cap slices append Removed unnecessary parentheses doc typos"
-      },
-      "querySource": "pr",
-      "gold": [
-        "daos/record_expand.go",
-        "daos/user.go",
-        "forms/record_upsert.go",
-        "forms/user_oauth2_login.go",
-        "forms/validators/record_data.go",
-        "models/record.go",
-        "models/user.go",
-        "resolvers/record_field_resolver.go",
-        "tools/search/filter.go",
-        "tools/security/encrypt.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0.1,
-            "recall10": 0.2,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 337,
-            "budgetRecall": 0.2,
-            "ms": 180,
-            "buildMs": 1450,
-            "error": null,
-            "top": [
-              "models/schema/schema.go",
-              "tools/security/encrypt.go",
-              "apis/user.go",
-              "tools/auth/base_provider.go",
-              "tools/rest/api_error.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0.1,
-            "recall5": 0.2,
-            "recall10": 0.2,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 58,
-            "budgetRecall": 0.2,
-            "ms": 61,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/security/encrypt.go",
-              "core/app.go",
-              "models/schema/schema.go",
-              "apis/user.go",
-              "forms/user_oauth2_login.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0.2,
-            "recall10": 0.3,
-            "mrr": 0.3333333333333333,
-            "anyHit": true,
-            "packTokens": 60,
-            "budgetRecall": 0.3,
-            "ms": 145,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem.go",
-              "apis/user.go",
-              "models/record.go",
-              "resolvers/record_field_resolver.go",
-              "tools/search/provider_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0.1,
-            "recall10": 0.2,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 337,
-            "budgetRecall": 0.2,
-            "ms": 182,
-            "buildMs": 1450,
-            "error": null,
-            "top": [
-              "models/schema/schema.go",
-              "tools/security/encrypt.go",
-              "apis/user.go",
-              "tools/auth/base_provider.go",
-              "tools/rest/api_error.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0.1,
-            "recall5": 0.2,
-            "recall10": 0.2,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 58,
-            "budgetRecall": 0.2,
-            "ms": 61,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/security/encrypt.go",
-              "core/app.go",
-              "models/schema/schema.go",
-              "apis/user.go",
-              "forms/user_oauth2_login.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0.2,
-            "recall10": 0.3,
-            "mrr": 0.3333333333333333,
-            "anyHit": true,
-            "packTokens": 60,
-            "budgetRecall": 0.3,
-            "ms": 162,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem.go",
-              "apis/user.go",
-              "models/record.go",
-              "resolvers/record_field_resolver.go",
-              "tools/search/provider_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 89,
-      "queries": {
-        "natural": "simplified code returning early reducing local variable scopes Simplified code early return Replaced variable name conflicted strings package Reduced local variable scopes Changed JWT initialization method previous method deprecated Deprecated future releases field exported anymore set option instead",
-        "stemblind": "simplified code returning early reducing local variable scopes Simplified code early return Replaced variable name conflicted strings package Reduced local variable scopes Changed initialization method previous method deprecated Deprecated future releases field exported anymore set option instead"
-      },
-      "querySource": "pr",
-      "gold": [
-        "tools/list/list.go",
-        "tools/search/filter.go",
-        "tools/search/provider.go",
-        "tools/search/sort.go",
-        "tools/security/jwt.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0.2,
-            "recall5": 0.2,
-            "recall10": 0.2,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 722,
-            "budgetRecall": 0.2,
-            "ms": 191,
-            "buildMs": 1434,
-            "error": null,
-            "top": [
-              "tools/security/jwt.go",
-              "tools/auth/base_provider.go",
-              "tools/filesystem/filesystem.go",
-              "forms/validators/record_data.go",
-              "models/schema/schema.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 49,
-            "budgetRecall": 0,
-            "ms": 60,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/auth/auth.go",
-              "tools/auth/base_provider.go",
-              "tools/filesystem/filesystem.go",
-              "apis/base.go",
-              "models/record.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 58,
-            "budgetRecall": 0,
-            "ms": 149,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "core/settings_test.go",
-              "tools/auth/base_provider.go",
-              "tools/auth/base_provider_test.go",
-              "core/base.go",
-              "tools/auth/auth.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 801,
-            "budgetRecall": 0,
-            "ms": 185,
-            "buildMs": 1434,
-            "error": null,
-            "top": [
-              "tools/auth/base_provider.go",
-              "tools/filesystem/filesystem.go",
-              "models/schema/schema.go",
-              "forms/validators/record_data.go",
-              "resolvers/record_field_resolver.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 50,
-            "budgetRecall": 0,
-            "ms": 59,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/auth/auth.go",
-              "tools/auth/base_provider.go",
-              "tools/filesystem/filesystem.go",
-              "apis/base.go",
-              "models/record.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 58,
-            "budgetRecall": 0,
-            "ms": 147,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "core/settings_test.go",
-              "tools/auth/base_provider.go",
-              "tools/auth/base_provider_test.go",
-              "core/base.go",
-              "tools/auth/auth.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 82,
-      "queries": {
-        "natural": "Simplified version flag Used cobra simplicity shorthand flag added command define one Removed original version flag",
-        "stemblind": "Simplified flag Used cobra simplicity shorthand flag added command define one Removed original flag"
-      },
-      "querySource": "pr",
-      "gold": [
-        "cmd/version.go",
-        "pocketbase.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0.5,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 427,
-            "budgetRecall": 1,
-            "ms": 160,
-            "buildMs": 1440,
-            "error": null,
-            "top": [
-              "cmd/version.go",
-              "cmd/migrate.go",
-              "cmd/serve.go",
-              "pocketbase.go",
-              "forms/collection_upsert.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0.5,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 48,
-            "budgetRecall": 1,
-            "ms": 61,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "pocketbase.go",
-              "cmd/version.go",
-              "cmd/migrate.go",
-              "cmd/serve.go",
-              "tools/migrate/runner.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0.5,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 47,
-            "budgetRecall": 1,
-            "ms": 147,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "pocketbase.go",
-              "cmd/serve.go",
-              "cmd/migrate.go",
-              "cmd/version.go",
-              "core/app.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 433,
-            "budgetRecall": 1,
-            "ms": 165,
-            "buildMs": 1440,
-            "error": null,
-            "top": [
-              "cmd/migrate.go",
-              "cmd/version.go",
-              "cmd/serve.go",
-              "pocketbase.go",
-              "forms/collection_upsert.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0.5,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 48,
-            "budgetRecall": 1,
-            "ms": 61,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "pocketbase.go",
-              "cmd/migrate.go",
-              "cmd/version.go",
-              "cmd/serve.go",
-              "tools/migrate/runner.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0.5,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 46,
-            "budgetRecall": 1,
-            "ms": 153,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "pocketbase.go",
-              "cmd/migrate.go",
-              "cmd/serve.go",
-              "cmd/version.go",
-              "core/app.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 69,
-      "queries": {
-        "natural": "automatically add version information automatically add version information using ldflags",
-        "stemblind": "automatically add version information automatically add version information using ldflags"
-      },
-      "querySource": "pr",
-      "gold": [
-        "pocketbase.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.25,
-            "anyHit": true,
-            "packTokens": 394,
-            "budgetRecall": 1,
-            "ms": 171,
-            "buildMs": 1485,
-            "error": null,
-            "top": [
-              "cmd/version.go",
-              "models/schema/schema.go",
-              "tools/search/provider.go",
-              "pocketbase.go",
-              "resolvers/record_field_resolver.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 44,
-            "budgetRecall": 1,
-            "ms": 62,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "pocketbase.go",
-              "daos/collection.go",
-              "cmd/version.go",
-              "tools/migrate/list.go",
-              "cmd/serve.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.25,
-            "anyHit": true,
-            "packTokens": 51,
-            "budgetRecall": 1,
-            "ms": 91,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "daos/collection.go",
-              "cmd/version.go",
-              "apis/collection_test.go",
-              "pocketbase.go",
-              "apis/record_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.25,
-            "anyHit": true,
-            "packTokens": 394,
-            "budgetRecall": 1,
-            "ms": 170,
-            "buildMs": 1485,
-            "error": null,
-            "top": [
-              "cmd/version.go",
-              "models/schema/schema.go",
-              "tools/search/provider.go",
-              "pocketbase.go",
-              "resolvers/record_field_resolver.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 44,
-            "budgetRecall": 1,
-            "ms": 57,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "pocketbase.go",
-              "daos/collection.go",
-              "cmd/version.go",
-              "tools/migrate/list.go",
-              "cmd/serve.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.25,
-            "anyHit": true,
-            "packTokens": 51,
-            "budgetRecall": 1,
-            "ms": 95,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "daos/collection.go",
-              "cmd/version.go",
-              "apis/collection_test.go",
-              "pocketbase.go",
-              "apis/record_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 47,
-      "queries": {
-        "natural": "doc code inconsistencies removed redundant parentheses doc latencies removed redundant parentheses replaced variable collides builtin function",
-        "stemblind": "doc code inconsistencies removed redundant parentheses doc latencies removed redundant parentheses replaced variable collides builtin function"
-      },
-      "querySource": "pr",
-      "gold": [
-        "apis/base.go",
-        "apis/middlewares.go",
-        "core/settings.go",
-        "daos/admin.go",
-        "forms/user_email_change_request.go",
-        "models/base.go",
-        "models/record.go",
-        "tools/auth/auth.go",
-        "tools/list/list.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0.1111111111111111,
-            "mrr": 0.125,
-            "anyHit": true,
-            "packTokens": 420,
-            "budgetRecall": 0.1111111111111111,
-            "ms": 180,
-            "buildMs": 1459,
-            "error": null,
-            "top": [
-              "tools/security/encrypt.go",
-              "tools/rest/api_error.go",
-              "tools/auth/base_provider.go",
-              "daos/record_expand.go",
-              "pocketbase.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0.1111111111111111,
-            "recall10": 0.1111111111111111,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 65,
-            "budgetRecall": 0.1111111111111111,
-            "ms": 61,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/security/encrypt.go",
-              "apis/base.go",
-              "tools/subscriptions/client_test.go",
-              "tools/hook/hook.go",
-              "daos/record_expand.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0.1111111111111111,
-            "recall10": 0.1111111111111111,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 53,
-            "budgetRecall": 0.1111111111111111,
-            "ms": 152,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/schema/schema_test.go",
-              "apis/base.go",
-              "models/record_test.go",
-              "apis/user_test.go",
-              "tools/search/provider_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0.1111111111111111,
-            "mrr": 0.125,
-            "anyHit": true,
-            "packTokens": 420,
-            "budgetRecall": 0.1111111111111111,
-            "ms": 160,
-            "buildMs": 1459,
-            "error": null,
-            "top": [
-              "tools/security/encrypt.go",
-              "tools/rest/api_error.go",
-              "tools/auth/base_provider.go",
-              "daos/record_expand.go",
-              "pocketbase.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0.1111111111111111,
-            "recall10": 0.1111111111111111,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 65,
-            "budgetRecall": 0.1111111111111111,
-            "ms": 58,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/security/encrypt.go",
-              "apis/base.go",
-              "tools/subscriptions/client_test.go",
-              "tools/hook/hook.go",
-              "daos/record_expand.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0.1111111111111111,
-            "recall10": 0.1111111111111111,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 53,
-            "budgetRecall": 0.1111111111111111,
-            "ms": 146,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/schema/schema_test.go",
-              "apis/base.go",
-              "models/record_test.go",
-              "apis/user_test.go",
-              "tools/search/provider_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 5179,
-      "queries": {
-        "natural": "days calculation bug old logs Corrected daysDiff calculation dividing hours instead multiplying",
-        "stemblind": "days calculation bug old logs Corrected daysDiff calculation dividing hours instead multiplying"
-      },
-      "querySource": "pr",
-      "gold": [
-        "core/base.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.25,
-            "anyHit": true,
-            "packTokens": 545,
-            "budgetRecall": 1,
-            "ms": 276,
-            "buildMs": 8831,
-            "error": null,
-            "top": [
-              "daos/log.go",
-              "plugins/migratecmd/templates.go",
-              "migrations/logs/1699187560_logs_generalization.go",
-              "core/base.go",
-              "models/settings/settings.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 63,
-            "budgetRecall": 1,
-            "ms": 144,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "core/base.go",
-              "tools/cron/schedule_test.go",
-              "tools/cron/schedule.go",
-              "tools/cron/cron_test.go",
-              "forms/settings_upsert.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 56,
-            "budgetRecall": 1,
-            "ms": 172,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "core/base.go",
-              "apis/middlewares.go",
-              "tools/cron/schedule_test.go",
-              "core/base_test.go",
-              "models/settings/settings_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.25,
-            "anyHit": true,
-            "packTokens": 545,
-            "budgetRecall": 1,
-            "ms": 264,
-            "buildMs": 8831,
-            "error": null,
-            "top": [
-              "daos/log.go",
-              "plugins/migratecmd/templates.go",
-              "migrations/logs/1699187560_logs_generalization.go",
-              "core/base.go",
-              "models/settings/settings.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 63,
-            "budgetRecall": 1,
-            "ms": 144,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "core/base.go",
-              "tools/cron/schedule_test.go",
-              "tools/cron/schedule.go",
-              "tools/cron/cron_test.go",
-              "forms/settings_upsert.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 56,
-            "budgetRecall": 1,
-            "ms": 175,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "core/base.go",
-              "apis/middlewares.go",
-              "tools/cron/schedule_test.go",
-              "core/base_test.go",
-              "models/settings/settings_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 3192,
-      "queries": {
-        "natural": "restore previous api rules downgrading migration changing api rules generated functions clear api rules instead setting them previous value starting state performing change api rule subsequently running one ends state missing api rule present state changes code generation functions set api rules previous value instead clearing them",
-        "stemblind": "restore previous api rules downgrading migration changing api rules generated functions clear api rules instead setting them previous value starting state performing change api rule subsequently running one ends state missing api rule present state changes code generation functions set api rules previous value instead clearing them"
-      },
-      "querySource": "pr",
-      "gold": [
-        "plugins/migratecmd/templates.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 870,
-            "budgetRecall": 0,
-            "ms": 304,
-            "buildMs": 8235,
-            "error": null,
-            "top": [
-              "ui/src/utils/ApiClient.js",
-              "ui/src/utils/CommonHelper.js",
-              "ui/public/libs/tinymce/tinymce.min.js",
-              "ui/src/stores/collections.js",
-              "ui/public/libs/tinymce/plugins/code/plugin.min.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 61,
-            "budgetRecall": 0,
-            "ms": 128,
-            "buildMs": null,
-            "error": null,
-            "top": [
               "plugins/jsvm/internal/types/types.go",
-              "plugins/migratecmd/migratecmd.go",
-              "forms/record_upsert.go",
-              "apis/realtime.go",
-              "apis/record_auth.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 65,
-            "budgetRecall": 0,
-            "ms": 168,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "forms/collection_upsert_test.go",
-              "plugins/jsvm/internal/types/types.go",
-              "forms/collection_upsert.go",
-              "plugins/migratecmd/migratecmd_test.go"
+              "plugins/jsvm/binds.go",
+              "core/base.go",
+              "models/schema/schema_field.go",
+              "apis/middlewares.go"
             ]
           }
         },
         "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 870,
-            "budgetRecall": 0,
-            "ms": 300,
-            "buildMs": 8235,
-            "error": null,
-            "top": [
-              "ui/src/utils/ApiClient.js",
-              "ui/src/utils/CommonHelper.js",
-              "ui/public/libs/tinymce/tinymce.min.js",
-              "ui/src/stores/collections.js",
-              "ui/public/libs/tinymce/plugins/code/plugin.min.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 61,
-            "budgetRecall": 0,
-            "ms": 126,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/migratecmd/migratecmd.go",
-              "forms/record_upsert.go",
-              "apis/realtime.go",
-              "apis/record_auth.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 65,
-            "budgetRecall": 0,
-            "ms": 166,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "forms/collection_upsert_test.go",
-              "plugins/jsvm/internal/types/types.go",
-              "forms/collection_upsert.go",
-              "plugins/migratecmd/migratecmd_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 3068,
-      "queries": {
-        "natural": "confusing minor typo deprecated RequestData confusing error turns typo deprecated RequestData method",
-        "stemblind": "confusing minor typo deprecated RequestData confusing error turns typo deprecated RequestData method"
-      },
-      "querySource": "pr",
-      "gold": [
-        "apis/record_helpers.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
           "graft": {
             "recall1": 0,
             "recall5": 0,
@@ -3731,8 +1124,8 @@
             "anyHit": true,
             "packTokens": 971,
             "budgetRecall": 1,
-            "ms": 269,
-            "buildMs": 8052,
+            "ms": 266,
+            "buildMs": 8135,
             "error": null,
             "top": [
               "apis/api_error.go",
@@ -3780,65 +1173,6 @@
               "apis/middlewares.go"
             ]
           }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.16666666666666666,
-            "anyHit": true,
-            "packTokens": 971,
-            "budgetRecall": 1,
-            "ms": 270,
-            "buildMs": 8052,
-            "error": null,
-            "top": [
-              "apis/api_error.go",
-              "plugins/jsvm/internal/types/generated/types.d.ts",
-              "models/request_info.go",
-              "tools/auth/base_provider.go",
-              "migrations/logs/1677760279_uppsercase_method.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 52,
-            "budgetRecall": 1,
-            "ms": 128,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/record_helpers.go",
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/jsvm/binds.go",
-              "tools/mailer/smtp.go",
-              "apis/realtime.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.125,
-            "anyHit": true,
-            "packTokens": 56,
-            "budgetRecall": 1,
-            "ms": 166,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/jsvm/binds.go",
-              "core/base.go",
-              "models/schema/schema_field.go",
-              "apis/middlewares.go"
-            ]
-          }
         }
       }
     },
@@ -3863,8 +1197,8 @@
             "anyHit": true,
             "packTokens": 439,
             "budgetRecall": 0,
-            "ms": 280,
-            "buildMs": 7631,
+            "ms": 270,
+            "buildMs": 7625,
             "error": null,
             "top": [
               "ui/src/stores/admin.js",
@@ -3882,7 +1216,7 @@
             "anyHit": true,
             "packTokens": 51,
             "budgetRecall": 1,
-            "ms": 114,
+            "ms": 117,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3901,7 +1235,7 @@
             "anyHit": false,
             "packTokens": 45,
             "budgetRecall": 0,
-            "ms": 171,
+            "ms": 163,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3922,8 +1256,8 @@
             "anyHit": true,
             "packTokens": 439,
             "budgetRecall": 0,
-            "ms": 273,
-            "buildMs": 7631,
+            "ms": 279,
+            "buildMs": 7625,
             "error": null,
             "top": [
               "ui/src/stores/admin.js",
@@ -3941,7 +1275,7 @@
             "anyHit": true,
             "packTokens": 51,
             "budgetRecall": 1,
-            "ms": 112,
+            "ms": 115,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3995,8 +1329,8 @@
             "anyHit": false,
             "packTokens": 415,
             "budgetRecall": 0,
-            "ms": 242,
-            "buildMs": 7645,
+            "ms": 248,
+            "buildMs": 7764,
             "error": null,
             "top": [
               "resolvers/record_field_resolve_runner.go",
@@ -4014,7 +1348,7 @@
             "anyHit": false,
             "packTokens": 66,
             "budgetRecall": 0,
-            "ms": 114,
+            "ms": 118,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4033,7 +1367,7 @@
             "anyHit": false,
             "packTokens": 71,
             "budgetRecall": 0,
-            "ms": 166,
+            "ms": 189,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4054,8 +1388,8 @@
             "anyHit": false,
             "packTokens": 415,
             "budgetRecall": 0,
-            "ms": 237,
-            "buildMs": 7645,
+            "ms": 241,
+            "buildMs": 7764,
             "error": null,
             "top": [
               "resolvers/record_field_resolve_runner.go",
@@ -4073,7 +1407,7 @@
             "anyHit": false,
             "packTokens": 66,
             "budgetRecall": 0,
-            "ms": 115,
+            "ms": 117,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4092,7 +1426,7 @@
             "anyHit": false,
             "packTokens": 71,
             "budgetRecall": 0,
-            "ms": 167,
+            "ms": 178,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4127,8 +1461,8 @@
             "anyHit": true,
             "packTokens": 261,
             "budgetRecall": 1,
-            "ms": 220,
-            "buildMs": 2035,
+            "ms": 200,
+            "buildMs": 2061,
             "error": null,
             "top": [
               "tools/filesystem/file.go",
@@ -4165,7 +1499,7 @@
             "anyHit": true,
             "packTokens": 58,
             "budgetRecall": 1,
-            "ms": 154,
+            "ms": 173,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4186,8 +1520,8 @@
             "anyHit": false,
             "packTokens": 242,
             "budgetRecall": 0,
-            "ms": 192,
-            "buildMs": 2035,
+            "ms": 191,
+            "buildMs": 2061,
             "error": null,
             "top": [
               "tools/filesystem/file.go",
@@ -4205,7 +1539,7 @@
             "anyHit": true,
             "packTokens": 67,
             "budgetRecall": 1,
-            "ms": 95,
+            "ms": 97,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4224,7 +1558,7 @@
             "anyHit": false,
             "packTokens": 50,
             "budgetRecall": 0,
-            "ms": 153,
+            "ms": 166,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4259,8 +1593,8 @@
             "anyHit": true,
             "packTokens": 791,
             "budgetRecall": 1,
-            "ms": 195,
-            "buildMs": 1975,
+            "ms": 212,
+            "buildMs": 2025,
             "error": null,
             "top": [
               "tools/filesystem/file_test.go",
@@ -4278,7 +1612,7 @@
             "anyHit": true,
             "packTokens": 67,
             "budgetRecall": 1,
-            "ms": 86,
+            "ms": 88,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4297,7 +1631,7 @@
             "anyHit": false,
             "packTokens": 60,
             "budgetRecall": 0,
-            "ms": 152,
+            "ms": 173,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4318,8 +1652,8 @@
             "anyHit": true,
             "packTokens": 595,
             "budgetRecall": 1,
-            "ms": 184,
-            "buildMs": 1975,
+            "ms": 201,
+            "buildMs": 2025,
             "error": null,
             "top": [
               "tools/filesystem/file.go",
@@ -4337,7 +1671,7 @@
             "anyHit": false,
             "packTokens": 67,
             "budgetRecall": 0,
-            "ms": 86,
+            "ms": 93,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4356,7 +1690,7 @@
             "anyHit": false,
             "packTokens": 48,
             "budgetRecall": 0,
-            "ms": 154,
+            "ms": 165,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4391,8 +1725,8 @@
             "anyHit": true,
             "packTokens": 777,
             "budgetRecall": 1,
-            "ms": 186,
-            "buildMs": 1951,
+            "ms": 210,
+            "buildMs": 1954,
             "error": null,
             "top": [
               "tools/filesystem/filesystem.go",
@@ -4429,7 +1763,7 @@
             "anyHit": true,
             "packTokens": 72,
             "budgetRecall": 1,
-            "ms": 149,
+            "ms": 168,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4450,8 +1784,8 @@
             "anyHit": true,
             "packTokens": 777,
             "budgetRecall": 1,
-            "ms": 181,
-            "buildMs": 1951,
+            "ms": 200,
+            "buildMs": 1954,
             "error": null,
             "top": [
               "tools/filesystem/filesystem.go",
@@ -4488,7 +1822,7 @@
             "anyHit": true,
             "packTokens": 72,
             "budgetRecall": 1,
-            "ms": 151,
+            "ms": 163,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4523,8 +1857,8 @@
             "anyHit": false,
             "packTokens": 303,
             "budgetRecall": 0,
-            "ms": 174,
-            "buildMs": 1876,
+            "ms": 185,
+            "buildMs": 1929,
             "error": null,
             "top": [
               "plugins/migratecmd/templates.go",
@@ -4561,7 +1895,7 @@
             "anyHit": false,
             "packTokens": 48,
             "budgetRecall": 0,
-            "ms": 154,
+            "ms": 158,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4582,8 +1916,8 @@
             "anyHit": false,
             "packTokens": 303,
             "budgetRecall": 0,
-            "ms": 177,
-            "buildMs": 1876,
+            "ms": 184,
+            "buildMs": 1929,
             "error": null,
             "top": [
               "plugins/migratecmd/templates.go",
@@ -4601,7 +1935,7 @@
             "anyHit": false,
             "packTokens": 61,
             "budgetRecall": 0,
-            "ms": 85,
+            "ms": 86,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4620,7 +1954,7 @@
             "anyHit": false,
             "packTokens": 48,
             "budgetRecall": 0,
-            "ms": 153,
+            "ms": 155,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4657,7 +1991,7 @@
             "packTokens": 406,
             "budgetRecall": 0.5,
             "ms": 205,
-            "buildMs": 1727,
+            "buildMs": 1748,
             "error": null,
             "top": [
               "tools/auth/base_provider.go",
@@ -4675,7 +2009,7 @@
             "anyHit": false,
             "packTokens": 56,
             "budgetRecall": 0,
-            "ms": 82,
+            "ms": 75,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4694,7 +2028,7 @@
             "anyHit": true,
             "packTokens": 59,
             "budgetRecall": 1,
-            "ms": 153,
+            "ms": 158,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4715,8 +2049,8 @@
             "anyHit": false,
             "packTokens": 537,
             "budgetRecall": 0,
-            "ms": 211,
-            "buildMs": 1727,
+            "ms": 200,
+            "buildMs": 1748,
             "error": null,
             "top": [
               "forms/record_oauth2_login.go",
@@ -4734,7 +2068,7 @@
             "anyHit": false,
             "packTokens": 53,
             "budgetRecall": 0,
-            "ms": 79,
+            "ms": 74,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4753,7 +2087,7 @@
             "anyHit": true,
             "packTokens": 59,
             "budgetRecall": 1,
-            "ms": 152,
+            "ms": 157,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4797,65 +2131,8 @@
             "anyHit": false,
             "packTokens": 68,
             "budgetRecall": 0,
-            "ms": 164,
-            "buildMs": 1591,
-            "error": null,
-            "top": [
-              "ui/src/utils/CommonHelper.js",
-              "ui/src/utils/ApiClient.js",
-              "ui/src/stores/admin.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 61,
-            "budgetRecall": 0,
-            "ms": 71,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/mailer/html2text_test.go",
-              "mails/templates/layout.go",
-              "tools/mailer/html2text.go",
-              "tools/rest/api_error_test.go",
-              "forms/user_oauth2_login_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 53,
-            "budgetRecall": 0,
-            "ms": 153,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/record.go",
-              "models/record_test.go",
-              "apis/user_test.go",
-              "tools/search/provider_test.go",
-              "tools/rest/api_error_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 68,
-            "budgetRecall": 0,
-            "ms": 153,
-            "buildMs": 1591,
+            "ms": 162,
+            "buildMs": 1623,
             "error": null,
             "top": [
               "ui/src/utils/CommonHelper.js",
@@ -4901,6 +2178,63 @@
               "tools/rest/api_error_test.go"
             ]
           }
+        },
+        "stemblind": {
+          "graft": {
+            "recall1": 0,
+            "recall5": 0,
+            "recall10": 0,
+            "mrr": 0,
+            "anyHit": false,
+            "packTokens": 68,
+            "budgetRecall": 0,
+            "ms": 160,
+            "buildMs": 1623,
+            "error": null,
+            "top": [
+              "ui/src/utils/CommonHelper.js",
+              "ui/src/utils/ApiClient.js",
+              "ui/src/stores/admin.js"
+            ]
+          },
+          "bm25": {
+            "recall1": 0,
+            "recall5": 0,
+            "recall10": 0,
+            "mrr": 0,
+            "anyHit": false,
+            "packTokens": 61,
+            "budgetRecall": 0,
+            "ms": 72,
+            "buildMs": null,
+            "error": null,
+            "top": [
+              "tools/mailer/html2text_test.go",
+              "mails/templates/layout.go",
+              "tools/mailer/html2text.go",
+              "tools/rest/api_error_test.go",
+              "forms/user_oauth2_login_test.go"
+            ]
+          },
+          "gitgrep": {
+            "recall1": 0,
+            "recall5": 0,
+            "recall10": 0,
+            "mrr": 0,
+            "anyHit": false,
+            "packTokens": 53,
+            "budgetRecall": 0,
+            "ms": 190,
+            "buildMs": null,
+            "error": null,
+            "top": [
+              "models/record.go",
+              "models/record_test.go",
+              "apis/user_test.go",
+              "tools/search/provider_test.go",
+              "tools/rest/api_error_test.go"
+            ]
+          }
         }
       }
     },
@@ -4925,8 +2259,8 @@
             "anyHit": false,
             "packTokens": 478,
             "budgetRecall": 0,
-            "ms": 171,
-            "buildMs": 1624,
+            "ms": 180,
+            "buildMs": 1630,
             "error": null,
             "top": [
               "ui/src/utils/ApiClient.js",
@@ -4944,7 +2278,7 @@
             "anyHit": true,
             "packTokens": 57,
             "budgetRecall": 1,
-            "ms": 72,
+            "ms": 76,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4963,7 +2297,7 @@
             "anyHit": true,
             "packTokens": 49,
             "budgetRecall": 1,
-            "ms": 153,
+            "ms": 158,
             "buildMs": null,
             "error": null,
             "top": [
@@ -4984,8 +2318,8 @@
             "anyHit": false,
             "packTokens": 478,
             "budgetRecall": 0,
-            "ms": 171,
-            "buildMs": 1624,
+            "ms": 172,
+            "buildMs": 1630,
             "error": null,
             "top": [
               "ui/src/utils/ApiClient.js",
@@ -5003,7 +2337,7 @@
             "anyHit": true,
             "packTokens": 57,
             "budgetRecall": 1,
-            "ms": 70,
+            "ms": 74,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5022,7 +2356,7 @@
             "anyHit": true,
             "packTokens": 49,
             "budgetRecall": 1,
-            "ms": 165,
+            "ms": 159,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5057,8 +2391,8 @@
             "anyHit": true,
             "packTokens": 322,
             "budgetRecall": 1,
-            "ms": 175,
-            "buildMs": 1597,
+            "ms": 181,
+            "buildMs": 1652,
             "error": null,
             "top": [
               "tools/search/simple_field_resolver.go",
@@ -5076,7 +2410,7 @@
             "anyHit": true,
             "packTokens": 68,
             "budgetRecall": 1,
-            "ms": 72,
+            "ms": 71,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5095,7 +2429,7 @@
             "anyHit": true,
             "packTokens": 57,
             "budgetRecall": 1,
-            "ms": 155,
+            "ms": 159,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5116,8 +2450,8 @@
             "anyHit": true,
             "packTokens": 322,
             "budgetRecall": 1,
-            "ms": 184,
-            "buildMs": 1597,
+            "ms": 182,
+            "buildMs": 1652,
             "error": null,
             "top": [
               "tools/search/simple_field_resolver.go",
@@ -5135,7 +2469,7 @@
             "anyHit": true,
             "packTokens": 68,
             "budgetRecall": 1,
-            "ms": 69,
+            "ms": 76,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5154,7 +2488,7 @@
             "anyHit": true,
             "packTokens": 57,
             "budgetRecall": 1,
-            "ms": 152,
+            "ms": 162,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5189,8 +2523,8 @@
             "anyHit": true,
             "packTokens": 449,
             "budgetRecall": 1,
-            "ms": 180,
-            "buildMs": 1440,
+            "ms": 182,
+            "buildMs": 1483,
             "error": null,
             "top": [
               "tools/auth/github.go",
@@ -5208,7 +2542,7 @@
             "anyHit": true,
             "packTokens": 54,
             "budgetRecall": 1,
-            "ms": 63,
+            "ms": 68,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5227,7 +2561,7 @@
             "anyHit": true,
             "packTokens": 51,
             "budgetRecall": 1,
-            "ms": 146,
+            "ms": 156,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5248,8 +2582,8 @@
             "anyHit": false,
             "packTokens": 222,
             "budgetRecall": 0,
-            "ms": 154,
-            "buildMs": 1440,
+            "ms": 167,
+            "buildMs": 1483,
             "error": null,
             "top": [
               "ui/src/stores/toasts.js",
@@ -5284,7 +2618,7 @@
             "anyHit": true,
             "packTokens": 56,
             "budgetRecall": 1,
-            "ms": 149,
+            "ms": 154,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5319,8 +2653,8 @@
             "anyHit": true,
             "packTokens": 744,
             "budgetRecall": 1,
-            "ms": 181,
-            "buildMs": 1421,
+            "ms": 191,
+            "buildMs": 1472,
             "error": null,
             "top": [
               "cmd/migrate.go",
@@ -5338,7 +2672,7 @@
             "anyHit": true,
             "packTokens": 61,
             "budgetRecall": 1,
-            "ms": 62,
+            "ms": 64,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5357,7 +2691,7 @@
             "anyHit": true,
             "packTokens": 57,
             "budgetRecall": 1,
-            "ms": 151,
+            "ms": 158,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5378,8 +2712,8 @@
             "anyHit": true,
             "packTokens": 590,
             "budgetRecall": 1,
-            "ms": 174,
-            "buildMs": 1421,
+            "ms": 179,
+            "buildMs": 1472,
             "error": null,
             "top": [
               "migrations/1640988000_init.go",
@@ -5397,7 +2731,7 @@
             "anyHit": true,
             "packTokens": 58,
             "budgetRecall": 1,
-            "ms": 58,
+            "ms": 62,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5416,7 +2750,7 @@
             "anyHit": true,
             "packTokens": 54,
             "budgetRecall": 1,
-            "ms": 147,
+            "ms": 155,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5460,8 +2794,8 @@
             "anyHit": true,
             "packTokens": 337,
             "budgetRecall": 0.2,
-            "ms": 171,
-            "buildMs": 1437,
+            "ms": 195,
+            "buildMs": 1501,
             "error": null,
             "top": [
               "models/schema/schema.go",
@@ -5479,7 +2813,7 @@
             "anyHit": true,
             "packTokens": 58,
             "budgetRecall": 0.2,
-            "ms": 61,
+            "ms": 65,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5498,7 +2832,7 @@
             "anyHit": true,
             "packTokens": 60,
             "budgetRecall": 0.3,
-            "ms": 145,
+            "ms": 161,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5519,8 +2853,8 @@
             "anyHit": true,
             "packTokens": 337,
             "budgetRecall": 0.2,
-            "ms": 172,
-            "buildMs": 1437,
+            "ms": 180,
+            "buildMs": 1501,
             "error": null,
             "top": [
               "models/schema/schema.go",
@@ -5538,7 +2872,7 @@
             "anyHit": true,
             "packTokens": 58,
             "budgetRecall": 0.2,
-            "ms": 63,
+            "ms": 60,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5557,7 +2891,7 @@
             "anyHit": true,
             "packTokens": 60,
             "budgetRecall": 0.3,
-            "ms": 145,
+            "ms": 156,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5596,8 +2930,8 @@
             "anyHit": true,
             "packTokens": 722,
             "budgetRecall": 0.2,
-            "ms": 182,
-            "buildMs": 1442,
+            "ms": 204,
+            "buildMs": 1496,
             "error": null,
             "top": [
               "tools/security/jwt.go",
@@ -5615,7 +2949,7 @@
             "anyHit": false,
             "packTokens": 49,
             "budgetRecall": 0,
-            "ms": 60,
+            "ms": 64,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5634,7 +2968,7 @@
             "anyHit": false,
             "packTokens": 58,
             "budgetRecall": 0,
-            "ms": 147,
+            "ms": 159,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5655,8 +2989,8 @@
             "anyHit": false,
             "packTokens": 801,
             "budgetRecall": 0,
-            "ms": 183,
-            "buildMs": 1442,
+            "ms": 187,
+            "buildMs": 1496,
             "error": null,
             "top": [
               "tools/auth/base_provider.go",
@@ -5674,7 +3008,7 @@
             "anyHit": false,
             "packTokens": 50,
             "budgetRecall": 0,
-            "ms": 57,
+            "ms": 60,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5693,7 +3027,7 @@
             "anyHit": false,
             "packTokens": 58,
             "budgetRecall": 0,
-            "ms": 145,
+            "ms": 149,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5729,8 +3063,8 @@
             "anyHit": true,
             "packTokens": 427,
             "budgetRecall": 1,
-            "ms": 160,
-            "buildMs": 1430,
+            "ms": 175,
+            "buildMs": 1508,
             "error": null,
             "top": [
               "cmd/version.go",
@@ -5748,7 +3082,7 @@
             "anyHit": true,
             "packTokens": 48,
             "budgetRecall": 1,
-            "ms": 61,
+            "ms": 60,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5767,7 +3101,7 @@
             "anyHit": true,
             "packTokens": 47,
             "budgetRecall": 1,
-            "ms": 148,
+            "ms": 143,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5788,8 +3122,8 @@
             "anyHit": true,
             "packTokens": 433,
             "budgetRecall": 1,
-            "ms": 160,
-            "buildMs": 1430,
+            "ms": 156,
+            "buildMs": 1508,
             "error": null,
             "top": [
               "cmd/migrate.go",
@@ -5807,7 +3141,7 @@
             "anyHit": true,
             "packTokens": 48,
             "budgetRecall": 1,
-            "ms": 59,
+            "ms": 61,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5826,7 +3160,7 @@
             "anyHit": true,
             "packTokens": 46,
             "budgetRecall": 1,
-            "ms": 147,
+            "ms": 151,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5861,8 +3195,8 @@
             "anyHit": true,
             "packTokens": 394,
             "budgetRecall": 1,
-            "ms": 167,
-            "buildMs": 1397,
+            "ms": 161,
+            "buildMs": 1444,
             "error": null,
             "top": [
               "cmd/version.go",
@@ -5899,7 +3233,7 @@
             "anyHit": true,
             "packTokens": 51,
             "budgetRecall": 1,
-            "ms": 99,
+            "ms": 93,
             "buildMs": null,
             "error": null,
             "top": [
@@ -5920,8 +3254,8 @@
             "anyHit": true,
             "packTokens": 394,
             "budgetRecall": 1,
-            "ms": 166,
-            "buildMs": 1397,
+            "ms": 164,
+            "buildMs": 1444,
             "error": null,
             "top": [
               "cmd/version.go",
@@ -5958,7 +3292,7 @@
             "anyHit": true,
             "packTokens": 51,
             "budgetRecall": 1,
-            "ms": 93,
+            "ms": 92,
             "buildMs": null,
             "error": null,
             "top": [
@@ -6001,8 +3335,8 @@
             "anyHit": true,
             "packTokens": 420,
             "budgetRecall": 0.1111111111111111,
-            "ms": 163,
-            "buildMs": 1399,
+            "ms": 165,
+            "buildMs": 1377,
             "error": null,
             "top": [
               "tools/security/encrypt.go",
@@ -6020,7 +3354,7 @@
             "anyHit": true,
             "packTokens": 65,
             "budgetRecall": 0.1111111111111111,
-            "ms": 59,
+            "ms": 58,
             "buildMs": null,
             "error": null,
             "top": [
@@ -6060,8 +3394,8 @@
             "anyHit": true,
             "packTokens": 420,
             "budgetRecall": 0.1111111111111111,
-            "ms": 174,
-            "buildMs": 1399,
+            "ms": 170,
+            "buildMs": 1377,
             "error": null,
             "top": [
               "tools/security/encrypt.go",
@@ -6098,7 +3432,7 @@
             "anyHit": true,
             "packTokens": 53,
             "budgetRecall": 0.1111111111111111,
-            "ms": 148,
+            "ms": 144,
             "buildMs": null,
             "error": null,
             "top": [
@@ -6107,666 +3441,6 @@
               "models/record_test.go",
               "apis/user_test.go",
               "tools/search/provider_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 3192,
-      "queries": {
-        "natural": "restore previous api rules downgrading migration changing api rules generated functions clear api rules instead setting them previous value starting state performing change api rule subsequently running one ends state missing api rule present state changes code generation functions set api rules previous value instead clearing them",
-        "stemblind": "restore previous api rules downgrading migration changing api rules generated functions clear api rules instead setting them previous value starting state performing change api rule subsequently running one ends state missing api rule present state changes code generation functions set api rules previous value instead clearing them"
-      },
-      "querySource": "pr",
-      "gold": [
-        "plugins/migratecmd/templates.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 870,
-            "budgetRecall": 0,
-            "ms": 307,
-            "buildMs": 8234,
-            "error": null,
-            "top": [
-              "ui/src/utils/ApiClient.js",
-              "ui/src/utils/CommonHelper.js",
-              "ui/public/libs/tinymce/tinymce.min.js",
-              "ui/src/stores/collections.js",
-              "ui/public/libs/tinymce/plugins/code/plugin.min.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 61,
-            "budgetRecall": 0,
-            "ms": 125,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/migratecmd/migratecmd.go",
-              "forms/record_upsert.go",
-              "apis/realtime.go",
-              "apis/record_auth.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 65,
-            "budgetRecall": 0,
-            "ms": 171,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "forms/collection_upsert_test.go",
-              "plugins/jsvm/internal/types/types.go",
-              "forms/collection_upsert.go",
-              "plugins/migratecmd/migratecmd_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 870,
-            "budgetRecall": 0,
-            "ms": 303,
-            "buildMs": 8234,
-            "error": null,
-            "top": [
-              "ui/src/utils/ApiClient.js",
-              "ui/src/utils/CommonHelper.js",
-              "ui/public/libs/tinymce/tinymce.min.js",
-              "ui/src/stores/collections.js",
-              "ui/public/libs/tinymce/plugins/code/plugin.min.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 61,
-            "budgetRecall": 0,
-            "ms": 123,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/migratecmd/migratecmd.go",
-              "forms/record_upsert.go",
-              "apis/realtime.go",
-              "apis/record_auth.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 65,
-            "budgetRecall": 0,
-            "ms": 170,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "forms/collection_upsert_test.go",
-              "plugins/jsvm/internal/types/types.go",
-              "forms/collection_upsert.go",
-              "plugins/migratecmd/migratecmd_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 3068,
-      "queries": {
-        "natural": "confusing minor typo deprecated RequestData confusing error turns typo deprecated RequestData method",
-        "stemblind": "confusing minor typo deprecated RequestData confusing error turns typo deprecated RequestData method"
-      },
-      "querySource": "pr",
-      "gold": [
-        "apis/record_helpers.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.16666666666666666,
-            "anyHit": true,
-            "packTokens": 971,
-            "budgetRecall": 1,
-            "ms": 261,
-            "buildMs": 8140,
-            "error": null,
-            "top": [
-              "apis/api_error.go",
-              "plugins/jsvm/internal/types/generated/types.d.ts",
-              "models/request_info.go",
-              "tools/auth/base_provider.go",
-              "migrations/logs/1677760279_uppsercase_method.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 52,
-            "budgetRecall": 1,
-            "ms": 126,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/record_helpers.go",
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/jsvm/binds.go",
-              "tools/mailer/smtp.go",
-              "apis/realtime.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.125,
-            "anyHit": true,
-            "packTokens": 56,
-            "budgetRecall": 1,
-            "ms": 166,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/jsvm/binds.go",
-              "core/base.go",
-              "models/schema/schema_field.go",
-              "apis/middlewares.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.16666666666666666,
-            "anyHit": true,
-            "packTokens": 971,
-            "budgetRecall": 1,
-            "ms": 262,
-            "buildMs": 8140,
-            "error": null,
-            "top": [
-              "apis/api_error.go",
-              "plugins/jsvm/internal/types/generated/types.d.ts",
-              "models/request_info.go",
-              "tools/auth/base_provider.go",
-              "migrations/logs/1677760279_uppsercase_method.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 52,
-            "budgetRecall": 1,
-            "ms": 127,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/record_helpers.go",
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/jsvm/binds.go",
-              "tools/mailer/smtp.go",
-              "apis/realtime.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.125,
-            "anyHit": true,
-            "packTokens": 56,
-            "budgetRecall": 1,
-            "ms": 168,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "plugins/jsvm/internal/types/types.go",
-              "plugins/jsvm/binds.go",
-              "core/base.go",
-              "models/schema/schema_field.go",
-              "apis/middlewares.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 2726,
-      "queries": {
-        "natural": "Remove unnecessary Dao TotalAdmins call reason ask total admin count already known user indeed admin",
-        "stemblind": "Remove unnecessary Dao TotalAdmins call reason ask total admin count already known user indeed admin"
-      },
-      "querySource": "pr",
-      "gold": [
-        "apis/middlewares.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.1,
-            "anyHit": true,
-            "packTokens": 439,
-            "budgetRecall": 0,
-            "ms": 283,
-            "buildMs": 7562,
-            "error": null,
-            "top": [
-              "ui/src/stores/admin.js",
-              "daos/admin.go",
-              "apis/base.go",
-              "ui/src/stores/toasts.js",
-              "ui/src/utils/ApiClient.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.3333333333333333,
-            "anyHit": true,
-            "packTokens": 51,
-            "budgetRecall": 1,
-            "ms": 116,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/base.go",
-              "daos/admin.go",
-              "apis/middlewares.go",
-              "daos/admin_test.go",
-              "apis/admin_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 45,
-            "budgetRecall": 0,
-            "ms": 164,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tests/app.go",
-              "apis/base.go",
-              "daos/admin.go",
-              "forms/collections_import_test.go",
-              "plugins/ghupdate/ghupdate.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.1,
-            "anyHit": true,
-            "packTokens": 439,
-            "budgetRecall": 0,
-            "ms": 277,
-            "buildMs": 7562,
-            "error": null,
-            "top": [
-              "ui/src/stores/admin.js",
-              "daos/admin.go",
-              "apis/base.go",
-              "ui/src/stores/toasts.js",
-              "ui/src/utils/ApiClient.js"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.3333333333333333,
-            "anyHit": true,
-            "packTokens": 51,
-            "budgetRecall": 1,
-            "ms": 115,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "apis/base.go",
-              "daos/admin.go",
-              "apis/middlewares.go",
-              "daos/admin_test.go",
-              "apis/admin_test.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 45,
-            "budgetRecall": 0,
-            "ms": 165,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tests/app.go",
-              "apis/base.go",
-              "daos/admin.go",
-              "forms/collections_import_test.go",
-              "plugins/ghupdate/ghupdate.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 2527,
-      "queries": {
-        "natural": "remove unnecessary code line necessary loop run desired result returned anyway",
-        "stemblind": "remove unnecessary code line necessary loop run desired result returned anyway"
-      },
-      "querySource": "pr",
-      "gold": [
-        "tools/list/list.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 415,
-            "budgetRecall": 0,
-            "ms": 256,
-            "buildMs": 7709,
-            "error": null,
-            "top": [
-              "resolvers/record_field_resolve_runner.go",
-              "forms/base.go",
-              "tools/migrate/runner.go",
-              "tools/cron/cron.go",
-              "daos/base.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 66,
-            "budgetRecall": 0,
-            "ms": 114,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/schema/schema.go",
-              "tools/filesystem/filesystem_test.go",
-              "daos/record_table_sync.go",
-              "tools/archive/extract_test.go",
-              "tools/rest/json_serializer.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 71,
-            "budgetRecall": 0,
-            "ms": 166,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem_test.go",
-              "models/schema/schema.go",
-              "models/record.go",
-              "models/schema/schema_test.go",
-              "tools/auth/base_provider_test.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 415,
-            "budgetRecall": 0,
-            "ms": 249,
-            "buildMs": 7709,
-            "error": null,
-            "top": [
-              "resolvers/record_field_resolve_runner.go",
-              "forms/base.go",
-              "tools/migrate/runner.go",
-              "tools/cron/cron.go",
-              "daos/base.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 66,
-            "budgetRecall": 0,
-            "ms": 115,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "models/schema/schema.go",
-              "tools/filesystem/filesystem_test.go",
-              "daos/record_table_sync.go",
-              "tools/archive/extract_test.go",
-              "tools/rest/json_serializer.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 71,
-            "budgetRecall": 0,
-            "ms": 167,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem_test.go",
-              "models/schema/schema.go",
-              "models/record.go",
-              "models/schema/schema_test.go",
-              "tools/auth/base_provider_test.go"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "pr": 1578,
-      "queries": {
-        "natural": "Allows files read FileSystem interface functionality needed Pocketbase used embedded mode Currently way read file content Pocketbase embedded except Downloading HTTP mocking http request via httptest package exposes file reader via public method client calling method responsible closing reader",
-        "stemblind": "Allows files read interface functionality needed Pocketbase used embedded mode Currently way read file content Pocketbase embedded except Downloading HTTP mocking http request via httptest package exposes file reader via public method client calling method responsible closing reader"
-      },
-      "querySource": "pr",
-      "gold": [
-        "tools/filesystem/filesystem.go"
-      ],
-      "goldNew": 0,
-      "byCondition": {
-        "natural": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.1111111111111111,
-            "anyHit": true,
-            "packTokens": 261,
-            "budgetRecall": 1,
-            "ms": 198,
-            "buildMs": 2043,
-            "error": null,
-            "top": [
-              "tools/filesystem/file.go",
-              "plugins/jsvm/migrations.go",
-              "tools/subscriptions/client.go",
-              "tools/rest/uploaded_file.go",
-              "tools/rest/multi_binder.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 1,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 1,
-            "anyHit": true,
-            "packTokens": 73,
-            "budgetRecall": 1,
-            "ms": 97,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "tools/filesystem/filesystem.go",
-              "tools/filesystem/filesystem_test.go",
-              "forms/record_upsert_test.go",
-              "forms/validators/file_test.go",
-              "forms/record_upsert.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 1,
-            "mrr": 0.1111111111111111,
-            "anyHit": true,
-            "packTokens": 58,
-            "budgetRecall": 1,
-            "ms": 158,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "tools/filesystem/file.go",
-              "core/app.go",
-              "models/schema/schema_field.go",
-              "tests/app.go"
-            ]
-          }
-        },
-        "stemblind": {
-          "graft": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 242,
-            "budgetRecall": 0,
-            "ms": 195,
-            "buildMs": 2043,
-            "error": null,
-            "top": [
-              "tools/filesystem/file.go",
-              "plugins/jsvm/migrations.go",
-              "tools/subscriptions/client.go",
-              "tools/rest/uploaded_file.go",
-              "tools/rest/multi_binder.go"
-            ]
-          },
-          "bm25": {
-            "recall1": 0,
-            "recall5": 1,
-            "recall10": 1,
-            "mrr": 0.5,
-            "anyHit": true,
-            "packTokens": 67,
-            "budgetRecall": 1,
-            "ms": 93,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert_test.go",
-              "tools/filesystem/filesystem.go",
-              "tools/rest/multi_binder.go",
-              "forms/validators/file_test.go",
-              "tools/auth/gitee.go"
-            ]
-          },
-          "gitgrep": {
-            "recall1": 0,
-            "recall5": 0,
-            "recall10": 0,
-            "mrr": 0,
-            "anyHit": false,
-            "packTokens": 50,
-            "budgetRecall": 0,
-            "ms": 158,
-            "buildMs": null,
-            "error": null,
-            "top": [
-              "forms/record_upsert.go",
-              "core/app.go",
-              "models/schema/schema_field.go",
-              "daos/record.go",
-              "resolvers/record_field_resolver.go"
             ]
           }
         }

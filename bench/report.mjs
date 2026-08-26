@@ -21,7 +21,8 @@ const CONDITIONS = ['natural', 'stemblind'];
 const pct = (x) => (x === null || x === undefined ? '   —  ' : `${(x * 100).toFixed(1)}%`.padStart(6));
 const num = (x, d = 3) => (x === null || x === undefined ? '   —  ' : x.toFixed(d).padStart(6));
 
-const files = readdirSync(RES).filter((f) => f.endsWith('.json') && !f.startsWith('ALL'));
+// only per-run result files; ALL.json and HYPOTHESES.json have different shapes
+const files = readdirSync(RES).filter((f) => /-k\d+-b\d+\.json$/.test(f));
 const loaded = files.map((f) => JSON.parse(readFileSync(join(RES, f), 'utf8')));
 if (!loaded.length) { console.error('no results yet'); process.exit(1); }
 
