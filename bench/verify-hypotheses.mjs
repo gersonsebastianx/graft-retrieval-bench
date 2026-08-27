@@ -42,7 +42,14 @@ const K = Number(args[args.indexOf('--k') + 1] || 10);
 const casesFile = join(ROOT, 'data', 'cases', `${repoId}.json`);
 const { repo, cases } = JSON.parse(readFileSync(casesFile, 'utf8'));
 const repoDir = join(ROOT, 'repos', repo.id);
-const graftBin = join(dirname(require.resolve('@nanonets/graft/package.json')), 'dist', 'cli.js');
+// --graft-bin lets the same harness measure a different graft version, so a
+// before/after across releases uses identical cases, queries and scoring.
+const binArg = args.includes('--graft-bin') ? args[args.indexOf('--graft-bin') + 1] : null;
+const graftBin = binArg || join(dirname(require.resolve('@nanonets/graft/package.json')), 'dist', 'cli.js');
+const graftVersion = (() => {
+  try { return JSON.parse(readFileSync(join(dirname(graftBin), '..', 'package.json'), 'utf8')).version; }
+  catch { return 'unknown'; }
+})();
 
 /** Crude but transparent suffix stripping — no dictionary, no dependency. */
 function stem(w) {
@@ -190,7 +197,7 @@ const totMiss = rows.reduce((a, r) => a + (r.missed || 0), 0);
 const tot1 = rows.reduce((a, r) => a + (r.oneHop || 0), 0);
 const tot2 = rows.reduce((a, r) => a + (r.twoHop || 0), 0);
 
-console.log(`\n${repo.slug} — ${rows.length} of ${cases.length} cases, k=${K}`);
+console.log(`\n${repo.slug} — ${rows.length} of ${cases.length} cases, k=${K}, graft ${graftVersion}`);
 const lost = cases.length - rows.length;
 if (lost) {
   // An overnight run silently lost 8 of 45 spring-boot cases to transient
@@ -227,7 +234,7 @@ console.log(`  lift @2hop                 ${(100 * tot2 / totMiss / (100 * mean(
 const outDir = join(ROOT, 'results');
 mkdirSync(outDir, { recursive: true });
 const payload = {
-  repo: repo.id, k: K, generatedAt: new Date().toISOString(), n: rows.length,
+  repo: repo.id, k: K, graftVersion, generatedAt: new Date().toISOString(), n: rows.length,
   h1: { base: b, expanded: e, improved, worsened },
   h2: {
     missed: totMiss, oneHop: tot1, twoHop: tot2,
@@ -237,6 +244,7 @@ const payload = {
   },
   rows,
 };
-writeFileSync(join(outDir, `hypotheses-${repo.id}.json`), JSON.stringify(payload, null, 2));
-console.log(`\n→ ${join(outDir, `hypotheses-${repo.id}.json`)}`);
+const tag = binArg ? `-v${graftVersion}` : '';
+writeFileSync(join(outDir, `hypotheses-${repo.id}${tag}.json`), JSON.stringify(payload, null, 2));
+console.log(`\n→ ${join(outDir, `hypotheses-${repo.id}${tag}.json`)}`);
 console.log(`\n${JSON.stringify({ repo: repo.id, n: rows.length, h1: { base: b, expanded: e }, h2: { missed: totMiss, oneHop: tot1, twoHop: tot2, inTail: tTail, needsNew: tNew, neither: tNone, cov1: mean(rows.map((r) => r.cov1)), cov2: mean(rows.map((r) => r.cov2)), nFiles: mean(rows.map((r) => r.nFiles)) } })}`);
