@@ -120,8 +120,38 @@ function stripMarkup(text) {
  * @param {string[]} goldFiles                   the files the merged PR touched
  * @param {{mode?: 'natural'|'stemblind', maxWords?: number}} opts
  */
+/**
+ * Repo-level PR boilerplate: tokens that appear in at least `minShare` of a
+ * repo's PR texts.
+ *
+ * Found after the fact, and it mattered: 51.9% of every nest query was the
+ * NestJS PR template ("commit message follows guidelines", "Tests changes
+ * added", "Bugfix Feature Code style update formatting…"). Because queries are
+ * capped at `maxWords`, that boilerplate was *evicting real signal* — nest
+ * queries all sat at 52–60 words of mostly checklist. django was 26.5%;
+ * pocketbase and spring-boot 0%.
+ *
+ * The definition is deliberately mechanical rather than a hand-written stop
+ * list: a word in half a repo's PRs cannot discriminate between those PRs, so
+ * it is noise by construction. It is stripped for every retriever equally, and
+ * the stripped set is written into the case file so the choice is auditable.
+ */
+export function repoBoilerplate(texts, minShare = 0.5) {
+  const df = new Map();
+  for (const t of texts) {
+    const seen = new Set(
+      String(t).split(/[^A-Za-z0-9_]+/).map((w) => w.toLowerCase()).filter((w) => w.length >= 3),
+    );
+    for (const w of seen) df.set(w, (df.get(w) || 0) + 1);
+  }
+  const n = texts.length || 1;
+  const out = new Set();
+  for (const [w, c] of df) if (c / n >= minShare) out.add(w);
+  return out;
+}
+
 export function buildQuery(primary, goldFiles, opts = {}) {
-  const { mode = 'natural', maxWords = 60 } = opts;
+  const { mode = 'natural', maxWords = 60, boilerplate = null } = opts;
   const gold = goldTokens(goldFiles);
   const raw = `${primary.title || ''}. ${primary.body || ''}`;
   const stripped = stripMarkup(raw);
@@ -133,11 +163,15 @@ export function buildQuery(primary, goldFiles, opts = {}) {
 
   const kept = [];
   const dropped = [];
+  const droppedBoiler = [];
   for (const w of words) {
     const lw = w.toLowerCase();
     if (lw.length < 3) continue;
     if (STOPWORDS.has(lw)) continue;
     if (/^\d+$/.test(lw)) continue;
+    // Repo PR-template noise, removed before the word cap so that real signal
+    // gets the budget instead of the checklist.
+    if (boilerplate && boilerplate.has(lw)) { droppedBoiler.push(lw); continue; }
     if (mode === 'stemblind') {
       if (gold.has(lw) || gold.has(lw.replace(/[_-]/g, ''))) { dropped.push(lw); continue; }
       if (identifierParts(lw).some((p) => gold.has(p))) { dropped.push(lw); continue; }
@@ -146,7 +180,11 @@ export function buildQuery(primary, goldFiles, opts = {}) {
     if (kept.length >= maxWords) break;
   }
 
-  return { query: kept.join(' '), droppedForLeak: [...new Set(dropped)] };
+  return {
+    query: kept.join(' '),
+    droppedForLeak: [...new Set(dropped)],
+    droppedBoilerplate: [...new Set(droppedBoiler)],
+  };
 }
 
 /**

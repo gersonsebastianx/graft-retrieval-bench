@@ -9,15 +9,617 @@
     ],
     "note": "Large TS repo with disciplined PR hygiene."
   },
-  "generatedAt": "2026-08-14T01:18:07.597Z",
+  "generatedAt": "2026-08-26T21:18:30.729Z",
   "rejected": {
-    "title": 91,
-    "files": 139,
+    "title": 121,
+    "files": 128,
     "base": 0,
-    "query": 0,
+    "query": 2,
     "leak": 0
   },
+  "boilerplate": [
+    "added",
+    "and",
+    "api",
+    "applies",
+    "are",
+    "been",
+    "behavior",
+    "blob",
+    "breaking",
+    "bug",
+    "bugfix",
+    "build",
+    "change",
+    "changes",
+    "check",
+    "checklist",
+    "code",
+    "com",
+    "commit",
+    "contributing",
+    "current",
+    "describe",
+    "docs",
+    "does",
+    "existing",
+    "feature",
+    "features",
+    "fix",
+    "fixes",
+    "following",
+    "follows",
+    "for",
+    "formatting",
+    "fulfills",
+    "functional",
+    "github",
+    "guidelines",
+    "have",
+    "https",
+    "information",
+    "introduce",
+    "issue",
+    "kind",
+    "local",
+    "master",
+    "message",
+    "nest",
+    "nestjs",
+    "new",
+    "not",
+    "number",
+    "one",
+    "other",
+    "our",
+    "path",
+    "please",
+    "refactoring",
+    "related",
+    "requirements",
+    "style",
+    "tests",
+    "that",
+    "the",
+    "this",
+    "type",
+    "update",
+    "updated",
+    "using",
+    "variables",
+    "what",
+    "with",
+    "yes",
+    "you",
+    "your"
+  ],
   "cases": [
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17566,
+      "title": "fix(fastify): append headers instead of overwriting",
+      "querySource": "pr",
+      "base": "a00d50134f0fbb95a0917269984c13c9d03ca611",
+      "mergeCommit": "c921a60ea114c0e1a6e048c0bd52d6c9d92f8cb6",
+      "queries": {
+        "natural": "fastify append headers instead overwriting append header value calls Fastify replaces value except Calling twice name example therefore keeps last value Fastify Express keeps dates back original adapter methods concatenates onto header already set matching Express still goes Fastify Fastify already concatenates name passing accumulated list back duplicate previous cookies Call sites used second Fastify start seeing multiple values matches",
+        "stemblind": "append headers instead overwriting append header value calls replaces value except Calling twice name example therefore keeps last value Express keeps dates back original methods concatenates onto header already set matching Express still goes already concatenates name passing accumulated list back duplicate previous cookies Call sites used second start seeing multiple values matches method name Repro append twice append header"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "fix(fastify): append headers instead of overwriting",
+      "rawBody": "## PR Checklist\nPlease check if your PR fulfills the following requirements:\n\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\n- [x] Tests for the changes have been added (for bug fixes / features)\n- [ ] Docs have been added / updated (for bug fixes / features)\n\n## PR Type\nWhat kind of change does this PR introduce?\n\n- [x] Bugfix\n- [ ] Feature\n- [ ] Code style update (formatting, local variables)\n- [ ] Refactoring (no functional changes, no api changes)\n- [ ] Build related changes\n- [ ] CI related changes\n- [ ] Other... Please describe:\n\n## What is the current behavior?\n\n`AbstractHttpAdapter.appendHeader` / `ExpressAdapter.appendHeader` append a header value (`response.append`). `FastifyAdapter.appendHeader` calls Fastify `reply.header()`, which **replaces** any existing value except for `set-cookie`.\n\nCalling `appendHeader` twice with the same name (for example `x-a: 1` then `x-a: 2`) therefore keeps only the last value on Fastify, while Express keeps both.\n\nThis dates back to the original adapter methods in https://github.com/nestjs/nest/pull/12955.\n\nIssue Number: N/A\n\n## What is the new behavior?\n\n`FastifyAdapter.appendHeader` concatenates onto the current header when one is already set, matching Express.\n\n`set-cookie` still goes through Fastify `reply.header()` only. Fastify already concatenates that name; passing the accumulated list back into `header()` would duplicate previous cookies.\n\n## Does this PR introduce a breaking change?\n- [ ] Yes\n- [x] No\n\nCall sites that used `appendHeader` as a second `setHeader` on Fastify would start seeing multiple values. That matches the method name and `ExpressAdapter`.\n\n## Other information\n\nRepro: Fastify adapter, `appendHeader(res, 'x-a', '1')` then `appendHeader(res, 'x-a', '2')`, then `getHeader(res, 'x-a')`. Before: `'2'`. After: `['1', '2']`.\n\nTests: `packages/platform-fastify/test/adapters/fastify-adapter.spec.ts` (append twice, `setHeader` then append, header name case, three values, `set-cookie` without duplicates).\n\n```bash\nnpx vitest run packages/platform-fastify/test/adapters/fastify-adapter.spec.ts\n```\n",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "existing",
+        "number",
+        "new",
+        "one",
+        "breaking"
+      ],
+      "gold": [
+        "packages/platform-fastify/adapters/fastify-adapter.ts"
+      ],
+      "changedAll": [
+        "packages/platform-fastify/adapters/fastify-adapter.ts",
+        "packages/platform-fastify/test/adapters/fastify-adapter.spec.ts"
+      ],
+      "droppedForLeak": [
+        "fastify",
+        "adapter"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17534,
+      "title": "fix(microservices): handle non-json mqtt response packets gracefully",
+      "querySource": "pr",
+      "base": "c921a60ea114c0e1a6e048c0bd52d6c9d92f8cb6",
+      "mergeCommit": "3f8a0ce1832fb30053f55856088371b097bbf7e1",
+      "queries": {
+        "natural": "microservices handle non json mqtt response packets gracefully parses every incoming reply unguarded non JSON payload arriving subscribed reply topic plain text reply non service sharing broker misconfigured publisher binary payload makes parse throw inside async listener becomes unhandled promise rejection crashes process Node default policy pending request observable never settles ClientMqtt outlier Every sibling transport already guards exact parse",
+        "stemblind": "handle non json response packets gracefully parses every incoming reply unguarded non JSON payload arriving subscribed reply topic plain text reply non service sharing broker misconfigured publisher binary payload makes parse throw inside async listener becomes unhandled promise rejection crashes process Node default policy pending request observable never settles outlier Every sibling transport already guards exact parse wraps falls back"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "fix(microservices): handle non-json mqtt response packets gracefully",
+      "rawBody": "## PR Checklist\nPlease check if your PR fulfills the following requirements:\n\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\n- [x] Tests for the changes have been added (for bug fixes / features)\n- [ ] Docs have been added / updated (for bug fixes / features)\n\n## PR Type\nWhat kind of change does this PR introduce?\n\n- [x] Bugfix\n- [ ] Feature\n- [ ] Code style update (formatting, local variables)\n- [ ] Refactoring (no functional changes, no api changes)\n- [ ] Build related changes\n- [ ] CI related changes\n- [ ] Other... Please describe:\n\n## What is the current behavior?\n\n`ClientMqtt.createResponseCallback` parses every incoming reply with an unguarded `JSON.parse`:\n\n```ts\nreturn async (channel: string, buffer: Buffer) => {\n  const packet = JSON.parse(buffer.toString());\n```\n\nA non-JSON payload arriving on a subscribed reply topic (a plain-text reply from a non-Nest service sharing the broker, a misconfigured publisher, a binary payload) makes the parse throw inside the async `'message'` listener. That becomes an unhandled promise rejection, which crashes the process under Node's default policy, and the pending request observable never settles.\n\nClientMqtt is the outlier here. Every sibling transport already guards this exact parse: `ClientRedis.createResponseCallback` wraps it in try/catch and falls back to the raw content with a debug log, and the MQTT, Redis and RMQ servers all parse incoming messages defensively.\n\nIssue Number: N/A\n\n## What is the new behavior?\n\nThe parse is guarded the same way `ClientRedis` does it: on failure, log at debug level and hand the raw content to the deserializer, so custom deserializers keep working with non-JSON formats and an unparseable stray message can no longer crash the client.\n\nAdded a spec mirroring the existing `createResponseCallback` cases: a non-JSON buffer must not throw and must reach the deserializer. Verification runs:\n\n- with the fix: 36 passed (36)\n- with the current master source and only the new spec added: 1 failed | 35 passed, the failing one being exactly the new case\n\n## Does this PR introduce a breaking change?\n- [ ] Yes\n- [x] No\n\n## Other information\n",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "nest"
+      ],
+      "gold": [
+        "packages/microservices/client/client-mqtt.ts"
+      ],
+      "changedAll": [
+        "packages/microservices/client/client-mqtt.ts",
+        "packages/microservices/test/client/client-mqtt.spec.ts"
+      ],
+      "droppedForLeak": [
+        "microservices",
+        "mqtt",
+        "clientmqtt"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17493,
+      "title": "fix(express,fastify): apply falsy status codes in `reply()`",
+      "querySource": "pr",
+      "base": "0384f2269f2d093e883e4078ea2b64ae0f58ac78",
+      "mergeCommit": "e03cf5c865d39cc45a0134e82d8f79f865f05d55",
+      "queries": {
+        "natural": "express fastify apply falsy status codes sets status truthy falsy passed gets skipped response keeps status set handler ran POST exception goes success thrown status HTTP status body ran unchecked Express fastify invalid already work fine gets called framework rejects value exception layer returns thing putting different falsy Leaving status still skips call interceptors calling unaffected status passed now reaches",
+        "stemblind": "apply falsy status codes sets status truthy falsy passed gets skipped response keeps status set handler ran POST exception goes success thrown status HTTP status body ran unchecked invalid already work fine gets called framework rejects value exception layer returns thing putting different falsy Leaving status still skips call interceptors calling unaffected status passed now reaches validate didn add validation"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "fix(express,fastify): apply falsy status codes in `reply()`",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [x] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIssue Number: N/A\r\n\r\n`reply()` sets the status only when it is truthy. A falsy code that was passed in gets skipped,\r\nso the response keeps the status set before the handler ran (200, or 201 on POST), and the\r\nexception goes out as a success.\r\n\r\n```ts\r\n@Get('code/:c')\r\ncode(@Param('c') c: string): void {\r\n  throw new HttpException('Oops', Number(c)); // no custom exception filter\r\n}\r\n```\r\n\r\n| thrown status | HTTP status | body |\r\n| --- | --- | --- |\r\n| `NaN` | **200** | `{\"statusCode\":null,\"message\":\"Oops\"}` |\r\n| `0` | **200** | `{\"statusCode\":0,\"message\":\"Oops\"}` |\r\n| `-1` | 500 | `{\"statusCode\":500,\"message\":\"Internal server error\"}` |\r\n| `99` | 500 | `{\"statusCode\":500,\"message\":\"Internal server error\"}` |\r\n| `404` | 404 | `{\"statusCode\":404,\"message\":\"Oops\"}` |\r\n\r\nI ran into it with a `NaN` from an unchecked `Number()`. Express and fastify both do this.\r\n\r\n`-1` and `99` are just as invalid and they already work fine: `response.status()` gets called,\r\nthe framework rejects the value, and the exception layer returns a 500. The only thing putting\r\n`0` and `NaN` on a different path is that they're falsy.\r\n\r\n\r\n## What is the new behavior?\r\n\r\n```diff\r\n- if (statusCode) {\r\n+ if (!isNil(statusCode)) {\r\n    response.status(statusCode);\r\n  }\r\n```\r\n\r\nLeaving the status out still skips the call, so #1901 and interceptors calling `res.status()`\r\nare unaffected. A status that was passed now reaches express/fastify, which validate it.\r\n\r\nI didn't add any validation to `HttpException`. The adapters just need to stop throwing the value\r\naway. `undefined` keeps its current meaning since there's no way to tell it apart from a missing\r\nargument (#13404).\r\n\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\nAnything that reaches express/fastify today behaves the same. Invalid falsy codes go from a silent\r\n200 to a 500.\r\n\r\n\r\n## Other information\r\n\r\n`isNil` is already used one line below for `body`, and in `sse-stream.ts` since #16782, which was\r\nthe same kind of falsy guard swallowing a valid `id: 0`.\r\n\r\nBoth new tests fail on master and pass with the change.\r\n\r\nI found this while working on an RFC 9457 exception filter\r\n(Fcmam5/nest-problem-details#55), but the bug isn't in the filter. The table above comes from an\r\napp with no custom filter at all.\r\n",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "path",
+        "new"
+      ],
+      "gold": [
+        "packages/platform-express/adapters/express-adapter.ts",
+        "packages/platform-fastify/adapters/fastify-adapter.ts"
+      ],
+      "changedAll": [
+        "packages/platform-express/adapters/express-adapter.ts",
+        "packages/platform-express/test/adapters/express-adapter.spec.ts",
+        "packages/platform-fastify/adapters/fastify-adapter.ts",
+        "packages/platform-fastify/test/adapters/fastify-adapter.spec.ts"
+      ],
+      "droppedForLeak": [
+        "express",
+        "fastify"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 16962,
+      "title": "chore: improve platform-socket.io types",
+      "querySource": "pr",
+      "base": "31ecde05ea86da707745a209c8ec2c8267ad4ab7",
+      "mergeCommit": "82cab543f85a7726b6cf8f23a1e4770fa7ed6034",
+      "queries": {
+        "natural": "chore improve platform socket types Excessive use Use explicit types",
+        "stemblind": "chore improve platform socket types Excessive use Use explicit types"
+      },
+      "stemblindWords": 10,
+      "rawTitle": "chore: improve platform-socket.io types",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [X] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [ ] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [ ] Bugfix\r\n- [ ] Feature\r\n- [X] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\nExcessive use of `any`.\r\n\r\n## What is the new behavior?\r\nUse explicit types.\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [X] No\r\n",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "new",
+        "breaking"
+      ],
+      "gold": [
+        "packages/platform-socket.io/adapters/io-adapter.ts"
+      ],
+      "changedAll": [
+        "packages/platform-socket.io/adapters/io-adapter.ts"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17509,
+      "title": "docs(changelog): point sample commit scope at sample/",
+      "querySource": "pr",
+      "base": "445432fb59a204b5aa673e505360f4db146a2ff9",
+      "mergeCommit": "b7ed7eae35dde08b5349dd80580f885715604939",
+      "queries": {
+        "natural": "point sample scope sample Problem Two stale documentation paths documents scope applying directory exist Sample apps live top level directory referenced later file cites source SSE headers 404s default branch move file move header send logic now Solution Point scope instead comment runtime Verification absent exists Old Mercure URL redirects still missing Mercure URL lines",
+        "stemblind": "point sample scope sample Problem Two stale documentation paths documents scope applying directory exist Sample apps live top level directory referenced later file cites source headers 404s default branch move file move header send logic now Solution Point scope instead comment runtime Verification absent exists Old Mercure URL redirects still missing Mercure URL lines"
+      },
+      "stemblindWords": 54,
+      "rawTitle": "docs(changelog): point sample commit scope at sample/",
+      "rawBody": "## Problem\nTwo stale documentation paths:\n\n1. `CONTRIBUTING.md` documents the `sample` commit scope as applying to `packages/sample`. That directory does not exist. Sample apps live in the top-level `sample/` directory (also referenced later in the same file as `sample/#`).\n2. `packages/core/router/sse-stream.ts` cites `https://github.com/dunglas/mercure/blob/master/hub/subscribe.go#L124-L130` as the source of the SSE headers. That path 404s after the default-branch move (`master` -> `main`) and the file move. The same header-send logic is now in `subscribe.go` (`sendHeaders`).\n\n## Solution\n- Point the `sample` scope at `sample` instead of `packages/sample`.\n- Update the comment to `https://github.com/dunglas/mercure/blob/main/subscribe.go#L347-L362`.\n- No runtime behavior change.\n\n## Verification\n- `packages/sample` is absent; `sample/` exists.\n- Old Mercure URL: GET 404 (redirects to `main/hub/subscribe.go`, still missing).\n- New Mercure URL: GET 200. `sendHeaders` is at lines 347-362.\n",
+      "droppedBoilerplate": [
+        "docs",
+        "commit",
+        "path",
+        "update",
+        "behavior",
+        "change",
+        "new"
+      ],
+      "gold": [
+        "packages/core/router/sse-stream.ts"
+      ],
+      "changedAll": [
+        "CONTRIBUTING.md",
+        "packages/core/router/sse-stream.ts"
+      ],
+      "droppedForLeak": [
+        "sse"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17310,
+      "title": "test(testing): Add e2e integration tests for HTTP QUERY method (RFC 10008)",
+      "querySource": "pr",
+      "base": "5d93228db2db7ae00762961769bd8ff66e10ca23",
+      "mergeCommit": "96e1f1a67a9f1c0d9fa4c8795048e2dad7aeb9fe",
+      "queries": {
+        "natural": "test testing Add e2e integration HTTP QUERY method RFC Companion gacardinal adds missing e2e integration HTTP method support minimal app fixture shared suites Express adapter native supertest doesn expose shorthand Fastify adapter covered Test Express Fastify handler receives body sub handler wrong method pass locally Key finding Express needs adapter via llhttp package Express uses picks automatically delegates correctly without",
+        "stemblind": "test testing Add HTTP RFC Companion gacardinal adds missing HTTP support minimal app fixture shared suites Express adapter native supertest doesn expose shorthand adapter covered Test Express handler receives body sub handler wrong pass locally Key finding Express needs adapter via llhttp package Express uses picks automatically delegates correctly without Credit decorator adapter implementation belongs entirely gacardinal"
+      },
+      "stemblindWords": 57,
+      "rawTitle": "test(testing): Add e2e integration tests for HTTP QUERY method (RFC 10008)",
+      "rawBody": "## Summary\n\nCompanion to #17162 (by @gacardinal). This PR adds the missing e2e integration tests for the HTTP `QUERY` method support.\n\n- `integration/query-method/src/query-method.{controller,module}.ts` — minimal app fixture shared by both suites\n- `integration/query-method/e2e/query-method.spec.ts` — Express adapter, using native `node:http` (supertest doesn't expose a `.query()` shorthand)\n- `integration/query-method/e2e/query-method-fastify.spec.ts` — Fastify adapter, using `app.inject({ method: 'QUERY' as any })`\n\n## What's covered\n\n| Test | Express | Fastify |\n|------|---------|---------|\n| `QUERY /items` → handler receives body | ✅ | ✅ |\n| `QUERY /items/search` → sub-path handler | ✅ | ✅ |\n| `GET /items` → 404 (wrong method) | ✅ | ✅ |\n\nAll 6 tests pass locally (Node.js 22.23.1).\n\n## Key finding: Express needs no adapter changes\n\nOn Node.js 22+, `QUERY` is in `http.METHODS` via llhttp 9.2. The `methods` package that Express uses picks it up automatically, so `AbstractHttpAdapter.query()` delegates correctly without any changes to `ExpressAdapter`.\n\n> Credit for the `@QueryMethod()` decorator and adapter implementation belongs entirely to @gacardinal.",
+      "droppedBoilerplate": [
+        "tests",
+        "using",
+        "path",
+        "changes"
+      ],
+      "gold": [
+        "integration/query-method/src/query-method.controller.ts",
+        "integration/query-method/src/query-method.module.ts"
+      ],
+      "changedAll": [
+        "integration/query-method/e2e/query-method-fastify.spec.ts",
+        "integration/query-method/e2e/query-method.spec.ts",
+        "integration/query-method/src/query-method.controller.ts",
+        "integration/query-method/src/query-method.module.ts",
+        "integration/query-method/tsconfig.json"
+      ],
+      "droppedForLeak": [
+        "e2e",
+        "integration",
+        "query",
+        "method",
+        "fastify"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17086,
+      "title": "fix(common): exclude reverse-mapped keys from numeric enum validation in ParseEnumPipe",
+      "querySource": "pr",
+      "base": "eac10cd2d7125bea24d12c108ec4e2b37ca82d16",
+      "mergeCommit": "5d93228db2db7ae00762961769bd8ff66e10ca23",
+      "queries": {
+        "natural": "common exclude reverse mapped keys numeric enum validation ParseEnumPipe Problem TypeScript numeric enums reverse mapping runtime example compiles object forward reverse entries iterates keys maps them values produces string passes validation even though reverse mapped key name valid enum value means route parameter value passes pipe expected valid values Filter numeric string keys mapping values Numeric string keys reverse mapping",
+        "stemblind": "exclude reverse mapped keys numeric validation ParseEnumPipe Problem TypeScript numeric enums reverse mapping runtime example compiles object forward reverse entries iterates keys maps them values produces string passes validation even though reverse mapped key name valid value means route parameter value passes expected valid values Filter numeric string keys mapping values Numeric string keys reverse mapping entries TypeScript adds named"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "fix(common): exclude reverse-mapped keys from numeric enum validation in ParseEnumPipe",
+      "rawBody": "## Problem\n\nTypeScript numeric enums have a reverse mapping at runtime. For example:\n\n```ts\nenum Status {\n  Active = 0,\n  Inactive = 1,\n}\n```\n\ncompiles to an object with both forward and reverse entries:\n\n```js\n{ '0': 'Active', '1': 'Inactive', Active: 0, Inactive: 1 }\n```\n\n`ParseEnumPipe.isEnum` iterates all keys and maps them to their values, which produces `['Active', 'Inactive', 0, 1]` — so the string `'Active'` passes validation even though it is only a reverse-mapped key name, not a valid enum value. This means a route parameter value of `\"Active\"` passes the pipe when the expected valid values are only `0` and `1`.\n\n## Fix\n\nFilter out numeric-string keys before mapping to values. Numeric-string keys are the reverse-mapping entries that TypeScript adds; the named keys are the authoritative ones. The change is a one-liner in `isEnum`:\n\n```ts\nconst enumValues = Object.keys(this.enumType as object)\n  .filter(item => isNaN(Number(item)))\n  .map(item => this.enumType[item]);\n```\n\nThis has no effect on string enums (none of their keys are numeric strings) and no effect on the numeric values accepted from the named keys.\n\n## Tests\n\nAdded two tests in `parse-enum.pipe.spec.ts` covering a numeric enum:\n\n- numeric values `0` and `1` still pass validation\n- the reverse-mapped key name `'Active'` now correctly throws a `BadRequestException`\n\nBoth new tests pass. The two pre-existing failing tests in that file (`rejectedWith` without chai-as-promised) are unrelated to this change.",
+      "droppedBoilerplate": [],
+      "gold": [
+        "packages/common/pipes/parse-enum.pipe.ts"
+      ],
+      "changedAll": [
+        "packages/common/pipes/parse-enum.pipe.ts",
+        "packages/common/test/pipes/parse-enum.pipe.spec.ts"
+      ],
+      "droppedForLeak": [
+        "common",
+        "enum",
+        "pipe"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17162,
+      "title": "feat(core,common,platform-fastify): add query http method support",
+      "querySource": "pr",
+      "base": "deec03c6d81d93f4ee2bac36926e4b9385ee6801",
+      "mergeCommit": "eac10cd2d7125bea24d12c108ec4e2b37ca82d16",
+      "queries": {
+        "natural": "feat core common platform fastify add query http method support HTTP method explicitly supported HTTP method now explicitly supported test asserts non POST methods return test logic strictly match title tested returned",
+        "stemblind": "feat platform add query support explicitly supported now explicitly supported asserts non POST methods return logic strictly match title tested returned"
+      },
+      "stemblindWords": 21,
+      "rawTitle": "feat(core,common,platform-fastify): add query http method support",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [X] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [X] Tests for the changes have been added (for bug fixes / features)\r\n- [X] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [ ] Bugfix\r\n- [X] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\nThe HTTP `QUERY` method is not explicitly supported.\r\n\r\nIssue Number: #17161 \r\n\r\n\r\n## What is the new behavior?\r\nThe HTTP `QUERY` method is now explicitly supported.\r\n\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [X] No\r\n\r\n## Other information\r\nI also updated the test that asserts that \"all non-POST methods return 200\". The test logic did not strictly match the title, it only tested that `GET` returned `200`.",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "breaking",
+        "information"
+      ],
+      "gold": [
+        "packages/common/decorators/http/request-mapping.decorator.ts",
+        "packages/common/enums/request-method.enum.ts",
+        "packages/common/interfaces/http/http-server.interface.ts",
+        "packages/core/adapters/http-adapter.ts",
+        "packages/core/helpers/router-method-factory.ts",
+        "packages/platform-fastify/adapters/fastify-adapter.ts"
+      ],
+      "changedAll": [
+        "packages/common/decorators/http/request-mapping.decorator.ts",
+        "packages/common/enums/request-method.enum.ts",
+        "packages/common/interfaces/http/http-server.interface.ts",
+        "packages/common/test/decorators/route-params.decorator.spec.ts",
+        "packages/core/adapters/http-adapter.ts",
+        "packages/core/helpers/router-method-factory.ts",
+        "packages/core/test/helpers/router-method-factory.spec.ts",
+        "packages/core/test/router/router-response-controller.spec.ts",
+        "packages/platform-fastify/adapters/fastify-adapter.ts"
+      ],
+      "droppedForLeak": [
+        "core",
+        "common",
+        "fastify",
+        "http",
+        "method",
+        "test"
+      ]
+    },
+    {
+      "repo": "nest",
+      "slug": "nestjs/nest",
+      "lang": "typescript",
+      "pr": 17464,
+      "title": "fix(core): scan pre-registered dynamic imports of lazy modules",
+      "querySource": "pr",
+      "base": "451ca378370a5c289ea8acc5d66ffb47fb9134ed",
+      "mergeCommit": "0f30dcc4786e8e5e7c0276d1a7fc5a10de3aa24b",
+      "queries": {
+        "natural": "core scan pre registered dynamic imports lazy modules affected restores documented rather changing public lazily loaded whose dynamic metadata carries never imports scanned providers never registered injection fails Every subsequent returns cached half built module failure permanent lifetime process pre registers dynamic module scanner recurses them modules therefore report lazy skip condition treats them already loaded stay registered never scanned",
+        "stemblind": "scan pre registered dynamic imports modules affected restores documented rather changing public lazily loaded whose dynamic metadata carries never imports scanned providers never registered injection fails Every subsequent returns cached half built failure permanent lifetime process pre registers dynamic recurses them modules therefore report skip condition treats them already loaded stay registered never scanned instantiated exact trigger inner import itself"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "fix(core): scan pre-registered dynamic imports of lazy modules",
+      "rawBody": "## PR Checklist\n\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\n- [x] Tests for the changes have been added (for bug fixes / features)\n- [ ] Docs have been added / updated (for bug fixes / features)\n\nDocs are not affected: this restores documented behavior rather than changing the public API.\n\n## PR Type\n\n- [x] Bugfix\n- [ ] Feature\n- [ ] Code style update (formatting, local variables)\n- [ ] Refactoring (no functional changes, no api changes)\n- [ ] Build related changes\n- [ ] CI related changes\n- [ ] Other... Please describe:\n\n## What is the current behavior?\n\nIssue Number: #17462\n\nA lazily loaded `DynamicModule` whose dynamic metadata carries `imports` never has those imports scanned, so their providers are never registered and injection fails:\n\n```\nNest can't resolve dependencies of the ParentService (?).\nPlease make sure that the argument \"ITEMS\" at index [0] is available\nin the ParentRootModule module.\n```\n\nEvery subsequent `load()` returns the cached, half-built module, so the failure is permanent for the lifetime of the process.\n\n`NestContainer#setModule` pre-registers a dynamic module's `imports` (`addDynamicMetadata` -> `addDynamicModules` -> `addModule`) **before** the scanner recurses into them. Those modules therefore report `inserted: false`, and the lazy skip condition treats them as already loaded: they stay registered but are never scanned or instantiated.\n\nThe exact trigger is that the inner import must itself be a `DynamicModule` object (`imports: [{ module: Child }]`), not a class reference. With a class reference the parent's import edge still pulls the module in via `insertImport`, so the failure is not observable.\n\nA second, related case: a rescanned module reports `inserted: false`, so `lazy && moduleInserted` also skipped binding `@Global` providers into it, breaking providers that resolve a token available only through a global module.\n\n## What is the new behavior?\n\nSkip only modules that were actually instantiated, distinguishing \"registered\" from \"registered and instantiated\":\n\n```ts\nif (lazy && !moduleInserted && moduleInstance?.isInstantiated) {\n  return [];\n}\n```\n\nand bind global providers on every lazy pass, so rescanned modules still receive `@Global` providers.\n\nThe \"was this instantiated\" state lives in `Module.isInstantiated` rather than having the scanner inspect the module's internal provider map.\n\nVerified against the reproduction from the issue ([RaviAjaibSingh/nestjs-dependency-injection-experiments](https://github.com/RaviAjaibSingh/nestjs-dependency-injection-experiments)) — all three scenarios go from `BUG` to `OK`, including the #17428 case, which stays fixed:\n\n```\ntesting: lazy consumer shares boot singleton      ... OK\ntesting: lazy dynamic module with dynamic imports ... OK\ntesting: rescanned husk resolves @Global token    ... OK\n```\n\n| | passing | failing |\n|---|---|---|\n| `master` + the new specs | 833 | 3 |\n| `master` + this fix | 836 | 0 |\n\nThe three new specs fail without the fix and pass with it. `tsc -b packages` and `eslint` are clean.\n\n## Does this PR introduce a breaking change?\n\n- [ ] Yes\n- [x] No\n\n## Other information\n\nThe skip condition was introduced in #17430 (fixing #17428). That fix is preserved — this PR only narrows the condition so pre-registered, never-instantiated modules are still scanned.\n",
+      "droppedBoilerplate": [
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "behavior",
+        "api",
+        "type",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "number"
+      ],
+      "gold": [
+        "packages/core/injector/module.ts",
+        "packages/core/scanner.ts"
+      ],
+      "changedAll": [
+        "packages/core/injector/module.ts",
+        "packages/core/scanner.ts",
+        "packages/core/test/injector/lazy-module-loader/lazy-module-loader.spec.ts"
+      ],
+      "droppedForLeak": [
+        "core",
+        "lazy",
+        "module",
+        "scanner"
+      ]
+    },
     {
       "repo": "nest",
       "slug": "nestjs/nest",
@@ -28,10 +630,20 @@
       "base": "1def88d0a2a0ad6ccfd4994f17a4625b009a0278",
       "mergeCommit": "5303b819a67b06de345e32e845ddafc6ee512ada",
       "queries": {
-        "natural": "Fastify middleware doesn apply correctly matched against routes registered via Fastify plugin existing searched existing issues Current behavior currently working NestJS module registers endpoints via Fastify plugin using prefix registering middleware routes matching prefix middleware won trigger Minimum reproduction code Steps reproduce yarn install docker compose yarn start dev visit Expected behavior configured routes endpoint reached trigger middleware provided Package",
-        "stemblind": "middleware doesn apply correctly matched against routes registered via plugin existing searched existing issues Current behavior currently working NestJS module registers endpoints via plugin using prefix registering middleware routes matching prefix middleware won trigger Minimum reproduction code Steps reproduce yarn install docker compose yarn start dev visit Expected behavior configured routes endpoint reached trigger middleware provided Package don know 3rd"
+        "natural": "Fastify middleware doesn apply correctly matched against routes registered via Fastify plugin searched issues currently working module registers endpoints via Fastify plugin prefix registering middleware routes matching prefix middleware won trigger Minimum reproduction Steps reproduce yarn install docker compose yarn start dev visit Expected configured routes endpoint reached trigger middleware provided Package don know 3rd party package see package _No",
+        "stemblind": "middleware doesn apply correctly matched against routes registered via plugin searched issues currently working module registers endpoints via plugin prefix registering middleware routes matching prefix middleware won trigger Minimum reproduction Steps reproduce yarn install docker compose yarn start dev visit Expected configured routes endpoint reached trigger middleware provided Package don know 3rd party package see package _No response_ version versions"
       },
       "stemblindWords": 60,
+      "rawTitle": "Fastify middleware doesn't apply correctly when matched against routes registered via a Fastify plugin.",
+      "rawBody": "### Is there an existing issue for this?\r\n\r\n- [X] I have searched the existing issues\r\n\r\n### Current behavior\r\n\r\nI'm currently working on a NestJS module which registers a UI and some endpoints via a Fastify plugin using a prefix.\r\n\r\n```typescript\r\n this.adapterHost.httpAdapter\r\n        .getInstance()\r\n        .register(this.registerPlugin(), {prefix: '/my-prefix'});\r\n```\r\n\r\nWhen registering a middleware for the routes matching the prefix, the middleware won't trigger.\r\n\r\n```typescript\r\nconfigure(consumer: MiddlewareConsumer): any {\r\n    consumer\r\n      .apply(MyMiddleware)\r\n      .forRoutes('/my-prefix', 'my-prefix', '/my-prefix/*')\r\n }\r\n```\r\n\r\n\r\n\r\n\r\n### Minimum reproduction code\r\n\r\nhttps://github.com/DennisSnijder/nestjs-bull-board-example\r\n\r\n### Steps to reproduce\r\n\r\n1. yarn install\r\n2. docker-compose up -d\r\n3. yarn start:dev\r\n4. visit: `http://localhost:3000/queues`\r\n\r\n### Expected behavior\r\n\r\nWhen the configured routes for the endpoint is being reached, it should trigger the middleware provided.\r\n\r\n### Package\r\n\r\n- [ ] I don't know. Or some 3rd-party package\r\n- [ ] <code>@nestjs/common</code>\r\n- [ ] <code>@nestjs/core</code>\r\n- [ ] <code>@nestjs/microservices</code>\r\n- [ ] <code>@nestjs/platform-express</code>\r\n- [X] <code>@nestjs/platform-fastify</code>\r\n- [ ] <code>@nestjs/platform-socket.io</code>\r\n- [ ] <code>@nestjs/platform-ws</code>\r\n- [ ] <code>@nestjs/testing</code>\r\n- [ ] <code>@nestjs/websockets</code>\r\n- [ ] Other (see below)\r\n\r\n### Other package\r\n\r\n_No response_\r\n\r\n### NestJS version\r\n\r\n10.0.0\r\n\r\n### Packages versions\r\n\r\n[System Information]\r\nOS Version     : macOS Unknown\r\nNodeJS Version : v16.20.0\r\nYARN Version    : 1.22.19 \r\n\r\n[Nest CLI]\r\nNest CLI Version : 10.0.1 \r\n\r\n[Nest Platform Information]\r\nplatform-express version : 10.0.0\r\nplatform-fastify version : 10.0.0\r\nschematics version       : 10.0.1\r\ntesting version          : 10.0.0\r\nbullmq version           : 1.1.0\r\ncommon version           : 10.0.0\r\ncore version             : 10.0.0\r\ncli version              : 10.0.1\r\n\r\n\r\n\r\n### Node.js version\r\n\r\n16.20\r\n\r\n### In which operating systems have you tested?\r\n\r\n- [X] macOS\r\n- [ ] Windows\r\n- [ ] Linux\r\n\r\n### Other\r\n\r\nIn the `AppModule` the middleware is being registered with the desired routes (in this example `/queues`).\r\nThe Fastify plugin is registered through the \"BullBoardModule\" see: https://github.com/felixmosh/bull-board/blob/master/packages/nestjs/src/bull-board.root-module.ts#L30\r\n\r\nInteresting thing to notice: when reaching to an not existing url, the middleware does register (I guess it falls back to the NestJS route handler?) for example `https://localhost:3000/queues/non-exisiting-route`",
+      "droppedBoilerplate": [
+        "existing",
+        "current",
+        "behavior",
+        "nestjs",
+        "using",
+        "code"
+      ],
       "gold": [
         "packages/platform-fastify/adapters/middie/fastify-middie.ts"
       ],
@@ -41,7 +653,8 @@
         "packages/platform-fastify/test/adapters/middie.spec.ts"
       ],
       "droppedForLeak": [
-        "fastify"
+        "fastify",
+        "packages"
       ]
     },
     {
@@ -54,10 +667,52 @@
       "base": "5061da357866cf1c6618b97e12826010823a025b",
       "mergeCommit": "1def88d0a2a0ad6ccfd4994f17a4625b009a0278",
       "queries": {
-        "natural": "fastify run middleware routes excluded global prefix check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior excludes concrete route route scoped middleware applied fastify adapter prefixes",
-        "stemblind": "run routes excluded global prefix check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior excludes concrete route route scoped applied prefixes every non prefixed path rewriting"
+        "natural": "fastify run middleware routes excluded global prefix excludes concrete route route scoped middleware applied fastify adapter prefixes every non prefixed middleware rewriting excluded route middleware registered prefixed never runs excluded route logging serializers trace context applied partially Minimal reproduction prefix now fires middleware collapsed application root concrete excluded routes stay unprefixed route scoped middleware runs expected root collapse preserved regression",
+        "stemblind": "run routes excluded global prefix excludes concrete route route scoped applied prefixes every non prefixed rewriting excluded route registered prefixed never runs excluded route logging serializers trace context applied partially Minimal reproduction prefix now fires collapsed application root concrete excluded routes stay unprefixed route scoped runs expected root collapse preserved regression test covering excluded route Follow Minimal reproduction Steps reproduce"
       },
       "stemblindWords": 60,
+      "rawTitle": "fix(fastify): run middleware on routes excluded from global prefix",
+      "rawBody": "## PR Checklist\r\n\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n## PR Type\r\n\r\nWhat kind of change does this PR introduce?\r\n\r\n- [x] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n\r\nWhen `setGlobalPrefix(prefix, { exclude })` excludes a concrete route (e.g. `/graphql`) and\r\nroute-scoped middleware is applied with `forRoutes('/{*path}')`, the fastify adapter's\r\n`createMiddlewareFactory` re-prefixes every non-prefixed middleware path — rewriting the\r\nexcluded route to `${prefix}/<route>`. The middleware is then registered on the prefixed\r\npath and never runs on the excluded route (no logging, serializers, or trace context applied).\r\n\r\nRelated: #14894, partially fixed by #14895.\r\n\r\nMinimal reproduction: https://github.com/Arun445/nest-bug-reproduce\r\n\r\nIssue Number: N/A\r\n\r\n## What is the new behavior?\r\n\r\nThe re-prefix now only fires when the middleware path collapsed to the application root\r\n(`/` or `''`), so concrete excluded routes stay unprefixed and their route-scoped middleware\r\nruns as expected. The `exclude: ['/']` root-collapse behavior from #13401 is preserved, and a\r\nregression test covering `forRoutes('/{*path}')` with an excluded route has been added.\r\n\r\n## Does this PR introduce a breaking change?\r\n\r\n- [ ] Yes\r\n- [x] No\r\n\r\n## Other information\r\n\r\nFollow-up to #14895 / #14894.\r\n\r\nMinimal reproduction: https://github.com/Arun445/nest-bug-reproduce\r\n\r\nSteps to reproduce:\r\n\r\n1. Run the application and call both the REST and the GraphQL endpoints.\r\n2. The GraphQL endpoint has no middleware or logger serializer applied, while the REST endpoint does.\r\n3. Comment out or remove `setGlobalPrefix`.\r\n4. Call both endpoints again — they now behave the same (middleware applied to both).\r\n",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "path",
+        "number",
+        "new"
+      ],
       "gold": [
         "packages/platform-fastify/adapters/fastify-adapter.ts"
       ],
@@ -81,10 +736,46 @@
       "base": "9879885ea0aa1b83f2c6f40ceec39c15fc9e3d4f",
       "mergeCommit": "5061da357866cf1c6618b97e12826010823a025b",
       "queries": {
-        "natural": "core convert adjacent wildcard segments legacy route converter commit message follows guidelines Tests changes added bug features Docs added updated bug features Type Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number rewrites legacy wildcard routes named syntax path regexp Express requires middle wildcard branch uses consumes",
-        "stemblind": "convert adjacent wildcard segments commit message follows guidelines Tests changes added bug features Docs added updated bug features Type Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number rewrites wildcard routes named syntax path regexp Express requires middle wildcard branch uses consumes slash two adjacent segments share"
+        "natural": "core convert adjacent wildcard segments legacy route converter rewrites legacy wildcard routes named syntax regexp Express requires middle wildcard branch uses consumes slash two adjacent segments share first segment gets converted leftover unnamed still rejected regexp app fails start Unsupported route error converter meant prevent branch now matches lookahead slash slash consumed every wildcard segment gets converted Output single middle",
+        "stemblind": "convert adjacent wildcard segments rewrites wildcard routes named syntax regexp Express requires middle wildcard branch uses consumes slash two adjacent segments share first segment gets converted leftover unnamed still rejected regexp app fails start Unsupported error meant prevent branch now matches lookahead slash slash consumed every wildcard segment gets converted Output single middle wildcard unchanged still becomes regression adjacent case"
       },
       "stemblindWords": 60,
+      "rawTitle": "fix(core): convert adjacent wildcard segments in legacy route converter",
+      "rawBody": "## PR Checklist\n\n- [x] The commit message follows our guidelines\n- [x] Tests for the changes have been added (for bug fixes / features)\n- [ ] Docs have been added / updated (for bug fixes / features)\n\n## PR Type\n\n- [x] Bugfix\n- [ ] Feature\n- [ ] Code style update (formatting, local variables)\n- [ ] Refactoring (no functional changes, no api changes)\n- [ ] Build related changes\n- [ ] CI related changes\n- [ ] Other... Please describe:\n\n## What is the current behavior?\n\nIssue Number: N/A\n\n`LegacyRouteConverter.tryConvert` rewrites legacy wildcard routes into the named syntax that path-to-regexp v8 (Express 5) requires. The middle-wildcard branch uses `route.replaceAll('/*/', ...)`, which consumes the slash that two adjacent `/*/*/` segments share, so only the first segment gets converted:\n\n```\ntryConvert('/a/*/*/b')  // => '/a/*path2/*/b'\n```\n\nThe leftover unnamed `*` is still rejected by path-to-regexp, so the app fails to start with the same \"Unsupported route path\" error the converter is meant to prevent.\n\n## What is the new behavior?\n\nThe branch now matches `/*` with a lookahead for the following slash, so the slash is not consumed and every wildcard segment gets converted:\n\n```\ntryConvert('/a/*/*/b')  // => '/a/*path2/*path4/b'\n```\n\nOutput for a single middle wildcard is unchanged, so `/v1/*/users` still becomes `/v1/*path3/users`. Added a regression test for the adjacent case.\n\n## Does this PR introduce a breaking change?\n\n- [ ] Yes\n- [x] No\n\n## Other information\n\nI could not run the full suite locally, so I verified the conversion logic directly and added a unit test that follows the existing naming scheme.\n\nSorry if this is on the small side, adjacent `/*/*/` segments are an edge case. Happy to close it if it is not worth the churn, or to broaden it to the other legacy-syntax gaps if that is more useful.\n",
+      "droppedBoilerplate": [
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "path",
+        "new",
+        "following"
+      ],
       "gold": [
         "packages/core/router/legacy-route-converter.ts"
       ],
@@ -96,7 +787,8 @@
         "core",
         "legacy",
         "route",
-        "converter"
+        "converter",
+        "test"
       ]
     },
     {
@@ -109,10 +801,32 @@
       "base": "8b759fe36b200797d8bbeb76969b55157c1fa7dd",
       "mergeCommit": "9879885ea0aa1b83f2c6f40ceec39c15fc9e3d4f",
       "queries": {
-        "natural": "common match string file types containing regex metacharacters commit message follows guidelines Tests changes added bug features Docs added updated bug features public API change documented behaviour starts working Type Bugfix current behavior Number matches MIME type string coerces MIME type contains regex metacharacter compiled pattern cannot match string written common case validator configured exact type client actually sent rejects",
-        "stemblind": "match string types containing regex metacharacters commit message follows guidelines Tests changes added bug features Docs added updated bug features public API change documented behaviour starts working Bugfix current behavior Number matches MIME string coerces MIME contains regex metacharacter compiled pattern cannot match string written case configured exact client actually sent rejects upload resulting error message names twice hits two"
+        "natural": "common match string file types containing regex metacharacters public documented behaviour starts working matches MIME string coerces MIME contains regex metacharacter compiled pattern cannot match string written common case validator configured exact client actually sent rejects upload resulting error names twice hits two paths exist exactly types structured suffix types magic validated either branch compare against client mimetype therefore fail",
+        "stemblind": "match string types containing regex metacharacters public documented behaviour starts working matches MIME string coerces MIME contains regex metacharacter compiled pattern cannot match string written case configured exact client actually sent rejects upload resulting error names twice hits two paths exist exactly types structured suffix types magic validated either branch compare against client mimetype therefore fail string compared literally first"
       },
       "stemblindWords": 60,
+      "rawTitle": "fix(common): match string file types containing regex metacharacters",
+      "rawBody": "## PR Checklist\n\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\n- [x] Tests for the changes have been added (for bug fixes / features)\n- [ ] Docs have been added / updated (for bug fixes / features) — no public API change, the documented behaviour is what starts working\n\n## PR Type\n\n- [x] Bugfix\n\n## What is the current behavior?\n\nIssue Number: N/A\n\n`FileTypeValidator` matches the MIME type with `mimetype.match(this.validationOptions.fileType)`. When `fileType` is a string, `String.prototype.match` coerces it into a `RegExp`, so any MIME type that contains a regex metacharacter is compiled into a pattern that cannot match the string it was written as. `+` is the common case:\n\n```js\n'image/svg+xml'.match('image/svg+xml')     // null  -> /image\\/svg+xml/ means \"sv\", one-or-more \"g\", \"xml\"\n'application/ld+json'.match('application/ld+json') // null\n```\n\nSo a validator configured for the exact type the client actually sent rejects the upload, and the resulting error message names the same type twice:\n\n```ts\nnew ParseFilePipe({\n  validators: [\n    new FileTypeValidator({ fileType: 'image/svg+xml', skipMagicNumbersValidation: true }),\n  ],\n});\n```\n\n```\n400 Validation failed (current file type is image/svg+xml, expected type is image/svg+xml)\n400 Validation failed (current file type is application/ld+json, expected type is application/ld+json) - magic number detection failed, used mimetype fallback\n```\n\nThis hits the two paths that exist for exactly these types. `image/svg+xml`, `application/ld+json`, `application/manifest+json` and the other structured-suffix types have no magic number, so they are validated either with `skipMagicNumbersValidation: true` or through the `fallbackToMimetype` branch — both of which compare against the client mimetype and therefore both fail.\n\n## What is the new behavior?\n\nA string `fileType` is compared literally first; if it is not an exact match, the existing regex coercion still runs. Partial values such as `fileType: 'jpeg'` matching `image/jpeg`, and `RegExp` file types, are unaffected — the change only adds the exact-string case, so nothing that validated before stops validating now.\n\nThe five comparison sites in `isValid` (skip-magic-numbers, no-buffer fallback, detected mime, undetected-mime fallback, and the error fallback) now go through one private helper, so they cannot drift apart.\n\nVerified against the repo's own commands on `master` + this branch:\n\n- `npm run test` — 2135 passing, exit 0\n- `npm run build` — exit 0\n- `npm run lint:ci` — exit 0 (2 pre-existing warnings, in `internal-core-module-factory.ts` and `client-kafka.spec.ts`)\n\nThe three added specs fail on `master` (2 of them) and pass with the fix; the third is the negative guard that `image/png` is still rejected by a `fileType: 'image/svg+xml'` validator.\n\n## Does this PR introduce a breaking change?\n\n- [ ] Yes\n- [x] No\n\n## Other information\n\nThe literal comparison is deliberately case-sensitive to match the current behaviour of the regex path; normalising MIME type casing would be a separate, wider change.\n",
+      "droppedBoilerplate": [
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "api",
+        "change",
+        "type",
+        "bugfix",
+        "current",
+        "behavior",
+        "number"
+      ],
       "gold": [
         "packages/common/pipes/file/file-type.validator.ts"
       ],
@@ -123,7 +837,6 @@
       "droppedForLeak": [
         "common",
         "file",
-        "type",
         "validator"
       ]
     },
@@ -137,10 +850,18 @@
       "base": "9a064ccaf9ddfc75851f4ed35d4a207c0d84c37c",
       "mergeCommit": "8b759fe36b200797d8bbeb76969b55157c1fa7dd",
       "queries": {
-        "natural": "LazyModuleLoader constructs singleton providers already initialized modules every load lazy consumers don share eager instances cached reloads construct discard new ones existing searched existing issues Current behavior module lazily loaded via imports module already initialized eager graph imported module providers constructed lazy consumer receives fresh instance root graph keeps original plain singletons default scope Every subsequent module returns cached module",
-        "stemblind": "LazyModuleLoader constructs singleton providers already initialized modules every load consumers don share eager instances cached reloads construct discard new ones existing searched existing issues Current behavior lazily loaded via imports already initialized eager graph imported providers constructed consumer receives fresh instance root graph keeps original plain singletons default scope Every subsequent returns cached ref still runs graph constructors discarding results"
+        "natural": "LazyModuleLoader constructs singleton providers already initialized modules every load lazy consumers don share eager instances cached reloads construct discard ones searched issues module lazily loaded via imports module already initialized eager graph imported module providers constructed lazy consumer receives fresh instance root graph keeps original plain singletons default scope Every subsequent module returns cached module ref still runs graph constructors",
+        "stemblind": "LazyModuleLoader constructs singleton providers already initialized modules every load consumers don share eager instances cached reloads construct discard ones searched issues lazily loaded via imports already initialized eager graph imported providers constructed consumer receives fresh instance root graph keeps original plain singletons default scope Every subsequent returns cached ref still runs graph constructors discarding results constructed provider owns resources SDK"
       },
       "stemblindWords": 60,
+      "rawTitle": "LazyModuleLoader re-constructs singleton providers of already-initialized modules on every load() — lazy consumers don't share eager instances, and cached reloads construct-and-discard new ones",
+      "rawBody": "### Is there an existing issue for this?\n\n- [x] I have searched the existing issues\n\n### Current behavior\n\nWhen a module lazily loaded via `LazyModuleLoader.load()` imports a module that is already initialized in the eager graph, the imported module's providers are **constructed again**: the lazy consumer receives a fresh instance while the root graph keeps the original — for plain `@Injectable()` singletons (default scope). Every *subsequent* `load()` of the same module returns the cached module ref but **still re-runs the graph's constructors**, discarding the results.\n\nIf a re-constructed provider owns resources (an SDK client, a Redis connection), each copy is leaked permanently: it is unreachable yet kept alive by its own sockets/timers, and lazy modules never receive lifecycle hooks, so `onApplicationShutdown` can never destroy it.\n\nReproduced identically on `@nestjs/core` 11.1.28, 11.0, and 10.3.10:\n\nhttps://github.com/RaviAjaibSingh/nestjs-dependency-injection-experiments/blob/main/src/repro.ts (~60 dependency-free lines)\n\n```\ntesting: boot constructs the shared singleton once           -> constructions=1            OK\ntesting: statically-imported module sees original singleton  -> shared=true                OK\ntesting: lazy-loaded module sees original singleton          -> shared=false (built 1 more)  BUG\ntesting: cached reload() constructs nothing                  -> built 1 more (discarded)   BUG\nworkaround: @Global dep, NOT imported by lazy module, shares -> shared=true                OK\nworkaround: reload with @Global-resolved dep constructs none -> built 0 more               OK\n```\n\nThe defect boundary is precise:\n\n- **Explicit imports in the eager graph behave correctly** — the static control (a module of identical shape, wired eagerly) shares the singleton as expected. The violation is exclusive to the lazy-loading path.\n- Re-instantiation affects exactly the modules reachable through the lazy load's **declared import graph**. A dependency resolved purely via `@Global` visibility — module registered once in the eager graph and **not** imported by the lazy module — shares the original instance correctly, even across repeat loads (the `workaround:` lines above).\n- The asymmetry that confirms it: marking the module `@Global` while *keeping* the explicit import in the lazy module changes nothing — the explicit import puts it back in the scanned graph.\n\nWith `NEST_DEBUG` enabled, Nest logs `SharedModule dependencies initialized` once at boot (`InstanceLoader`) and again on **every** `load()` (`LazyModuleLoader`), including the \"cached\" reload.\n\n\n\n### Minimum reproduction code\n\nhttps://github.com/RaviAjaibSingh/nestjs-dependency-injection-experiments/blob/main/src/repro.ts\n\n### Steps to reproduce\n\nSmall sample repro script here showing the problem:\nhttps://github.com/RaviAjaibSingh/nestjs-dependency-injection-experiments/blob/main/src/repro.ts\n\n1. Sync the repo\n2. pnpm install\n3. pnpm repro\n\n### Expected behavior\n\nPer the lazy-loading docs: *\"lazy loaded modules share the same modules graph as those eagerly loaded on the application bootstrap\"* and consecutive loads *\"will return a cached instance, instead of loading the module again.\"*\n\nA default-scoped provider in an already-initialized module should resolve to its existing instance when injected into lazily loaded consumers — i.e., **explicitly importing a module from a lazily loaded module should behave the same as importing it from an eagerly loaded one** (which correctly yields the shared singleton today).\n\nThere is one workaround: make the initial shared module @Global and then do NOT explicitly import it in the lazy module.  But eagerly loaded modules do not need this workaround to get the same singleton.  See test code.\n\n### NestJS version\n\n11.1.28\n\n### Packages versions\n\n```json\n{\n    \"dependencies\": {\n        \"@nestjs/common\": \"11.1.28\",\n        \"@nestjs/core\": \"11.1.28\",\n    }\n}\n```\n\n\n### Node.js version\n\n_No response_\n\n### In which operating systems have you tested?\n\n- [x] macOS\n- [ ] Windows\n- [ ] Linux\n\n### Other\n\n_No response_",
+      "droppedBoilerplate": [
+        "new",
+        "existing",
+        "current",
+        "behavior"
+      ],
       "gold": [
         "packages/core/injector/container.ts",
         "packages/core/injector/internal-core-module/internal-core-module-factory.ts",
@@ -170,10 +891,53 @@
       "base": "a2c25c27d192a8e8458b7479c6019bf1b7427a71",
       "mergeCommit": "b6bdd79c48439f5a0d74e836ff6d84f4f8f56d84",
       "queries": {
-        "natural": "feat narrow body parser options selected parser Express check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number method never checked options argument type occurs inside",
-        "stemblind": "feat narrow selected check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number method never checked argument type occurs inside non inferrable position always fell back"
+        "natural": "feat narrow body parser options selected parser Express method never checked options argument occurs inside non inferrable position always fell back default default carries index signature removes nothing resulting collapses bare index signatures Every call therefore accepted key value even single option signature claims remove reserves capture supply anything option autocompletion now takes parser first argument Calls pass explicit options",
+        "stemblind": "feat narrow selected method never checked argument occurs inside non inferrable position always fell back default default carries index signature removes nothing resulting collapses bare index signatures Every call therefore accepted key value even single option signature claims remove reserves capture supply anything option autocompletion now takes first argument Calls pass explicit longer compile Drop argument let inferred argument proposing"
       },
       "stemblindWords": 60,
+      "rawTitle": " feat: narrow body parser options to the selected parser for Express",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [ ] Bugfix\r\n- [x] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIssue Number: N/A\r\n\r\n<img width=\"1090\" height=\"250\" alt=\"image\" src=\"https://github.com/user-attachments/assets/1c0fcc0d-bc96-490d-8d39-c00f98e4abad\" />\r\n\r\nthe method `#useBodyParser` never checked its options argument. Their type `Options` occurs only inside `Omit<Options, 'verify'>`, a non-inferrable position, so it always fell back to its default, and that default carries a `[key: string]: unknown` index signature. `keyof` on it is `string | number`, `Exclude<string | number, 'verify'>` removes nothing, and the resulting `Pick<T, string | number>` collapses to bare index signatures.\r\n\r\nEvery call therefore accepted any key, any value type, and even `verify` the single option the signature claims to remove, and the one Nest reserves to capture `rawBody`.\r\n\r\nAnd so we can supply anything as a option + we did not have the autocompletion.\r\n\r\n## What is the new behavior?\r\n\r\n<img width=\"1364\" height=\"702\" alt=\"image\" src=\"https://github.com/user-attachments/assets/6eb4b27c-5a12-4634-a922-efcce92750f5\" />\r\n\r\n`#useBodyParser` now takes the parser type as its first type argument.\r\n\r\nCalls that pass an explicit options type, such as `app.useBodyParser<OptionsUrlencoded>('urlencoded', {...})` no longer compile.\r\nDrop the type argument and let it be inferred from the parser argument.\r\n\r\n## Does this PR introduce a breaking change?\r\n- [x] Yes - which is why I'm proposing this to v12; this was not planned on v11 tho\r\n- [ ] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "one",
+        "nest",
+        "new"
+      ],
       "gold": [
         "packages/platform-express/adapters/express-adapter.ts",
         "packages/platform-express/adapters/utils/get-body-parser-options.util.ts",
@@ -207,10 +971,53 @@
       "base": "0688dc85ca96562224b11bd030b79bdc982856c4",
       "mergeCommit": "4e4f8f0e7c6f2bca5b2d35cabfede6b9b7d9faad",
       "queries": {
-        "natural": "express map missing multer field nesting error check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Multipart requests exceed configurable option HTTP Multer emits error code",
-        "stemblind": "express map missing field nesting error check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Multipart requests exceed configurable option HTTP emits error code map raw"
+        "natural": "express map missing multer field nesting error Multipart requests exceed configurable option HTTP Multer emits error map raw falls switch returned Every multer limit mapped see mapped HTTP consistent limit codes multer attaches name appended",
+        "stemblind": "express map missing field nesting error Multipart requests exceed configurable option HTTP emits error map raw falls switch returned Every limit mapped see mapped HTTP consistent limit codes attaches name appended"
       },
-      "stemblindWords": 60,
+      "stemblindWords": 31,
+      "rawTitle": "fix(express): map missing multer field nesting error",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [x] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\nMultipart requests that exceed the configurable `limits.fieldNestingDepth` option get HTTP 500. Multer emits the `LIMIT_FIELD_NESTING` error code (`'Field name nesting too deep'`), but `transformException` in `packages/platform-express/multer/multer/multer.utils.ts` does not map it, so the raw `MulterError` falls through the switch and is returned as-is. Every other multer limit code is mapped to `BadRequestException`/`PayloadTooLargeException` (see commit `4c38a767b`).\r\n\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIssue Number: N/A\r\n\r\n## What is the new behavior?\r\n`LIMIT_FIELD_NESTING` is mapped to `BadRequestException` (HTTP 400), consistent with the other field/file limit codes. When multer attaches a `field` name, it is appended to the message (e.g. `Field name nesting too deep - foo`).\r\n\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "breaking",
+        "information"
+      ],
       "gold": [
         "packages/platform-express/multer/multer/multer.utils.ts"
       ],
@@ -232,10 +1039,51 @@
       "base": "4ea0381e9339eac8b5d0255ee7314eba9a5f5752",
       "mergeCommit": "a2c25c27d192a8e8458b7479c6019bf1b7427a71",
       "queries": {
-        "natural": "feat microservices expose transport server getter check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Currently way stop transport layer without triggering full application shutdown lifecycle",
-        "stemblind": "feat expose getter check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Currently way stop layer without triggering full application shutdown lifecycle call method stops triggers"
+        "natural": "feat microservices expose transport server getter Currently way stop transport layer without triggering full application shutdown lifecycle call method stops transport triggers full shutdown lifecycle correct business case specific server grpc connection control port receiving commands data port streaming data control sends TLS value component needs stop data port restart TLS value port remain active tears everything lifecycle hooks fire",
+        "stemblind": "feat expose getter Currently way stop layer without triggering full application shutdown lifecycle call method stops triggers full shutdown lifecycle correct business case specific grpc connection control port receiving commands data port streaming data control sends TLS value component needs stop data port restart TLS value port remain active tears everything lifecycle hooks fire across entire container Now stop listening"
       },
       "stemblindWords": 60,
+      "rawTitle": "feat(microservices): expose transport server getter",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [ ] Bugfix\r\n- [x] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n\r\nCurrently `INestMicroservice `have no way to stop only the transport layer (port/connection) without triggering the full application shutdown lifecycle, when i call `close()` method from `INestMicroservice `stops the transport and triggers the full shutdown lifecycle - which is correct, but my business case is specific: the server has more then one grpc connection: control port (receiving commands), data port (for streaming data). when control sends a new TLS value the component needs to stop only the data port and restart it with new TLS value. Other port should remain active. but `microservice.close() ` tears down everything because lifecycle hooks fire across entire di container\r\n\r\nIssue Number: N/A\r\n\r\n\r\n## What is the new behavior?\r\nNow we can stop listening on the transport layer, no lifecycle hooks, di side effects, so app stays alive\r\nexample of using:\r\n`await microservice.getTransportServer().close()`\r\nand of course old one: \r\n`await microservice().close()` - still shut down everything\r\n\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information\r\ni am not ai, i am a real person.  the code was tested manually injecting updated nestjs into my infra + runnig tests. \r\ni am aware of nestjs design - what microservice transport start once and die with the app, BUT i have unusual case where my application is a industrial adapter which needs process tls hot swap without shutdowning because there are another clients which depends on this application. I could probably bypass it using raw gprc lib, but i think it's better solution (also simple one)\r\n\r\ni created `ITransportServer` to prevent circular deps between **common** and **microservices** packages. It's second version of my code implementation. In first one i just used \"any\" without adding new type, but later when i really injected new nest into my services it was inconvenient to use. I am open to discuss about different implementation\r\n\r\nin the last commit i marked the abstract **Server** class as `implements ITransportServer` to\r\nenforce the contract at compile time. ts structural typing already handle Server and ITransportServer compatibility , but without the explicit declaration a some new future changes to server.close() or server.listen() could silently break the interface guarantee withou compiler error at the source",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "one",
+        "new"
+      ],
       "gold": [
         "packages/common/index.ts",
         "packages/common/interfaces/index.ts",
@@ -269,10 +1117,53 @@
       "base": "b7a6534311b9705d75fb09535654064ece9f693e",
       "mergeCommit": "6a45a61c13283f01ee6f1d64f290cf8fbaee6bdf",
       "queries": {
-        "natural": "microservices nullify grpcclient tryshutdown fails check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior called graceful shutdown enabled invokes callback error promise rejects client reference cleared",
-        "stemblind": "nullify grpcclient tryshutdown fails check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior called graceful shutdown enabled invokes callback error promise rejects client reference cleared Current"
+        "natural": "microservices nullify grpcclient tryshutdown fails called graceful shutdown enabled invokes callback error promise rejects client reference cleared flow leaves pointing client already shutdown logic wrapped block client reference always cleared regardless whether succeeds fails guarantees internal state cleaned even graceful shutdown reports error",
+        "stemblind": "nullify grpcclient tryshutdown fails called graceful shutdown enabled invokes callback error promise rejects client reference cleared flow leaves pointing client already shutdown logic wrapped block client reference always cleared regardless whether succeeds fails guarantees internal state cleaned even graceful shutdown reports error"
       },
-      "stemblindWords": 60,
+      "stemblindWords": 42,
+      "rawTitle": "fix(microservices): nullify grpcclient on close when tryshutdown fails",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [x] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n\r\nWhen `close()` is called with graceful shutdown enabled and `tryShutdown()` invokes its callback with an error, the promise rejects before the client reference is cleared.\r\n\r\nCurrent flow:\r\n\r\n```ts\r\nawait tryShutdown();\r\n\r\nthis.grpcClient = null; // Never reached if tryShutdown() rejects\r\n```\r\n\r\nThis leaves `this.grpcClient` pointing to a client that has already been closed.\r\n\r\nIssue Number: N/A\r\n\r\n## What is the new behavior?\r\n\r\nThe shutdown logic is wrapped in a `try...finally` block so the client reference is always cleared, regardless of whether `tryShutdown()` succeeds or fails.\r\n\r\n```ts\r\ntry {\r\n  await tryShutdown();\r\n} finally {\r\n  this.grpcClient = null;\r\n}\r\n```\r\n\r\nThis guarantees the internal state is cleaned up even when graceful shutdown reports an error.\r\n\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "breaking",
+        "information"
+      ],
       "gold": [
         "packages/microservices/server/server-grpc.ts"
       ],
@@ -294,10 +1185,54 @@
       "base": "a639a0befa922b6f45d7e7d922d93d7d8c9b1fc8",
       "mergeCommit": "2edb01d0f606f5ba5281ede9afd6d15f2316c7b7",
       "queries": {
-        "natural": "core serialize SSE retry field value zero Truthy checks omitted retry clients never received explicit zero reconnection delay Use isNil like MessageEvent fields check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related",
-        "stemblind": "serialize retry field value zero Truthy checks omitted retry clients never received explicit zero reconnection delay Use isNil like MessageEvent fields check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related"
+        "natural": "core serialize SSE retry field value zero Truthy checks omitted retry clients never received explicit zero reconnection delay Use isNil like MessageEvent fields field serialized truthy falsy JavaScript serialized without field omitted Example wire output missing Relevant serialized consistent optional fields now included SSE frame unit test covers case Pre introduced already use still used truthy Elsewhere already treated present",
+        "stemblind": "serialize retry field value zero Truthy checks omitted retry clients never received explicit zero reconnection delay Use isNil like MessageEvent fields field serialized truthy falsy JavaScript serialized without field omitted Example wire output missing Relevant serialized consistent optional fields now included frame unit covers case Pre introduced already use still used truthy Elsewhere already treated present uses serializer treated missing"
       },
       "stemblindWords": 60,
+      "rawTitle": "fix(core): serialize SSE retry field when value is zero",
+      "rawBody": "Truthy checks omitted retry: 0, so clients never received an explicit zero reconnection delay. Use isNil like other MessageEvent fields.\r\n\r\n## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [x] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIn `SseStream._transform`, the `retry` field is serialized with a truthy check:\r\n\r\n```ts\r\ndata += message.retry ? `retry: ${sanitize(message.retry)}\\n` : '';\r\n```\r\n\r\nBecause `0` is falsy in JavaScript, a `MessageEvent` with `retry: 0` is serialized **without** a `retry` field — as if `retry` was omitted.\r\n\r\nExample wire output for `{ data: 'hello', retry: 0 }`:\r\n\r\n```text\r\nid: 1\r\ndata: hello\r\n```\r\n\r\n(`retry: 0` is missing)\r\n\r\nRelevant code (current `master`):\r\n\r\nhttps://github.com/nestjs/nest/blob/master/packages/core/router/sse-stream.ts\r\n\r\nIssue Number: #17359\r\n\r\n\r\n## What is the new behavior?\r\n\r\n`retry` is serialized with `!isNil(...)`, consistent with other optional `MessageEvent` fields (`id`, `data`, `comment`):\r\n\r\n```ts\r\ndata += !isNil(message.retry) ? `retry: ${sanitize(message.retry)}\\n` : '';\r\n```\r\n\r\n`retry: 0` is now included in the SSE frame, e.g.:\r\n\r\n```text\r\nid: 1\r\nretry: 0\r\ndata: hello\r\n```\r\n\r\nA unit test covers this case.\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information\r\n\r\n- Pre-existing issue (not introduced by #17327); after that PR, `data` / `id` / `comment` already use `isNil`, while `retry` still used a truthy check.\r\n- Elsewhere in `SseStream`, `retry: 0` is already treated as “present” (e.g. `isCommentOnly` uses `isUndefined(message.retry)`); only the serializer treated `0` as missing.",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "breaking",
+        "information",
+        "existing"
+      ],
       "gold": [
         "packages/core/router/sse-stream.ts"
       ],
@@ -307,7 +1242,8 @@
       ],
       "droppedForLeak": [
         "core",
-        "sse"
+        "sse",
+        "test"
       ]
     },
     {
@@ -320,10 +1256,54 @@
       "base": "51cef822037f7f3fe7e82574fc0582188def4d0b",
       "mergeCommit": "a639a0befa922b6f45d7e7d922d93d7d8c9b1fc8",
       "queries": {
-        "natural": "common exclude pipe options validator options check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior now excluded Providing one specific options longer causes",
-        "stemblind": "exclude options validator options check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior now excluded Providing one specific options longer causes executed original"
+        "natural": "common exclude pipe options validator options now excluded Providing specific options longer causes executed original input value returned unchanged actual specified",
+        "stemblind": "exclude options validator options now excluded Providing specific options longer causes executed original input value returned unchanged actual specified"
       },
-      "stemblindWords": 60,
+      "stemblindWords": 19,
+      "rawTitle": "fix(common): exclude pipe options from validator options",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [x] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIssue Number: #17398\r\n\r\n\r\n## What is the new behavior?\r\n`exceptionFactory`, `validatorPackage`, and `transformerPackage` are now excluded from `validatorOptions`.\r\n\r\nProviding one of these `ValidationPipe`-specific options no longer causes `classToPlain` to be executed, and the original input value is returned unchanged when no actual `ValidatorOptions` are specified.\r\n\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "one",
+        "breaking",
+        "information"
+      ],
       "gold": [
         "packages/common/pipes/validation.pipe.ts"
       ],
@@ -346,10 +1326,52 @@
       "base": "f42a34a4cf1fe16f5177971f1c3bd5645aa1526e",
       "mergeCommit": "51cef822037f7f3fe7e82574fc0582188def4d0b",
       "queries": {
-        "natural": "refactor core remove async promise executor anti patterns check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Three methods use async executor anti pattern promise returned",
-        "stemblind": "refactor remove async promise executor anti patterns check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Three methods use async executor anti pattern promise returned async"
+        "natural": "refactor core remove async promise executor anti patterns Three methods use async executor anti pattern promise returned async function silently swallowed error thrown first synchronous errors never caught outer duplicates async function already Files affected three replaced proper patterns init connect async IIFE since body entirely async returns nothing instantiateClass standard inner async call since captured inside callback identical less",
+        "stemblind": "refactor remove async promise executor anti patterns Three methods use async executor anti pattern promise returned async function silently swallowed error thrown first synchronous errors never caught outer duplicates async function already Files affected three replaced proper patterns init connect async IIFE since body entirely async returns nothing instantiateClass standard inner async call since captured inside callback identical less anti"
       },
       "stemblindWords": 60,
+      "rawTitle": "refactor(core): remove async promise executor anti-patterns",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [ ] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [ ] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [x] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\nThree methods use `new Promise(async (resolve, reject) => { try { ... resolve() } catch(e) { reject(e) } })` - an async executor anti-pattern. The promise returned by the async function is silently swallowed, so any error thrown *before* the first `await` (synchronous errors) is never caught, and the outer try/catch just duplicates what the async function already does.\r\n\r\nFiles affected:\r\n\r\n- `NestApplicationContext.init()` - `packages/core/nest-application-context.ts`\r\n- `ClientKafka.connect()` - `packages/microservices/client/client-kafka.ts`\r\n- `ModuleRef.instantiateClass()` - `packages/core/injector/module-ref.ts`\r\n\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIssue Number: N/A\r\n\r\n\r\n## What is the new behavior?\r\nAll three are replaced with proper patterns:\r\n\r\n- **init() / connect()** - async IIFE `(async () => { ... })()` since the body is entirely async and returns nothing\r\n- **instantiateClass()** - standard `new Promise((resolve, reject) => { ... })` with `.catch(reject)` on the inner async call, since `resolve` is captured inside a callback\r\n\r\nBehavior is identical. One less anti-pattern in the codebase.\r\n\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information\r\nAll existing tests pass. No new test added since this is a refactoring with no behavioral change — the logic before and after is identical, just removing the unnecessary async executor wrapper.",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "one"
+      ],
       "gold": [
         "packages/core/injector/module-ref.ts",
         "packages/core/nest-application-context.ts",
@@ -374,10 +1396,52 @@
       "base": "fafe503bd8ca073f2fdd41ed7138081af84c478e",
       "mergeCommit": "0011b830c20dbc928ff88e198ae6d891fa4dbe2d",
       "queries": {
-        "natural": "core barrier immediately target count zero check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number promise inside injector creates barrier per class sized dependency count",
-        "stemblind": "immediately target count zero check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number promise inside injector creates per class sized dependency count property count class"
+        "natural": "core barrier immediately target count zero promise inside injector creates barrier per class sized dependency count property count class zero dependencies never called barrier promise never settles forever pending per zero dependency class per module compilation Vitest flags every test file compiles testing module reproduction eagerly constructor barrier participants settles immediately injector call sites now checks instead making idempotent past",
+        "stemblind": "immediately target count zero promise inside injector creates per class sized dependency count property count class zero dependencies never called promise never settles forever pending per zero dependency class per module compilation Vitest flags every file compiles testing module reproduction eagerly constructor participants settles immediately injector call sites now checks instead making idempotent past threshold injector deliberately calls catch blocks"
       },
       "stemblindWords": 60,
+      "rawTitle": "fix(core): resolve barrier immediately when target count is zero",
+      "rawBody": "## PR Checklist\nPlease check if your PR fulfills the following requirements:\n\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\n- [x] Tests for the changes have been added (for bug fixes / features)\n- [ ] Docs have been added / updated (for bug fixes / features)\n\n\n## PR Type\nWhat kind of change does this PR introduce?\n\n<!-- Please check the one that applies to this PR using \"x\". -->\n- [x] Bugfix\n- [ ] Feature\n- [ ] Code style update (formatting, local variables)\n- [ ] Refactoring (no functional changes, no api changes)\n- [ ] Build related changes\n- [ ] CI related changes\n- [ ] Other... Please describe:\n\n## What is the current behavior?\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\n\nIssue Number: #17392\n\nA `Barrier` only resolves its promise inside `signal()`, when `currentCount === targetCount`. The injector creates a barrier per class, sized to its dependency count (`resolveConstructorParams`) or `@Inject()` property count (`resolveProperties`). For a class with zero dependencies, `targetCount` is `0`, `signal()` is never called, and the barrier's promise never settles — one forever-pending `Promise` per zero-dependency class per module compilation. Vitest's `detectAsyncLeaks: true` flags this on every test file that compiles a testing module (reproduction: https://gist.github.com/ikrbasak/0eaf002bfe176918aafbce3307b7bf54).\n\n## What is the new behavior?\n\n- `Barrier` resolves eagerly in the constructor when `targetCount === 0`, so a barrier with no participants settles immediately. This fixes both injector call sites at once.\n- `signal()` now checks `currentCount >= targetCount` instead of `===`, making it idempotent past the threshold. The injector deliberately calls `signal()` in catch blocks to unblock waiting dependencies, which can over-signal past `targetCount`; with `===`, a barrier over-signaled past its exact count would also never resolve.\n\nUnit tests added for both behaviors in `barrier.spec.ts`. With the fix, the reproduction above reports zero async leaks.\n\n## Does this PR introduce a breaking change?\n- [ ] Yes\n- [x] No\n\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\n\nNo caller awaits a zero-count barrier today (the awaits live inside per-dependency callbacks that do not exist when the count is 0), so behavior is unchanged; the fix only ensures the promise settles.\n\n## Other information\n\nRelated but distinct prior work on this code: #15405, #15504 (race conditions in class dependency resolution), #16683 (injector hang when `design:paramtypes` is missing).\n",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "one",
+        "new"
+      ],
       "gold": [
         "packages/core/helpers/barrier.ts"
       ],
@@ -387,7 +1451,8 @@
       ],
       "droppedForLeak": [
         "core",
-        "barrier"
+        "barrier",
+        "test"
       ]
     },
     {
@@ -400,10 +1465,17 @@
       "base": "842be738257dda3a0455bac61913a66e78d92d24",
       "mergeCommit": "ae9cc02131c5b5512beb38fcacfe35ad8f0296a0",
       "queries": {
-        "natural": "test sample add comprehensive tests queues sample Adds comprehensive unit E2E tests queues sample Test Coverage tests total Unit Tests AudioController job queuing parameter validation concurrent handling AudioProcessor job processing logging behavior sequential execution E2E Tests Endpoint validation mocked Bull queue Redis dependency Status codes concurrent requests HTTP method restrictions error handling Key Features tests pass E2E tests mock BullModule",
-        "stemblind": "test add comprehensive tests queues Adds comprehensive unit tests queues Test Coverage tests total Unit Tests AudioController job queuing parameter validation concurrent handling AudioProcessor job processing logging behavior sequential execution Tests Endpoint validation mocked Bull queue Redis dependency Status codes concurrent requests HTTP method restrictions error handling Key Features tests pass tests mock BullModule Redis needed Comprehensive coverage queue functionality"
+        "natural": "test sample add comprehensive queues sample Adds comprehensive unit E2E queues sample Test Coverage total Unit AudioController job queuing parameter validation concurrent handling AudioProcessor job processing logging sequential execution E2E Endpoint validation mocked Bull queue Redis dependency Status codes concurrent requests HTTP method restrictions error handling Key pass E2E mock BullModule Redis needed Comprehensive coverage queue functionality Test Results Unit",
+        "stemblind": "test add comprehensive queues Adds comprehensive unit queues Test Coverage total Unit AudioController job queuing parameter validation concurrent handling AudioProcessor job processing logging sequential execution Endpoint validation mocked Bull queue Redis dependency Status codes concurrent requests HTTP method restrictions error handling Key pass mock BullModule Redis needed Comprehensive coverage queue functionality Test Results Unit passed passed Total passed Relates"
       },
-      "stemblindWords": 60,
+      "stemblindWords": 59,
+      "rawTitle": "test(sample): add comprehensive tests for 26-queues sample",
+      "rawBody": "## Description\r\nAdds comprehensive unit and E2E tests for the 26-queues sample.\r\n\r\n## Test Coverage (20 tests total)\r\n\r\n### Unit Tests (14):\r\n- AudioController: job queuing, parameter validation, concurrent handling\r\n- AudioProcessor: job processing, logging behavior, sequential execution\r\n\r\n### E2E Tests (6):\r\n- Endpoint validation with mocked Bull queue (no Redis dependency)\r\n- Status codes, concurrent requests\r\n- HTTP method restrictions, error handling\r\n\r\n## Key Features\r\n-All tests pass in CI\r\n-E2E tests mock BullModule (no Redis needed)\r\n-Comprehensive coverage of queue functionality\r\n\r\n## Test Results\r\n- Unit Tests: 14 passed\r\n- E2E Tests: 6 passed\r\n- **Total: 20 passed**\r\n\r\nRelates to #1539\r\n",
+      "droppedBoilerplate": [
+        "tests",
+        "behavior",
+        "features"
+      ],
       "gold": [
         "sample/26-queues/e2e/audio/audio.e2e-spec.ts",
         "sample/26-queues/src/app.module.ts"
@@ -433,10 +1505,53 @@
       "base": "6d3f3c04aa94083e367ff430342b55ebf3227c70",
       "mergeCommit": "4ea0381e9339eac8b5d0255ee7314eba9a5f5752",
       "queries": {
-        "natural": "reject hex non numeric strings float pipe check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior uses coerces via validation uses conversion parse differently returns silent",
-        "stemblind": "reject hex non numeric strings check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior uses coerces via validation uses conversion differently returns silent truncation returns Number"
+        "natural": "reject hex non numeric strings float pipe uses coerces via validation uses conversion parse differently returns silent truncation returns strict float regex matching pattern replaced Hex strings like now properly rejected",
+        "stemblind": "reject hex non numeric strings uses coerces via validation uses conversion differently returns silent truncation returns strict regex matching pattern replaced Hex strings like now properly rejected"
       },
-      "stemblindWords": 60,
+      "stemblindWords": 27,
+      "rawTitle": "fix: reject hex and non-numeric strings in float pipe",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [ ] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [x] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n`isNumeric` uses `isFinite()` (which coerces via `Number()`) for validation, but `transform` uses `parseFloat()` for conversion. These parse differently - `parseFloat(\"0xFF\")` returns `0` (silent truncation) while `Number(\"0xFF\")` returns `255`.\r\n\r\n\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIssue Number: N/A\r\n\r\n\r\n## What is the new behavior?\r\nAdded a strict float regex to `isNumeric` (matching `ParseIntPipe`'s pattern) and replaced `parseFloat(value)` with `Number(value)` in `transform`. Hex strings like `\"0xFF\"` are now properly rejected.\r\n\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "breaking",
+        "information"
+      ],
       "gold": [
         "packages/common/pipes/parse-float.pipe.ts"
       ],
@@ -460,10 +1575,55 @@
       "base": "9bf31433d8c457126e3ff3471b7f9da61c854d87",
       "mergeCommit": "41d9f37b320a4021da007fcbf2d9d578625f399c",
       "queries": {
-        "natural": "feat core support sse comments check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior serialize SSE comment lines Number new behavior accepts optional field optional comment",
-        "stemblind": "feat support comments check fulfills following requirements commit follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior serialize comment lines Number new behavior accepts optional field optional comment frames represented example serialized"
+        "natural": "feat core support sse comments serialize SSE comment lines accepts optional field optional comment frames represented example serialized Multiline comments serialized line line line ending handling Comment frames consume generated event IDs messages containing event fields keep becomes optional represent comment frames values remain valid implementation preserves field order shares multiline serialization between data comments cover empty comments mixed line",
+        "stemblind": "feat support comments serialize comment lines accepts optional field optional comment frames represented example serialized Multiline comments serialized line line line ending handling Comment frames consume generated IDs messages containing fields keep becomes optional represent comment frames values remain valid implementation preserves field order shares multiline serialization between data comments cover empty comments mixed line endings comment plus data frames"
       },
       "stemblindWords": 60,
+      "rawTitle": "feat(core): support sse comments",
+      "rawBody": "## PR Checklist\r\n\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n## PR Type\r\n\r\nWhat kind of change does this PR introduce?\r\n\r\n- [ ] Bugfix\r\n- [x] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n\r\n`SseStream` can serialize `data`, `event`, `id`, and `retry`, but not SSE\r\ncomment lines.\r\n\r\nIssue Number: #17274\r\n\r\n## What is the new behavior?\r\n\r\n`MessageEvent` accepts an optional `comment` field, and `data` is optional so\r\ncomment-only frames can be represented.\r\n\r\nFor example:\r\n\r\n```ts\r\n{ comment: 'keep-alive' }\r\n```\r\n\r\nis serialized as:\r\n\r\n```text\r\n: keep-alive\r\n\r\n```\r\n\r\nMultiline comments are serialized line by line using the same line-ending\r\nhandling as `data`. Comment-only frames do not consume generated event IDs,\r\nwhile messages containing other event fields keep the existing ID behavior.\r\n\r\n## Does this PR introduce a breaking change?\r\n\r\n- [ ] Yes\r\n- [x] No\r\n\r\n`MessageEvent.data` becomes optional to represent comment-only frames. Existing\r\n`MessageEvent` values remain valid.\r\n\r\n## Other information\r\n\r\nThis implementation preserves the existing `event`, `id`, `retry`, `data`\r\nfield order and shares multiline serialization between data and comments.\r\nTests cover empty comments, mixed line endings, comment-plus-data frames, and\r\nevent ID sequencing.\r\n\r\nLocal checks:\r\n\r\n- Targeted `SseStream` tests: 15 passing\r\n- Targeted NYC coverage: all added executable lines and new branches covered\r\n- ESLint on changed files\r\n- `npm run build`\r\n- `git diff --check`\r\n",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "using",
+        "existing",
+        "breaking",
+        "information"
+      ],
       "gold": [
         "packages/common/interfaces/http/message-event.interface.ts",
         "packages/core/router/sse-stream.ts"
@@ -476,7 +1636,7 @@
       "droppedForLeak": [
         "core",
         "sse",
-        "message"
+        "event"
       ]
     },
     {
@@ -489,10 +1649,32 @@
       "base": "3f03234edaf13d13390e9ccb72087a5d5bd4a6c0",
       "mergeCommit": "9bf31433d8c457126e3ff3471b7f9da61c854d87",
       "queries": {
-        "natural": "core drop flag middleware overlap regexes commit message follows guidelines Tests changes added Docs added updated applicable internal behaviour public API change Type Bugfix current behavior Number builds one regex per parameterized route reuses filtering every route regexes created flag global regex advances successful next call resumes mid string fails anchor Overlap detection therefore depended iteration order Reproducing exact logic",
-        "stemblind": "drop flag overlap regexes commit message follows guidelines Tests changes added Docs added updated applicable internal behaviour public API change Type Bugfix current behavior Number builds one regex per parameterized route reuses filtering every route regexes created flag global regex advances successful next call resumes mid string fails anchor Overlap detection therefore depended iteration order Reproducing exact logic isolation route"
+        "natural": "core drop flag middleware overlap regexes applicable internal behaviour public builds regex per parameterized route reuses filtering every route regexes created flag global regex advances successful next call resumes mid string fails anchor Overlap detection therefore depended iteration order Reproducing exact logic isolation route survives deduplication middleware runs twice exactly reporter observed alternation tell flag dropped pattern anchored ever used",
+        "stemblind": "drop flag overlap regexes applicable internal behaviour public builds regex per parameterized route reuses filtering every route regexes created flag global regex advances successful next call resumes mid string fails anchor Overlap detection therefore depended iteration order Reproducing exact logic isolation route survives deduplication runs twice exactly reporter observed alternation tell flag dropped pattern anchored ever used flag bought nothing"
       },
       "stemblindWords": 60,
+      "rawTitle": "fix(core): drop the g flag from middleware overlap regexes",
+      "rawBody": "## PR Checklist\n\n- [x] The commit message follows our guidelines\n- [x] Tests for the changes have been added\n- [x] Docs have been added / updated (not applicable — internal behaviour, no public API change)\n\n## PR Type\n\n- [x] Bugfix\n\n## What is the current behavior?\n\nIssue Number: #17334\n\n`removeOverlappedRoutes` builds one regex per parameterized route and reuses it while filtering every route. Those regexes were created with the `g` flag, and a global regex advances `lastIndex` on a successful `test()`, so the next call resumes mid-string and fails the `^` anchor.\n\nOverlap detection therefore depended on iteration order. Reproducing the exact logic in isolation:\n\n```\nwith    g: [\"cats/:id\",\"cats/2\"]\nwithout g: [\"cats/:id\"]\n```\n\nSo with `cats/:id`, `cats/1`, `cats/2`, `cats/3`, the route `cats/2` survives deduplication and the middleware runs **twice** for `/cats/2` — exactly what the reporter observed. The alternation is the `lastIndex` tell:\n\n```js\nconst re = new RegExp('^(cats/([^/]*))$', 'g');\nre.test('cats/1'); // true,  lastIndex = 6\nre.test('cats/2'); // false, lastIndex = 0   <-- resumed at offset 6\nre.test('cats/3'); // true,  lastIndex = 6\n```\n\n## What is the new behavior?\n\nThe `g` flag is dropped. The pattern is anchored (`^...$`) and only ever used with `test()`, so the flag bought nothing but statefulness. Overlap detection no longer depends on iteration order or leftover regex state, and every concrete route overlapping `cats/:id` is deduplicated.\n\n## Tests\n\nAdded `should remove every route overlapping the same parameterized one` to `builder.spec.ts`, using the issue's `cats/:id` + three concrete routes so more than one candidate has to match the same regex — a single concrete route can't catch this, which is why the existing overlap test passed throughout.\n\nReverting only `builder.ts` fails exactly that one test and nothing else.\n\n## Verification\n\n- `packages/core/test/middleware/*.spec.ts` → **35 passing**\n- `packages/core/test/**/*.spec.ts` → **610 passing**\n\nNote: `npm install` fails on `master` with an `ERESOLVE` peer conflict (`graphql@17` vs `@apollo/server@5`'s `^16`), so I installed with `--legacy-peer-deps` and deliberately kept the resulting `package-lock.json` churn out of this PR — the diff is only the two source files.\n\n## Does this PR introduce a breaking change?\n\n- [x] No\n\nBehaviour only changes where deduplication was previously being skipped by accident.\n",
+      "droppedBoilerplate": [
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "docs",
+        "updated",
+        "api",
+        "change",
+        "type",
+        "bugfix",
+        "current",
+        "behavior",
+        "number",
+        "one",
+        "new"
+      ],
       "gold": [
         "packages/core/middleware/builder.ts"
       ],
@@ -515,10 +1697,51 @@
       "base": "303478d49839843bcad604f3567889bd10b56db8",
       "mergeCommit": "3f03234edaf13d13390e9ccb72087a5d5bd4a6c0",
       "queries": {
-        "natural": "feat common add override mimetype option file type validator check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior uses magic number detection validate actual file type",
-        "stemblind": "feat add override mimetype option check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior uses magic number detection validate actual based content However detected MIME used internally"
+        "natural": "feat common add override mimetype option file validator uses magic detection validate actual file based content However detected MIME used internally validation successful validation original value provided client remains unchanged value incorrect spoofed based request metadata example MP4 file renamed uploaded validator correctly detects actual file property still contains client provided value Adds optional option set validator overwrites MIME detected",
+        "stemblind": "feat add override mimetype option uses magic detection validate actual based content However detected MIME used internally validation successful validation original value provided client remains unchanged value incorrect spoofed based request metadata example MP4 renamed uploaded correctly detects actual property still contains client provided value Adds optional option set overwrites MIME detected content magic validation allows users rely validated MIME"
       },
       "stemblindWords": 60,
+      "rawTitle": "feat(common): add override mimetype option to file type validator",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [x] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [ ] Bugfix\r\n- [x] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n`FileTypeValidator` uses magic number detection to validate the actual file type based on its content. However, the detected MIME type is only used internally during validation.\r\n\r\nAfter successful validation, the original `file.mimetype` value provided by the client remains unchanged. This value can be incorrect or spoofed because it is based only on the request metadata.\r\n\r\nFor example, if an MP4 file is renamed to `.png` and uploaded, the validator correctly detects the actual file type, but the `file.mimetype` property still contains the client-provided value:\r\n\r\n```\r\n{\r\n  \"mimetype\": \"image/png\"\r\n}\r\n```\r\n\r\n\r\nIssue Number: N/A\r\n\r\n\r\n## What is the new behavior?\r\nAdds a new optional `overrideMimeType` option to `FileTypeValidator`.\r\n\r\nWhen `overrideMimeType` is set to `true`, the validator overwrites `file.mimetype` with the MIME type detected from the file content using magic number validation.\r\n\r\nThis allows users to rely on the validated MIME type after the validation step without needing to run additional file type detection logic.\r\n\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [X] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information",
+      "droppedBoilerplate": [
+        "type",
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new"
+      ],
       "gold": [
         "packages/common/pipes/file/file-type.validator.ts"
       ],
@@ -529,7 +1752,6 @@
       "droppedForLeak": [
         "common",
         "file",
-        "type",
         "validator"
       ]
     },
@@ -543,10 +1765,53 @@
       "base": "83440ddd0fbe9a0702284433f5891a8b87590bd2",
       "mergeCommit": "195f4af29596917afafbd8ea3b3da9d9e13d6ea1",
       "queries": {
-        "natural": "microservices correct client type redis listeners check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior Index labeled index labeled matching Added regression test",
-        "stemblind": "correct client type listeners check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior Index labeled index labeled matching Added regression fails without introduce"
+        "natural": "microservices correct client redis listeners Index labeled index labeled matching regression test fails without",
+        "stemblind": "correct client listeners Index labeled index labeled matching regression fails without"
       },
-      "stemblindWords": 60,
+      "stemblindWords": 11,
+      "rawTitle": "fix(microservices): correct pub/sub client type in redis listeners",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [x] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIssue Number: #17330 \r\n\r\n\r\n## What is the new behavior?\r\n\r\nIndex `0` is labeled `'sub'` and index `1` is labeled`'pub'`, matching `on()` and `ClientRedis`. Added a regression test that fails without the fix\r\n\r\n\r\n\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information",
+      "droppedBoilerplate": [
+        "type",
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "breaking",
+        "information"
+      ],
       "gold": [
         "packages/microservices/server/server-redis.ts"
       ],
@@ -570,10 +1835,53 @@
       "base": "3a6d07bf235c3b7c89fecf503360d234139d8ae6",
       "mergeCommit": "f182a1b0d46abacdbc7a972c36eb9036845d579a",
       "queries": {
-        "natural": "pipe cleanup check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Two minor issues JSDoc says instead JSDoc says param instead missing annotation type name inconsistent",
-        "stemblind": "pipe cleanup check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Two minor issues JSDoc says instead JSDoc says param instead missing annotation type name inconsistent"
+        "natural": "pipe cleanup Two minor issues JSDoc says instead JSDoc says param instead missing annotation name inconsistent pipe options types JSDoc descriptions corrected interface class Renamed deprecated alias left backward compatibility",
+        "stemblind": "pipe cleanup Two minor issues JSDoc says instead JSDoc says param instead missing annotation name inconsistent pipe options types JSDoc descriptions corrected interface class Renamed deprecated alias left backward compatibility"
       },
-      "stemblindWords": 60,
+      "stemblindWords": 30,
+      "rawTitle": "Fix/doc and pipe cleanup",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [ ] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [ ] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [x] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\nTwo minor issues in `packages/common`:\r\n1. `MisdirectedException` JSDoc says `'Bad Gateway'` instead of `'Misdirected'`\r\n2. `NotAcceptableException` JSDoc says `error` param instead of `message`\r\n3. `ParseDatePipe` and `ParseDatePipeOptions` are missing `@publicApi` annotation\r\n4. `ParseArrayOptions` type name is inconsistent with other pipe options types (e.g. `ParseDatePipeOptions`, `ParseFloatPipeOptions`)\r\n\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIssue Number: N/A\r\n\r\n## What is the new behavior?\r\n1-2. JSDoc descriptions corrected\r\n3. `@publicApi` added to both interface and class\r\n4. Renamed to `ParseArrayPipeOptions`; deprecated type alias `ParseArrayOptions` left for backward compatibility\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "breaking",
+        "information"
+      ],
       "gold": [
         "packages/common/exceptions/misdirected.exception.ts",
         "packages/common/exceptions/not-acceptable.exception.ts",
@@ -598,10 +1906,52 @@
       "base": "6bd43b18805a5fbf8d4a51063262794d72e64619",
       "mergeCommit": "ead02d3f3fa2b36ecdd8c6b98ed767cd38afc1a6",
       "queries": {
-        "natural": "chore update multerExceptions constant check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe Bringing constant line upstream current behavior LIMIT_FIELD_NESTING mapped returns new behavior LIMIT_FIELD_NESTING returns introduce breaking",
-        "stemblind": "chore update multerExceptions constant check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe Bringing constant line upstream current behavior LIMIT_FIELD_NESTING mapped returns new behavior LIMIT_FIELD_NESTING returns introduce breaking"
+        "natural": "chore multerExceptions constant Bringing constant line upstream LIMIT_FIELD_NESTING mapped returns LIMIT_FIELD_NESTING returns",
+        "stemblind": "chore multerExceptions constant Bringing constant line upstream LIMIT_FIELD_NESTING mapped returns LIMIT_FIELD_NESTING returns"
       },
-      "stemblindWords": 60,
+      "stemblindWords": 12,
+      "rawTitle": "chore: update multerExceptions constant",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [ ] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [ ] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [x] Other... Please describe: Bringing a constant in line with upstream\r\n\r\n## What is the current behavior?\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nLIMIT_FIELD_NESTING is not mapped and returns 500.\r\n\r\n## What is the new behavior?\r\n\r\nLIMIT_FIELD_NESTING returns 400.\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information",
+      "droppedBoilerplate": [
+        "update",
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "new",
+        "breaking",
+        "information"
+      ],
       "gold": [
         "packages/platform-express/multer/multer/multer.constants.ts"
       ],
@@ -620,10 +1970,20 @@
       "base": "816ef76dd99c19fb6563479d830932e49d6a4609",
       "mergeCommit": "db504f5c3f980b630f3622eed9ca885d5c46abeb",
       "queries": {
-        "natural": "Global provider wins imported controllers providers module existing searched existing issues Current behavior dynamic module exposes global imported feature module provider token class Providers feature module imported instance Controllers feature module global instance Reproduction console output Runtime instrumentation optional confirmed two distinct instances module Consumer Logger prefix Instance global feature stable regardless import order without feature module Minimum reproduction code",
-        "stemblind": "Global provider wins imported controllers providers module existing searched existing issues Current behavior dynamic module exposes global imported module provider token class Providers module imported instance Controllers module global instance Reproduction console output Runtime instrumentation optional confirmed two distinct instances module Consumer Logger prefix Instance global stable regardless import order without module Minimum reproduction code Steps reproduce pnpm reports ignored"
+        "natural": "Global provider wins imported controllers providers module searched issues dynamic module exposes global imported module provider token class Providers module imported instance Controllers module global instance Reproduction console output Runtime instrumentation optional confirmed two distinct instances module Consumer Logger prefix Instance global stable regardless import order without module Minimum reproduction Steps reproduce pnpm reports ignored scripts run allow approve Observe",
+        "stemblind": "Global provider wins imported controllers providers module searched issues dynamic module exposes global imported module provider token class Providers module imported instance Controllers module global instance Reproduction console output Runtime instrumentation optional confirmed two distinct instances module Consumer Logger prefix Instance global stable regardless import order without module Minimum reproduction Steps reproduce pnpm reports ignored scripts run allow approve Observe"
       },
       "stemblindWords": 60,
+      "rawTitle": "Global `forRoot()` provider wins over imported `forFeature()` for controllers but not providers in the same module",
+      "rawBody": "### Is there an existing issue for this?\n\n- [x] I have searched the existing issues\n\n### Current behavior\n\nWhen a dynamic module exposes both `forRoot()` (global) and `forFeature()` (imported by a feature module), and both register/export the same provider token (`LoggerService` class):\n\n- **Providers** in the feature module (e.g. `CatService`) resolve the **imported `forFeature`** instance\n- **Controllers** in the same feature module (e.g. `CatController`) resolve the **global `forRoot`** instance\n\nReproduction console output after `GET /cats`:\n\n```\nApp Finding all cats (controller)\nCat Finding all cats (service)\n```\n\nRuntime instrumentation (optional) confirmed two distinct `LoggerService` instances in the same module:\n\n| Consumer        | Logger prefix | Instance ID |\n|-----------------|---------------|-------------|\n| `CatController` | `App` (global) | 2          |\n| `CatService`    | `Cat` (feature)| 1          |\n\nThis is stable regardless of `AppModule` import order and without `@Global()` on the feature module.\n\n### Minimum reproduction code\n\nhttps://github.com/malekelkssas/nestjs-forroot-forfeature-di-repro\n\n### Steps to reproduce\n\n1. `git clone https://github.com/malekelkssas/nestjs-forroot-forfeature-di-repro.git`\n2. `cd nestjs-forroot-forfeature-di-repro`\n3. `pnpm install`\n4. If pnpm reports ignored build scripts, run `pnpm approve-builds` and allow `@nestjs/core` / `@swc/core` (or approve all), then `pnpm install` again\n5. `pnpm start:dev`\n6. `curl http://localhost:3000/cats`\n7. Observe console logs:\n   - `App Finding all cats (controller)` — from global `forRoot`\n   - `Cat Finding all cats (service)` — from imported `forFeature`\n\n### Expected behavior\n\nBoth `CatController` and `CatService` in `CatModule` should receive the **same** `LoggerService` instance from `LoggerModule.forFeature({ prefix: 'Cat' })`, because the feature module explicitly imports `forFeature` to scope logging for that domain.\n\nAt minimum, controller and provider in the **same module** should not resolve different instances of the same token when only one scoped import is declared.\n\n### NestJS version\n\n11.1.26\n\n### Packages versions\n\n```json\n{\n  \"@nestjs/common\": \"11.1.26\",\n  \"@nestjs/core\": \"11.1.26\",\n  \"@nestjs/platform-express\": \"11.1.26\",\n  \"@nestjs/cli\": \"11.0.x\",\n  \"typescript\": \"5.9.3\",\n  \"reflect-metadata\": \"0.2.2\",\n  \"rxjs\": \"7.8.2\"\n}\n```\n\n### Node.js version\n\n22.22.1\n\n### In which operating systems have you tested?\n\n- [ ] macOS\n- [ ] Windows\n- [x] Linux\n\n### Other\n\n\n### Why this matters\n\nThe `forRoot` / `forFeature` pattern is widely used (TypeORM, Mongoose, ConfigModule, custom libraries). Developers expect `forFeature` imported in a feature module to scope providers for **all** consumers in that module, including controllers.\n\n### Minimal code structure\n\n- `LoggerModule.forRoot({ prefix: 'App' })` in `AppModule` with `global: true`\n- `LoggerModule.forFeature({ prefix: 'Cat' })` imported in `CatModule`\n- Both use the **same** `LoggerModule` class and export `LoggerService` (class token)\n- `CatController` and `CatService` both inject `LoggerService`\n\n### Suggested fix direction (optional)\n\nWhen a module imports a dynamic `forFeature` that exports a provider token also registered globally via `forRoot`, Nest should prefer the **imported module-scoped** provider for all injection sites within the importing module (controllers and providers alike).\n\n### FAQ relevance\n\nThe [common errors FAQ](https://docs.nestjs.com/faq/common-errors) says providers duplicated in a Feature Module and Root Module can cause Nest to instantiate the provider twice, and suggests moving the provider to Root `imports` instead. Our case is the opposite problem: both instances exist **by design** (`forRoot` global + `forFeature` import), injection **succeeds**, but resolution is **inconsistent** between controller and provider in the same module. This is not covered by the FAQ.\n\nTip for maintainers: `NEST_DEBUG=1` can trace dependency resolution per the FAQ debugging section.\n\n### Workaround\n\nRegister `forFeature` providers directly in the feature module's `providers` array (not only `imports`), or use distinct injection tokens per scope.",
+      "droppedBoilerplate": [
+        "existing",
+        "current",
+        "behavior",
+        "feature",
+        "code",
+        "build"
+      ],
       "gold": [
         "packages/core/injector/injector.ts"
       ],
@@ -632,9 +1992,7 @@
         "packages/core/injector/injector.ts",
         "packages/core/test/injector/injector.spec.ts"
       ],
-      "droppedForLeak": [
-        "feature"
-      ]
+      "droppedForLeak": []
     },
     {
       "repo": "nest",
@@ -646,10 +2004,21 @@
       "base": "601e23907e468454e5fb4e512a3c702d01982ae3",
       "mergeCommit": "6d3f3c04aa94083e367ff430342b55ebf3227c70",
       "queries": {
-        "natural": "Shutdown lifecycle hooks skip remaining providers one throws Promise fail fast existing searched existing issues Current behavior provider hook throws rejects fails fast following seem silently skipped remaining providers module transient scoped providers module module class instance hook subsequent modules shutdown sequence means connections file handles message queue connections etc left open shutdown Minimum reproduction code Steps reproduce Register two",
-        "stemblind": "lifecycle skip remaining providers one throws Promise fail fast existing searched existing issues Current behavior provider throws rejects fails fast following seem silently skipped remaining providers transient scoped providers class instance subsequent modules sequence means connections file handles message queue connections etc left open Minimum reproduction code Steps reproduce Register two providers implement Make first provider Send SIGTERM call Observe"
+        "natural": "Shutdown lifecycle hooks skip remaining providers throws Promise fail fast searched issues provider hook throws rejects fails fast seem silently skipped remaining providers module transient scoped providers module module class instance hook subsequent modules shutdown sequence means connections file handles queue connections etc left open shutdown Minimum reproduction Steps reproduce Register two providers implement Make first provider hook Send SIGTERM",
+        "stemblind": "lifecycle skip remaining providers throws Promise fail fast searched issues provider throws rejects fails fast seem silently skipped remaining providers transient scoped providers class instance subsequent modules sequence means connections file handles queue connections etc left open Minimum reproduction Steps reproduce Register two providers implement Make first provider Send SIGTERM call Observe second provider never called Reproduction CodeSandbox Register two"
       },
       "stemblindWords": 60,
+      "rawTitle": "Shutdown lifecycle hooks skip remaining providers when one throws (Promise.all fail-fast)",
+      "rawBody": "### Is there an existing issue for this?\n\n- [x] I have searched the existing issues\n\n### Current behavior\n\nIf any provider's `onModuleDestroy`, `beforeApplicationShutdown`, or `onApplicationShutdown `hook throws or rejects, **`Promise.all` fails fast and the following seem to be silently skipped:**\n\nremaining providers in the same module\ntransient-scoped providers in that module\nthe module class instance's own hook\nall subsequent modules in the shutdown sequence\n\nThis means DB connections, file handles, message queue connections, etc. **could be left open on shutdown**.\n\n### Minimum reproduction code\n\nhttps://stackblitz.com/edit/nestjs-typescript-starter-cmw828to?file=src%2Fmain.ts\n\n### Steps to reproduce\n\n1. Register two providers that implement `OnModuleDestroy`\n2. Make the first provider's hook throw/reject\n3. Send SIGTERM (or call `app.close()`)\n4. Observe that the second provider's hook is never called\n\n> **In Reproduction Code(CodeSandbox)**\n>  1. Register two providers that implement `OnModuleDestroy`\n>  2. Make the first provider's hook throw/reject\n>  3. Call `app.close()` (or send SIGTERM)\n>  4. Observe that `\"FileService: cleanup called\"` is never printed in the console. (Which means `FileService`'s `onModuleDestroy` is never called\n\n### Expected behavior\n\nAll providers should attempt their cleanup regardless of failures in sibling providers. Individual hook errors should be logged, but shouldn't stop the rest of the shutdown sequence — similar to how `Promise.allSettled` works.\n\n### NestJS version\n\n11.1.24\n\n### Packages versions\n\n```json\n@nestjs/core: 11.1.10\n```\n\n\n### Node.js version\n\n24.0.0\n\n### In which operating systems have you tested?\n\n- [x] macOS\n- [x] Windows\n- [ ] Linux\n\n### Other\n\n_No response_",
+      "droppedBoilerplate": [
+        "one",
+        "existing",
+        "current",
+        "behavior",
+        "following",
+        "message",
+        "code"
+      ],
       "gold": [
         "packages/core/hooks/before-app-shutdown.hook.ts",
         "packages/core/hooks/on-app-shutdown.hook.ts",
@@ -680,10 +2049,20 @@
       "base": "78c7d6924e536bc3321aae143ee2b8790aebd747",
       "mergeCommit": "053a31627b060de5e8110d6964f2bb62d32ea52d",
       "queries": {
-        "natural": "POST Sse lifecycle regression interceptors existing searched existing issues Current behavior Follow still isn tried new release against regression test still fails one important variant SSE route interceptor current appears cover direct Promise result case client disconnects promise subscription still undefined handler records closeRequested promise Nest subscribes returned Observable immediately tears interceptor value passed RouterResponseController sse already outer Observable Nest",
-        "stemblind": "POST lifecycle regression existing searched existing issues Current behavior Follow still isn tried new release against regression still fails one important variant route interceptor current appears cover direct Promise result case client disconnects promise subscription still undefined handler records closeRequested promise Nest subscribes returned Observable immediately tears interceptor value passed RouterResponseController already outer Observable Nest interceptor pipeline outer Observable defers"
+        "natural": "POST Sse lifecycle regression interceptors searched issues Follow still isn tried release against regression test still fails important variant SSE route interceptor appears cover direct Promise result case client disconnects promise subscription still undefined handler records closeRequested promise subscribes returned Observable immediately tears interceptor value passed RouterResponseController sse already outer Observable interceptor pipeline outer Observable defers async route handler later",
+        "stemblind": "POST lifecycle regression searched issues Follow still isn tried release against regression still fails important variant route interceptor appears cover direct Promise result case client disconnects promise subscription still undefined handler records closeRequested promise subscribes returned Observable immediately tears interceptor value passed RouterResponseController already outer Observable interceptor pipeline outer Observable defers async route handler later flattens handler returned Promise client"
       },
       "stemblindWords": 60,
+      "rawTitle": "POST @Sse() lifecycle regression with interceptors",
+      "rawBody": "### Is there an existing issue for this?\n\n- [x] I have searched the existing issues\n\n### Current behavior\n\nFollow up to #17128, still our issue isn't fixed.\n\nI tried the new release against our regression test and it still fails in one important variant: the SSE route has an interceptor.\n\nThe current fix appears to cover a direct Promise<Observable<MessageEvent>> result. In that case, when a client disconnects before the promise resolves, subscription is still undefined, so the close handler records closeRequested; once the promise resolves, Nest subscribes to the returned Observable and immediately tears it down.\n\nWith an interceptor, the value passed into RouterResponseController.sse() is already an outer Observable from Nest's interceptor pipeline. That outer Observable defers the async route handler and later flattens the handler's returned Promise<Observable<MessageEvent>>. If the client disconnects during the handler's async setup, RouterResponseController.sse() already has a subscription — but it is only the interceptor/deferred-handler subscription, not the actual producer Observable subscription. The close handler unsubscribes it immediately, so the async handler never reaches the point where the returned producer Observable is subscribed.\n\n### Minimum reproduction code\n\nhttps://pastebin.com/xVznvH6j\n\n### Steps to reproduce\n\n_No response_\n\n### Expected behavior\n\nOne of:\n\nThe returned Observable is subscribed/teardown is invoked consistently once the handler has initialized stream state; or\nNest exposes a cancellation/abort signal to the handler so async setup can stop before initializing external stream state; or\nDocumentation clarifies that async @Sse() handlers must not create side effects before returning the Observable because the Observable may never be subscribed if the client disconnects during setup.\n\n### NestJS version\n\n11.1.27\n\n### Packages versions\n\n```json\n11.1.27\n```\n\n\n### Node.js version\n\n22.22.13\n\n### In which operating systems have you tested?\n\n- [ ] macOS\n- [ ] Windows\n- [x] Linux\n\n### Other\n\nI left this as a comment to the initial closed issue but I couldn't reopen it so I figured I'd also just make it a new issue",
+      "droppedBoilerplate": [
+        "existing",
+        "current",
+        "behavior",
+        "new",
+        "one",
+        "nest"
+      ],
       "gold": [
         "integration/nest-application/sse/e2e/utils.ts",
         "integration/nest-application/sse/src/app.controller.ts",
@@ -714,10 +2093,31 @@
       "base": "e8eb1bc8fd388dab98fa8dab952b9f65b49863b5",
       "mergeCommit": "78c7d6924e536bc3321aae143ee2b8790aebd747",
       "queries": {
-        "natural": "feat core include auto converted route legacy route path warning commit message follows guidelines Tests changes added Docs added updated applicable warning message Type Bugfix improvement current behavior warning prints offending often global prefixed path nobody ever wrote actually code wildcard matcher prefix prepended Nest user greps codebase locate offending call find nothing Worse matcher frequently lives inside third party",
-        "stemblind": "feat include auto converted path warning commit message follows guidelines Tests changes added Docs added updated applicable warning message Type Bugfix improvement current behavior warning prints offending often global prefixed path nobody ever wrote actually code wildcard matcher prefix prepended Nest user greps codebase locate offending call find nothing Worse matcher frequently lives inside third party module developer owns neither"
+        "natural": "feat core include auto converted route legacy route warning applicable warning improvement warning prints offending often global prefixed nobody ever wrote actually wildcard matcher prefix prepended user greps codebase locate offending call find nothing Worse matcher frequently lives inside third party module developer owns neither wildcard nor lead pointing dependency applied kamilmysliwiec confirmed idea fair welcomed warning now appends auto",
+        "stemblind": "feat include auto converted warning applicable warning improvement warning prints offending often global prefixed nobody ever wrote actually wildcard matcher prefix prepended user greps codebase locate offending call find nothing Worse matcher frequently lives inside third party module developer owns neither wildcard nor lead pointing dependency applied kamilmysliwiec confirmed idea fair welcomed warning now appends auto converted result pointing user"
       },
       "stemblindWords": 60,
+      "rawTitle": "feat(core): include auto-converted route in legacy route path warning",
+      "rawBody": "## PR Checklist\n\n- [x] The commit message follows our guidelines\n- [x] Tests for the changes have been added\n- [ ] Docs have been added / updated (not applicable — warning message only)\n\n## PR Type\n\n- [x] Bugfix / DX improvement\n\n## What is the current behavior?\n\nThe `LegacyRouteConverter` warning prints only the offending — and often global-prefixed — path, e.g.:\n\n```\nUnsupported route path: \"/v1/*\". ... Attempting to auto-convert...\n```\n\nBut nobody ever wrote `/v1/*`. What's actually in the code is a wildcard matcher such as `forRoutes('*')`, and the prefix (`v1`) is prepended by Nest. So when a user greps their codebase for `/v1/*` to locate the offending call, they find nothing. Worse, the matcher frequently lives inside a third-party module under `node_modules`, so the developer owns neither the wildcard nor has any lead pointing at which dependency applied it.\n\nIssue: #17231 (where @kamilmysliwiec confirmed the idea is fair and welcomed a PR).\n\n## What is the new behavior?\n\nThe warning now appends the auto-converted result, pointing the user straight at the concrete fix:\n\n```\nUnsupported route path: \"/v1/*\". ... Attempting to auto-convert to \"/v1/{*path}\"...\n```\n\n- `tryConvert` now computes the converted route first and passes it to `printWarning`.\n- The new `convertedRoute` parameter on `printWarning` is **optional**, so the existing signature and behavior are preserved (it falls back to the original generic message when omitted).\n- Zero behavior change — only the warning text is enriched.\n- Adds `legacy-route-converter.spec.ts` (there was no spec for this file before), covering each wildcard form, the prefixed case, the \"all\" wildcard skip, disabled logging, and the message content.\n\n## Does this PR introduce a breaking change?\n\n- [x] No\n",
+      "droppedBoilerplate": [
+        "path",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "docs",
+        "updated",
+        "type",
+        "bugfix",
+        "current",
+        "behavior",
+        "code",
+        "nest",
+        "new"
+      ],
       "gold": [
         "packages/core/router/legacy-route-converter.ts"
       ],
@@ -741,10 +2141,54 @@
       "base": "5367c403d2721867263a9283fcc5b549ef4d900a",
       "mergeCommit": "5f2e2552399896e3e1b1ebde1e48a40718ffd1f2",
       "queries": {
-        "natural": "common Add missing exception classes HttpErrorByCode check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior map missing classes exist disk exported absent type union Using pipe",
-        "stemblind": "Add missing exception classes HttpErrorByCode check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior map missing classes exist disk exported absent type union Using pipe options causes"
+        "natural": "common Add missing exception classes HttpErrorByCode map missing classes exist disk exported absent union pipe options causes TypeScript error returns runtime now imported union mapped consistent exception classes already present unit verifying entries valid subclasses correct status codes",
+        "stemblind": "Add missing exception classes HttpErrorByCode map missing classes exist disk exported absent union pipe options causes TypeScript returns runtime now imported union mapped consistent exception classes already present unit verifying entries valid subclasses correct status codes"
       },
-      "stemblindWords": 60,
+      "stemblindWords": 36,
+      "rawTitle": "fix(common): Add missing exception classes to HttpErrorByCode",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [x] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [x] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\n`HttpErrorByCode` map in `packages/common/utils/http-error-by-code.util.ts` is missing `MisdirectedException` (`421`) and `HttpVersionNotSupportedException` (`505`). Both classes exist on disk and are exported from `packages/common/exceptions/index.ts`, but are absent from the `ErrorHttpStatusCode` type union and the `HttpErrorByCode` `Record`. Using `errorHttpStatusCode: HttpStatus.MISDIRECTED` in pipe options causes a TypeScript type error, and `HttpErrorByCode[HttpStatus.MISDIRECTED]` returns `undefined` at runtime.\r\n\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIssue Number: N/A\r\n\r\n\r\n## What is the new behavior?\r\nBoth `MisdirectedException` and `HttpVersionNotSupportedException` are now imported, added to the `ErrorHttpStatusCode` type union, and mapped in the `HttpErrorByCode` `Record` — consistent with the 19 other exception classes already present. Added 5 unit tests verifying all 21 entries resolve to valid `HttpException` subclasses with correct status codes.\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information",
+      "droppedBoilerplate": [
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "type",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "using",
+        "number",
+        "new",
+        "breaking",
+        "information"
+      ],
       "gold": [
         "packages/common/utils/http-error-by-code.util.ts"
       ],
@@ -754,7 +2198,7 @@
       ],
       "droppedForLeak": [
         "common",
-        "code"
+        "error"
       ]
     },
     {
@@ -767,10 +2211,19 @@
       "base": "bd3f4db68770632990ab551dcd5f772792ebe5e3",
       "mergeCommit": "3c73ed03516662643789163bccd5d6314c0a4f48",
       "queries": {
-        "natural": "microservices skip function valued members scanForClientHooks match guards method members comes always string guard dead code function valued members never skipped client metadata read microservices twin websockets correct type guard check value key applied identical websockets microservices explorer left untouched Verified ways regression test fails old guard function valued member surfaces client hook passes existing tests stay green passing exits",
-        "stemblind": "skip function valued members scanForClientHooks match guards method members comes always string guard dead code function valued members never skipped client read twin websockets correct type guard check value key applied identical websockets left untouched Verified ways regression fails old guard function valued member surfaces client hook passes existing tests stay green passing exits"
+        "natural": "microservices skip function valued members scanForClientHooks match guards method members comes always string guard dead function valued members never skipped client metadata read microservices twin websockets correct guard value key applied identical websockets microservices explorer left untouched Verified ways regression test fails old guard function valued member surfaces client hook passes stay green passing exits",
+        "stemblind": "skip function valued members scanForClientHooks match guards method members comes always string guard dead function valued members never skipped client read twin websockets correct guard value key applied identical websockets left untouched Verified ways regression fails old guard function valued member surfaces client hook passes stay green passing exits"
       },
-      "stemblindWords": 54,
+      "stemblindWords": 49,
+      "rawTitle": "fix(microservices): skip function-valued members in scanForClientHooks (match #17188)",
+      "rawBody": "`scanForClientHooks` in `packages/microservices/listener-metadata-explorer.ts` guards method members with `if (isFunction(propertyKey))`, but `propertyKey` comes from `for...in` and is always a string, so the guard is dead code — function-valued members are never skipped before client metadata is read.\n\nThis is the microservices twin of #17188 (\"fix(websockets): correct type guard to check value not key\"), which applied the identical `isFunction(propertyKey)` → `isFunction(instance[propertyKey])` fix to the websockets `scanForServerHooks`. The microservices explorer was left untouched.\n\nVerified both ways: a regression test fails on the old guard (a function-valued member surfaces as a client hook) and passes after the fix; existing `listeners-*` tests stay green (21 passing), `tsc -b packages/microservices` exits 0.",
+      "droppedBoilerplate": [
+        "code",
+        "type",
+        "check",
+        "existing",
+        "tests"
+      ],
       "gold": [
         "packages/microservices/listener-metadata-explorer.ts"
       ],
@@ -795,10 +2248,53 @@
       "base": "57d74129159a9e137861dc01def49e52653b9a80",
       "mergeCommit": "7daddc5fa3dec65080bfbd12d0eb389a03a3c492",
       "queries": {
-        "natural": "websockets correct type guard check value key check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior GatewayMetadataExplorer scanForServerHooks isFunction guard checks always string instead actual property",
-        "stemblind": "correct type guard check value key check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior scanForServerHooks isFunction guard checks always string instead actual property value guard"
+        "natural": "websockets correct guard value key GatewayMetadataExplorer scanForServerHooks isFunction guard checks always string instead actual property value guard never fires enumerable properties including methods unnecessarily checked GATEWAY_SERVER_METADATA metadata Guard now checks correctly skipping function valued properties Redundant metadata lookups methods avoided",
+        "stemblind": "correct guard value key scanForServerHooks isFunction guard checks always string instead actual property value guard never fires enumerable properties including methods unnecessarily checked Guard now checks correctly skipping function valued properties Redundant lookups methods avoided"
       },
-      "stemblindWords": 60,
+      "stemblindWords": 35,
+      "rawTitle": "fix(websockets): correct type guard to check value not key",
+      "rawBody": "## PR Checklist\r\nPlease check if your PR fulfills the following requirements:\r\n\r\n- [x] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md\r\n- [ ] Tests for the changes have been added (for bug fixes / features)\r\n- [ ] Docs have been added / updated (for bug fixes / features)\r\n\r\n\r\n## PR Type\r\nWhat kind of change does this PR introduce?\r\n\r\n<!-- Please check the one that applies to this PR using \"x\". -->\r\n- [x] Bugfix\r\n- [ ] Feature\r\n- [ ] Code style update (formatting, local variables)\r\n- [ ] Refactoring (no functional changes, no api changes)\r\n- [ ] Build related changes\r\n- [ ] CI related changes\r\n- [ ] Other... Please describe:\r\n\r\n## What is the current behavior?\r\nIn GatewayMetadataExplorer.scanForServerHooks, the isFunction guard \r\nchecks `propertyKey` (always a string from `for...in`) instead of \r\n`instance[propertyKey]` (the actual property value). The guard never \r\nfires — all enumerable properties, including methods, are unnecessarily \r\nchecked for GATEWAY_SERVER_METADATA metadata.\r\n<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->\r\n\r\nIssue Number: N/A\r\n\r\n\r\n## What is the new behavior?\r\nGuard now checks `instance[propertyKey]`, correctly skipping \r\nfunction-valued properties. Redundant metadata lookups on methods \r\nare avoided.\r\n\r\n## Does this PR introduce a breaking change?\r\n- [ ] Yes\r\n- [x] No\r\n\r\n<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->\r\n\r\n\r\n## Other information",
+      "droppedBoilerplate": [
+        "type",
+        "check",
+        "fulfills",
+        "following",
+        "requirements",
+        "commit",
+        "message",
+        "follows",
+        "guidelines",
+        "tests",
+        "changes",
+        "added",
+        "bug",
+        "features",
+        "docs",
+        "updated",
+        "kind",
+        "change",
+        "introduce",
+        "bugfix",
+        "feature",
+        "code",
+        "style",
+        "update",
+        "formatting",
+        "local",
+        "variables",
+        "refactoring",
+        "functional",
+        "api",
+        "build",
+        "related",
+        "describe",
+        "current",
+        "behavior",
+        "number",
+        "new",
+        "breaking",
+        "information"
+      ],
       "gold": [
         "packages/websockets/gateway-metadata-explorer.ts"
       ],
@@ -807,261 +2303,9 @@
       ],
       "droppedForLeak": [
         "websockets",
-        "gatewaymetadataexplorer"
-      ]
-    },
-    {
-      "repo": "nest",
-      "slug": "nestjs/nest",
-      "lang": "typescript",
-      "pr": 17138,
-      "title": "fix(platform-fastify): fouRoutes middleware ending slash ",
-      "querySource": "pr",
-      "base": "426ed52ed743d10e10336b9361b715d1efb4e3e2",
-      "mergeCommit": "85206421330005c6118caa7eb868ca0961405570",
-      "queries": {
-        "natural": "platform fastify fouRoutes middleware ending slash check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information",
-        "stemblind": "platform fouRoutes ending slash check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information"
-      },
-      "stemblindWords": 54,
-      "gold": [
-        "packages/platform-fastify/adapters/fastify-adapter.ts"
-      ],
-      "changedAll": [
-        "integration/hello-world/e2e/middleware-fastify.spec.ts",
-        "packages/platform-fastify/adapters/fastify-adapter.ts"
-      ],
-      "droppedForLeak": [
-        "fastify",
-        "middleware"
-      ]
-    },
-    {
-      "repo": "nest",
-      "slug": "nestjs/nest",
-      "lang": "typescript",
-      "pr": 17131,
-      "title": "fix(core): sse async handlers teardown issue",
-      "querySource": "pr",
-      "base": "c721cd7b19a085383ed751f1b5a9af207576c8fb",
-      "mergeCommit": "426ed52ed743d10e10336b9361b715d1efb4e3e2",
-      "queries": {
-        "natural": "core sse async handlers teardown check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information",
-        "stemblind": "async handlers teardown check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information"
-      },
-      "stemblindWords": 53,
-      "gold": [
-        "integration/nest-application/sse/e2e/utils.ts",
-        "integration/nest-application/sse/src/app.controller.ts",
-        "packages/core/router/router-response-controller.ts"
-      ],
-      "changedAll": [
-        "integration/nest-application/sse/e2e/express.spec.ts",
-        "integration/nest-application/sse/e2e/fastify.spec.ts",
-        "integration/nest-application/sse/e2e/utils.ts",
-        "integration/nest-application/sse/src/app.controller.ts",
-        "packages/core/router/router-response-controller.ts",
-        "packages/core/test/router/router-response-controller.spec.ts"
-      ],
-      "droppedForLeak": [
-        "core",
-        "sse"
-      ]
-    },
-    {
-      "repo": "nest",
-      "slug": "nestjs/nest",
-      "lang": "typescript",
-      "pr": 17107,
-      "title": "fix(common): include field paths in standard schema validation errors",
-      "querySource": "pr",
-      "base": "d1b055eab9cb3f89774b3d55e72bd95c8f0628ab",
-      "mergeCommit": "601e23907e468454e5fb4e512a3c702d01982ae3",
-      "queries": {
-        "natural": "common include field paths standard schema validation errors Problem default pipe invalid requests return flat array paths even nested fields like Standard Schema issues already include optional data default factory mapping dropping path context entirely Without paths clients cannot tell message belongs fields Minimal repro NestJS Zod ESM Example several invalid nested fields returns messages cannot mapped back default exception",
-        "stemblind": "include field paths errors Problem default invalid requests return flat array paths even nested fields like issues already include optional data default factory mapping dropping path context entirely Without paths clients cannot tell message belongs fields Minimal repro NestJS Zod ESM Example several invalid nested fields returns messages cannot mapped back default exception factory errors include field paths flattened strings"
-      },
-      "stemblindWords": 60,
-      "gold": [
-        "packages/common/pipes/standard-schema-validation.pipe.ts"
-      ],
-      "changedAll": [
-        "packages/common/pipes/standard-schema-validation.pipe.ts",
-        "packages/common/test/pipes/standard-schema-validation.pipe.spec.ts"
-      ],
-      "droppedForLeak": [
-        "common",
-        "standard",
-        "schema",
-        "validation",
-        "pipe"
-      ]
-    },
-    {
-      "repo": "nest",
-      "slug": "nestjs/nest",
-      "lang": "typescript",
-      "pr": 17099,
-      "title": "fix(core): post sse endpoint empty response #17098",
-      "querySource": "pr",
-      "base": "442aae396c77562208695f586d1437e5ffc3f7ea",
-      "mergeCommit": "16e21c13541dc8cb7db34d27594f31f75f5f5ce1",
-      "queries": {
-        "natural": "core post sse endpoint empty response check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information",
-        "stemblind": "post endpoint empty check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information"
-      },
-      "stemblindWords": 53,
-      "gold": [
-        "integration/nest-application/sse/src/app.controller.ts",
-        "packages/core/router/router-response-controller.ts"
-      ],
-      "changedAll": [
-        "integration/nest-application/sse/e2e/express.spec.ts",
-        "integration/nest-application/sse/e2e/fastify.spec.ts",
-        "integration/nest-application/sse/src/app.controller.ts",
-        "packages/core/router/router-response-controller.ts",
-        "packages/core/test/router/router-execution-context.spec.ts",
-        "packages/core/test/router/router-response-controller.spec.ts"
-      ],
-      "droppedForLeak": [
-        "core",
-        "sse",
-        "response"
-      ]
-    },
-    {
-      "repo": "nest",
-      "slug": "nestjs/nest",
-      "lang": "typescript",
-      "pr": 17094,
-      "title": "fix(platform-fastify): remove pathname ending slash",
-      "querySource": "pr",
-      "base": "7fc8fa69a893bd1a6da2d9eb0e4fb5a3cf2dd766",
-      "mergeCommit": "3a1da4974476e42913cb6f837e2270ed5f14ec37",
-      "queries": {
-        "natural": "platform fastify remove pathname ending slash check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information",
-        "stemblind": "platform remove pathname ending slash check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe current behavior Number new behavior introduce breaking change information"
-      },
-      "stemblindWords": 55,
-      "gold": [
-        "packages/platform-fastify/adapters/fastify-adapter.ts"
-      ],
-      "changedAll": [
-        "integration/hello-world/e2e/middleware-fastify.spec.ts",
-        "packages/platform-fastify/adapters/fastify-adapter.ts"
-      ],
-      "droppedForLeak": [
-        "fastify"
-      ]
-    },
-    {
-      "repo": "nest",
-      "slug": "nestjs/nest",
-      "lang": "typescript",
-      "pr": 17091,
-      "title": "chore(fastify): remove invalid eslint directive",
-      "querySource": "pr",
-      "base": "817560fedfaa70dd12e91d19ac0fced61d63792e",
-      "mergeCommit": "7fc8fa69a893bd1a6da2d9eb0e4fb5a3cf2dd766",
-      "queries": {
-        "natural": "chore fastify remove invalid eslint directive check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce describe code cleanup current behavior contains invalid ESLint directive comment new behavior Removes invalid directive file passes lint without introduce breaking change information Verified",
-        "stemblind": "chore remove invalid eslint directive check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce describe code cleanup current behavior contains invalid ESLint directive comment new behavior Removes invalid directive file passes lint without introduce breaking change information Verified"
-      },
-      "stemblindWords": 51,
-      "gold": [
-        "packages/platform-fastify/adapters/middie/fastify-middie.ts"
-      ],
-      "changedAll": [
-        "packages/platform-fastify/adapters/middie/fastify-middie.ts"
-      ],
-      "droppedForLeak": [
-        "fastify"
-      ]
-    },
-    {
-      "repo": "nest",
-      "slug": "nestjs/nest",
-      "lang": "typescript",
-      "pr": 17018,
-      "title": "fix(core): register SSE close listener before async setup",
-      "querySource": "issue#17017",
-      "base": "1cbed79f7c68709e71a89df7c12e64c625eb3648",
-      "mergeCommit": "c1ba9c251b5f57ffb711b894ec5946fbfa567ffe",
-      "queries": {
-        "natural": "SSE listener registered late disconnects missed listeners leak existing searched existing issues Current behavior attaches request listener Observable subscription created creates two concrete problems current branch handler returns client disconnects promise event missed SSE setup still continue request already gone observable completes synchronously enough completion path removes listener added runs afterward leaves stale listener attached completed request object relevant code",
-        "stemblind": "listener registered late disconnects missed listeners leak existing searched existing issues Current behavior attaches request listener Observable subscription created creates two concrete problems current branch returns client disconnects promise event missed setup still continue request already gone observable completes synchronously enough completion path removes listener added runs afterward leaves stale listener attached completed request object relevant code currently subscription creation"
-      },
-      "stemblindWords": 60,
-      "gold": [
-        "integration/nest-application/sse/e2e/utils.ts",
-        "integration/nest-application/sse/src/app.controller.ts",
-        "packages/core/helpers/handler-metadata-storage.ts",
-        "packages/core/router/router-execution-context.ts",
-        "packages/core/router/router-response-controller.ts"
-      ],
-      "changedAll": [
-        "integration/nest-application/sse/e2e/express.spec.ts",
-        "integration/nest-application/sse/e2e/fastify.spec.ts",
-        "integration/nest-application/sse/e2e/utils.ts",
-        "integration/nest-application/sse/src/app.controller.ts",
-        "packages/core/helpers/handler-metadata-storage.ts",
-        "packages/core/router/router-execution-context.ts",
-        "packages/core/router/router-response-controller.ts",
-        "packages/core/test/router/router-execution-context.spec.ts",
-        "packages/core/test/router/router-response-controller.spec.ts"
-      ],
-      "droppedForLeak": [
-        "sse",
-        "handler"
-      ]
-    },
-    {
-      "repo": "nest",
-      "slug": "nestjs/nest",
-      "lang": "typescript",
-      "pr": 17024,
-      "title": "fix(microservices): reject pending Redis requests on close",
-      "querySource": "issue#17016",
-      "base": "83ca41f2bf75af85ab184285a153c0c674e14554",
-      "mergeCommit": "98c3a31044ad29e8b8ae3e56072ad815d9a9acb5",
-      "queries": {
-        "natural": "send never errors connection drops routingMap cleared existing searched existing issues Current behavior Redis connection drops unexpectedly called flight requests callbacks never invoked returned hangs forever error completion lead memory leak Minimum reproduction code Steps reproduce Set make call observable yet completed Kill Redis server call observable never errors completes Expected behavior Pending observables error something like rather hanging indefinitely",
-        "stemblind": "send never errors connection drops routingMap cleared existing searched existing issues Current behavior connection drops unexpectedly called flight requests callbacks never invoked returned hangs forever error completion lead memory leak Minimum reproduction code Steps reproduce Set make call observable yet completed Kill server call observable never errors completes Expected behavior Pending observables error something like rather hanging indefinitely already handles"
-      },
-      "stemblindWords": 60,
-      "gold": [
-        "packages/microservices/client/client-redis.ts"
-      ],
-      "changedAll": [
-        "packages/microservices/client/client-redis.ts",
-        "packages/microservices/test/client/client-redis.spec.ts"
-      ],
-      "droppedForLeak": [
-        "redis"
-      ]
-    },
-    {
-      "repo": "nest",
-      "slug": "nestjs/nest",
-      "lang": "typescript",
-      "pr": 17026,
-      "title": "docs(common): add JSDoc to Req and Res aliases",
-      "querySource": "pr",
-      "base": "ad0d7788f2022485b6ae7a52f1a8cfd68cd282f8",
-      "mergeCommit": "3b32e0d083cd433ecca2ee584111ebf569a46e25",
-      "queries": {
-        "natural": "docs common add JSDoc Req Res aliases check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe Documentation current behavior Req Res aliases Request Response currently lack JSDoc comments",
-        "stemblind": "docs add JSDoc Req Res aliases check fulfills following requirements commit message follows guidelines Tests changes added bug features Docs added updated bug features Type kind change introduce Bugfix Feature Code style update formatting local variables Refactoring functional changes api changes Build related changes related changes describe Documentation current behavior Req Res aliases Request Response currently lack JSDoc comments Number"
-      },
-      "stemblindWords": 60,
-      "gold": [
-        "packages/common/decorators/http/route-params.decorator.ts"
-      ],
-      "changedAll": [
-        "packages/common/decorators/http/route-params.decorator.ts"
-      ],
-      "droppedForLeak": [
-        "common"
+        "gatewaymetadataexplorer",
+        "gateway_server_metadata",
+        "metadata"
       ]
     }
   ]

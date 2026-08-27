@@ -8,14 +8,17 @@
     ],
     "note": "Chosen deliberately: the only repo Graft published per-repo numbers for."
   },
-  "generatedAt": "2026-08-14T01:12:21.310Z",
+  "generatedAt": "2026-08-26T21:12:30.495Z",
   "rejected": {
     "title": 1,
-    "files": 50,
+    "files": 23,
     "base": 0,
-    "query": 12,
+    "query": 6,
     "leak": 0
   },
+  "boilerplate": [
+    "the"
+  ],
   "cases": [
     {
       "repo": "pocketbase",
@@ -31,6 +34,9 @@
         "stemblind": "Generate webp thumbnails adds support webp thumbnails explicitly importing official experimental decoder webp Unless decoder panics safe Pocketbase fall back reusing fullsize image creating thumbnail fails already current behavior webp images Since aware webp webp thumbnails generated png format caveat modern web browsers generally don rely extensions detect image formats"
       },
       "stemblindWords": 50,
+      "rawTitle": "Generate webp thumbnails",
+      "rawBody": "This adds support for webp thumbnails by explicitly importing the\r\nofficial (but experimental) [x/image/webp](https://pkg.go.dev/golang.org/x/image/webp) decoder for webp.\r\n\r\nUnless the decoder panics (can it?), this is safe. Pocketbase will fall\r\nback to reusing the fullsize image if creating a thumbnail fails. Which\r\nis already the current behavior for all webp images.\r\n\r\nSince disintegration/imaging is not aware of webp, webp thumbnails will\r\nbe generated in png format. This is a caveat but modern web browsers\r\ngenerally don’t rely on file extensions to detect image formats.\r\n",
+      "droppedBoilerplate": [],
       "gold": [
         "apis/file.go",
         "tools/filesystem/filesystem.go"
@@ -58,6 +64,9 @@
         "stemblind": "Separate import build constraints Separating import build constraints allows Pocketbase used building Compiling build allow appears anywhere within used source code files real blocker building cannot accounted module consuming Pocketbase See proof concept Without changes following error logged build"
       },
       "stemblindWords": 39,
+      "rawTitle": "Separate syscall import with build constraints (WASM)",
+      "rawBody": "Separating syscall import with build constraints allows Pocketbase core to be used for building to WASM. Compiling WASM build does not allow that `import \"syscall\"` appears anywhere within used source code files. This was the only real blocker for building to WASM that cannot be accounted for in the module consuming Pocketbase. See https://github.com/joas8211/pocketbase-wasm for the proof of concept.\r\n\r\nWithout these changes, the following error is logged on build:\r\n\r\n```\r\n# github.com/pocketbase/pocketbase/core\r\npocketbase/core/base.go:776:18: undefined: syscall.Exec\r\n```",
+      "droppedBoilerplate": [],
       "gold": [
         "core/base.go",
         "core/syscall.go",
@@ -88,6 +97,9 @@
         "stemblind": "Probability Distribution Bug Based String Generation much project discovered probability distribution bug PocketBase based string generation system affects randomness uniqueness generated identifiers Problem using character classes patterns generation current implementation creates severe bias toward smaller character ranges particularly problematic using URL safe base64 patterns like single characters appear far frequently affects default pattern creating uneven distribution between letters numbers Examples"
       },
       "stemblindWords": 60,
+      "rawTitle": "🐛 Probability Distribution Bug in Regex-Based Random String Generation",
+      "rawBody": "Thank you so much for this project. ❤️\r\n\r\n## 📋 Issue Summary\r\n\r\nI've discovered a **probability distribution bug** in PocketBase's regex-based random string generation system that affects the randomness and uniqueness of generated identifiers.\r\n\r\n## 🔍 Problem Description\r\n\r\nWhen using character classes in regex patterns for ID generation, the current implementation creates a **severe bias** toward smaller character ranges. This is particularly problematic when using URL-safe base64 patterns like `[A-Za-z0-9\\-_]{30}`, where single characters (`-` and `_`) appear far more frequently than they should.\r\n\r\nThe issue also affects the default pattern `[a-z0-9]{15}`, creating uneven distribution between letters and numbers.\r\n\r\n## 🎯 Examples of the Problem\r\n\r\nHere are some examples of generated strings using `[A-Za-z0-9\\-_]{30}` showing the excessive occurrence of `-` and `_`:\r\n\r\n```\r\nVw39d_h776XXabv-NJ_---_2-_Y__J\r\n--i_6yLb_3-io54_8NP-5Vp_I-JZb6\r\ni_UoCw-2---W-__w35_3RvS__-5-M-\r\n--sLJdC-_lH-xD_9--9fx-_Xb4_-m-\r\n-M15_qe_R3C_fVp7M--_-715-mDUeo\r\nf-b-MImP_xhg4Y-O--_WrdGK-_-_2s\r\nlnoE--_yN-m0_b2_L7timLg_FzaRhX\r\n_S-S_v-q4Z-H____q0_-i-____I__V\r\n-_6-___2PvL_-K__tNg_T__B-Oqg50\r\n1O7NH__r2G_aI-9-1--_ok--__v-62\r\n```\r\n\r\n> **Notice**: The strings are heavily biased toward `-` and `_` characters, creating poor randomness distribution.\r\n\r\nAfter this fix the generated strings look like this:\r\n\r\n```\r\nAJAW5tt737M-tDCdVjjpQMfiwlvD9B\r\nF5mGcR4xuGU38EjFb-L5GGxCP0iPkd\r\nE7zoxVWKAGf29agVoXQdUNY2VH_CLw\r\nUe8SfAfM9ASJ7KPR3y6PQoGcxky2Y_\r\n8hnPS6nqv7tAhl_fpsgoHiXTbGKq1F\r\nVCt9AW2YdlHA294ee8MRI0ALw64UEQ\r\nAOLraN8t6UvyB6acRzHavlDXpYi3aZ\r\nXnYr3Euap_6llHaeEnQXnlTqudQkZn\r\njCsYcKn1fepprFlwFzdwInvP5t36rs\r\nKfAaZcDEwq_E-jDat3Eu__cV85Z9Ul\r\n```\r\n\r\n## ⚡ Cause\r\n\r\nThe current implementation in `tools/security/random_by_regex.go` processes character classes incorrectly:\r\n\r\n```go\r\nfunc randomRuneFromPairs(pairs []rune) (rune, error) {\r\n    idx, err := randomNumber(len(pairs) / 2)\r\n    if err != nil {\r\n        return 0, err\r\n    }\r\n    return randomRuneFromRange(pairs[idx*2], pairs[idx*2+1])\r\n}\r\n```\r\n\r\n### Splitting into Ranges\r\n\r\nFor the pattern `[A-Za-z0-9\\-_]{30}`, the regex compiler creates these range pairs:\r\n\r\n| Range | Characters | Count | Current Probability | Expected Probability |\r\n| ----- | ---------- | ----- | ------------------- | -------------------- |\r\n| `A-Z` | A,B,C...Z  | 26    | **20%**             | ~40.6%               |\r\n| `a-z` | a,b,c...z  | 26    | **20%**             | ~40.6%               |\r\n| `0-9` | 0,1,2...9  | 10    | **20%**             | ~15.6%               |\r\n| `-`   | -          | 1     | **20%**             | ~1.6%                |\r\n| `_`   | \\_         | 1     | **20%**             | ~1.6%                |\r\n\r\n### The Problem\r\n\r\n❌ **Current approach**: Randomly selects a _range_ first (each gets 20%), then picks a character from that range  \r\n✅ **Better approach**: Each individual character should have equal probability (~1.56% for 64 total characters)\r\n\r\n**Result**: Single characters get **12.8x higher probability** than they should!\r\n\r\n### Additional Context\r\n\r\nThe input pairs array for the base64 pattern becomes:  \r\n`['-', '-', '0', '9', 'A', 'Z', '_', '_', 'a', 'z']`\r\n\r\nEven when writing the regex explicitly as:  \r\n`[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\\-_]{30}`  \r\nThe compiler still optimizes it to ranges, resulting in the same biased behavior.\r\n\r\n---\r\n\r\n## 🛠️ Proposed Solution\r\n\r\nI've developed a corrected implementation that uses **weighted random selection** to ensure uniform character distribution:\r\n\r\n```go\r\nfunc randomRuneFromPairs(pairs []rune) (rune, error) {\r\n\tif len(pairs)%2 != 0 {\r\n\t\treturn 0, fmt.Errorf(\"invalid pairs slice: odd number of elements\")\r\n\t}\r\n\r\n\t// Pre-calculate the cumulative size of all ranges to make the selection process more efficient.\r\n\tcumulativeSizes := make([]int, len(pairs)/2)\r\n\ttotalRunes := 0\r\n\tfor i := 0; i < len(pairs); i += 2 {\r\n\t\tstart, end := pairs[i], pairs[i+1]\r\n\t\tif start > end {\r\n\t\t\treturn 0, fmt.Errorf(\"invalid range: start '%c' > end '%c'\", start, end)\r\n\t\t}\r\n\t\ttotalRunes += int(end - start + 1)\r\n\t\tcumulativeSizes[i/2] = totalRunes\r\n\t}\r\n\r\n\tif totalRunes == 0 {\r\n\t\treturn 0, errors.New(\"no runes to choose from\")\r\n\t}\r\n\r\n\t// Select a random number in the range of total runes.\r\n\truneNumber, err := randomNumber(totalRunes)\r\n\tif err != nil {\r\n\t\treturn 0, fmt.Errorf(\"failed to generate random number: %w\", err)\r\n\t}\r\n\r\n\t// Find which range the selected number falls into using the pre-calculated cumulative sizes.\r\n\tfor i, size := range cumulativeSizes {\r\n\t\tif runeNumber < size {\r\n\t\t\tstartRune := pairs[i*2]\r\n\t\t\tpreviousSize := 0\r\n\t\t\tif i > 0 {\r\n\t\t\t\tpreviousSize = cumulativeSizes[i-1]\r\n\t\t\t}\r\n\t\t\treturn startRune + rune(runeNumber-previousSize), nil\r\n\t\t}\r\n\t}\r\n\r\n\t// This part should be unreachable if the logic is correct.\r\n\t// It indicates a bug in this function or in randomNumber.\r\n\tpanic(\"unreachable: failed to find a rune\")\r\n}\r\n```\r\n\r\n🎯 This assures a correct probability distribution: Each character gets equal probability.\r\n\r\n---\r\n\r\n## 📊 Performance Benchmarks\r\n\r\nI conducted tests and benchmarks to validate both correctness and performance improvements:\r\n\r\n### Benchmark Results\r\n\r\n| Implementation      | Pattern              | Iterations | Time/op  | Memory/op | Allocs/op |\r\n| ------------------- | -------------------- | ---------- | -------- | --------- | --------- |\r\n| **Current (Buggy)** | `[a-z0-9]{15}`       | 361,990    | 3,236 ns | 1,840 B   | 97        |\r\n| **Fixed**           | `[a-z0-9]{15}`       | 477,039    | 2,433 ns | 1,360 B   | 67        |\r\n| **Current (Buggy)** | `[A-Za-z0-9\\-_]{30}` | 187,546    | 6,181 ns | 3,312 B   | 178       |\r\n| **Fixed**           | `[A-Za-z0-9\\-_]{30}` | 271,593    | 4,237 ns | 3,408 B   | 130       |\r\n\r\n---\r\n\r\n## 🧪 Statistical Validation\r\n\r\nI ran extensive statistical tests with 500,000 iterations to verify the probability distribution fixes:\r\n\r\n### 🎯 Key Results Summary\r\n\r\n| Pattern              | Implementation  | Standard Deviation | Status                  |\r\n| -------------------- | --------------- | ------------------ | ----------------------- |\r\n| `[a-z0-9]{15}`       | Current (Buggy) | **1.40%**          | ❌ Biased               |\r\n| `[a-z0-9]{15}`       | Fixed           | **0.01%**          | ✅ Uniform              |\r\n| `[A-Za-z0-9\\-_]{30}` | Current (Buggy) | **3.37%**          | ❌ Severely Biased      |\r\n| `[A-Za-z0-9\\-_]{30}` | Fixed           | **0.00%**          | ✅ Perfect Distribution |\r\n\r\n### Detailed Test Results\r\n\r\n#### Lower Alpha-Numerical Pattern: `[a-z0-9]{15}` _(500k iterations)_\r\n\r\n<details>\r\n<summary>Current Implementation standard deviation: <strong>1.40%</strong></summary>\r\n\r\n- `0`: Count: 373935, Percentage: 4.99%\r\n- `1`: Count: 375151, Percentage: 5.00%\r\n- `2`: Count: 375199, Percentage: 5.00%\r\n- `3`: Count: 375345, Percentage: 5.00%\r\n- `4`: Count: 375677, Percentage: 5.01%\r\n- `5`: Count: 375172, Percentage: 5.00%\r\n- `6`: Count: 375182, Percentage: 5.00%\r\n- `7`: Count: 376248, Percentage: 5.02%\r\n- `8`: Count: 374385, Percentage: 4.99%\r\n- `9`: Count: 375316, Percentage: 5.00%\r\n- `a`: Count: 144097, Percentage: 1.92%\r\n- `b`: Count: 144382, Percentage: 1.93%\r\n- `c`: Count: 143071, Percentage: 1.91%\r\n- `d`: Count: 144743, Percentage: 1.93%\r\n- `e`: Count: 143769, Percentage: 1.92%\r\n- `f`: Count: 144354, Percentage: 1.92%\r\n- `g`: Count: 144086, Percentage: 1.92%\r\n- `h`: Count: 144624, Percentage: 1.93%\r\n- `i`: Count: 144393, Percentage: 1.93%\r\n- `j`: Count: 144134, Percentage: 1.92%\r\n- `k`: Count: 144344, Percentage: 1.92%\r\n- `l`: Count: 143677, Percentage: 1.92%\r\n- `m`: Count: 143942, Percentage: 1.92%\r\n- `n`: Count: 144387, Percentage: 1.93%\r\n- `o`: Count: 144265, Percentage: 1.92%\r\n- `p`: Count: 143811, Percentage: 1.92%\r\n- `q`: Count: 144057, Percentage: 1.92%\r\n- `r`: Count: 144318, Percentage: 1.92%\r\n- `s`: Count: 144086, Percentage: 1.92%\r\n- `t`: Count: 143582, Percentage: 1.91%\r\n- `u`: Count: 144125, Percentage: 1.92%\r\n- `v`: ",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/security/random_by_regex.go"
       ],
@@ -113,6 +125,9 @@
         "stemblind": "Support multiline cast expressions Currently insert multiline cast expression collection recognised field type unknown One example query happens becase regex processing newlines correctly add one option shorthand singleline dots match correctly Testing Added new unit"
       },
       "stemblindWords": 35,
+      "rawTitle": "Support multiline cast expressions in view",
+      "rawBody": "Currently, if you insert a multiline cast expression in a view collection, it will not be recognised, and the field type will not be unknown.\r\n\r\nOne example of such query:\r\n```sql\r\nCAST(\r\n  (ROW_NUMBER() OVER ()) AS INT\r\n) as cast_int\r\n```\r\n\r\nThis happens becase the regex is not processing newlines correctly. \r\nTo fix this, we add one more option \"s\" (shorthand for singleline), so that dots and \\s match correctly.\r\n\r\n#### Testing\r\nAdded a new unit test in ./core/view_test.go\r\n```bash\r\n$ go test ./core/view_test.go\r\nok      command-line-arguments  0.535s\r\n```\r\n",
+      "droppedBoilerplate": [],
       "gold": [
         "core/view.go"
       ],
@@ -139,6 +154,9 @@
         "stemblind": "refactor update use merged recently adding endpoint released pocketbase currently change endpoints themselves"
       },
       "stemblindWords": 13,
+      "rawTitle": "refactor: update patreon to use go oauth2/endpoints",
+      "rawBody": "https://github.com/golang/oauth2/pull/668 was merged recently [adding a Patreon endpoint](https://pkg.go.dev/golang.org/x/oauth2@v0.28.0/endpoints), and released in `v0.27.0` (pocketbase is currently on `v0.28.0`). There is no change to the endpoints themselves.",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/auth/patreon.go"
       ],
@@ -163,6 +181,9 @@
         "stemblind": "days calculation bug old logs Corrected daysDiff calculation dividing hours instead multiplying"
       },
       "stemblindWords": 12,
+      "rawTitle": "Fix days calculation bug for the old logs",
+      "rawBody": "Corrected daysDiff calculation by dividing hours by 24 instead of multiplying.",
+      "droppedBoilerplate": [],
       "gold": [
         "core/base.go"
       ],
@@ -185,6 +206,9 @@
         "stemblind": "restore previous api rules downgrading migration changing api rules generated functions clear api rules instead setting them previous value starting state performing change api rule subsequently running one ends state missing api rule present state changes code generation functions set api rules previous value instead clearing them"
       },
       "stemblindWords": 47,
+      "rawTitle": "fix: restore previous api rules when downgrading migration",
+      "rawBody": "When changing api rules, the generated `down` functions clear the api rules instead of setting them to their previous value. So when starting from state A and performing a change to an api rule that is not null/nil/admin-only and subsequently running a `migrate down` one ends up in state B which is missing the api rule present in state A.\r\n\r\nThis PR changes the code generation such that the `down` functions set api rules to their previous value instead of clearing them.",
+      "droppedBoilerplate": [],
       "gold": [
         "plugins/migratecmd/templates.go"
       ],
@@ -208,6 +232,9 @@
         "stemblind": "confusing minor typo deprecated RequestData confusing error turns typo deprecated RequestData method"
       },
       "stemblindWords": 12,
+      "rawTitle": "fix: confusing minor typo in deprecated RequestData(c)",
+      "rawBody": "Got this confusing error \r\n`RequestInfo(c) is depracated and will be removed in the future! You can replace it with RequestInfo(c).`\r\nturns out it's a typo in the deprecated RequestData method",
+      "droppedBoilerplate": [],
       "gold": [
         "apis/record_helpers.go"
       ],
@@ -230,6 +257,9 @@
         "stemblind": "Remove unnecessary Dao TotalAdmins call reason ask total admin count already known user indeed admin"
       },
       "stemblindWords": 15,
+      "rawTitle": "Remove unnecessary Dao().TotalAdmins() call",
+      "rawBody": "There is no reason to ask total admin count from DB if it's already known that user is indeed admin.",
+      "droppedBoilerplate": [],
       "gold": [
         "apis/middlewares.go"
       ],
@@ -252,6 +282,9 @@
         "stemblind": "remove unnecessary code line necessary loop run desired result returned anyway"
       },
       "stemblindWords": 11,
+      "rawTitle": "remove unnecessary code",
+      "rawBody": "```go\r\n   if len(list) == 0 {\r\n      return false\r\n    }\r\n```\r\n\r\nthis line is not necessary because the loop will not run and the desired result of `false` will be returned anyway",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/list/list.go"
       ],
@@ -274,6 +307,9 @@
         "stemblind": "Allows files read interface functionality needed Pocketbase used embedded mode Currently way read file content Pocketbase embedded except Downloading HTTP mocking http request via httptest package exposes file reader via public method client calling method responsible closing reader"
       },
       "stemblindWords": 38,
+      "rawTitle": "Allows files to be read through FileSystem interface.",
+      "rawBody": "The functionality is needed while Pocketbase is used in embedded mode. \r\nCurrently, there is no way to read file content while Pocketbase is embedded (except Downloading over HTTP or mocking up http request via httptest package). \r\nThe PR exposes file reader via public method. The client (calling method) is responsible for closing the reader. ",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/filesystem/filesystem.go"
       ],
@@ -300,6 +336,9 @@
         "stemblind": "Add NewFileFromBytes adds greatly help uploading files events lot libraries output bytes pointless save read able nor able even compile Baby steps"
       },
       "stemblindWords": 22,
+      "rawTitle": "Add filesystem.NewFileFromBytes",
+      "rawBody": "This PR adds tools/filesystem.NewFileFromBytes which should greatly help uploading files from events.  There are a lot of libraries which output bytes.  It's pointless to save it to a file just to read it again.\r\n\r\nI was also not able to test this, nor was I able to even compile it.  Baby steps.",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/filesystem/file.go"
       ],
@@ -327,6 +366,9 @@
         "stemblind": "file upload error caused underscore metadata underscore original_filename metadata causing SignatureDoesNotMatch error uploading files storage Changing metadata name original filename"
       },
       "stemblindWords": 20,
+      "rawTitle": "fixed s3 file upload error caused by underscore in metadata",
+      "rawBody": "The underscore in the \"original_filename\" metadata is causing \"SignatureDoesNotMatch\" error for me when uploading files to s3 storage. Changing the metadata name to \"original-filename\" resolved the issue.",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/filesystem/filesystem.go"
       ],
@@ -350,6 +392,9 @@
         "stemblind": "Add healthcheck endpoint Wonderful project deploying Pocketbase Dokku nice endpoint accessed without authorization help zero downtime deploys"
       },
       "stemblindWords": 17,
+      "rawTitle": "Add a healthcheck endpoint",
+      "rawBody": "Hello! Wonderful project!\r\n\r\nI am deploying Pocketbase to [Dokku](https://dokku.com/). It would be nice if there was a health-check/status endpoint that can be accessed without authorization. This could help in [zero-downtime](https://dokku.com/docs/deployment/zero-downtime-deploys/) deploys.  ",
+      "droppedBoilerplate": [],
       "gold": [
         "apis/base.go",
         "apis/health.go"
@@ -375,6 +420,9 @@
         "stemblind": "feat Add OAuth2 provider working adding OAuth2 provider since common OAuth2 provider music related apps like one working tests passing practice working intended think right comes implementation try use provider app keep getting digging around found seems suggest string needs base64 encoded tried see changes sure correct still working marked draft now super familiar OAuth2 exactly sure investigate next lucky"
       },
       "stemblindWords": 60,
+      "rawTitle": "[feat]: Add Spotify OAuth2 provider",
+      "rawBody": "Hi!\r\n\r\nI have been working on adding Spotify as an OAuth2 provider since it is the most common OAuth2 provider for music related apps like the one I am working on.\r\n\r\nAll of the auth tests are passing but in practice it is not working as intended. I think I got most of it right, when it comes to the `spotify.go` implementation, but when I try to use this provider in my app, I keep getting:\r\n```\r\n{\r\n  \"errorDetails\": \"oauth2: cannot fetch token: 400 Bad Request\\nResponse: {\\\"error\\\":\\\"invalid_grant\\\",\\\"error_description\\\":\\\"code_verifier was invalid\\\"}\",\r\n  \"errorMessage\": \"Failed to authenticate.\"\r\n}\r\n```\r\nfrom Spotify.\r\n\r\n---\r\n\r\nI did some digging around and found this:\r\nhttps://stackoverflow.com/questions/63095557/spotify-pkce-code-verifier-was-incorrect\r\n\r\nWhich seems to suggest that the `codeVerifer` string needs to be base64 encoded. I tried this, see the changes in `record_auth.go`, but not sure if I got it correct because it is still not working.\r\n\r\n---\r\n\r\nI marked this PR as draft for now. I'm not super familiar with OAuth2 so not exactly sure where to investigate next.\r\n\r\nIf I'm lucky, maybe you have a clue what the problem is and you have a Spotify account to test with?\r\n\r\nOtherwise I will keep debugging whenever I have time to work on this 🙂",
+      "droppedBoilerplate": [],
       "gold": [
         "core/settings.go",
         "tools/auth/auth.go",
@@ -410,12 +458,7 @@
         "ui/dist/assets/RequestPasswordResetDocs.4c9f6ae3.js",
         "ui/dist/assets/RequestVerificationDocs.28db8063.js",
         "ui/dist/assets/SdkTabs.8f55857f.js",
-        "ui/dist/assets/UnlinkExternalAuthDocs.b05265d9.js",
-        "ui/dist/assets/UpdateApiDocs.e200c0d6.js",
-        "ui/dist/assets/ViewApiDocs.7c16115c.js",
-        "ui/dist/assets/index.be8ffbe5.js",
-        "ui/dist/index.html",
-        "ui/src/providers.js"
+        "ui/dist/assets/UnlinkExternalAuthDocs.b05265d9.js"
       ],
       "droppedForLeak": [
         "spotify",
@@ -436,6 +479,9 @@
         "stemblind": "comment typos typos located code comments small quality changes"
       },
       "stemblindWords": 9,
+      "rawTitle": "[QM] Fix some comment typos",
+      "rawBody": "This PR fixes some typos which are located in the code comments.\r\nThey are just small \"quality\" changes",
+      "droppedBoilerplate": [],
       "gold": [
         "core/base.go",
         "daos/collection.go",
@@ -477,6 +523,9 @@
         "stemblind": "serve css files content type Currently css files served server trivial detect css file types similar svg files css files served instead become unusable stylesheets browser served via api commit generalize svg detection detect css files serve specific extensions respective mimetypes"
       },
       "stemblindWords": 41,
+      "rawTitle": "fix: serve css files with text/css content-type",
+      "rawBody": "Currently, css files are served as text/plain by the server. It is not trivial to detect css file types similar to the issue with svg files.\r\n\r\nWhen the css files are served as text/plain instead of text/css they become unusable as stylesheets in the browser when served via the api.\r\n\r\nIn this commit we generalize the svg detection to also detect css files and serve specific extensions with their respective mimetypes.",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/filesystem/filesystem.go"
       ],
@@ -500,6 +549,9 @@
         "stemblind": "Respect EXIF auto orientation tag uploading image mobile device generated thumbnails rotated according EXIF tag results thumbnails potentially generated wrong orientation imaging package supports reading EXIF tag adding support simple"
       },
       "stemblindWords": 30,
+      "rawTitle": "Respect the EXIF auto orientation tag.",
+      "rawBody": "When uploading an image from a mobile device, the generated thumbnails are not rotated according to the EXIF tag. This results in thumbnails being potentially generated in the wrong orientation.\r\n\r\nThe [imaging package supports reading the EXIF tag](\r\nhttps://github.com/disintegration/imaging#incorrect-image-orientation-after-processing-eg-an-image-appears-rotated-after-resizing), so adding support for it is a simple fix.\r\n",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/filesystem/filesystem.go"
       ],
@@ -522,6 +574,9 @@
         "stemblind": "use read scopes According doc scope includes write access profile info Read scope sufficient flow ref"
       },
       "stemblindWords": 16,
+      "rawTitle": "use read-only scopes for github auth",
+      "rawBody": "According to github's doc, `user` scope includes write access to profile info.\r\nRead-only scope would be sufficient for this auth flow.\r\n\r\nref: https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/auth/github.go"
       ],
@@ -547,6 +602,9 @@
         "stemblind": "always reverts migrations testing migration noticed reverts migrations including init one peek code never gets incremented perhaps change"
       },
       "stemblindWords": 18,
+      "rawTitle": "migrate down always reverts all migrations",
+      "rawBody": "While testing a migration, noticed `pocketbase migrate down 1` reverts all migrations including the init one.\r\n\r\nFrom a peek in the code, `totalReverted` never gets incremented. perhaps could change it to `len(applied)`?\r\n\r\nhttps://github.com/pocketbase/pocketbase/blob/f56adf26f484bfa45f9bd019ccb0195790e186ab/tools/migrate/runner.go#L200",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/migrate/runner.go"
       ],
@@ -572,6 +630,9 @@
         "stemblind": "simplified code returning early added cap slices Simplified code early return Added cap slices append Removed unnecessary parentheses doc typos"
       },
       "stemblindWords": 20,
+      "rawTitle": "simplified some code by returning early and added cap for slices.",
+      "rawBody": "- Simplified code through early return.\r\n- Added cap for slices to append to.\r\n- Removed unnecessary parentheses.\r\n- Fixed some doc typos. ",
+      "droppedBoilerplate": [],
       "gold": [
         "daos/record_expand.go",
         "daos/user.go",
@@ -613,6 +674,9 @@
         "stemblind": "simplified code returning early reducing local variable scopes Simplified code early return Replaced variable name conflicted strings package Reduced local variable scopes Changed initialization method previous method deprecated Deprecated future releases field exported anymore set option instead"
       },
       "stemblindWords": 37,
+      "rawTitle": "simplified some code by returning early and reducing local variable scopes.",
+      "rawBody": "- Simplified code through early return.\r\n- Replaced the variable name `strings` (conflicted with **strings** package) with `result`.\r\n- Reduced some local variable scopes.\r\n- Changed JWT initialization method. The previous method will be deprecated: 'Deprecated: In future releases, this field will not be exported anymore and should be set with an option to `NewParser` instead.'",
+      "droppedBoilerplate": [],
       "gold": [
         "tools/list/list.go",
         "tools/search/filter.go",
@@ -645,6 +709,9 @@
         "stemblind": "Simplified flag Used cobra simplicity shorthand flag added command define one Removed original flag"
       },
       "stemblindWords": 14,
+      "rawTitle": "Simplified version flag.",
+      "rawBody": "- Used cobra `Version` for simplicity: 'A shorthand \"v\" flag will also be added if the command does not define one.'\r\n- Removed original version flag.",
+      "droppedBoilerplate": [],
       "gold": [
         "cmd/version.go",
         "pocketbase.go"
@@ -671,6 +738,9 @@
         "stemblind": "automatically add version information automatically add version information using ldflags"
       },
       "stemblindWords": 10,
+      "rawTitle": "automatically add version information",
+      "rawBody": "automatically add version information using ldflags:\r\n\r\n```yaml\r\n# .goreleaser.yaml\r\nbuilds:\r\n    ldflags:\r\n      - -s -w -X github.com/pocketbase/pocketbase.Version={{ .Version }}\r\n```",
+      "droppedBoilerplate": [],
       "gold": [
         "pocketbase.go"
       ],
@@ -694,6 +764,9 @@
         "stemblind": "doc code inconsistencies removed redundant parentheses doc latencies removed redundant parentheses replaced variable collides builtin function"
       },
       "stemblindWords": 16,
+      "rawTitle": "fixed some doc and code inconsistencies and removed some redundant parentheses.",
+      "rawBody": "- fixed some doc latencies.\r\n- removed some redundant parentheses.\r\n- replaced the variable `new` (collides with the 'builtin' function) with `settings`.",
+      "droppedBoilerplate": [],
       "gold": [
         "apis/base.go",
         "apis/middlewares.go",
@@ -718,7 +791,5 @@
       ],
       "droppedForLeak": []
     }
-  ],
-  "dedupedAt": "2026-08-26T20:21:44.730Z",
-  "note": "Deduped after issue #117: paging returned overlapping pages, producing 50 rows over 25 unique PRs."
+  ]
 }

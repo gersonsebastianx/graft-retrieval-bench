@@ -18,35 +18,39 @@ node bench/report.mjs                                   # pooled cross-repo tabl
 
 ## Results
 
-**161 cases · 4 repos · 4 languages.** Natural condition (the query a developer
+**155 cases · 4 repos · 4 languages.** Natural condition (the query a developer
 would actually type), k=10:
 
 | retriever | R@1 | R@5 | R@10 | MRR | hit% | 95% CI | tok/query |
 |---|---|---|---|---|---|---|---|
-| `graft ask` | 13.6% | 37.3% | 46.7% | 0.295 | 55.3% | [48–63%] | 855 |
-| **`bm25`** (no graph) | **25.1%** | **55.9%** | **67.3%** | **0.438** | **76.4%** | **[69–82%]** | **160** |
-| `gitgrep` | 9.8% | 37.7% | 46.0% | 0.240 | 52.8% | [45–60%] | 155 |
+| `graft ask` | 24.9% | 45.3% | 55.0% | 0.421 | 63.9% | [56–71%] | 895 |
+| **`bm25`** (no graph) | **34.0%** | **64.3%** | **71.7%** | **0.546** | **81.3%** | **[74–87%]** | **158** |
+| `gitgrep` | 9.6% | 37.5% | 49.8% | 0.269 | 58.1% | [50–66%] | 152 |
 
 ```
-paired graft − bm25 on R@10:  −20.6 pts
-95% CI [−27.8, −13.3]   t = −5.56   n = 161   → significant at p<0.05
+paired graft − bm25 on R@10:  −16.7 pts
+95% CI [−24.0, −9.4]   t = −4.49   n = 155   → significant at p<0.05
 ```
 
-> **Corrected 2026-08-24.** An earlier version of this table reported n=186 and
-> −18.0 pts. `data/cases/pocketbase.json` held 50 rows over 25 unique PRs, so
-> half that set was counted twice in every mean. Caught by @Frankie-Xu on
-> [trailhq/Graft#117](https://github.com/trailhq/Graft/issues/117). See
-> [Corrections](#corrections).
+> **These numbers have been corrected twice.** v1 (n=186) double-counted half of
+> pocketbase; v2 (n=161) still fed PR-template boilerplate into every query. Both
+> corrections and their effects are in [Corrections](#corrections). The direction
+> held across all three versions; the magnitude moved in both directions.
 
 It loses on every repo — including TypeScript, the language graft itself is
 written in and lists as full-fidelity:
 
-| repo | language | cases | graft | bm25 |
-|---|---|---|---|---|
-| pocketbase | Go | 25 | 56.0% | **65.2%** |
-| django | Python | 50 | 52.0% | **61.0%** |
-| spring-boot | Java | 49 | 51.0% | **76.0%** |
-| nest | TypeScript | 37 | 27.7% | **65.7%** |
+| repo | language | cases | graft | bm25 | gap |
+|---|---|---|---|---|---|
+| pocketbase | Go | 25 | 56.0% | **65.2%** | 9.2 |
+| django | Python | 49 | 59.7% | **76.8%** | 17.0 |
+| spring-boot | Java | 45 | 54.8% | **72.5%** | 17.8 |
+| nest | TypeScript | 36 | 48.0% | **68.1%** | 20.1 |
+
+The gap is consistent at 9–20 points. An earlier version showed nest at a 38-point
+outlier and led with *"worst in TypeScript, the language graft is written in"* —
+that was **half an artefact of PR-template boilerplate** filling the query budget.
+See [Corrections](#corrections).
 
 ### The token claim, where it actually holds
 
@@ -64,45 +68,56 @@ The saving **inverts on small files** — for 12% of nest files the skeleton cos
 more than the source it summarises.
 
 So: token reduction is real, but it comes from `skeleton`/`callers`/`map`, not
-from `ask`, which costs 5.3× a no-graph baseline and finds 20.6 points less.
+from `ask`, which costs 5.7× a no-graph baseline and finds 16.7 points less.
 
 ### Why it under-retrieves — two diagnoses, tested
 
 Both explanations started as hunches from a single observation each. Tested over
-the same 161 cases (`bench/verify-hypotheses.mjs`), one survived:
+the same 155 cases (`bench/verify-hypotheses.mjs`), one survived:
 
-**Morphology — REFUTED.** A query for "atomically" failing to surface
-`writeJsonAtomic` suggested missing stemming. Pre-expanding queries with stems
-and camelCase splits does **not** help: 46.7% → 47.3% pooled (**+0.6 pts**), well
-inside noise, and the sign disagrees across repos (pocketbase −2.8, nest −0.2,
-django +1.4, spring-boot +2.0). Refuted as "this is the cause", not as "this
-makes it worse" — an earlier version of this README said the recall *drops*,
-which was an artefact of the duplicate rows.
+**Morphology — REFUTED, and the right way to say it is "no effect".** A query for
+"atomically" failing to surface `writeJsonAtomic` suggested missing stemming.
+Across three data versions the pooled delta came out −1.0, then +0.6, then −1.4
+pts — which is the tell. Looking per case instead of at the mean: pre-expanding
+the query **leaves the top-10 completely unchanged in 137 of 155 cases (88%)**.
+The deltas were noise from the ~18 cases that move at all. Expansion does not
+help and does not hurt; it barely perturbs the ranking.
 
 **One hop — CONFIRMED.** Computed on graft's own `wiring.json`: for every gold
 file `ask` missed, is it one edge (`imports`/`calls`/`extends`) from a file it
 *did* return?
 
-| repo | files | misses | captured at 1 hop | reach | lift vs chance |
-|---|---|---|---|---|---|
-| pocketbase | 298 | 39 | 51.3% | 21.5% | 2.4× |
-| nest | 1,746 | 49 | 4.1% | 2.4% | 1.7× |
-| django | 2,962 | 47 | 46.8% | 6.2% | 7.6× |
-| spring-boot | 8,483 | 43 | 34.9% | 0.8% | **45.0×** |
-| **pooled** | | **178** | **33.1%** | **6.1%** | **5.5×** |
+| repo | misses | 1 hop | already generated | needs new candidates | neither | lift |
+|---|---|---|---|---|---|---|
+| pocketbase | 39 | 51.3% | 25.6% | 28.2% | 46.2% | 2.4× |
+| nest | 37 | 8.1% | 0.0% | 8.1% | 91.9% | 2.8× |
+| django | 33 | 42.4% | 39.4% | 21.2% | 39.4% | 10.0× |
+| spring-boot | 40 | 32.5% | 15.0% | 22.5% | 62.5% | **44.5×** |
+| **pooled** | **149** | **33.6%** | **19.5%** | **20.1%** | **60.4%** | **5.9×** |
 
 The extractor builds the right edges; the ranker doesn't walk them.
 
-**A 2-hop variant — DISCARDED.** It captured 64.1% of misses, which looked like
+The three middle columns are @Frankie-Xu's decomposition
+([trailhq/Graft#117](https://github.com/trailhq/Graft/issues/117)), extended here
+from pocketbase to all four repos. It splits the finding in half: **19.5% of
+misses were already generated and merely ranked below k** — a selection problem,
+cheaper to fix — while **20.1% are one hop away and absent from the overfetch
+window**, the only part that genuinely needs new candidates. The original
+write-up lumped both together and so overstated how much expansion could
+recover.
+
+**A 2-hop variant — DISCARDED.** It captured ~64% of misses, which looked like
 the headline until the chance level was computed: the 2-hop neighbourhood covers
 ~69% of pocketbase, i.e. *below* chance there and only 1.3× pooled. The
 reach-vs-chance check is now part of the script — without it, a non-result would
 have shipped as a finding.
 
-Bounding the surviving one: the neighbourhood is 42–183 files in absolute terms,
-so this is a **candidate-generation** signal, not a predicted ranking gain. And
-it is weakest (1.7×) exactly where graft is weakest (nest), so it would not
-explain the TypeScript case.
+Bounding the surviving one: the neighbourhood is tens to low hundreds of files in
+absolute terms, so "the answer is in there" is not the same as "expansion
+improves ranking" — pulling neighbours in also pulls in wrong files, and naive
+expansion can cost precision. And it is weakest on nest (8.1% capture), where
+60–90% of misses are neither one hop away nor in the overfetch window, so
+whatever is happening in TypeScript is a different problem.
 
 ### Scope — please read before quoting this
 
@@ -201,7 +216,7 @@ auditable, not just asserted.
 - **This measures retrieval, not correctness and not cost savings.** It is a
   cheap, deterministic proxy. It cannot tell you "tool X saves 32%".
 - **n=20 per repo is a method validation, not a verdict.** Confidence intervals
-  at that size overlap heavily. The published run is 161 cases across 4 repos
+  at that size overlap heavily. The published run is 155 cases across 4 repos
   (pocketbase yields 25 after deduping — see [Corrections](#corrections)).
 - `git grep` substitutes for ripgrep (not installed here); same class of tool,
   and it makes the harness reproducible anywhere git exists. Swap it in
@@ -215,7 +230,41 @@ auditable, not just asserted.
 Kept in the open, because a benchmark that hides its own errata has no standing
 to audit anyone.
 
-**2026-08-24 — duplicate PR rows (affects every published figure).**
+**2026-08-27 — PR-template boilerplate was eating the query budget (v2 → v3).**
+Queries are capped at 60 content words. In repos with a PR template, that budget
+was being spent on the checklist: **51.9% of every nest query** was NestJS
+template text ("commit message follows guidelines", "Tests changes added",
+"Bugfix Feature Code style update formatting…"), and 26.5% of django's.
+pocketbase and spring-boot were unaffected, which is why it hid.
+
+Fixed by stripping, per repo, any token appearing in ≥50% of that repo's PR
+texts — a mechanical definition (a word in half the PRs cannot discriminate
+between them) rather than a hand-written stop list, applied equally to every
+retriever, with the stripped set written into each case file.
+
+It was hurting `graft` roughly twice as much as `bm25`:
+
+| | v2 (n=161) | v3 (n=155) |
+|---|---|---|
+| graft R@10 | 46.7% | **55.0%** |
+| bm25 R@10 | 67.3% | **71.7%** |
+| paired gap | −20.6 pts | **−16.7 pts** |
+| tok/query ratio | 5.3× | 5.7× |
+| **nest** graft R@10 | **27.7%** | **48.0%** |
+| **nest** gap | **38.0 pts** | **20.1 pts** |
+
+The nest row is the one that matters: the original write-up's most-quoted line —
+*"the worst result is in TypeScript, the language graft is written in"* — was
+about half artefact. The corrected picture is a consistent 9–20 point gap across
+all four languages, with no outlier.
+
+Also fixed here: `verify-hypotheses.mjs` only printed its results to a log, and
+one overnight run's output was lost to `/tmp` cleanup; it now writes
+`results/hypotheses-<repo>.json`. And that same run silently dropped 8 of 45
+spring-boot cases to transient failures while reporting the degraded set as
+complete — the script now prints what it dropped and warns above 10%.
+
+**2026-08-24 — duplicate PR rows (v1 → v2).**
 `fetch-prs.mjs` concatenated API pages without deduplicating by PR number. With
 `sort=updated` the ordering shifts between requests on an active repo, so the
 same PR can appear on more than one page. pocketbase ended up with **50 rows over

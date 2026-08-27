@@ -8,15 +8,421 @@
     ],
     "note": "Large Java repo, issue-linked PRs."
   },
-  "generatedAt": "2026-08-14T01:19:27.146Z",
+  "generatedAt": "2026-08-26T21:20:59.576Z",
   "rejected": {
     "title": 14,
-    "files": 31,
+    "files": 28,
     "base": 0,
-    "query": 5,
+    "query": 4,
     "leak": 0
   },
+  "boilerplate": [
+    "and",
+    "boot",
+    "for",
+    "not",
+    "spring",
+    "that",
+    "the",
+    "this",
+    "with"
+  ],
   "cases": [
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51382,
+      "title": "Add SSL bundle support to LDAP auto-configuration",
+      "querySource": "pr",
+      "base": "862b763d004b1f8501fb3336552bdff3f5c0cdf7",
+      "mergeCommit": "f92cf3155e3ffb4fbcdc37f124c0955eb07dc5f6",
+      "queries": {
+        "natural": "Add SSL bundle support LDAP auto configuration LDAP auto configuration currently supports LDAPS URLs way associate named SSL Bundle auto configured LdapContextSource change adds support configuring SSL Bundle implementation Adds SSL Bundle configuration LdapProperties configured SslBundle SslBundles Applies bundle SSLSocketFactory DefaultTlsDirContextAuthenticationStrategy custom authentication strategy configured Preserves existing authentication strategy behavior custom strategies present Adds required Testcontainers connection details overrides new",
+        "stemblind": "Add bundle support currently supports LDAPS URLs way associate named Bundle configured LdapContextSource change adds support configuring Bundle implementation Adds Bundle configured SslBundle SslBundles Applies bundle SSLSocketFactory DefaultTlsDirContextAuthenticationStrategy custom authentication strategy configured Preserves existing authentication strategy behavior custom strategies present Adds required overrides new API Adds covering Bundle custom authentication strategies multiple strategies resulting allows applications use dedicated existing Bundle"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "Add SSL bundle support to LDAP auto-configuration",
+      "rawBody": "Spring Boot's LDAP auto-configuration currently supports LDAPS URLs, but there is no way to associate a named SSL Bundle with the auto-configured LdapContextSource.\r\n\r\nThis change adds support for configuring an SSL Bundle through `spring.ldap.ssl.bundle`.\r\n\r\nThe implementation:\r\n\r\n* Adds SSL Bundle configuration to LdapProperties.\r\n* Resolves the configured SslBundle through SslBundles.\r\n* Applies the bundle's SSLSocketFactory to a DefaultTlsDirContextAuthenticationStrategy when no custom authentication strategy is configured.\r\n* Preserves the existing authentication-strategy behavior when custom strategies are present.\r\n* Adds the required Testcontainers connection-details overrides for the new LdapConnectionDetails API.\r\n* Adds tests covering SSL Bundle configuration, custom authentication strategies, multiple strategies, and the resulting SSL socket factory.\r\n\r\nThis allows applications to use dedicated SSL/TLS configuration for LDAP through Spring Boot's existing SSL Bundle infrastructure without replacing the auto-configured LdapContextSource or relying on JVM-wide SSL properties.\r\n\r\nThe LDAP module tests pass successfully.\r\n\r\n",
+      "droppedBoilerplate": [
+        "spring",
+        "boot"
+      ],
+      "gold": [
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/autoconfigure/LdapAutoConfiguration.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/autoconfigure/LdapConnectionDetails.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/autoconfigure/LdapProperties.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/autoconfigure/LdapSslSocketFactory.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/autoconfigure/PropertiesLdapConnectionDetails.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/testcontainers/LLdapContainerConnectionDetailsFactory.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/testcontainers/OpenLdapContainerConnectionDetailsFactory.java"
+      ],
+      "changedAll": [
+        "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/data/nosql.adoc",
+        "module/spring-boot-ldap/src/dockerTest/java/org/springframework/boot/ldap/autoconfigure/LdapAutoConfigurationSslIntegrationTests.java",
+        "module/spring-boot-ldap/src/dockerTest/java/org/springframework/boot/ldap/testcontainers/LLdapContainerConnectionDetailsFactorySslIntegrationTests.java",
+        "module/spring-boot-ldap/src/dockerTest/resources/org/springframework/boot/ldap/autoconfigure/ssl/ca.crt",
+        "module/spring-boot-ldap/src/dockerTest/resources/org/springframework/boot/ldap/autoconfigure/ssl/otherhost/ca.crt",
+        "module/spring-boot-ldap/src/dockerTest/resources/org/springframework/boot/ldap/autoconfigure/ssl/otherhost/server.crt",
+        "module/spring-boot-ldap/src/dockerTest/resources/org/springframework/boot/ldap/autoconfigure/ssl/otherhost/server.key",
+        "module/spring-boot-ldap/src/dockerTest/resources/org/springframework/boot/ldap/autoconfigure/ssl/server.crt",
+        "module/spring-boot-ldap/src/dockerTest/resources/org/springframework/boot/ldap/autoconfigure/ssl/server.key",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/autoconfigure/LdapAutoConfiguration.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/autoconfigure/LdapConnectionDetails.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/autoconfigure/LdapProperties.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/autoconfigure/LdapSslSocketFactory.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/autoconfigure/PropertiesLdapConnectionDetails.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/testcontainers/LLdapContainerConnectionDetailsFactory.java",
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/testcontainers/OpenLdapContainerConnectionDetailsFactory.java",
+        "module/spring-boot-ldap/src/test/java/org/springframework/boot/ldap/autoconfigure/LdapAutoConfigurationTests.java",
+        "module/spring-boot-ldap/src/test/java/org/springframework/boot/ldap/autoconfigure/LdapPropertiesTests.java",
+        "module/spring-boot-ldap/src/test/java/org/springframework/boot/ldap/autoconfigure/LdapSslSocketFactoryTests.java"
+      ],
+      "droppedForLeak": [
+        "ssl",
+        "ldap",
+        "auto",
+        "configuration",
+        "ldapproperties",
+        "testcontainers",
+        "connection",
+        "details",
+        "ldapconnectiondetails",
+        "tests",
+        "socket",
+        "factory"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51290,
+      "title": "SSL host config customizations are lost when reloading SSL bundles",
+      "querySource": "pr",
+      "base": "5a21e0d698ede1c557ecf65139a98e598096160b",
+      "mergeCommit": "b41cff1ab5a0a53331d18941657963dfe0d82406",
+      "queries": {
+        "natural": "SSL host config customizations lost reloading SSL bundles prototyping possible solutions happened upon think bug Tomcat configuration host reloaded updated SSL Bundle Tomcat SSL configuration applied host name including one SNI server name SSL bundle updated new created passed set call replaces entry host name customization applied existing example silently discarded bundle reloaded reproducer integration tests added suggested looks existing",
+        "stemblind": "customizations lost reloading bundles prototyping possible solutions happened upon think bug reloaded updated Bundle applied name including one name bundle updated new created passed set call replaces entry name customization applied existing example silently discarded bundle reloaded reproducer added suggested looks existing modifies reloaded Bundle material instead creating new potential bug reload path similar change made initial path retain set"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "SSL host config customizations are lost when reloading SSL bundles",
+      "rawBody": "While prototyping possible solutions to #51146, I happened upon what I think is a bug in the Tomcat configuration when the host is reloaded with an updated SSL Bundle. \r\n\r\nTomcat's SSL configuration is applied to an `SSLHostConfig` for each host name, including one for each SNI server name. When an SSL bundle is updated, a new `SSLHostConfig` is created and passed to `AbstractHttp11Protocol.addSslHostConfig`  with `replace` set to `true`. That call replaces the entry for the host name, so any customization that had been applied to the existing `SSLHostConfig` (for example, with a `TomcatConnectorCustomizer`) was silently discarded when the bundle reloaded.                                                                                                                                                         \r\n                                                                                                                                                                                                                                    \r\nThe reproducer for this is in the integration tests added in this PR. \r\n\r\nThis suggested fix looks for an existing `SSLHostConfig` on the connector and modifies it with the reloaded SSL Bundle material instead of creating a new `SSLHostConfig`. \r\n\r\nNote that this only fixes a potential bug on the reload path. A similar change could be made to the initial configuration path, which would retain any `SSLHostConfig` set on the connector instead of always creating a new one. This would be one possible solution to #51146, as it would allow a user to create a `TomcatConnectorCustomizer` that applies a `SSLHostConfig` configured with `trustManagerClassName`,  `truststoreProvider`, or `truststoreAlgorithm`, and those settings would be retained instead of overwritten by the bundle.\r\n\r\nHere is a commit that adds the initial configuration change on top of the reload change in this PR: https://github.com/scottfrederick/spring-boot/commit/7e9e07a7ad01bf25a84242c4450c71d35cefe2d8. ",
+      "droppedBoilerplate": [],
+      "gold": [
+        "integration-test/spring-boot-sni-integration-tests/spring-boot-sni-reactive-app/src/main/java/org/springframework/boot/sni/server/SniServerApplication.java",
+        "integration-test/spring-boot-sni-integration-tests/spring-boot-sni-reactive-app/src/main/java/org/springframework/boot/sni/server/TomcatSslHostConfigConfiguration.java",
+        "integration-test/spring-boot-sni-integration-tests/spring-boot-sni-servlet-app/src/main/java/org/springframework/boot/sni/server/TomcatSslHostConfigConfiguration.java",
+        "module/spring-boot-tomcat/src/main/java/org/springframework/boot/tomcat/SslConnectorCustomizer.java"
+      ],
+      "changedAll": [
+        "integration-test/spring-boot-sni-integration-tests/spring-boot-sni-reactive-app/build.gradle",
+        "integration-test/spring-boot-sni-integration-tests/spring-boot-sni-reactive-app/src/main/java/org/springframework/boot/sni/server/SniServerApplication.java",
+        "integration-test/spring-boot-sni-integration-tests/spring-boot-sni-reactive-app/src/main/java/org/springframework/boot/sni/server/TomcatSslHostConfigConfiguration.java",
+        "integration-test/spring-boot-sni-integration-tests/spring-boot-sni-servlet-app/build.gradle",
+        "integration-test/spring-boot-sni-integration-tests/spring-boot-sni-servlet-app/src/main/java/org/springframework/boot/sni/server/TomcatSslHostConfigConfiguration.java",
+        "integration-test/spring-boot-sni-integration-tests/src/intTest/java/org/springframework/boot/sni/SniIntegrationTests.java",
+        "module/spring-boot-tomcat/src/main/java/org/springframework/boot/tomcat/SslConnectorCustomizer.java",
+        "module/spring-boot-tomcat/src/test/java/org/springframework/boot/tomcat/SslConnectorCustomizerTests.java",
+        "module/spring-boot-tomcat/src/test/java/org/springframework/boot/tomcat/servlet/TomcatServletWebServerFactoryTests.java"
+      ],
+      "droppedForLeak": [
+        "ssl",
+        "host",
+        "config",
+        "tomcat",
+        "configuration",
+        "sni",
+        "server",
+        "integration",
+        "tests",
+        "connector"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51441,
+      "title": "LdapHealthIndicator reports UNKNOWN instead of UP when LDAP server doesn't expose a protocol version",
+      "querySource": "pr",
+      "base": "67d7523f522a6925ea4357da12ea3531ed18f628",
+      "mergeCommit": "fcd2c9a98d7a6a9ab5b48559a57e4ffb2d504220",
+      "queries": {
+        "natural": "LdapHealthIndicator reports UNKNOWN instead LDAP server doesn expose protocol version happened reads LDAP server protocol version JNDI environment attribute reports health status version present However returning without throwing already means LDAP connection succeeded JNDI environment attribute client requests explicitly something server always echoes back LDAP default configuration set result common setup even though LDAP connection perfectly healthy happens never called",
+        "stemblind": "reports UNKNOWN instead server doesn expose protocol version happened reads server protocol version JNDI environment attribute reports status version present However returning without throwing already means connection succeeded JNDI environment attribute client requests explicitly something server always echoes back default configuration set result common setup even though connection perfectly healthy happens never called Since defaults incorrectly reports working connection instead"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "LdapHealthIndicator reports UNKNOWN instead of UP when LDAP server doesn't expose a protocol version",
+      "rawBody": "## What happened?\r\n\r\n`LdapHealthIndicator.doHealthCheck()` reads the LDAP server's protocol version from a JNDI environment attribute and only reports the health status as `UP` if that version is present:\r\n\r\n```java\r\nString version = this.ldapOperations.executeReadOnly(versionContextExecutor);\r\nif (version != null) {\r\n    builder.up().withDetail(\"version\", version);\r\n}\r\n```\r\n\r\nHowever, `executeReadOnly()` returning without throwing already means the LDAP connection succeeded.\r\n\r\n`java.naming.ldap.version` is a JNDI environment attribute that a client requests explicitly. It is not something the server always echoes back, and Spring LDAP's default `LdapContextSource` configuration does not set it.\r\n\r\nAs a result, in a common setup, `version` can be `null` even though the LDAP connection is perfectly healthy.\r\n\r\nWhen this happens, `builder.up()` is never called. Since `Health.Builder` defaults to `Status.UNKNOWN`, the indicator incorrectly reports `UNKNOWN` for a working LDAP connection instead of `UP`.\r\n\r\n## What should happen?\r\n\r\nA successful LDAP round trip should report `UP`, regardless of whether the optional version detail is available.\r\n\r\n## How to reproduce?\r\n\r\nAdded `LdapHealthIndicatorTests#ldapIsUpWhenVersionIsUnavailable`.\r\n\r\nThe test stubs `executeReadOnly()` to return `null`, representing a successful connection where the LDAP version is unavailable, and asserts that:\r\n\r\n* The health status is `UP`.\r\n* No `version` detail is included.\r\n\r\nOn the current code, this test fails because the status is `UNKNOWN` instead of `UP`.\r\n\r\n## What does this PR change?\r\n\r\n`doHealthCheck()` now calls `builder.up()` unconditionally after a successful `executeReadOnly()` call.\r\n\r\nThe `version` detail is only added when the version is available:\r\n\r\n```java\r\nString version = this.ldapOperations.executeReadOnly(versionContextExecutor);\r\nbuilder.up();\r\n\r\nif (version != null) {\r\n    builder.withDetail(\"version\", version);\r\n}\r\n```\r\n\r\nNo public API changes are introduced.\r\n\r\n## Impact / risk\r\n\r\n* **Connection succeeds + version available:** Unchanged. Reports `UP` with the `version` detail.\r\n* **Connection succeeds + version unavailable:** Now correctly reports `UP` instead of `UNKNOWN`. This is the fix.\r\n* **Connection fails:** Unchanged. Reports `DOWN` through `AbstractHealthIndicator`'s exception handling.\r\n\r\n## Tests\r\n\r\n* Added the regression test `ldapIsUpWhenVersionIsUnavailable`.\r\n* Existing `LdapHealthIndicatorTests` continue to pass.\r\n* `checkstyleMain` passes.\r\n* `checkstyleTest` passes.\r\n* `format` passes.\r\n* `:module:spring-boot-ldap:test` passes.\r\n\r\nps. Sorry for the noise. I originally opened this against the wrong base branch (4.1.x) and closed it (#51440). This PR targets main as intended.\r\n",
+      "droppedBoilerplate": [
+        "spring"
+      ],
+      "gold": [
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/health/LdapHealthIndicator.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-ldap/src/main/java/org/springframework/boot/ldap/health/LdapHealthIndicator.java",
+        "module/spring-boot-ldap/src/test/java/org/springframework/boot/ldap/health/LdapHealthIndicatorTests.java"
+      ],
+      "droppedForLeak": [
+        "ldaphealthindicator",
+        "ldap",
+        "health",
+        "indicator"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51409,
+      "title": "Fix warning from NullAway 0.14.0 related to override",
+      "querySource": "pr",
+      "base": "45b520f6c2e8b5dab5ce5edd2aa816ce29024e94",
+      "mergeCommit": "64267798cbb481217c42ceffcd2a034de71bb70b",
+      "queries": {
+        "natural": "warning NullAway related override code causes warning NullAway return implements compatible previous return type Changing return type matching overridden method warning project builds cleanly NullAway succeeds leave actual update NullAway separate",
+        "stemblind": "warning NullAway related override code causes warning NullAway return implements compatible previous return type Changing return type matching overridden method warning project builds cleanly NullAway succeeds leave actual update NullAway separate"
+      },
+      "stemblindWords": 31,
+      "rawTitle": "Fix warning from NullAway 0.14.0 related to override",
+      "rawBody": "This code causes a warning in NullAway 0.14.0, as the return of a `new LenientToEnumConverter`, which implements `Converter<T, @Nullable E>`, is not compatible with the previous return type `Converter<T, E>`.  Changing the return type to `Converter<T, ? extends @Nullable E>` (matching that of the overridden method `org.springframework.core.convert.converter.ConverterFactory#getConverter`) fixes the warning.\r\n\r\nWith this fix, the project builds cleanly under NullAway 0.14.0, i.e., `./gradlew -PnullAwayVersion=\"0.14.0\" assemble` succeeds.  We leave the actual update to NullAway 0.14.0 for a separate PR.\r\n",
+      "droppedBoilerplate": [],
+      "gold": [
+        "core/spring-boot/src/main/java/org/springframework/boot/convert/LenientObjectToEnumConverterFactory.java"
+      ],
+      "changedAll": [
+        "core/spring-boot/src/main/java/org/springframework/boot/convert/LenientObjectToEnumConverterFactory.java"
+      ],
+      "droppedForLeak": []
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51431,
+      "title": "Fix typos in service containers javadoc and reference documentation",
+      "querySource": "pr",
+      "base": "a5e2fb3148910e4dd70c351fbe2536536c4a7cda",
+      "mergeCommit": "45b520f6c2e8b5dab5ce5edd2aa816ce29024e94",
+      "queries": {
+        "natural": "typos service containers javadoc reference documentation Document used meta annotation composed service connection annotations Add regression test Testcontainers documentation example two related documentation typos Tests",
+        "stemblind": "typos containers javadoc Document used meta annotation composed annotations Add regression test example two related typos Tests"
+      },
+      "stemblindWords": 17,
+      "rawTitle": "Fix typos in service containers javadoc and reference documentation",
+      "rawBody": "  Document that `@ServiceConnection` can be used as a meta-annotation for composed service connection annotations.\r\n\r\n  Add a regression test and a Testcontainers documentation example. Also fix two related documentation typos.\r\n\r\n  Tests:\r\n  - `.\\gradlew.bat :core:spring-boot-testcontainers:test --tests org.springframework.boot.testcontainers.service.connection.ServiceConnectionContextCustomizerFactoryTests`\r\n\r\n<!--\r\nThanks for contributing to Spring Boot. Please review the following notes before\r\nsubmitting a pull request.\r\n\r\nPlease submit only genuine pull-requests. Do not use this repository as a GitHub\r\nplayground.\r\n\r\nSecurity Vulnerabilities\r\n\r\nSTOP! If your contribution fixes a security vulnerability, please do not submit it.\r\nInstead, please head over to https://spring.io/security-policy to learn how to disclose a\r\nvulnerability responsibly.\r\n\r\nDependency Upgrades\r\n\r\nPlease do not open a pull request for a straightforward dependency upgrade (one that\r\nonly updates the version property). We have a semi-automated process for such upgrades\r\nthat we prefer to use. However, if the upgrade is more involved (such as requiring\r\nchanges for removed or deprecated API) your pull request is most welcome.\r\n\r\nDescribing Your Changes\r\n\r\nIf, having reviewed the notes above, you're ready to submit your pull request, please\r\nprovide a brief description of the proposed changes. If they fix a bug, please\r\ndescribe the broken behaviour and how the changes fix it. If they make an enhancement,\r\nplease describe the new functionality and why you believe it's useful. If your pull\r\nrequest relates to any existing issues, please reference them by using the issue number\r\nprefixed with #.\r\n-->\r\n",
+      "droppedBoilerplate": [],
+      "gold": [
+        "core/spring-boot-testcontainers/src/main/java/org/springframework/boot/testcontainers/service/connection/ServiceConnection.java"
+      ],
+      "changedAll": [
+        "core/spring-boot-testcontainers/src/main/java/org/springframework/boot/testcontainers/service/connection/ServiceConnection.java",
+        "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/testcontainers.adoc"
+      ],
+      "droppedForLeak": [
+        "service",
+        "reference",
+        "documentation",
+        "connection",
+        "testcontainers"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50595,
+      "title": "Allow configuring Micrometer Tracing MDC keys",
+      "querySource": "pr",
+      "base": "7780b5fe8694e369dbd49c799113fcf40c29e904",
+      "mergeCommit": "b4042f891b8bf049e7b9ef36f34879d404ab1e85",
+      "queries": {
+        "natural": "Allow configuring Micrometer Tracing MDC keys Allow user configure names MDC keys trace span stored using Micrometer Tracing example use instead Introduce following new properties default default default key names keep backwards compatibility previously hardcoded values Autoconfigurations Brave OpenTelemetry Micrometer Tracing bridges honor new properties",
+        "stemblind": "Allow configuring MDC keys Allow user configure names MDC keys trace span stored using example use instead Introduce following new default default default key names keep backwards compatibility previously hardcoded values Autoconfigurations bridges honor new"
+      },
+      "stemblindWords": 35,
+      "rawTitle": "Allow configuring Micrometer Tracing MDC keys",
+      "rawBody": "Allow the user to configure the names of the MDC keys in which the trace id and span id are stored when using Micrometer Tracing.   For example, to use `trace_id`/`span_id` instead of `traceId`/`spanId`\r\n\r\nIntroduce the following new properties:\r\n- `management.tracing.mdc.trace-id-key` (default: `traceId`)\r\n- `management.tracing.mdc.span-id-key`  (default: `spanId`)\r\n\r\nThe default key names keep backwards compatibility with the previously hardcoded values.\r\n\r\nAutoconfigurations for both the Brave and OpenTelemetry Micrometer Tracing bridges honor the new properties.\r\n\r\n",
+      "droppedBoilerplate": [],
+      "gold": [
+        "module/spring-boot-micrometer-tracing-brave/src/main/java/org/springframework/boot/micrometer/tracing/brave/autoconfigure/BravePropagationConfigurations.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/main/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/OpenTelemetryTracingAutoConfiguration.java",
+        "module/spring-boot-micrometer-tracing/src/main/java/org/springframework/boot/micrometer/tracing/autoconfigure/LogCorrelationEnvironmentPostProcessor.java",
+        "module/spring-boot-micrometer-tracing/src/main/java/org/springframework/boot/micrometer/tracing/autoconfigure/TracingProperties.java"
+      ],
+      "changedAll": [
+        "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/tracing.adoc",
+        "module/spring-boot-micrometer-tracing-brave/src/main/java/org/springframework/boot/micrometer/tracing/brave/autoconfigure/BravePropagationConfigurations.java",
+        "module/spring-boot-micrometer-tracing-brave/src/test/java/org/springframework/boot/micrometer/tracing/brave/autoconfigure/BraveAutoConfigurationTests.java",
+        "module/spring-boot-micrometer-tracing-brave/src/test/java/org/springframework/boot/micrometer/tracing/brave/autoconfigure/BraveBaggagePropagationIntegrationTests.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/main/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/OpenTelemetryTracingAutoConfiguration.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/test/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/OpenTelemetryBaggagePropagationIntegrationTests.java",
+        "module/spring-boot-micrometer-tracing/src/main/java/org/springframework/boot/micrometer/tracing/autoconfigure/LogCorrelationEnvironmentPostProcessor.java",
+        "module/spring-boot-micrometer-tracing/src/main/java/org/springframework/boot/micrometer/tracing/autoconfigure/TracingProperties.java",
+        "module/spring-boot-micrometer-tracing/src/test/java/org/springframework/boot/micrometer/tracing/autoconfigure/LogCorrelationEnvironmentPostProcessorTests.java",
+        "module/spring-boot-micrometer-tracing/src/test/java/org/springframework/boot/micrometer/tracing/autoconfigure/TracingPropertiesTests.java",
+        "smoke-test/spring-boot-smoke-test-opentelemetry/build.gradle",
+        "smoke-test/spring-boot-smoke-test-opentelemetry/src/test/java/smoketest/opentelemetry/LogCorrelationTests.java"
+      ],
+      "droppedForLeak": [
+        "micrometer",
+        "tracing",
+        "properties",
+        "brave",
+        "opentelemetry"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51412,
+      "title": "JmsHealthIndicator leaks watchdog threads if start fails immediately",
+      "querySource": "pr",
+      "base": "068bb037bf9ed985dd90d31ff821aaba1df3d2fc",
+      "mergeCommit": "a39ed772d61ab2e46f57ef3554bf774f8eb36ae6",
+      "queries": {
+        "natural": "JmsHealthIndicator leaks watchdog threads start fails immediately happened spawns watchdog thread waits seconds detect hanging call latch counted returns connection start throws JMSException immediately common case broker rejects authentication refuses connection outright countDown call skipped watchdog thread blocks full seconds reason logs misleading Connection failed start within seconds warning connection time failed immediately calls connection already enclosing try resources doHealthCheck",
+        "stemblind": "leaks watchdog threads start fails immediately happened spawns watchdog thread waits seconds detect hanging call latch counted returns connection start throws JMSException immediately common case broker rejects authentication refuses connection outright countDown call skipped watchdog thread blocks full seconds reason logs misleading Connection failed start within seconds warning connection time failed immediately calls connection already enclosing try resources doHealthCheck frequent"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "JmsHealthIndicator leaks watchdog threads if start fails immediately",
+      "rawBody": "## What happened?\r\n\r\n`JmsHealthIndicator.MonitoredConnection.start()` spawns a watchdog\r\nthread that waits on a `CountDownLatch` for up to 5 seconds to detect\r\na hanging `connection.start()` call. The latch is only counted down\r\n*after* `connection.start()` returns:\r\n\r\n```java\r\nthis.connection.start();\r\nthis.latch.countDown();\r\n```\r\n\r\nIf connection.start() throws a JMSException immediately (a common case, e.g. when the broker rejects authentication or refuses the connection outright), the countDown() call is skipped.\r\n\r\nThe watchdog thread then blocks for the full 5 seconds for no reason. After that, it logs a misleading \"Connection failed to start within 5 seconds and will be closed\" warning—the connection did not time out, it failed immediately—and calls close() on a connection that has already been closed by the enclosing try-with-resources in doHealthCheck.\r\n\r\nUnder frequent health polling against a broker that fails start() immediately (for example, a Kubernetes liveness probe hitting /actuator/health every 1–2 seconds during an outage), a new watchdog thread is spawned on every poll and each one lingers for the full 5 seconds. As a result, threads accumulate for the duration of the outage.\r\n\r\nThe watchdog thread was also not a daemon thread, so in extreme cases it could delay JVM shutdown.\r\n\r\n## What should happen?\r\n\r\nThe watchdog should be released immediately whether connection.start() succeeds or throws, and it should not delay JVM shutdown.\r\n\r\n## How to reproduce?\r\n\r\nAdded JmsHealthIndicatorTests#whenConnectionStartThrowsWatchdogThreadDoesNotAlsoCloseConnection.\r\n\r\nThe test mocks Connection.start() to throw immediately, then asserts that Connection.close() is invoked exactly once (by the try-with-resources) after waiting past the 5-second watchdog window.\r\n\r\nOn the current code, this test fails with TooManyActualInvocations because the watchdog performs a second, redundant close() call once the timeout elapses.\r\n\r\n## What does this PR change?\r\n\r\nMonitoredConnection.start() now wraps connection.start() in a try/finally block so latch.countDown() always runs.\r\nThe watchdog thread is also marked as a daemon thread.\r\nNo public API changes are introduced. Behavior for the success path and the genuine-hang path remains unchanged.\r\n\r\n## Impact / risk\r\n\r\n- Success path (broker reachable): Identical behavior and response time. No impact.\r\n- Genuine hang path: Unchanged. The connection is still closed after 5 seconds.\r\n- Immediate-failure path: The health status remains DOWN. The only behavioral change is that close() is called once instead of twice, and the misleading timeout warning is no longer logged for a failure that was not actually a timeout.\r\n- Thread usage: On the immediate-failure path, the watchdog thread is now released immediately instead of blocking for up to 5 seconds, reducing thread accumulation under repeated failures such as frequent liveness-probe polling during an outage.\r\n- JVM shutdown: The watchdog thread is now a daemon thread and therefore cannot prevent JVM shutdown.\r\n\r\nclose() is idempotent per the JMS specification, so the previous double-close was not unsafe, but it was unnecessary.\r\n\r\n## Tests\r\n\r\n- Added the regression test above (fails before this change, passes after).\r\n- Existing `JmsHealthIndicatorTests` (6 tests) continue to pass.\r\n- `checkstyleMain`, `checkstyleTest`, `checkFormatMain`, `checkFormatTest`, and `:module:spring-boot-jms:check` all pass.\r\n",
+      "droppedBoilerplate": [],
+      "gold": [
+        "module/spring-boot-jms/src/main/java/org/springframework/boot/jms/health/JmsHealthIndicator.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-jms/src/main/java/org/springframework/boot/jms/health/JmsHealthIndicator.java",
+        "module/spring-boot-jms/src/test/java/org/springframework/boot/jms/health/JmsHealthIndicatorTests.java"
+      ],
+      "droppedForLeak": [
+        "jmshealthindicator"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 50461,
+      "title": "Add common OTLP configuration for endpoint, compression and headers",
+      "querySource": "issue#47962",
+      "base": "2051b60a1ad79b941fb97b0f886e0e59b0356bf1",
+      "mergeCommit": "d6940b260bba2c22133f2856c224e80fcf0b4d60",
+      "queries": {
+        "natural": "Make easier configure OTLP exports properties control OTLP export Logs Traces Metrics nice configuration section lets users define common properties override endpoint tracing metrics logging relatively easy tracing logging use OpenTelemetry SDK Metrics shipped via OpenTelemetry SDK Micrometer",
+        "stemblind": "Make easier configure exports control Logs Traces nice section lets users define common override endpoint relatively easy use SDK shipped via SDK"
+      },
+      "stemblindWords": 22,
+      "rawTitle": "Make it easier to configure OTLP exports",
+      "rawBody": "We have those properties which control OTLP export:\n\n## Logs\n```\nmanagement.opentelemetry.logging.export.otlp.compression\nmanagement.opentelemetry.logging.export.otlp.connect-timeout\nmanagement.opentelemetry.logging.export.otlp.endpoint\nmanagement.opentelemetry.logging.export.otlp.headers.*\nmanagement.opentelemetry.logging.export.otlp.timeout\nmanagement.opentelemetry.logging.export.otlp.transport\n```\n\n\n## Traces\n```\nmanagement.opentelemetry.tracing.export.otlp.compression\nmanagement.opentelemetry.tracing.export.otlp.connect-timeout\nmanagement.opentelemetry.tracing.export.otlp.endpoint\nmanagement.opentelemetry.tracing.export.otlp.headers.*\nmanagement.opentelemetry.tracing.export.otlp.timeout\nmanagement.opentelemetry.tracing.export.otlp.transport\n```\n\n\n## Metrics\n```\nmanagement.otlp.metrics.export.aggregation-temporality\nmanagement.otlp.metrics.export.base-time-unit\nmanagement.otlp.metrics.export.batch-size\nmanagement.otlp.metrics.export.connect-timeout\nmanagement.otlp.metrics.export.headers.*\nmanagement.otlp.metrics.export.histogram-flavor\nmanagement.otlp.metrics.export.max-bucket-count\nmanagement.otlp.metrics.export.max-scale\nmanagement.otlp.metrics.export.meter.*\nmanagement.otlp.metrics.export.read-timeout\nmanagement.otlp.metrics.export.step\nmanagement.otlp.metrics.export.url\n```\n\nIt would be nice to have a configuration section which lets users define the common properties, and then only override some (e.g. endpoint) for tracing, metrics, logging.\n\nThat should be relatively easy for tracing and logging, because they use the OpenTelemetry SDK. Metrics are shipped via the `OtlpRegistry`, which is not from the OpenTelemetry SDK but from Micrometer.",
+      "droppedBoilerplate": [],
+      "gold": [
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/export/otlp/OtlpMetricsExportAutoConfiguration.java",
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/export/otlp/OtlpMetricsProperties.java",
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/export/otlp/OtlpMetricsPropertiesConfigAdapter.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/main/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/otlp/OtlpTracingAutoConfiguration.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/main/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/otlp/OtlpTracingConfigurations.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/main/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/otlp/OtlpTracingProperties.java",
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/OtlpProperties.java",
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/logging/otlp/OtlpLoggingAutoConfiguration.java",
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/logging/otlp/OtlpLoggingConfigurations.java",
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/logging/otlp/OtlpLoggingProperties.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/export/otlp/OtlpMetricsExportAutoConfiguration.java",
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/export/otlp/OtlpMetricsProperties.java",
+        "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/export/otlp/OtlpMetricsPropertiesConfigAdapter.java",
+        "module/spring-boot-micrometer-metrics/src/test/java/org/springframework/boot/micrometer/metrics/autoconfigure/export/otlp/OtlpMetricsExportAutoConfigurationTests.java",
+        "module/spring-boot-micrometer-metrics/src/test/java/org/springframework/boot/micrometer/metrics/autoconfigure/export/otlp/OtlpMetricsPropertiesConfigAdapterTests.java",
+        "module/spring-boot-micrometer-metrics/src/test/java/org/springframework/boot/micrometer/metrics/autoconfigure/export/otlp/OtlpMetricsPropertiesTests.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/main/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/otlp/OtlpTracingAutoConfiguration.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/main/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/otlp/OtlpTracingConfigurations.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/main/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/otlp/OtlpTracingProperties.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/test/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/OpenTelemetryTracingAutoConfigurationTests.java",
+        "module/spring-boot-micrometer-tracing-opentelemetry/src/test/java/org/springframework/boot/micrometer/tracing/opentelemetry/autoconfigure/otlp/OtlpTracingAutoConfigurationIntegrationTests.java",
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/OtlpProperties.java",
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/logging/otlp/OtlpLoggingAutoConfiguration.java",
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/logging/otlp/OtlpLoggingConfigurations.java",
+        "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/logging/otlp/OtlpLoggingProperties.java",
+        "module/spring-boot-opentelemetry/src/test/java/org/springframework/boot/opentelemetry/autoconfigure/logging/OpenTelemetryLoggingAutoConfigurationTests.java",
+        "module/spring-boot-opentelemetry/src/test/java/org/springframework/boot/opentelemetry/autoconfigure/logging/otlp/OtlpLoggingAutoConfigurationIntegrationTests.java",
+        "module/spring-boot-opentelemetry/src/test/java/org/springframework/boot/opentelemetry/autoconfigure/logging/otlp/OtlpLoggingAutoConfigurationTests.java"
+      ],
+      "droppedForLeak": [
+        "otlp",
+        "properties",
+        "export",
+        "metrics",
+        "configuration",
+        "tracing",
+        "logging",
+        "opentelemetry",
+        "micrometer"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51410,
+      "title": "Honour a wrapper's unwrap when resolving the root DataSource",
+      "querySource": "pr",
+      "base": "4ee67a3f6b817bc8727069e083f0506bb8aefa33",
+      "mergeCommit": "cbaaa0fe45652d32ac5cc532cbfb5737e086769f",
+      "queries": {
+        "natural": "Honour wrapper unwrap resolving root DataSource checks delegate chain AOP target looks stops soon wrapper unwraps itself right opposite calls first data source decorator extends overrides return target datasource proxy Following delegate chain lands proxy implements requested interface meant return itself search therefore ends proxy never runs caller derives proxy instead pool Nothing throws Reported downstream calls first keeps going",
+        "stemblind": "Honour wrapper unwrap resolving root DataSource checks delegate chain AOP target looks stops soon wrapper unwraps itself right opposite calls first decorator extends overrides return target datasource proxy Following delegate chain lands proxy implements requested interface meant return itself search therefore ends proxy never runs caller derives proxy instead pool Nothing throws Reported downstream calls first keeps going delegate chain"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "Honour a wrapper's unwrap when resolving the root DataSource",
+      "rawBody": "`DataSourceUnwrapper.unwrapRoot` checks the delegate chain and the AOP target before it\nlooks at `Wrapper.unwrap`, and it stops as soon as a wrapper unwraps to itself.\n`unwrap(DataSource, Class, Class)`, right above it, does the opposite and calls\n`safeUnwrap` first.\n\n`DecoratedDataSource` from spring-boot-data-source-decorator 2.0.1 extends\n`DelegatingDataSource` and overrides `unwrap` to return the `HikariDataSource`, but its\ntarget is datasource-proxy's `ProxyDataSource`. Following the delegate chain lands on the\nproxy, and a `Wrapper` that implements the requested interface is meant to return itself\nfrom `unwrap`. The search therefore ends at the proxy and `DecoratedDataSource.unwrap`\nnever runs. `DataSourceBuilder.derivedFrom` is the only caller, so it derives from the proxy instead\nof the pool. Nothing throws. Reported downstream as\ngavlyukovskiy/spring-boot-data-source-decorator#197.\n\nThis calls `unwrap` first and keeps going through the delegate chain and the AOP target\nwhen a wrapper returns itself. `DelegatingDataSource` and `LazyConnectionDataSourceProxy`\nboth return themselves, so the delegate chain still handles them and the lazy connection\nproxy case from #50271 is unaffected. The new test fails on 4.1.x without the change.\n",
+      "droppedBoilerplate": [
+        "spring",
+        "boot"
+      ],
+      "gold": [
+        "module/spring-boot-jdbc/src/main/java/org/springframework/boot/jdbc/DataSourceUnwrapper.java"
+      ],
+      "changedAll": [
+        "module/spring-boot-jdbc/src/main/java/org/springframework/boot/jdbc/DataSourceUnwrapper.java",
+        "module/spring-boot-jdbc/src/test/java/org/springframework/boot/jdbc/DataSourceUnwrapperTests.java"
+      ],
+      "droppedForLeak": [
+        "data",
+        "source"
+      ]
+    },
+    {
+      "repo": "spring-boot",
+      "slug": "spring-projects/spring-boot",
+      "lang": "java",
+      "pr": 51398,
+      "title": "File handle in SpringBootJoranConfigurator should be closed",
+      "querySource": "pr",
+      "base": "01267a3c6fbc267abeeed515d5830bc3a79b4e61",
+      "mergeCommit": "d3547de07bfcc9fecd1759ea61d7d9ae03fbfb6f",
+      "queries": {
+        "natural": "File handle SpringBootJoranConfigurator Sorry unrequested rebase said branch locally left alone submitted user account fork Allow edits maintainers applies tweaks locally push cleanly time change itself identical commit rebase rather one locally since retargeted base compares resource write against already disk stream stream never assigned anything nothing afterwards AOT processing handler whose content supplier returns real file handle reached whenever",
+        "stemblind": "File handle Sorry unrequested rebase said branch locally left alone submitted user account fork Allow edits maintainers applies tweaks locally push cleanly time change itself identical commit rebase rather one locally since retargeted base compares resource write against already disk stream stream never assigned anything nothing afterwards AOT processing handler whose content supplier returns real file handle reached whenever one"
+      },
+      "stemblindWords": 60,
+      "rawTitle": "File handle in SpringBootJoranConfigurator should be closed",
+      "rawBody": "Sorry for the unrequested rebase on #51385 — you had said you had the branch\nlocally and I should have left it alone.\n\nRe-submitted from a user-account fork, so \"Allow edits from maintainers\" applies\nhere and the tweaks you had locally should push cleanly this time. The change\nitself is identical, but the commit is the `4.0.x` rebase (`915e4775`) rather\nthan the `main` one you have locally (`16f5fffd`), since you had retargeted the\nbase.\n\n`SpringBootJoranConfigurator.RequireNewOrMatchingContentFileHandler` compares the\nresource it is about to write against what is already on disk:\n\n```java\nbyte[] existingContent = content.getInputStream().readAllBytes();\n```\n\n`InputStream.readAllBytes()` does not close the stream, and the stream is never\nassigned to anything, so nothing can close it afterwards. During AOT processing\nthe handler is a `FileSystemGeneratedFiles.FileSystemFileHandler` whose content\nsupplier returns a `FileSystemResource`, so this is a real file handle. It is\nreached whenever more than one application context contributes the same\nresource. `FileSystemGeneratedFiles` already uses try-with-resources on the\nother side of the same interface.\n\nThe fix reads the existing content inside a try-with-resources block, three\nlines. The test supplies its own `GeneratedFiles` and a `FileHandler` whose\ncontent records when its stream is closed, then drives the AOT contribution\nthrough `applyTo`.\n\nVerified on `4.0.x`: `aotContributionClosesExistingFileContent` fails without the\nproduction change and passes with it, `:core:spring-boot:test` 3767 tests with\n0 failures and 14 skipped, and `checkFormatMain`, `checkFormatTest`,\n`checkstyleMain` and `checkstyleTest` pass.\n\nContributed on behalf of [Goatshave](https://github.com/Goatshave).\n\n",
+      "droppedBoilerplate": [],
+      "gold": [
+        "core/spring-boot/src/main/java/org/springframework/boot/logging/logback/SpringBootJoranConfigurator.java"
+      ],
+      "changedAll": [
+        "core/spring-boot/src/main/java/org/springframework/boot/logging/logback/SpringBootJoranConfigurator.java"
+      ],
+      "droppedForLeak": [
+        "springbootjoranconfigurator"
+      ]
+    },
     {
       "repo": "spring-boot",
       "slug": "spring-projects/spring-boot",
@@ -27,10 +433,15 @@
       "base": "e665232b96cf451b8f01cca6c068554564ec3b52",
       "mergeCommit": "7313b5f2c4ec7d49776a9da57fafb80b53e33a65",
       "queries": {
-        "natural": "spring graphql websocket connection init timeout render correctly reference guide Reference",
-        "stemblind": "spring websocket connection init timeout render correctly reference guide Reference"
+        "natural": "graphql websocket connection init timeout render correctly reference guide Reference",
+        "stemblind": "websocket connection init timeout render correctly reference guide Reference"
       },
-      "stemblindWords": 10,
+      "stemblindWords": 9,
+      "rawTitle": "Description of spring.graphql.websocket.connection-init-timeout does not render correctly in the reference guide",
+      "rawBody": "\r\n<img width=\"1215\" height=\"135\" alt=\"image\" src=\"https://github.com/user-attachments/assets/b26e2a00-783d-42ee-b40d-adca13371eab\" />\r\n\r\n\r\n\r\nReference:\r\nhttps://docs.spring.io/spring-boot/appendix/application-properties/index.html#application-properties.web.spring.graphql.websocket.connection-init-timeout",
+      "droppedBoilerplate": [
+        "spring"
+      ],
       "gold": [
         "module/spring-boot-graphql/src/main/java/org/springframework/boot/graphql/autoconfigure/GraphQlProperties.java"
       ],
@@ -55,6 +466,9 @@
         "stemblind": "Structured logging failed encode corrupts next log event written thread See reached throws part way partially written bytes stay instance held cache hands dirty instance next caller thread structured logging means one failed event corrupts next event invalid reported resets cached instance handed rather drained buffer clean regardless previous use ended covers early return alternative resetting failure path added covers"
       },
       "stemblindWords": 60,
+      "rawTitle": "Structured logging: a failed JSON encode corrupts the next log event written on the same thread",
+      "rawBody": "See gh-51154.\n\n`AppendableByteArray.reset()` is only reached from `toByteArray()`:\n\n```java\nbyte[] result = new byte[size];\nSystem.arraycopy(...);\nreset();          // only on the success path\nreturn result;\n```\n\nso when `to(appendable)` in `WritableJson.toByteArray(Charset)` throws part-way through, the partially written bytes stay in the instance held by the `ThreadLocal` cache, and `get()` hands that dirty instance to the next caller on the same thread. In structured logging that means one failed event corrupts the *next* event into invalid JSON, as reported.\n\nThis resets the cached instance when it is handed out rather than when it is drained, so the buffer is clean regardless of how the previous use ended. That also covers the early return in `toByteArray()`:\n\n```java\nif (size <= 0) {\n    return NO_BYTES;   // returns without reset(), leaving the buffer flipped\n}\n```\n\nwhich the alternative (resetting on the failure path in `WritableJson`) would not.\n\nTests added:\n\n- `AppendableByteArrayTests.getWhenPreviousUseWasAbandonedReturnsCleanInstance` — covers the cache contract directly: append to an instance, never drain it, then assert the next `get()` returns it clean.\n- `WritableJsonTests.toByteArrayWhenPreviousWriteFailedDoesNotIncludePartialContent` — the reported end-to-end shape: a failed encode followed by an unrelated writer on the same thread.\n\nBoth fail on `main` and pass with the change. `org.springframework.boot.json.*`, the `logging.structured` tests, and `checkFormatMain`/`checkFormatTest` are all green locally.\n\nI raised the analysis on the issue first and offered either placement — happy to move the reset into `WritableJson.toByteArray` instead if you'd prefer to keep `get()` free of side effects, or to close this if you'd rather fix it in-house given it's a regression in recent code.\n",
+      "droppedBoilerplate": [],
       "gold": [
         "core/spring-boot/src/main/java/org/springframework/boot/json/AppendableByteArray.java",
         "core/spring-boot/src/main/java/org/springframework/boot/json/WritableJson.java"
@@ -79,10 +493,15 @@
       "base": "e61ef57f308e2007f3bac3d82cce058766282ea1",
       "mergeCommit": "d0f67c74147cf3ea545146772bae764d2823ef8b",
       "queries": {
-        "natural": "Correct exception type documented resolveConfigLocation documents asserts throws Spring Framework javadoc says much points case",
-        "stemblind": "Correct exception type documented resolveConfigLocation documents asserts throws Spring Framework javadoc says much points case"
+        "natural": "Correct exception type documented resolveConfigLocation documents asserts throws Framework javadoc says much points case",
+        "stemblind": "Correct exception type documented resolveConfigLocation documents asserts throws Framework javadoc says much points case"
       },
-      "stemblindWords": 15,
+      "stemblindWords": 14,
+      "rawTitle": "Correct exception type documented by resolveConfigLocation",
+      "rawBody": "`HazelcastProperties.resolveConfigLocation` documents `@throws IllegalArgumentException`, but it asserts with `Assert.state`, which throws `IllegalStateException`. Spring Framework's own javadoc on `Assert.state` says as much, and points at `isTrue` for the `IllegalArgumentException` case.\n",
+      "droppedBoilerplate": [
+        "spring"
+      ],
       "gold": [
         "module/spring-boot-hazelcast/src/main/java/org/springframework/boot/hazelcast/autoconfigure/HazelcastProperties.java"
       ],
@@ -101,10 +520,15 @@
       "base": "39c87d595e24091a4966be36404c87d0dffab9a7",
       "mergeCommit": "e1a1e1be824c1720aad9817388394fe55e89e189",
       "queries": {
-        "natural": "Micrometer registries pin application context Related spring framework tracks registries added registration time instead snapshotting beans constructor often runs registries exist remove tracked registries global registry them Add tests default explicitly configured mirroring existing Reactor global resources customizer preventing cached test contexts pinned via Micrometer Test plan",
-        "stemblind": "registries pin application context Related spring framework tracks registries added registration time instead snapshotting beans constructor often runs registries exist remove tracked registries global them Add default explicitly configured mirroring existing Reactor global resources customizer preventing cached contexts pinned via plan"
+        "natural": "Micrometer registries pin application context Related framework tracks registries added registration time instead snapshotting beans constructor often runs registries exist remove tracked registries global registry them Add tests default explicitly configured mirroring existing Reactor global resources customizer preventing cached test contexts pinned via Micrometer Test plan",
+        "stemblind": "registries pin application context Related framework tracks registries added registration time instead snapshotting beans constructor often runs registries exist remove tracked registries global them Add default explicitly configured mirroring existing Reactor global resources customizer preventing cached contexts pinned via plan"
       },
-      "stemblindWords": 41,
+      "stemblindWords": 40,
+      "rawTitle": "Micrometer registries pin the application context",
+      "rawBody": "## Summary\n\nRelated to [spring-framework#36737](https://github.com/spring-projects/spring-framework/issues/36737).\n\n- Fix `MeterRegistryCloser` so it tracks registries added to `Metrics.globalRegistry` at registration time instead of snapshotting `MeterRegistry` beans in its constructor (which often runs before registries exist).\n- On `ContextClosedEvent`, remove tracked registries from the global registry and close them.\n- Add `DisableGlobalMeterRegistryContextCustomizerFactory` so tests default `management.metrics.use-global-registry=false` when not explicitly configured, mirroring the existing Reactor global-resources customizer and preventing cached test contexts from being pinned via Micrometer.\n\n## Test plan\n\n- [x] `./gradlew :module:spring-boot-micrometer-metrics:test --tests MeterRegistryPostProcessorTests`\n- [x] `./gradlew :core:spring-boot-test:test --tests DisableGlobalMeterRegistryContextCustomizerFactoryTests`",
+      "droppedBoilerplate": [
+        "spring"
+      ],
       "gold": [
         "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/MeterRegistryCloser.java",
         "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/MeterRegistryPostProcessor.java",
@@ -135,10 +559,16 @@
       "base": "e7741bf1522ee61298b28d9214cbc38a0a168956",
       "mergeCommit": "39bc9e91db80fe14e0f3160a730fc68b69fd974b",
       "queries": {
-        "natural": "Support timeout option RetryPolicySettings Overview Adds support configuring parameter RetryPolicy Spring Boot RetryPolicySettings Background Spring Framework introduced property RetryPolicy However parameter yet counterpart Spring Boot RetryPolicySettings adds users leverage option via RetryPolicySettings like configuration files etc",
-        "stemblind": "Support timeout option Overview Adds support configuring parameter RetryPolicy Spring Background Spring Framework introduced property RetryPolicy However parameter yet counterpart Spring adds users leverage option via like configuration files etc"
+        "natural": "Support timeout option RetryPolicySettings Overview Adds support configuring parameter RetryPolicy RetryPolicySettings Background Framework introduced property RetryPolicy However parameter yet counterpart RetryPolicySettings adds users leverage option via RetryPolicySettings like configuration files etc",
+        "stemblind": "Support timeout option Overview Adds support configuring parameter RetryPolicy Background Framework introduced property RetryPolicy However parameter yet counterpart adds users leverage option via like configuration files etc"
       },
-      "stemblindWords": 30,
+      "stemblindWords": 27,
+      "rawTitle": "Support timeout option in RetryPolicySettings",
+      "rawBody": "## Overview\r\nAdds support for configuring the `timeout` parameter for RetryPolicy in Spring Boot's RetryPolicySettings.\r\n\r\n## Background\r\nSpring Framework 7.0.2 introduced a [`timeout` property to RetryPolicy](https://github.com/spring-projects/spring-framework/issues/35963). However, this parameter did not yet have a counterpart in Spring Boot's [RetryPolicySettings](https://github.com/spring-projects/spring-boot/blob/v4.1.0/core/spring-boot/src/main/java/org/springframework/boot/retry/RetryPolicySettings.java). This PR adds it, so users can leverage the option via RetryPolicySettings (like through configuration files, etc.)",
+      "droppedBoilerplate": [
+        "spring",
+        "boot"
+      ],
       "gold": [
         "core/spring-boot/src/main/java/org/springframework/boot/retry/RetryPolicySettings.java"
       ],
@@ -147,8 +577,7 @@
         "core/spring-boot/src/test/java/org/springframework/boot/retry/RetryPolicySettingsTests.java"
       ],
       "droppedForLeak": [
-        "retrypolicysettings",
-        "boot"
+        "retrypolicysettings"
       ]
     },
     {
@@ -165,6 +594,9 @@
         "stemblind": "Temporary file deleted construction fails creates temporary file constructor copies builds layer factory caller relies try resources clean file throws constructor fails temporary file created instance never assigned never runs throw neither nor happen malformed unexpected export file left behind temp directory wraps constructor body temporary file deleted either step fails matching cleanup already done mirrors kind leak included temp"
       },
       "stemblindWords": 60,
+      "rawTitle": "Temporary file is not deleted when ExportedImageTar construction fails",
+      "rawBody": "\n`ExportedImageTar` creates a temporary file in its constructor, copies the exported image into it, and then builds the layer factory from it:\n\n```java\nExportedImageTar(ImageReference reference, InputStream inputStream) throws IOException {\n\tthis.tarFile = Files.createTempFile(\"docker-layers-\", null);\n\tFiles.copy(inputStream, this.tarFile, StandardCopyOption.REPLACE_EXISTING);\n\tthis.layerArchiveFactory = LayerArchiveFactory.create(reference, this.tarFile);\n}\n```\n\nThe only caller relies on try-with-resources to clean the file up:\n\n```java\ntry (ExportedImageTar exportedImageTar = new ExportedImageTar(reference, response.getContent())) {\n\texportedImageTar.exportLayers(exports);\n}\n```\n\nIf `Files.copy` or `LayerArchiveFactory.create` throws, the constructor fails after the temporary file has been created, so the instance is never assigned and `close()` never runs. `LayerArchiveFactory.create` does throw on a tar that has neither `index.json` nor `manifest.json` (`Assert.state(...)`), which can happen for a malformed or unexpected image export, and the `docker-layers-` file is then left behind in the temp directory.\n\nThis wraps the constructor body so the temporary file is deleted if either step fails, matching the cleanup already done in `close()`.\n\nThis mirrors #50919, which fixed the same kind of leak in the buildpack platform and included a temp-file test; the new test in `ExportedImageTarTests` uses the same approach.\n",
+      "droppedBoilerplate": [],
       "gold": [
         "buildpack/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/docker/ExportedImageTar.java"
       ],
@@ -191,10 +623,15 @@
       "base": "ccf6767e00f63475292a142fb74ccd8c479ab406",
       "mergeCommit": "9142b18312befe659a394933e93242a09aba744c",
       "queries": {
-        "natural": "Use GracefulHandler rather StatisticsHandler coordinate graceful shutdown Jetty Boot switched default server shutdown graceful adds overhead Jetty time mechanism Jetty available graceful shutdowns Since Jetty implements Boot look using instead even implementation less overhead one Jetty maintains need measure decide want maintain handler use one Jetty provides Benchmarks show possibly large effect processing every request even wanted shutdown",
+        "natural": "Use GracefulHandler rather StatisticsHandler coordinate graceful shutdown Jetty switched default server shutdown graceful adds overhead Jetty time mechanism Jetty available graceful shutdowns Since Jetty implements look using instead even implementation less overhead one Jetty maintains need measure decide want maintain handler use one Jetty provides Benchmarks show possibly large effect processing every request even wanted shutdown",
         "stemblind": "Use GracefulHandler rather StatisticsHandler coordinate graceful shutdown switched default shutdown graceful adds overhead time mechanism available graceful shutdowns Since implements look using instead even implementation less overhead one maintains need measure decide want maintain handler use one provides Benchmarks show possibly large effect processing every request even wanted shutdown"
       },
       "stemblindWords": 49,
+      "rawTitle": "Use GracefulHandler rather than StatisticsHandler to coordinate graceful shutdown of Jetty",
+      "rawBody": "Boot 3.4 switched the default server shutdown to graceful, which adds the overhead of Jetty's `StatisticsHandler`. At the time, there was no other mechanism in Jetty available for graceful shutdowns. Since Jetty 12 there is a `GracefulHandler` and also `Server` implements `Graceful`. Boot could look at using those instead of `StatisticsHandler`. There might even be a `GracefulHandler` implementation that has less overhead than the one Jetty maintains, but we'd need to measure and decide if we want to maintain such a handler or use the one Jetty provides. Benchmarks show this as possibly a large effect because it does processing on every request, even if we only wanted it for shutdown.",
+      "droppedBoilerplate": [
+        "boot"
+      ],
       "gold": [
         "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/JettyWebServer.java",
         "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/reactive/JettyReactiveWebServerFactory.java",
@@ -208,7 +645,6 @@
       ],
       "droppedForLeak": [
         "jetty",
-        "boot",
         "server"
       ]
     },
@@ -226,6 +662,9 @@
         "stemblind": "Add support based Added new option uses argument phases stored shared between hosts via registry Exposed option plugins Reject configured launch support"
       },
       "stemblindWords": 22,
+      "rawTitle": "Add support for image-based build caches",
+      "rawBody": "Added a new image cache option that uses the lifecycle's `-cache-image` argument for the creator, analyzer, restorer and exporter phases, so the build cache can be stored in an image and shared between hosts via an image registry.\r\n\r\nExposed the option in the Maven (`<buildCache><image>`) and Gradle (`buildCache { image { } }`) plugins.\r\n\r\nReject image caches configured for the launch cache, which the lifecycle does not support.",
+      "droppedBoilerplate": [],
       "gold": [
         "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/tasks/bundling/BootBuildImage.java",
         "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/tasks/bundling/CacheSpec.java",
@@ -287,10 +726,15 @@
       "base": "d107f342f06ba4cc6b95cacc0e1bf91d646406d1",
       "mergeCommit": "ace30667b88cb92237105522fc48e8d9fbe1ca5c",
       "queries": {
-        "natural": "spring grpc server health include overall health taken account bound used auto configured gRPC health components overall server component always created scheduled gRPC health updates still evaluated health contributors even overall health reporting disabled change makes auto configured server component nullable omits overall health reporting disabled Service specific health components continue created settings Verification RED failed GREEN GREEN GREEN GREEN",
-        "stemblind": "spring include overall taken account bound used overall component always created scheduled updates still evaluated contributors even overall reporting disabled change makes component nullable omits overall reporting disabled Service specific continue created settings Verification RED failed GREEN GREEN GREEN GREEN"
+        "natural": "grpc server health include overall health taken account bound used auto configured gRPC health components overall server component always created scheduled gRPC health updates still evaluated health contributors even overall health reporting disabled change makes auto configured server component nullable omits overall health reporting disabled Service specific health components continue created settings Verification RED failed GREEN GREEN GREEN GREEN",
+        "stemblind": "include overall taken account bound used overall component always created scheduled updates still evaluated contributors even overall reporting disabled change makes component nullable omits overall reporting disabled Service specific continue created settings Verification RED failed GREEN GREEN GREEN GREEN"
       },
-      "stemblindWords": 40,
+      "stemblindWords": 39,
+      "rawTitle": "spring.grpc.server.health.include-overall-health is not taken into account",
+      "rawBody": "Fixes gh-50791\n\n`spring.grpc.server.health.include-overall-health=false` was bound but not used by the auto-configured gRPC health components. The overall server component was always created, so scheduled gRPC health updates still evaluated all health contributors even when overall health reporting was disabled.\n\nThis change makes the auto-configured server component nullable and omits it when overall health reporting is disabled. Service-specific health components continue to be created from `spring.grpc.server.health.service.*` settings.\n\nVerification:\n- RED: `./gradlew :module:spring-boot-grpc-server:test --tests org.springframework.boot.grpc.server.autoconfigure.health.AutoConfiguredHealthCheckedGrpcComponentsTests.getServerWhenIncludeOverallHealthIsFalseReturnsNull --no-daemon` failed before the fix.\n- GREEN: `./gradlew :module:spring-boot-grpc-server:test --tests org.springframework.boot.grpc.server.autoconfigure.health.AutoConfiguredHealthCheckedGrpcComponentsTests.getServerWhenIncludeOverallHealthIsFalseReturnsNull --tests org.springframework.boot.grpc.server.autoconfigure.health.GrpcServerHealthAutoConfigurationTests.whenIncludeOverallHealthIsFalseDoesNotReportOverallHealth --no-daemon`\n- GREEN: `./gradlew :module:spring-boot-grpc-server:test --tests org.springframework.boot.grpc.server.autoconfigure.health.AutoConfiguredHealthCheckedGrpcComponentsTests --tests org.springframework.boot.grpc.server.autoconfigure.health.GrpcServerHealthAutoConfigurationTests --no-daemon`\n- GREEN: `./gradlew :module:spring-boot-grpc-server:checkstyleMain :module:spring-boot-grpc-server:checkstyleTest --no-daemon`\n- GREEN: `git diff --check HEAD^ HEAD`\n",
+      "droppedBoilerplate": [
+        "spring"
+      ],
       "gold": [
         "module/spring-boot-grpc-server/src/main/java/org/springframework/boot/grpc/server/autoconfigure/health/AutoConfiguredHealthCheckedGrpcComponents.java"
       ],
@@ -322,6 +766,9 @@
         "stemblind": "Correct function types avoid nullability warning Previously first parameter equivalent passed call function cannot accept parameter Address changing relevant parameter types discovered working NullAway cause warning future version NullAway"
       },
       "stemblindWords": 29,
+      "rawTitle": "Correct function types in ClassPath to avoid nullability warning",
+      "rawBody": "Previously, the first parameter of `ClassPath.of` was `UnaryOperator<@Nullable String>`, which is equivalent to `Function<@Nullable String, @Nullable String>`.  But, `System::getProperty` was passed in at a call, and that function cannot accept `null` as a parameter.  Address by changing the relevant parameter types to `Function<String, @Nullable String>`.\r\n\r\nThis issue was discovered while working on NullAway, and will cause a warning in a future version of NullAway.\r\n",
+      "droppedBoilerplate": [],
       "gold": [
         "build-plugin/spring-boot-maven-plugin/src/main/java/org/springframework/boot/maven/ClassPath.java"
       ],
@@ -347,6 +794,9 @@
         "stemblind": "log nested archive paths playing around noticed logging looks like confused Nested archive paths null realized logging using always place using field"
       },
       "stemblindWords": 22,
+      "rawTitle": "PropertiesLauncher does not log nested archive paths",
+      "rawBody": "I've been playing around with the `PropertiesLauncher` and I noticed then the logging looks like:\r\n\r\n```\r\n...PropertiesLauncher : Property 'loader.path'[Loader-Path]  from environment: WEB-INF/classes,WEB-INF/lib,WEB-INF/lib-provided,file:/dummy\r\n...PropertiesLauncher : Nested archive paths: null\r\n...PropertiesLauncher : Property 'loader.path'[Loader-Path]  from environment: WEB-INF/classes,WEB-INF/lib,WEB-INF/lib-provided,file:/dummy\r\n...PropertiesLauncher : Nested archive paths: [WEB-INF/classes/, WEB-INF/lib/, WEB-INF/lib-provided/, file:/dummy/]\r\n```\r\n\r\nI was confused by \r\n\r\n>Nested archive paths: null\r\n\r\nand that's how I realized that the logging is using `this.paths` always, and that this is the only place using the `paths` field. ",
+      "droppedBoilerplate": [],
       "gold": [
         "loader/spring-boot-loader/src/main/java/org/springframework/boot/loader/launch/PropertiesLauncher.java"
       ],
@@ -372,6 +822,9 @@
         "stemblind": "Methods return result Map remove declared Nullable return type next release NullAway treats returning leading errors locations them marking return type"
       },
       "stemblindWords": 21,
+      "rawTitle": "Methods that return the result of Map#remove are not declared with a @Nullable return type",
+      "rawBody": "The next release of NullAway treats `Map.remove` as returning `@Nullable`, leading to errors at these locations.  Fix them by marking the return type as `@Nullable`.\r\n",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/restart/RestartScopeInitializer.java",
         "module/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/restart/Restarter.java"
@@ -394,10 +847,16 @@
       "base": "f83576eb2954c007464c696d1dabc7a871a7becc",
       "mergeCommit": "21cb821f9553c048566b9a1779729c78167439a0",
       "queries": {
-        "natural": "NativeImageResourceProvider flattens Flyway migration paths subdirectories Context Spring Boot version follows forward port appears recursive resource discovery part line forward port tracker original described second required part needs preserve full classpath relative path resources found subdirectories Problem now uses recursive pattern discovers Flyway migration scripts subdirectories discovered resource converted Flyway path still built migration produces subdirectory lost Flyway read resource",
-        "stemblind": "flattens migration paths subdirectories Context Spring version follows forward port appears recursive discovery part line forward port tracker original described second required part needs preserve full classpath relative path resources found subdirectories Problem now uses recursive pattern discovers migration scripts subdirectories discovered converted path still built migration produces subdirectory lost read flattened path exist classpath Expected behavior migration scripts subdirectories"
+        "natural": "NativeImageResourceProvider flattens Flyway migration paths subdirectories Context version follows forward port appears recursive resource discovery part line forward port tracker original described second required part needs preserve full classpath relative path resources found subdirectories Problem now uses recursive pattern discovers Flyway migration scripts subdirectories discovered resource converted Flyway path still built migration produces subdirectory lost Flyway read resource flattened path",
+        "stemblind": "flattens migration paths subdirectories Context version follows forward port appears recursive discovery part line forward port tracker original described second required part needs preserve full classpath relative path resources found subdirectories Problem now uses recursive pattern discovers migration scripts subdirectories discovered converted path still built migration produces subdirectory lost read flattened path exist classpath Expected behavior migration scripts subdirectories discovered"
       },
       "stemblindWords": 60,
+      "rawTitle": "NativeImageResourceProvider flattens Flyway migration paths in subdirectories",
+      "rawBody": "## Context\n\nSpring Boot version: `4.0.6`\n\nThis follows up on https://github.com/spring-projects/spring-boot/issues/49661\n\nThe forward-port issue #49706 appears to have fixed the recursive resource discovery part of #49661 for the `4.0.x` line. But #49706 was only a forward-port tracker for #49661, and the original issue described a second required part: `asClassPathResource` also needs to preserve the full classpath-relative path for resources found in subdirectories.\n\n## Problem\n\n`NativeImageResourceProvider` now uses a recursive pattern and discovers Flyway migration scripts in subdirectories.\nBut when the discovered resource is converted into a Flyway `ClassPathResource`, the path is still built from:\n\n```java\n  location.getRootPath() + \"/\" + locatedResource.resource().getFilename()\n```\n\nFor a migration such as: `db/migration/nativeimage-test/1.0.0/V2__subdir.sql` this produces: `db/migration/nativeimage-test/V2__subdir.sql`\nThe `1.0.0` subdirectory is **lost**. Flyway can not then read the resource because the flattened path does not exist on the classpath.\n\n## Expected behavior\n\nFlyway migration scripts in subdirectories should be both discovered and readable in a native image, matching regular JVM behavior.\nFor example, this resource should be represented with its full classpath-relative path: `db/migration/nativeimage-test/1.0.0/V2__subdir.sql`\n\n## Actual behavior\n\nThe resource is discovered, but the ClassPathResource is created with a flattened path: `db/migration/nativeimage-test/V2__subdir.sql`. Attempting to read it fails because that flattened resource does not exist.\n\n## Existing test coverage\n\nThe test added in https://github.com/spring-projects/spring-boot/commit/e65732e1780ceb6542caefa0f0d07483fae65a75 verifies that nested migrations are found:\n\n```java\n  Collection<LoadableResource> migrations = resourceProvider.getResources(\"V\", new String[] { \".sql\" });\n  LoadableResource v1 = resourceProvider.getResource(\"V1__init.sql\");\n  LoadableResource v2 = resourceProvider.getResource(\"nested/V2__users.sql\");\n  assertThat(migrations).containsExactly(v1, v2);\n```\n\nBut this does not cover the missed part because it does not force the `NativeDetector.inNativeImage()` branch. On the JVM, `NativeImageResourceProvider#getResources` delegates to Flyway's regular scanner:\n\n```java\n  if (!NativeDetector.inNativeImage()) {\n      return this.scanner.getResources(prefix, suffixes);\n  }\n```\n\nThe test also **does not assert** the absolute path of the resource returned by `getResources` and does not call `read()` on that resource. A resource can have the correct filename while still having a flattened, unreadable absolute path.\n\n## Reproducer\n\nI have attached a dedicated test case as a [gist](https://gist.github.com/sondemar/43244ba758d0c1ca8e12ca544c58b36f). The test:\n\n  1. Creates a temporary classpath root.\n  2. Adds a Flyway migration under a subdirectory:\n     `db/migration/nativeimage-test/1.0.0/V2__subdir.sql`\n  3. Forces the native-image branch with `NativeDetector.inNativeImage() == true`.\n  4. Mocks Flyway's scanner to return no resources, so only `NativeImageResourceProvider`'s native-image discovery path is tested.\n  5. Verifies that the discovered resource keeps the full classpath-relative path.\n  6. Verifies that the discovered resource can be read.\n\n  With Spring Boot 4.0.6, the test fails because the resource path is flattened.\n\n  ## Suggested fix\n\nThe original #49661 issue **already described** the needed direction: \nWhen converting a discovered `Resource` to a Flyway `ClassPathResource`, use the full classpath-relative path from the resolver result rather than only `resource.getFilename()`.\n\nFor example, `ClassPathResource` instances can provide their full path via `getPath()`. For other resource types, such as native-image resource: URLs, the full path can be derived from the resource URI by locating the configured Flyway location root.",
+      "droppedBoilerplate": [
+        "spring",
+        "boot"
+      ],
       "gold": [
         "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/NativeImageResourceProvider.java"
       ],
@@ -408,7 +867,6 @@
       "droppedForLeak": [
         "nativeimageresourceprovider",
         "flyway",
-        "boot",
         "resource"
       ]
     },
@@ -426,6 +884,9 @@
         "stemblind": "Add property leaveGroupOnClose Setting option leave group often deployment time concern rather build time rolling deployments Kubernetes Earlier internal leave group property removed replaced API option uses set code change makes possible set option leave group time using application default default change behaviour unless property explicitly set"
       },
       "stemblindWords": 47,
+      "rawTitle": "Add configuration property for leaveGroupOnClose in Kafka Streams",
+      "rawBody": "Setting the option to leave the group on close in Kafka Streams is often a deployment time concern rather than at build time, eg. for rolling deployments in Kubernetes.\r\n\r\nEarlier there was a \"internal.leave.group.on.close\" property in Kafka Streams, but this has been removed and been replaced by API option in `KafkaStreams.close` that the `StreamsBuilderFactoryBean` uses, but could only by set with `StreamsBuilderFactoryBean.setLeaveGroupOnClose(true)` in code.\r\n\r\nThis change makes it possible again to set the option to leave the group on close at configuration/deployment time using the application properties:\r\n\r\n```\r\nspring:\r\n  kafka:\r\n     streams:\r\n       leave-group-on-close: true\r\n```\r\n\r\nThe default is `false`, which is the same as `StreamsBuilderFactoryBean.leaveGroupOnClose` default, so there should be no change in behaviour unless the property is explicitly set.\r\n\r\n<!--\r\nThanks for contributing to Spring Boot. Please review the following notes before\r\nsubmitting a pull request.\r\n\r\nPlease submit only genuine pull-requests. Do not use this repository as a GitHub\r\nplayground.\r\n\r\nSecurity Vulnerabilities\r\n\r\nSTOP! If your contribution fixes a security vulnerability, please do not submit it.\r\nInstead, please head over to https://spring.io/security-policy to learn how to disclose a\r\nvulnerability responsibly.\r\n\r\nDependency Upgrades\r\n\r\nPlease do not open a pull request for a straightforward dependency upgrade (one that\r\nonly updates the version property). We have a semi-automated process for such upgrades\r\nthat we prefer to use. However, if the upgrade is more involved (such as requiring\r\nchanges for removed or deprecated API) your pull request is most welcome.\r\n\r\nDescribing Your Changes\r\n\r\nIf, having reviewed the notes above, you're ready to submit your pull request, please\r\nprovide a brief description of the proposed changes. If they fix a bug, please\r\ndescribe the broken behaviour and how the changes fix it. If they make an enhancement,\r\nplease describe the new functionality and why you believe it's useful. If your pull\r\nrequest relates to any existing issues, please reference them by using the issue number\r\nprefixed with #.\r\n-->\r\n",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-kafka/src/main/java/org/springframework/boot/kafka/autoconfigure/KafkaProperties.java",
         "module/spring-boot-kafka/src/main/java/org/springframework/boot/kafka/autoconfigure/KafkaStreamsAnnotationDrivenConfiguration.java"
@@ -456,6 +917,9 @@
         "stemblind": "Add configurable timeout support mentioned HealthIndicator uses time interval seconds cases important overwrite value example service broker pressure respond within seconds intervalls configured fire often many parallel pods corresponding checks Thus value configurable"
       },
       "stemblindWords": 33,
+      "rawTitle": "Add configurable timeout support to JmsHealthIndicator",
+      "rawBody": "The mentioned HealthIndicator uses a fixed time-interval of 5 seconds. In some cases it might be important to overwrite this value. For example when the service-broker has some pressure and can't respond within 5 seconds. Or the health-intervalls are configured to fire too often (many parallel pods with corresponding health checks). Thus the value should be configurable.\n",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-jms/src/main/java/org/springframework/boot/jms/autoconfigure/health/JmsHealthContributorAutoConfiguration.java",
         "module/spring-boot-jms/src/main/java/org/springframework/boot/jms/autoconfigure/health/JmsHealthIndicatorProperties.java",
@@ -487,6 +951,9 @@
         "stemblind": "JarFile finding archive Problem Solves opens points archive passes API jar caller owns resource task never leaving file handle open rest JVM lifetime finalization Almost every call site repository already uses try resources plugins loader tools buildSrc checks etc Evidence Red green unit proof verified Wrap archive path try resources jar search returns Related leak prior cleanups InspectingOutputStream URLClassLoader Introduced"
       },
       "stemblindWords": 60,
+      "rawTitle": "JarFile is not closed when finding main class from archive",
+      "rawBody": "## What Problem This Solves\n\n`FindMainClass` opens a `JarFile` when `@classesRoot` points at an archive and passes it to `MainClassFinder.findSingleMainClass(JarFile, ...)`. That API does not close the jar; the caller owns the resource. The Ant task never closed it, leaving a file handle open for the rest of the JVM lifetime (or until GC finalization).\n\nAlmost every other `new JarFile(...)` call site in this repository already uses try-with-resources (Gradle/Maven plugins, loader tools, buildSrc checks, etc.).\n\n## Evidence\n\nRed-green unit proof:\n\n```text\n# Red (buggy code still present)\n./gradlew :build-plugin:spring-boot-antlib:test --tests \\\n  org.springframework.boot.ant.FindMainClassTests.closesJarFileWhenSearchingArchive\nFindMainClassTests > closesJarFileWhenSearchingArchive(Path) FAILED\n    java.lang.AssertionError at FindMainClassTests.java:71\n# assertion: getJarEntry after task.execute should throw IllegalStateException when jar is closed\n\n# Green (try-with-resources applied)\nBUILD SUCCESSFUL\n```\n\nAlso verified: `checkFormatMain`/`checkFormatTest`, `checkstyleMain`/`checkstyleTest`.\n\n## Summary\n\nWrap the archive path in try-with-resources so the jar is closed after the main-class search returns.\n\n## Related\n\n- Same leak class as prior cleanups: https://github.com/spring-projects/spring-boot/pull/50639 (InspectingOutputStream), https://github.com/spring-projects/spring-boot/pull/50626 (URLClassLoader)\n- Introduced on the archive branch of `FindMainClass` in `1595286e04` (2016-11-29; preferred `@SpringBootApplication` search). The unclosed `new JarFile` pattern has been present since the Ant task gained jar support.\n- No open competing PR for this path.\n\n## Test plan\n\n- [x] Red: `FindMainClassTests.closesJarFileWhenSearchingArchive` fails without close\n- [x] Green: same test passes with try-with-resources\n- [x] Format + Checkstyle on main and test sources\n",
+      "droppedBoilerplate": [],
       "gold": [
         "build-plugin/spring-boot-antlib/src/main/java/org/springframework/boot/ant/FindMainClass.java"
       ],
@@ -513,6 +980,9 @@
         "stemblind": "Provide callback interface customizing registrations Currently publicly exposed However WebFlux one possible align expose publicly WebFlux one exposed"
       },
       "stemblindWords": 18,
+      "rawTitle": "Provide a callback interface for customizing WebMvc resource handler registrations",
+      "rawBody": "Currently the WebMvc `ResourceHandlerRegistrationCustomizer` is not publicly exposed. However, the WebFlux one is.\n\nIs it possible to align and expose the WebMvc `ResourceHandlerRegistrationCustomizer` publicly? The WebFlux one was exposed in #14587.\n\n",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-webmvc/src/main/java/org/springframework/boot/webmvc/autoconfigure/ResourceHandlerRegistrationCustomizer.java",
         "module/spring-boot-webmvc/src/main/java/org/springframework/boot/webmvc/autoconfigure/WebMvcAutoConfiguration.java"
@@ -541,6 +1011,9 @@
         "stemblind": "Expose Path getters already uses internally exposes via Callers want use NIO API round trip change makes public adds mirror existing methods"
       },
       "stemblindWords": 22,
+      "rawTitle": "Expose Path getters on ApplicationHome and ApplicationTemp",
+      "rawBody": "`ApplicationTemp` already uses `java.nio.file.Path` internally but only exposes `java.io.File` via `getDir()` / `getDir(String)`. Callers that want to use the NIO `Files` API have to round-trip through `getDir().toPath()`.\n\nThis change makes `getPath()` public and adds `getPath(String subDir)` to mirror the existing `getDir` methods.\n\nCloses gh-50192",
+      "droppedBoilerplate": [],
       "gold": [
         "core/spring-boot/src/main/java/org/springframework/boot/system/ApplicationHome.java",
         "core/spring-boot/src/main/java/org/springframework/boot/system/ApplicationTemp.java"
@@ -566,10 +1039,16 @@
       "base": "2eedeabe9ac1b70e7cbe7db012fbc1332ac9ef1d",
       "mergeCommit": "b75932f259ccabfa8d2c628e82c8f0ce854fb225",
       "queries": {
-        "natural": "Application managed JUL bridge handler removed installed addresses asymmetry described install JUL bridge handler application already managing itself JUL root logger using single However removed bridge handler whenever bridge class merely present classpath result application installs manages JUL bridge handler Spring Boot still uninstall context shutdown tearing handler never installed change tracks whether bridge handler installed Spring Boot removes cleanup",
-        "stemblind": "Application managed JUL bridge handler removed installed addresses asymmetry described install JUL bridge handler application already managing itself JUL root logger using single However removed bridge handler whenever bridge class merely present classpath result application installs manages JUL bridge handler Spring still uninstall context shutdown tearing handler never installed change tracks whether bridge handler installed Spring removes cleanup case making"
+        "natural": "Application managed JUL bridge handler removed installed addresses asymmetry described install JUL bridge handler application already managing itself JUL root logger using single However removed bridge handler whenever bridge class merely present classpath result application installs manages JUL bridge handler still uninstall context shutdown tearing handler never installed change tracks whether bridge handler installed removes cleanup case making install uninstall",
+        "stemblind": "Application managed JUL bridge handler removed installed addresses asymmetry described install JUL bridge handler application already managing itself JUL root logger using single However removed bridge handler whenever bridge class merely present classpath result application installs manages JUL bridge handler still uninstall context shutdown tearing handler never installed change tracks whether bridge handler installed removes cleanup case making install uninstall"
       },
       "stemblindWords": 60,
+      "rawTitle": "Application-managed JUL bridge handler should only be removed if installed",
+      "rawBody": "This addresses the install/uninstall asymmetry described in #33697.\r\n\r\n`LogbackLoggingSystem` and `Log4J2LoggingSystem` install a JUL bridge handler (`SLF4JBridgeHandler` / `Log4jBridgeHandler`) only when the application is not already managing `java.util.logging` itself (i.e. when the JUL root logger is using at most a single `ConsoleHandler`). However, `cleanUp()` removed the bridge handler whenever the bridge class was merely present on the classpath.\r\n\r\nAs a result, when an application installs and manages its own JUL bridge handler, Spring Boot would still uninstall it during context shutdown — tearing down a handler it never installed.\r\n\r\nThis change tracks whether the bridge handler was installed by Spring Boot and only removes it during cleanup when that is the case, making install and uninstall symmetric.\r\n\r\nA test is added to each logging system verifying that an application-installed bridge handler is left in place after `cleanUp()`. Both tests fail without the corresponding production change.\r\n\r\nNote: this PR is scoped to the install/uninstall asymmetry. The separate question of *when* the bridge handler is removed during the context lifecycle (also discussed in the issue) is intentionally left out of scope.\r\n",
+      "droppedBoilerplate": [
+        "spring",
+        "boot"
+      ],
       "gold": [
         "core/spring-boot/src/main/java/org/springframework/boot/logging/log4j2/Log4J2LoggingSystem.java",
         "core/spring-boot/src/main/java/org/springframework/boot/logging/logback/LogbackLoggingSystem.java"
@@ -580,9 +1059,7 @@
         "core/spring-boot/src/test/java/org/springframework/boot/logging/log4j2/Log4J2LoggingSystemTests.java",
         "core/spring-boot/src/test/java/org/springframework/boot/logging/logback/LogbackLoggingSystemTests.java"
       ],
-      "droppedForLeak": [
-        "boot"
-      ]
+      "droppedForLeak": []
     },
     {
       "repo": "spring-boot",
@@ -598,6 +1075,9 @@
         "stemblind": "entityManagerConfiguration cause dependency loop beans declaring AsyncTaskExecutor addresses Broken behavior injects parameter pick fallback executor used background bootstrapping method parameter eagerly container creating forces every bean initialized early even background bootstrapping enabled defaults application defines depends directly transitively premature initialization produces context fails start regression fallback executor now lazily stores fallback invokes background bootstrapping actually required time new based constructor"
       },
       "stemblindWords": 60,
+      "rawTitle": "JpaBaseConfiguration#entityManagerConfiguration can cause a dependency loop on beans declaring AsyncTaskExecutor",
+      "rawBody": "This addresses #50797.\n\n## Broken behavior\n\n`JpaBaseConfiguration#entityManagerFactoryBuilder` injects a `Map<String, AsyncTaskExecutor>` parameter to pick the fallback executor used for background JPA bootstrapping. A `Map` method parameter is resolved eagerly by the container, so creating the `EntityManagerFactoryBuilder` forces every `AsyncTaskExecutor` bean to be initialized early — even when background bootstrapping is not enabled (`spring.jpa.bootstrap` defaults to `default`).\n\nWhen an application defines an `AsyncTaskExecutor` that depends, directly or transitively, on the `EntityManagerFactory`, this premature initialization produces a `BeanCurrentlyInCreationException` and the context fails to start. This is a regression in 4.1.0.\n\n## Fix\n\nThe fallback executor is now resolved lazily:\n\n- `EntityManagerFactoryBuilder` stores the fallback as a `Supplier<? extends @Nullable AsyncTaskExecutor>` and only invokes it when background bootstrapping is actually required (at `build()` time). A new `Supplier`-based constructor is added (`@since 4.1.1`); the existing `AsyncTaskExecutor` constructor is retained for backwards compatibility and delegates to it.\n- `JpaBaseConfiguration#entityManagerFactoryBuilder` no longer injects a `Map`. It now takes a `ListableBeanFactory` and resolves the executor via `getBeansOfType(...)` inside the supplier, so the lookup runs only when needed and no longer forces eager initialization.\n- `DataJpaRepositoriesAutoConfiguration` carried the same eager `Map<String, AsyncTaskExecutor>` injection plus an unused private method left over from the same change; both are removed.\n\nThe executor selection logic is unchanged: a single `AsyncTaskExecutor` is used if exactly one is present, otherwise the one named `applicationTaskExecutor` is used.\n\n## Tests\n\n- A regression test in `HibernateJpaAutoConfigurationTests` reproduces the dependency loop (an `AsyncTaskExecutor` depending on the `EntityManagerFactory`) and verifies the context now starts.\n- `EntityManagerFactoryBuilderTests` adds coverage for the new `Supplier`-based fallback, including verifying that the supplier is not invoked when background bootstrapping is not required.\n\nThe default (synchronous), `spring.jpa.bootstrap=async`, and `spring.data.jpa.repositories.bootstrap-mode=deferred` paths were all exercised.\n",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-data-jpa/src/main/java/org/springframework/boot/data/jpa/autoconfigure/DataJpaRepositoriesAutoConfiguration.java",
         "module/spring-boot-jpa/src/main/java/org/springframework/boot/jpa/EntityManagerFactoryBuilder.java",
@@ -625,10 +1105,16 @@
       "base": "d5cde2ece12cc63ea5a95ca85e28e86bbe9c770c",
       "mergeCommit": "f8e62d6f182d4d4c39aa7f5924992fc91e331e34",
       "queries": {
-        "natural": "Context refresh fails reactive Cloud Foundry using Actuator without spring boot health Follow servlet Cloud Foundry actuator auto configuration noted unverified sibling confirms reactive sibling failing test absent parsing reactive Cloud Foundry actuator configuration health method signature causing context refresh fail registered Changes Move nested guarded Testing new fails change pass",
-        "stemblind": "Context refresh fails using without spring health Follow servlet noted unverified sibling confirms sibling failing absent parsing health method signature causing context refresh fail registered Changes Move nested guarded Testing new fails change pass"
+        "natural": "Context refresh fails reactive Cloud Foundry using Actuator without health Follow servlet Cloud Foundry actuator auto configuration noted unverified sibling confirms reactive sibling failing test absent parsing reactive Cloud Foundry actuator configuration health method signature causing context refresh fail registered Changes Move nested guarded Testing new fails change pass",
+        "stemblind": "Context refresh fails using without health Follow servlet noted unverified sibling confirms sibling failing absent parsing health method signature causing context refresh fail registered Changes Move nested guarded Testing new fails change pass"
       },
-      "stemblindWords": 34,
+      "stemblindWords": 33,
+      "rawTitle": "Context refresh fails on reactive Cloud Foundry when using Actuator without spring-boot-health",
+      "rawBody": "Follow-up to #50857, which fixed the servlet Cloud Foundry actuator\nauto-configuration. #50794 noted\n`CloudFoundryReactiveActuatorAutoConfiguration` as an unverified sibling.\n\nThis PR confirms the reactive sibling with a failing test. When\n`spring-boot-health` is absent, parsing the reactive Cloud Foundry actuator\nconfiguration resolves `ReactiveHealthEndpointWebExtension` from the health\n`@Bean` method signature, causing context refresh to fail before\n`/cloudfoundryapplication` can be registered.\n\n## Changes\n\n- Move `cloudFoundryReactiveHealthEndpointWebExtension` into a nested\n  `HealthConfiguration` guarded by `@ConditionalOnClass(HealthEndpoint.class)`\n\n## Testing\n\n- `CloudFoundryReactiveActuatorAutoConfigurationTests.refreshSucceedsWithoutHealth` (new; fails before this change)\n- `CloudFoundryReactiveActuatorAutoConfigurationTests` and `CloudFoundryActuatorAutoConfigurationTests` pass",
+      "droppedBoilerplate": [
+        "spring",
+        "boot"
+      ],
       "gold": [
         "module/spring-boot-cloudfoundry/src/main/java/org/springframework/boot/cloudfoundry/autoconfigure/actuate/endpoint/reactive/CloudFoundryReactiveActuatorAutoConfiguration.java"
       ],
@@ -641,7 +1127,6 @@
         "cloud",
         "foundry",
         "actuator",
-        "boot",
         "auto",
         "configuration",
         "test"
@@ -657,10 +1142,16 @@
       "base": "2f13d62aa4c925b6e0b2b123e016c743bcf80400",
       "mergeCommit": "00fa8e01459a2650669aa900e758236a657fb239",
       "queries": {
-        "natural": "Context refresh fails using Actuator Jersey without spring boot health See Previously failed parse absent method referenced directly Changes Move additional health endpoint paths registrar nested Make static Testing",
-        "stemblind": "refresh fails using Actuator without spring health See Previously failed parse absent method referenced directly Changes Move additional health paths registrar nested Make static Testing"
+        "natural": "Context refresh fails using Actuator Jersey without health See Previously failed parse absent method referenced directly Changes Move additional health endpoint paths registrar nested Make static Testing",
+        "stemblind": "refresh fails using Actuator without health See Previously failed parse absent method referenced directly Changes Move additional health paths registrar nested Make static Testing"
       },
-      "stemblindWords": 25,
+      "stemblindWords": 24,
+      "rawTitle": "Context refresh fails when using Actuator on Jersey without spring-boot-health",
+      "rawBody": "See #50794.\n\nPreviously, `JerseyWebEndpointManagementContextConfiguration` failed to parse\nwhen `spring-boot-health` was absent because the\n`jerseyDifferentPortAdditionalHealthEndpointPathsResourcesRegistrar` `@Bean`\nmethod referenced `HealthEndpointGroups` directly.\n\n## Changes\n- Move the additional health endpoint paths registrar into a nested `HealthConfiguration`\n- Make `JerseyAdditionalHealthEndpointPathsManagementResourcesRegistrar` static\n\n## Testing\n- `JerseyWebEndpointManagementContextConfigurationTests.refreshSucceedsWithoutHealth`\n- `JerseyWebEndpointManagementContextConfigurationTests`\n- `:module:spring-boot-jersey:checkFormatMain`\n- `:module:spring-boot-jersey:checkFormatTest`\n",
+      "droppedBoilerplate": [
+        "spring",
+        "boot"
+      ],
       "gold": [
         "module/spring-boot-jersey/src/main/java/org/springframework/boot/jersey/autoconfigure/actuate/web/JerseyWebEndpointManagementContextConfiguration.java"
       ],
@@ -671,7 +1162,6 @@
       "droppedForLeak": [
         "context",
         "jersey",
-        "boot",
         "endpoint"
       ]
     },
@@ -685,10 +1175,16 @@
       "base": "4c5aee76c7b788cf20329d10b3a1e8acf68bf992",
       "mergeCommit": "2f13d62aa4c925b6e0b2b123e016c743bcf80400",
       "queries": {
-        "natural": "Context refresh fails Cloud Foundry using Actuator without spring boot health See Previously failed parse absent method referenced directly Changes Move nested Testing",
-        "stemblind": "Context refresh fails using without spring health See Previously failed parse absent method referenced directly Changes Move nested Testing"
+        "natural": "Context refresh fails Cloud Foundry using Actuator without health See Previously failed parse absent method referenced directly Changes Move nested Testing",
+        "stemblind": "Context refresh fails using without health See Previously failed parse absent method referenced directly Changes Move nested Testing"
       },
-      "stemblindWords": 19,
+      "stemblindWords": 18,
+      "rawTitle": "Context refresh fails on Cloud Foundry when using Actuator without spring-boot-health",
+      "rawBody": "See #50794.\n\nPreviously, `CloudFoundryActuatorAutoConfiguration` failed to parse when\n`spring-boot-health` was absent because the\n`cloudFoundryHealthEndpointWebExtension` `@Bean` method referenced\n`HealthEndpointWebExtension` directly.\n\n## Changes\n- Move `cloudFoundryHealthEndpointWebExtension` into a nested `HealthConfiguration`\n\n## Testing\n- `CloudFoundryActuatorAutoConfigurationTests.refreshSucceedsWithoutHealth`\n- `CloudFoundryActuatorAutoConfigurationTests`\n- `:module:spring-boot-cloudfoundry:checkFormatMain`\n- `:module:spring-boot-cloudfoundry:checkFormatTest`\n",
+      "droppedBoilerplate": [
+        "spring",
+        "boot"
+      ],
       "gold": [
         "module/spring-boot-cloudfoundry/src/main/java/org/springframework/boot/cloudfoundry/autoconfigure/actuate/endpoint/servlet/CloudFoundryActuatorAutoConfiguration.java"
       ],
@@ -699,8 +1195,7 @@
       "droppedForLeak": [
         "cloud",
         "foundry",
-        "actuator",
-        "boot"
+        "actuator"
       ]
     },
     {
@@ -717,6 +1212,9 @@
         "stemblind": "Remove Nullable local variable declarations aren applied local variables least root types applied type arguments array components reason possible infer whether variable null based values assigned variable"
       },
       "stemblindWords": 27,
+      "rawTitle": "Remove @Nullable from local variable declarations",
+      "rawBody": ">> `@Nullable` and `@NonNull` aren't applied to local variables—at least not their root types. (They should be applied to type arguments and array components.) The reason is that it is possible to infer whether a variable can be null based on the values that are assigned to the variable.",
+      "droppedBoilerplate": [],
       "gold": [
         "core/spring-boot/src/main/java/org/springframework/boot/json/BasicJsonParser.java",
         "module/spring-boot-micrometer-metrics/src/main/java/org/springframework/boot/micrometer/metrics/autoconfigure/PropertiesMeterFilter.java"
@@ -744,6 +1242,9 @@
         "stemblind": "Update documentation Clarify service name service namespace defaults remove obsolete service group documentation"
       },
       "stemblindWords": 13,
+      "rawTitle": "Update OpenTelemetryResourceAttributes documentation",
+      "rawBody": "Clarify **service.name** and **service.namespace** defaults and remove obsolete **service.group** documentation",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/OpenTelemetryResourceAttributes.java"
       ],
@@ -764,10 +1265,15 @@
       "base": "cd562c19de277fc9f966f4e9ad5c758f78ddcd98",
       "mergeCommit": "4fe692e9d25de4fd259425dc73e1c7ad10cd9da0",
       "queries": {
-        "natural": "Inconsistent handling empty string values spring security oauth2 resourceserver jwt issuer uri jwk set uri updates JWT decoder auto configuration empty value treated absent Previously JWK Set URI based decoder created property present empty configured result JWK Set URI based decoder issuer uri based decoder created regression test added case configured present empty value",
-        "stemblind": "Inconsistent handling empty string values spring resourceserver issuer updates empty value treated absent Previously based created property present empty configured result based issuer based created regression added case configured present empty value"
+        "natural": "Inconsistent handling empty string values security oauth2 resourceserver jwt issuer uri jwk set uri updates JWT decoder auto configuration empty value treated absent Previously JWK Set URI based decoder created property present empty configured result JWK Set URI based decoder issuer uri based decoder created regression test added case configured present empty value",
+        "stemblind": "Inconsistent handling empty string values resourceserver issuer updates empty value treated absent Previously based created property present empty configured result based issuer based created regression added case configured present empty value"
       },
-      "stemblindWords": 32,
+      "stemblindWords": 31,
+      "rawTitle": "Inconsistent handling of empty string values of spring.security.oauth2.resourceserver.jwt issuer-uri and jwk-set-uri",
+      "rawBody": "Fixes gh-50753\r\n\r\nThis updates JWT decoder auto-configuration so that an empty\r\n`spring.security.oauth2.resourceserver.jwt.jwk-set-uri` value is treated as\r\nabsent.\r\n\r\nPreviously, the JWK Set URI based decoder could be created when the property was\r\npresent but empty. When `issuer-uri` was also configured, this could result in\r\nboth the JWK Set URI based decoder and the issuer-uri based decoder being\r\ncreated.\r\n\r\nA regression test has been added for the case where `issuer-uri` is configured\r\nand `jwk-set-uri` is present with an empty value.",
+      "droppedBoilerplate": [
+        "spring"
+      ],
       "gold": [
         "module/spring-boot-security-oauth2-resource-server/src/main/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/ConditionalOnJwkSetUriJwtDecoder.java",
         "module/spring-boot-security-oauth2-resource-server/src/main/java/org/springframework/boot/security/oauth2/server/resource/autoconfigure/JwkSetUriCondition.java",
@@ -809,6 +1315,9 @@
         "stemblind": "Add TLD adds Tomcat executable WARs exercise TLD scanning new fixture builds taglibs runs via suite verifies starts successfully known TLD scanning failure signatures absent help catch regressions like one described Verification"
       },
       "stemblindWords": 32,
+      "rawTitle": "Add WAR TLD loader integration test",
+      "rawBody": "This adds a Tomcat WAR loader integration test for executable WARs that exercise TLD scanning.\r\n\r\nThe new test fixture builds a WAR application with JSP taglibs and runs it via `java -jar app.war` in the loader integration test suite. The test verifies that the application starts successfully and that known TLD scanning failure signatures are absent.\r\n\r\nThis should help catch regressions like the one described in gh-38047.\r\n\r\nFixes gh-38068\r\n\r\n## Verification\r\n\r\n- `./gradlew :integration-test:spring-boot-loader-integration-tests:dockerTest --rerun-tasks`",
+      "droppedBoilerplate": [],
       "gold": [
         "integration-test/spring-boot-loader-integration-tests/spring-boot-loader-tests-war/src/main/java/org/springframework/boot/loaderwarapp/LoaderWarTestApplication.java"
       ],
@@ -839,10 +1348,16 @@
       "base": "3d280c4354a127e9f08bb1ea782b02165bbbfa7e",
       "mergeCommit": "0836e3673a74e47a2e5eed3a8e8ad45cfa4a0ccf",
       "queries": {
-        "natural": "java lang IllegalStateException validation configuration properties Spring Boot team Recently upgrading Spring Boot encountered custom investigating seems bugs introduced commit integration introduction line case kotlin spring boot app configuration properties allow flexible value types templating minimal example reproduce following time workarounds remove replace case option lot",
-        "stemblind": "lang IllegalStateException configuration Spring team Recently upgrading Spring encountered custom investigating seems bugs introduced commit integration introduction line case kotlin spring app configuration allow flexible value types templating minimal example reproduce following time workarounds remove replace case option lot"
+        "natural": "java lang IllegalStateException validation configuration properties team Recently upgrading encountered custom investigating seems bugs introduced commit integration introduction line case kotlin app configuration properties allow flexible value types templating minimal example reproduce following time workarounds remove replace case option lot",
+        "stemblind": "lang IllegalStateException configuration team Recently upgrading encountered custom investigating seems bugs introduced commit integration introduction line case kotlin app configuration allow flexible value types templating minimal example reproduce following time workarounds remove replace case option lot"
       },
-      "stemblindWords": 39,
+      "stemblindWords": 36,
+      "rawTitle": "Got a java.lang.IllegalStateException during validation of configuration properties",
+      "rawBody": "<!--\nThanks for raising a Spring Boot issue. Please take the time to review the following\ncategories as some of them do not apply here.\n\n🙅 \"Please DO NOT Raise an Issue\" Cases\n- Question\nSTOP!! Please ask questions about how to use something, or to understand why something isn't\nworking as you expect it to, on Stack Overflow using the spring-boot tag.\n- Security Vulnerability\nSTOP!! Please don't raise security vulnerabilities here. Head over to https://spring.io/security-policy to learn how to disclose them responsibly.\n- Managed Dependency Upgrade\nYou DO NOT need to raise an issue for a managed dependency version upgrade as there's a semi-automatic process for checking managed dependencies for new versions before a release. BUT pull requests for upgrades that are more involved than just a version property change are still most welcome.\n- With an Immediate Pull Request\nAn issue will be closed as a duplicate of the immediate pull request, so you don't have to raise an issue if you plan to create a pull request immediately.\n\n🐞 Bug report (please don't include this emoji/text, just add your details)\nPlease provide details of the problem, including the version of Spring Boot that you\nare using. If possible, please provide a test case or sample application that reproduces\nthe problem. This makes it much easier for us to diagnose the problem and to verify that\nwe have fixed it.\n\n🎁 Enhancement (please don't include this emoji/text, just add your details)\nPlease start by describing the problem that you are trying to solve. There may already\nbe a solution, or there may be a way to solve it that you hadn't considered.\n\n\nTIP: You can always edit your issue if it isn't formatted correctly.\n     See https://guides.github.com/features/mastering-markdown \n-->\n\nHi the Spring Boot team,\n\nRecently, after upgrading to Spring Boot 4.1.0, I encountered an issue with my custom `@ConfigurationProperties`:\n\n```text\nFailed to bind properties under 'sample.app.params.toto' to ?:\n\n    Property: sample.app.params.toto\n    Value: \"titi\"\n    Origin: class path resource [application.yaml] - 9:13\n    Reason: java.lang.IllegalStateException: 'validationType' must not be null\n\nAction:\n\nUpdate your application's configuration\n```\n\nAfter investigating, it seems this bugs was introduced by commit [1b3e9e6](https://github.com/spring-projects/spring-boot/commit/1b3e9e679f2673561ea5a3085b4e13213505873d) with the `JSpecify` integration with the introduction of the line: `Assert.state(validationType != null, \"'validationType' must not be null\");`\n\nIn my case, I have kotlin spring boot app with a configuration properties that allow flexible value types for templating.\n\nHere is a minimal example to reproduce the issue:\n\n```kotlin\npackage com.example\n\nimport org.springframework.boot.autoconfigure.SpringBootApplication\nimport org.springframework.boot.context.properties.ConfigurationProperties\nimport org.springframework.boot.context.properties.EnableConfigurationProperties\nimport org.springframework.boot.runApplication\nimport org.springframework.validation.annotation.Validated\nimport org.springframework.web.bind.annotation.GetMapping\nimport org.springframework.web.bind.annotation.RestController\n\n@RestController\n@SpringBootApplication\n@EnableConfigurationProperties(SampleApp.SampleAppProperties::class)\nclass SampleApp(private val props: SampleAppProperties) {\n\n    @GetMapping\n    fun hello() = props\n\n    @Validated\n    @ConfigurationProperties(\"sample.app\")\n    data class SampleAppProperties(\n        val params: Map<String, Any> = emptyMap(),\n        val other: Any,\n    )\n\n}\n\nfun main(args: Array<String>) {\n    runApplication<SampleApp>(*args)\n}\n```\n\nWith the following `application.yaml`:\n\n```yaml\nspring.application.name: demo-app\nsample.app:\n  params:\n    toto: titi\n  other: 42\n```\n\nFor the time being, the only workarounds to fix this issue are:\n* to remove the `@Validated`\n* to replace the `val params: Map<String, Any>` by `val params: Map<String, String>` which, in my case, is not an option\n\nThanks a lot !",
+      "droppedBoilerplate": [
+        "spring",
+        "boot"
+      ],
       "gold": [
         "core/spring-boot/src/main/java/org/springframework/boot/context/properties/bind/validation/ValidationBindHandler.java"
       ],
@@ -853,8 +1368,7 @@
       "droppedForLeak": [
         "java",
         "validation",
-        "properties",
-        "boot"
+        "properties"
       ]
     },
     {
@@ -871,6 +1385,9 @@
         "stemblind": "decoding compliant RFC Replace ensure RFC compliant decoding Unlike URI decoding treat space decodes percent encoded sequences"
       },
       "stemblindWords": 17,
+      "rawTitle": "W3CHeaderParser's decoding is not compliant with RFC 3986",
+      "rawBody": "Replace `URLDecoder.decode` with `StringUtils.uriDecode` to ensure RFC 3986-compliant decoding. Unlike `URLDecoder`, URI decoding does not treat `+` as a space and only decodes percent-encoded sequences.\r\n\r\nhttps://www.w3.org/TR/baggage/#value\r\nhttps://datatracker.ietf.org/doc/html/rfc3986#section-2.1\r\n\r\n",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-opentelemetry/src/main/java/org/springframework/boot/opentelemetry/autoconfigure/W3CHeaderParser.java"
       ],
@@ -892,10 +1409,16 @@
       "base": "790f66c37a6fe69ea6e40c0c09212fab007d345f",
       "mergeCommit": "33bf9d3777eac3f6bc13909571b612d0d2702233",
       "queries": {
-        "natural": "High number connections due Mongo health indicator Problem run command against every database returned reactive indicator per database commands issued parallel via health check deployment many databases reachable connection opens roughly one connection per database reported caused large increase connection usage upgrading Spring Boot connections across fleet services share Mongo user therefore see many databases formerly server level command whose",
-        "stemblind": "High number connections due Problem run command against every database returned per database commands issued parallel via check deployment many databases reachable connection opens roughly one connection per database reported caused large increase connection usage upgrading Spring connections across fleet services share user therefore see many databases formerly server level command whose response including independent database addressed need run change"
+        "natural": "High number connections due Mongo health indicator Problem run command against every database returned reactive indicator per database commands issued parallel via health check deployment many databases reachable connection opens roughly one connection per database reported caused large increase connection usage upgrading connections across fleet services share Mongo user therefore see many databases formerly server level command whose response including",
+        "stemblind": "High number connections due Problem run command against every database returned per database commands issued parallel via check deployment many databases reachable connection opens roughly one connection per database reported caused large increase connection usage upgrading connections across fleet services share user therefore see many databases formerly server level command whose response including independent database addressed need run change runs"
       },
       "stemblindWords": 60,
+      "rawTitle": "High number of connections due to Mongo health indicator",
+      "rawBody": "Fixes gh-50727\n\n## Problem\n\n`MongoHealthIndicator` and `MongoReactiveHealthIndicator` run the `hello` command against **every** database returned by `listDatabaseNames()`. For the reactive indicator the per-database commands are issued in parallel via `flatMap`, so on each health check a deployment with many databases reachable through the connection opens roughly one connection per database. As reported in gh-50727, this caused a large increase in connection usage after upgrading to Spring Boot 4 (e.g. ~200 → ~1300 connections across a fleet of services that share a Mongo user and therefore see many databases).\n\n## Fix\n\n`hello` (formerly `isMaster`) is a server-level command whose response (including `maxWireVersion`) is independent of the database it is addressed to, so there is no need to run it more than once. This change runs it a single time against the `admin` database, which restores the single-command behavior of the previous Spring Data based implementation while keeping the current Spring-Data-free indicator.\n\nThe reported health details are unchanged: both indicators still report `databases` (via a single `listDatabaseNames()` call) and `maxWireVersion`.\n\nI kept the `databases` detail because it is asserted by the existing `*IntegrationTests`. If the team would prefer to drop it and report only `maxWireVersion` (matching the 3.x output exactly), I'm happy to update the PR.\n\n## Test evidence\n\n`./gradlew :module:spring-boot-mongodb:test :module:spring-boot-mongodb:checkstyleMain :module:spring-boot-mongodb:checkstyleTest :module:spring-boot-mongodb:checkFormatMain :module:spring-boot-mongodb:checkFormatTest` — all pass. `compileDockerTestJava` also passes (the Testcontainers-based `*IntegrationTests` were not run here as Docker was unavailable, but they compile and their existing assertions on `databases`/`maxWireVersion` still hold). The unit tests were updated to verify the `hello` command is only addressed to `admin` and never to a listed database.\n\nVerification done: confirmed both `.java` indicators still contained the per-database `runCommand` loop on current `main`; no in-flight PR (searched open PRs for `MongoHealthIndicator`/`MongoReactiveHealthIndicator`/`mongo health`/`50727`); no claim comments on the issue; issue carries `type: regression` (not `status: waiting-for-triage`); compared against the Spring Boot 3.5.x `MongoReactiveHealthIndicator` to confirm the single-command intent.",
+      "droppedBoilerplate": [
+        "spring",
+        "boot"
+      ],
       "gold": [
         "module/spring-boot-mongodb/src/main/java/org/springframework/boot/mongodb/health/MongoHealthIndicator.java",
         "module/spring-boot-mongodb/src/main/java/org/springframework/boot/mongodb/health/MongoReactiveHealthIndicator.java"
@@ -910,8 +1433,7 @@
         "mongo",
         "health",
         "indicator",
-        "reactive",
-        "boot"
+        "reactive"
       ]
     },
     {
@@ -928,6 +1450,9 @@
         "stemblind": "inconsistencies found five issues still appear present current RestTemplateBuilder deprecated API still describes behavior deprecated favor Introduced LiveReload documented deprecated one place active elsewhere devtools marks LiveReload deprecated Maven plugin still present LiveReload active devtools feature without mentioning deprecation Introduced RabbitMQ Streams mention non SSL port service connection state RabbitMQ Streams containers need port exposed SSL configured connection details code"
       },
       "stemblindWords": 60,
+      "rawTitle": "Fix documentation inconsistencies",
+      "rawBody": "I found five documentation issues that still appear to be present on current `main` as of https://github.com/spring-projects/spring-boot/commit/f71e7977614682ced49221321a38bb5cb18bc938.\r\n\r\n#### 1. RestTemplateBuilder docs reference deprecated `rootUri` API\r\n\r\nThe `@RestClientTest` documentation still describes `RestTemplateBuilder.rootUri(String)` behavior:\r\n\r\nhttps://github.com/spring-projects/spring-boot/blob/f71e7977614682ced49221321a38bb5cb18bc938/documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/spring-boot-applications.adoc#L743-L747\r\n\r\nBut `RestTemplateBuilder.rootUri(String)` is deprecated in favor of `RestTemplateBuilder.baseUri(String)`:\r\n\r\nIntroduced by:\r\n- https://github.com/spring-projects/spring-boot/commit/4b11e04e7878ec02462253d23f58c3ea3e814e84\r\n\r\n#### 2. LiveReload is documented as deprecated in one place but active elsewhere\r\n\r\nThe devtools reference documentation marks LiveReload as deprecated:\r\n\r\nhttps://github.com/spring-projects/spring-boot/blob/f71e7977614682ced49221321a38bb5cb18bc938/documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/using/devtools.adoc#L285\r\n\r\nBut the Maven plugin and hotswapping documentation still present LiveReload as an active devtools feature without mentioning its deprecation:\r\n\r\nIntroduced by:\r\n- https://github.com/spring-projects/spring-boot/commit/8018829ff5da9a242b084d3853dc4add74c92b46\r\n\r\n#### 3. RabbitMQ Streams docs mention only the non-SSL port\r\n\r\nThe service connection docs state that RabbitMQ Streams containers need port `5552` exposed:\r\n\r\n- https://github.com/spring-projects/spring-boot/blob/f71e7977614682ced49221321a38bb5cb18bc938/documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/dev-services.adoc#L131-L132\r\n\r\nBut when SSL is configured, the connection details code uses port `5551`:\r\n\r\nIntroduced by:\r\n- https://github.com/spring-projects/spring-boot/commit/391c898b49300c8cae5bcab78d942413b1e7fb16\r\n\r\n#### 4. Log4j2 rotation docs contain a typo\r\n\r\nThe logging documentation says `Logback of Log4J2`:\r\n\r\nhttps://github.com/spring-projects/spring-boot/blob/f71e7977614682ced49221321a38bb5cb18bc938/documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/logging.adoc#L218\r\n\r\nThis should be `Logback or Log4j2`.\r\n\r\nIntroduced by:\r\n- https://github.com/spring-projects/spring-boot/commit/fae95ee3348f98bffda3376c70e29d716209e7f0\r\n\r\n#### 5. OAuth2 provider documentation omits `x`\r\n\r\n`OAuth2ClientProperties` documents the common OAuth2 providers as `google`, `github`, `facebook`, and `okta`:\r\n\r\nhttps://github.com/spring-projects/spring-boot/blob/f71e7977614682ced49221321a38bb5cb18bc938/module/spring-boot-security-oauth2-client/src/main/java/org/springframework/boot/security/oauth2/client/autoconfigure/OAuth2ClientProperties.java#L81-L82\r\n\r\nBut Spring Security 7.1.0's `CommonOAuth2Provider` also includes `X`:\r\n\r\nhttps://github.com/spring-projects/spring-security/blob/7.1.0/config/src/main/java/org/springframework/security/config/oauth2/client/CommonOAuth2Provider.java#L91-L102\r\n\r\nIntroduced by:\r\n- https://github.com/spring-projects/spring-boot/commit/d11f64a7af28b2dc65f08945475306bd803c7163\r\n\r\nThis PR fixes the above five issues.",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-security-oauth2-client/src/main/java/org/springframework/boot/security/oauth2/client/autoconfigure/OAuth2ClientProperties.java"
       ],
@@ -962,6 +1487,9 @@
         "stemblind": "highest precedence preventing configurers ordered ahead still returns RestClient sibling changed leaves backed groups limitation RestClient ordered say cannot supply initial runs first creates default builder variant initializing callback fails builder already initialized considered bug okay submit small"
       },
       "stemblindWords": 38,
+      "rawTitle": "PropertiesWebClientHttpServiceGroupConfigurer has highest precedence, preventing other configurers from being ordered ahead of it",
+      "rawBody": "`PropertiesWebClientHttpServiceGroupConfigurer#getOrder()` still returns `Ordered.HIGHEST_PRECEDENCE`, while the RestClient sibling was changed to `Ordered.HIGHEST_PRECEDENCE + 10` in 72eaeecd5cd for gh-48296.\n\nThis leaves WebClient-backed HTTP service groups with the limitation that gh-48296 fixed for RestClient. A `WebClientHttpServiceGroupConfigurer` ordered at, say, `Ordered.HIGHEST_PRECEDENCE + 5` cannot supply an initial `WebClient.Builder` through `InitializingClientCallback`. The properties configurer runs first, creates the default builder through the `ClientCallback` variant of `forEachClient`, and the initializing callback then fails with \"Client builder already initialized\".\n\nIf this is considered a bug, would it be okay for me to submit a small PR?\n",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-webclient/src/main/java/org/springframework/boot/webclient/autoconfigure/service/PropertiesWebClientHttpServiceGroupConfigurer.java"
       ],
@@ -992,6 +1520,9 @@
         "stemblind": "Configuration containing empty arrays collections maps fail ConverterNotFoundException Configuring property empty collection longer possible working Instead application starting empty property startup fails error caused following config class result error startup"
       },
       "stemblindWords": 30,
+      "rawTitle": "Configuration properties containing empty arrays, collections or maps fail with ConverterNotFoundException",
+      "rawBody": "Configuring a Map property with an empty collection is no longer possible in 4.1.0, was working in 4.0.6.\n\nInstead of the application starting with an empty map for that property, the startup fails with an `Failed to load ApplicationContext` error caused by:\n```\nCaused by: org.springframework.core.convert.ConverterNotFoundException: No converter found capable of converting from type [java.lang.String] to type [java.util.Map<java.lang.String, java.lang.String>]\n```\n\ne.g. with the following config class:\n```\n@ConfigurationProperties(prefix = \"test\")\npublic class TestProperties {\n    private Map<String, String> testmap = new HashMap<>();\n\n    public Map<String, String> getTestmap() {\n        return testmap;\n    }\n\n    public void setTestmap(final Map<String, String> testmap) {\n        this.testmap = testmap;\n    }\n}\n```\nand this in application.yaml:\n```\ntest:\n  testmap: {}\n```\n\nThe result is an error at startup:\n```\n\njava.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@629fc74d testClass = **redacted**, locations = [], classes = [**redacted**, TestConfiguration], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [\"org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true\"], contextCustomizers = [org.springframework.boot.webmvc.test.autoconfigure.WebDriverContextCustomizer@5003041b, org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@6bc248ed, [ImportsContextCustomizer@4228a2f6 key = [@org.springframework.test.context.BootstrapWith(org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class), @org.springframework.stereotype.Indexed(), @org.springframework.boot.autoconfigure.SpringBootApplication(exclude={}, excludeName={}, nameGenerator=org.springframework.beans.factory.support.BeanNameGenerator.class, proxyBeanMethods=true, scanBasePackageClasses={}, scanBasePackages={}), @org.springframework.context.annotation.Import({org.springframework.boot.autoconfigure.AutoConfigurationImportSelector.class}), @org.springframework.boot.autoconfigure.EnableAutoConfiguration(exclude={}, excludeName={}), @org.springframework.context.annotation.ComponentScan(basePackageClasses={}, basePackages={}, excludeFilters={@org.springframework.context.annotation.ComponentScan.Filter(classes={org.springframework.boot.context.TypeExcludeFilter.class}, pattern={}, type=CUSTOM, value={org.springframework.boot.context.TypeExcludeFilter.class}), @org.springframework.context.annotation.ComponentScan.Filter(classes={org.springframework.boot.autoconfigure.AutoConfigurationExcludeFilter.class}, pattern={}, type=CUSTOM, value={org.springframework.boot.autoconfigure.AutoConfigurationExcludeFilter.class})}, includeFilters={}, lazyInit=false, nameGenerator=org.springframework.beans.factory.support.BeanNameGenerator.class, resourcePattern=\"**/*.class\", scopeResolver=org.springframework.context.annotation.AnnotationScopeMetadataResolver.class, scopedProxy=DEFAULT, useDefaultFilters=true, value={}), @org.springframework.boot.test.context.SpringBootTest(args={}, classes={AppTestConfiguration.class, TestConfiguration.class}, properties={}, useMainMethod=NEVER, value={}, webEnvironment=DEFINED_PORT), @org.springframework.context.annotation.Import({org.springframework.boot.autoconfigure.AutoConfigurationPackages.Registrar.class}), @org.springframework.context.annotation.Configuration(enforceUniqueMethods=true, proxyBeanMethods=true, value=\"\"), @org.springframework.context.annotation.Import({**redacted**, **redacted**, **redacted**, **redacted**, **redacted**}), @org.springframework.stereotype.Component(\"\"), @org.apiguardian.api.API(consumers={\"*\"}, since=\"5.0\", status=STABLE), @org.springframework.boot.autoconfigure.AutoConfigurationPackage(basePackageClasses={}, basePackages={}), @org.mockito.junit.jupiter.MockitoSettings(strictness=LENIENT), @org.springframework.boot.SpringBootConfiguration(proxyBeanMethods=true)]], org.springframework.boot.test.context.PropertyMappingContextCustomizer@0, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@200a26bc, org.springframework.boot.test.http.client.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@2f66e802, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2a492f2a, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.web.server.context.SpringBootTestRandomPortContextCustomizer@5a021cb9, org.springframework.boot.test.context.SpringBootTestAnnotation@50d6d588], resourceBasePath = \"src/main/webapp\", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]\n\n\tat org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.lambda$loadContext$0(DefaultCacheAwareContextLoaderDelegate.java:195)\n\tat org.springframework.test.context.cache.DefaultContextCache.put(DefaultContextCache.java:214)\n\tat org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:160)\n\tat org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:128)\n\tat org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:156)\n\tat org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:111)\n\tat org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)\n\tat org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:242)\n\tat java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)\n\tat java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)\n\tat java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)\n\tat java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)\n\tat java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)\n\tat java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)\n\tat java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)\n\tat java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)\n\tat java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)\n\tat java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)\n\tat java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)\n\tat java.base/java.util.Optional.orElseGet(Optional.java:364)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1604)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1604)\nCaused by: org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'TestProperties': Could not bind properties to 'TestProperties' : prefix=test, ignoreInvalidFields=false, ignoreUnknownFields=true\n\tat org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.bind(ConfigurationPropertiesBindingPostProcessor.java:104)\n\tat org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.postProcessBeforeInitialization(ConfigurationPropertiesBindingPostProcessor.java:84)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:426)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowi",
+      "droppedBoilerplate": [],
       "gold": [
         "core/spring-boot/src/main/java/org/springframework/boot/context/properties/bind/MapBinder.java"
       ],
@@ -1018,6 +1549,9 @@
         "stemblind": "still emits cookie attribute Setting still produces session cookie regression commit first released filters reaches consumer lambda ignores actual Boolean value always sets attribute Tomcat emits attribute explicit rendered attribute set container agnostic mapping applies Jetty changed sets assert checks internal attribute value resulting header Reproduction header level test against Tomcat fails current code Actual session cookie header Possible mapping"
       },
       "stemblindWords": 60,
+      "rawTitle": "`server.servlet.session.cookie.partitioned=false` still emits the `Partitioned` cookie attribute",
+      "rawBody": "Setting `server.servlet.session.cookie.partitioned=false` still produces `; Partitioned` on the session cookie. This is a regression from the fix for #50201 (commit b02f7dd, first released in 4.0.7).\n\nIn `ServletContextInitializers.SessionConfiguringInitializer.configureSessionCookie`:\n\n```java\nmap.from(cookie::getPartitioned).to((partitioned) -> config.setAttribute(\"Partitioned\", \"\"));\n```\n\n`PropertyMapper.to(...)` only filters `null`, so `Boolean.FALSE` reaches the consumer. The lambda then ignores the actual Boolean value and always sets the `Partitioned` attribute to `\"\"`. Tomcat's `Rfc6265CookieProcessor` emits `; Partitioned` when the attribute is `\"\"`, so an explicit `false` is rendered the same as `true`. The attribute is set by the container-agnostic `ServletContextInitializers`, so the same mapping applies to Jetty.\n\nThe #50201 fix also changed `AbstractServletWebServerFactoryTests.sessionConfiguration`, which sets `partitioned=false`, to assert `getAttribute(\"Partitioned\")).isEqualTo(\"\")`. That checks the internal attribute value, not the resulting `Set-Cookie` header.\n\n## Reproduction\n\nA header-level test against Tomcat fails with the current code:\n\n```java\n@Test\nvoid sessionCookieNotPartitionedAttribute() throws Exception {\n    ConfigurableServletWebServerFactory factory = getFactory();\n    factory.getSettings().getSession().getCookie().setPartitioned(false);\n    factory.addInitializers(new ServletRegistrationBean<>(new CookieServlet(false), \"/\"));\n    this.webServer = factory.getWebServer();\n    this.webServer.start();\n    ClientHttpResponse clientResponse = getClientResponse(getLocalUrl(\"/\"));\n    List<String> setCookieHeaders = clientResponse.getHeaders().get(\"Set-Cookie\");\n    assertThat(setCookieHeaders).satisfiesExactlyInAnyOrder(\n            (header) -> assertThat(header).startsWith(\"JSESSIONID=\").doesNotContain(\"; Partitioned\"),\n            (header) -> assertThat(header).isEqualTo(\"test=test\"));\n}\n```\n\nActual session cookie header: `JSESSIONID=...; Path=/; HttpOnly; Partitioned`.\n\n## Possible fix\n\nThe mapping should preserve the three states of the nullable `Boolean`:\n\n- `null` -> leave the container default unchanged\n- `true` -> set `Partitioned` to `\"\"`\n- `false` -> set `Partitioned` to `\"false\"`\n\n```java\nmap.from(cookie::getPartitioned)\n    .as((partitioned) -> partitioned ? \"\" : \"false\")\n    .to((partitioned) -> config.setAttribute(\"Partitioned\", partitioned));\n```\n\nThis keeps an explicit `false` distinct from unset, while still using `\"\"` to enable the valueless `Partitioned` attribute. (A simpler `.whenTrue()` also fixes the header, but collapses `false` into unset so it can't override a container default of `partitioned=true`.) I can open a PR if this approach sounds right.\n",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-web-server/src/main/java/org/springframework/boot/web/server/servlet/ServletContextInitializers.java"
       ],
@@ -1041,6 +1575,9 @@
         "stemblind": "Javadoc class level Javadoc component copied nested record adapted type described Service details although record described version application component Align parallel Javadoc behavior change"
       },
       "stemblindWords": 24,
+      "rawTitle": "Fix Javadoc for GraylogExtendedLogFormatProperties",
+      "rawBody": "The class-level Javadoc and the `service` component description of `GraylogExtendedLogFormatProperties` were copied from the nested `Service` record and not adapted:\n\n- the type is described as \"Service details for …\" although it is a properties record;\n- `@param service` is described as \"the version of the application\", which is the description of `Service.version`, not the `service` component (a `Service`).\n\nAlign both with the parallel `ElasticCommonSchemaProperties` (\"Properties for … structured logging.\" / `@param service service details`).\n\nJavadoc only — no behavior change.\n",
+      "droppedBoilerplate": [],
       "gold": [
         "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/GraylogExtendedLogFormatProperties.java"
       ],
@@ -1068,6 +1605,9 @@
         "stemblind": "NullPointerException reactor SniProvider unmapped SSL bundle WebSocket transport returns SNI provider lookup name mapped SSL bundle reactor calls throws TLS handshake failure shared keeps copy lookup modularized layout missed Changes Fall back default via unmapped names Testing"
       },
       "stemblindWords": 37,
+      "rawTitle": "NullPointerException in reactor-netty SniProvider and unmapped SSL bundle with RSocket",
+      "rawBody": "The RSocket WebSocket transport's `HttpServerSslCustomizer` returns `null`\nfrom its SNI provider lookup when a server name has no mapped SSL bundle, so\nreactor-netty calls `promise.setSuccess(null)` and throws a\n`NullPointerException` during the TLS handshake.\n\nThis is the same failure fixed for the shared `SslServerCustomizer` in #50301,\nbut RSocket keeps its own copy of the lookup in the modularized layout and was\nmissed.\n\nChanges:\n- Fall back to the default `SslProvider` via `getOrDefault` for unmapped server names\n\nTesting:\n- `NettyRSocketServerFactoryTests.websocketTransportSslProviderFallsBackToDefaultWhenServerNameIsUnmapped`\n- `NettyRSocketServerFactoryTests.websocketTransportSslProviderReturnsDefaultWhenServerNameIsNull`\n",
+      "droppedBoilerplate": [],
       "gold": [
         "module/spring-boot-rsocket/src/main/java/org/springframework/boot/rsocket/netty/NettyRSocketServerFactory.java"
       ],
@@ -1079,398 +1619,6 @@
         "netty",
         "rsocket",
         "server"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50639,
-      "title": "Close FileOutputStream delegate in InspectingOutputStream",
-      "querySource": "pr",
-      "base": "3cafe9b602a969db9f52f4683dc2875708e03b18",
-      "mergeCommit": "cc90a0862a50b21433bba5c6427ea04235cbba68",
-      "queries": {
-        "natural": "FileOutputStream delegate InspectingOutputStream extends override content exceeds approximately replaces delegate try resources calls inherits leaving open leaking file descriptor commit overrides delegate underlying stream",
-        "stemblind": "FileOutputStream delegate InspectingOutputStream extends override exceeds approximately replaces delegate try resources calls inherits leaving open leaking file descriptor commit overrides delegate underlying stream"
-      },
-      "stemblindWords": 23,
-      "gold": [
-        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/io/InspectedContent.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/io/InspectedContent.java"
-      ],
-      "droppedForLeak": [
-        "content"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50624,
-      "title": "SSL should not be enabled when a SSL bundle is overridden to an empty string",
-      "querySource": "pr",
-      "base": "8288b8fc367608d9a07fe4a49bb33244e2df4a12",
-      "mergeCommit": "a009ea4bee6d1176b831125bad67d1950592900a",
-      "queries": {
-        "natural": "SSL enabled SSL bundle overridden empty string Follow treated empty RabbitMQ SSL bundle unset Cassandra Redis MongoDB still derived enablement empty value enabled SSL instead treated unset now use matching RabbitMQ existing Couchbase behavior Testing",
-        "stemblind": "SSL enabled SSL bundle overridden empty string Follow treated empty RabbitMQ SSL bundle unset MongoDB still derived enablement empty value enabled SSL instead treated unset now use matching RabbitMQ existing Couchbase behavior Testing"
-      },
-      "stemblindWords": 33,
-      "gold": [
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/cassandra/CassandraProperties.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/data/redis/RedisProperties.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mongo/MongoProperties.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/cassandra/CassandraProperties.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/data/redis/RedisProperties.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mongo/MongoProperties.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/test/java/org/springframework/boot/autoconfigure/cassandra/CassandraPropertiesTests.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/test/java/org/springframework/boot/autoconfigure/data/redis/RedisPropertiesTests.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/test/java/org/springframework/boot/autoconfigure/mail/MailSenderAutoConfigurationTests.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/test/java/org/springframework/boot/autoconfigure/mongo/MongoPropertiesTests.java"
-      ],
-      "droppedForLeak": [
-        "cassandra",
-        "redis"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50451,
-      "title": "Docker Compose support does not restore thread interrupt flag when catching InterruptedException",
-      "querySource": "issue#50450",
-      "base": "3e5ad73f0118849865039ce2105410f0fafce21b",
-      "mergeCommit": "bb30ecc6676b231ad7919275d8ba69c7041d95dc",
-      "queries": {
-        "natural": "ProcessRunner restore interrupt flag InterruptedException two catch blocks restore thread interrupt flag throwing returning line catches throws without calling first without chaining original exception line catches returns without restoring interrupt flag inconsistent every handler codebase restore flag Without restoring flag code higher call stack Docker Compose lifecycle shutdown handling cannot detect thread interrupted",
-        "stemblind": "restore interrupt flag InterruptedException two catch blocks restore thread interrupt flag throwing returning line catches throws without calling first without chaining original exception line catches returns without restoring interrupt flag inconsistent every handler codebase restore flag Without restoring flag code higher call stack lifecycle shutdown handling cannot detect thread interrupted"
-      },
-      "stemblindWords": 50,
-      "gold": [
-        "spring-boot-project/spring-boot-docker-compose/src/main/java/org/springframework/boot/docker/compose/core/ProcessRunner.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot-docker-compose/src/main/java/org/springframework/boot/docker/compose/core/ProcessRunner.java"
-      ],
-      "droppedForLeak": [
-        "processrunner",
-        "docker",
-        "compose"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50447,
-      "title": "Use new Maven Resolver API for ModifiedClassPathClassLoader",
-      "querySource": "pr",
-      "base": "351a82627b9d7224446d720f5d68847d04ae5495",
-      "mergeCommit": "3e5ad73f0118849865039ce2105410f0fafce21b",
-      "queries": {
-        "natural": "Use new Maven Resolver API ModifiedClassPathClassLoader Use box implementation recommended alternative new supplier module maven resolver supplier",
-        "stemblind": "Use new Maven Resolver API Use box implementation recommended alternative new supplier module maven resolver supplier"
-      },
-      "stemblindWords": 16,
-      "gold": [
-        "spring-boot-project/spring-boot-tools/spring-boot-test-support/src/main/java/org/springframework/boot/testsupport/classpath/ModifiedClassPathClassLoader.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot-parent/build.gradle",
-        "spring-boot-project/spring-boot-tools/spring-boot-test-support/build.gradle",
-        "spring-boot-project/spring-boot-tools/spring-boot-test-support/src/main/java/org/springframework/boot/testsupport/classpath/ModifiedClassPathClassLoader.java"
-      ],
-      "droppedForLeak": [
-        "modifiedclasspathclassloader"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50429,
-      "title": "RabbitProperties enables SSL even when spring.rabbitmq.ssl.bundle is overridden to an empty string",
-      "querySource": "issue#50426",
-      "base": "d33962f37b33841af7936dde69f8ec216b7fc7a9",
-      "mergeCommit": "19c7f5aff034d0a7779734dffd571907b1509a9d",
-      "queries": {
-        "natural": "RabbitProperties enable SSL overridden empty string believe bug Spring Boot RabbitMQ auto configuration configured SSL bundle overridden empty string profile specific configuration Problem base configuration sets RabbitMQ SSL bundle profile specific configuration tries disable empty string override disable SSL expected relevant default profile uses SSL bundle profile wants switch RabbitMQ back plain AMQP localhost Example Base Profile specific Actual behavior",
-        "stemblind": "enable SSL overridden empty string believe bug Spring RabbitMQ auto configuration configured SSL bundle overridden empty string profile specific configuration Problem base configuration sets RabbitMQ SSL bundle profile specific configuration tries disable empty string override disable SSL expected relevant default profile uses SSL bundle profile wants switch RabbitMQ back plain localhost Example Base Profile specific Actual behavior RabbitMQ SSL still"
-      },
-      "stemblindWords": 60,
-      "gold": [
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/amqp/RabbitProperties.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/amqp/RabbitProperties.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/test/java/org/springframework/boot/autoconfigure/amqp/RabbitPropertiesTests.java"
-      ],
-      "droppedForLeak": [
-        "rabbitproperties",
-        "boot",
-        "amqp"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50301,
-      "title": "NullPointerException in reactor-netty SniProvider when SSL bundle uses client-auth or server truststore without server-name-bundles",
-      "querySource": "pr",
-      "base": "b58a5b1e81a718015f4177b18270fa7f98b71206",
-      "mergeCommit": "d33962f37b33841af7936dde69f8ec216b7fc7a9",
-      "queries": {
-        "natural": "NullPointerException reactor netty SniProvider SSL bundle uses client auth server truststore without server name bundles Falls back default SNI hostname present lookup logic extracted package private method make directly testable unit test used instead end end test synchronous SNI lookup exception silently swallowed inside Netty SslClientHelloHandler handshake falls back default SslContext NPE surface response level see",
-        "stemblind": "NullPointerException reactor SniProvider bundle uses client auth truststore without name bundles Falls back default SNI hostname present lookup logic extracted package private method make directly testable unit used instead end end synchronous SNI lookup exception silently swallowed inside SslClientHelloHandler handshake falls back default SslContext NPE surface response level see"
-      },
-      "stemblindWords": 49,
-      "gold": [
-        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/embedded/netty/SslServerCustomizer.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/embedded/netty/SslServerCustomizer.java",
-        "spring-boot-project/spring-boot/src/test/java/org/springframework/boot/web/embedded/netty/SslServerCustomizerTests.java"
-      ],
-      "droppedForLeak": [
-        "netty",
-        "ssl",
-        "server",
-        "test"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50501,
-      "title": "Layer written outside the output location of '//' exception is thrown when using extract layers in root directory",
-      "querySource": "issue#50495",
-      "base": "bfd1b8c096ab6c87f774454e0d9064601d734f3c",
-      "mergeCommit": "29e2456b5bca95cf32c102ce9a4f5b032775427f",
-      "queries": {
-        "natural": "Layer tools lost support buildng root Seems like patch introduced new restriction build process Root build location don supports now don think intended change work fail",
-        "stemblind": "Layer lost support buildng root Seems like patch introduced new restriction build process Root build location don supports now don think intended change work fail"
-      },
-      "stemblindWords": 25,
-      "gold": [
-        "spring-boot-project/spring-boot-tools/spring-boot-jarmode-tools/src/main/java/org/springframework/boot/jarmode/tools/ExtractCommand.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot-tools/spring-boot-jarmode-tools/src/main/java/org/springframework/boot/jarmode/tools/ExtractCommand.java",
-        "spring-boot-project/spring-boot-tools/spring-boot-jarmode-tools/src/test/java/org/springframework/boot/jarmode/tools/ExtractCommandTests.java"
-      ],
-      "droppedForLeak": [
-        "tools"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50383,
-      "title": "Remove compatibility code for EOL dependency versions",
-      "querySource": "pr",
-      "base": "30744f15bf3e4e18f32844e338f1e33852e4eeca",
-      "mergeCommit": "6b9ccdca8e87150a466f21897d8342b4d979e90b",
-      "queries": {
-        "natural": "Remove compatibility code EOL dependency versions Spring Boot bumped minimum dependency versions well past versions guarded blocks removed code paths dead code never execute supported dependency versions Removals Tomcat Remove guard Boot uses making deployment Tomcat impossible Tomcat pre Remove guard Method exists Tomcat added forked Hazelcast Remove reflective constructor fallback Managed version Hazelcast Jetty Remove check reflective fallback Managed",
-        "stemblind": "Remove compatibility code EOL dependency versions Spring bumped minimum dependency versions well past versions guarded blocks removed code paths dead code never execute supported dependency versions Removals Remove guard uses making deployment impossible pre Remove guard Method exists added forked Remove reflective constructor fallback Managed version Remove check reflective fallback Managed version Comment updates code change Updated comments existing compat"
-      },
-      "stemblindWords": 60,
-      "gold": [
-        "module/spring-boot-cache/src/main/java/org/springframework/boot/cache/metrics/HazelcastCacheMeterBinderProvider.java",
-        "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration.java",
-        "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/FlywayMigrationInitializer.java",
-        "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/GracefulShutdown.java",
-        "module/spring-boot-tomcat/src/main/java/org/springframework/boot/tomcat/DisableReferenceClearingContextCustomizer.java",
-        "module/spring-boot-tomcat/src/main/java/org/springframework/boot/tomcat/autoconfigure/TomcatWebServerFactoryCustomizer.java"
-      ],
-      "changedAll": [
-        "module/spring-boot-cache/src/main/java/org/springframework/boot/cache/metrics/HazelcastCacheMeterBinderProvider.java",
-        "module/spring-boot-cache/src/test/java/org/springframework/boot/cache/metrics/HazelcastCacheMeterBinderProviderTests.java",
-        "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration.java",
-        "module/spring-boot-flyway/src/main/java/org/springframework/boot/flyway/autoconfigure/FlywayMigrationInitializer.java",
-        "module/spring-boot-jetty/src/main/java/org/springframework/boot/jetty/GracefulShutdown.java",
-        "module/spring-boot-tomcat/src/main/java/org/springframework/boot/tomcat/DisableReferenceClearingContextCustomizer.java",
-        "module/spring-boot-tomcat/src/main/java/org/springframework/boot/tomcat/autoconfigure/TomcatWebServerFactoryCustomizer.java"
-      ],
-      "droppedForLeak": [
-        "boot",
-        "tomcat",
-        "hazelcast",
-        "jetty",
-        "flyway"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50419,
-      "title": "Polish code to use instanceof pattern matching in conditions",
-      "querySource": "pr",
-      "base": "c66ea4136776e91022faf8f0e9e1ac3b1b71f474",
-      "mergeCommit": "d5c5fb6d7aeea5941bc893707d3bd6b3e87ea999",
-      "queries": {
-        "natural": "Polish code use instanceof pattern matching conditions updates two condition related code paths use pattern matching checked value immediately cast afterward Specifically keeps code consistent surrounding style removes redundant explicit casts without changing behavior Verification",
-        "stemblind": "Polish code use instanceof pattern matching conditions updates two related code paths use pattern matching checked value immediately cast afterward Specifically keeps code consistent surrounding style removes redundant explicit casts without changing behavior Verification"
-      },
-      "stemblindWords": 34,
-      "gold": [
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/ConditionEvaluationReport.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnBeanCondition.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/ConditionEvaluationReport.java",
-        "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnBeanCondition.java"
-      ],
-      "droppedForLeak": [
-        "condition"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50273,
-      "title": "ConfigurationPropertiesReportEndpoint exposes AOP proxy internals",
-      "querySource": "pr",
-      "base": "328c65daeaeaa3e821bf0264433fa078325d9922",
-      "mergeCommit": "c66ea4136776e91022faf8f0e9e1ac3b1b71f474",
-      "queries": {
-        "natural": "ConfigurationPropertiesReportEndpoint exposes AOP proxy internals actuator endpoint serializes bean using bean factory instance instance AOP proxy commonly CGLIB scoped proxy created applies AOP proxy serializer picks interface getters proxy exposes configured walk reaches inflating response per refresh scoped bean change unwraps AOP proxies via delegating serializer user defined configuration properties exposed unwrap wrapped failure obtain target falls back existing behaviour",
-        "stemblind": "exposes AOP proxy internals actuator serializes bean using bean factory instance instance AOP proxy commonly CGLIB scoped proxy created applies AOP proxy serializer picks interface getters proxy exposes configured walk reaches inflating response per refresh scoped bean change unwraps AOP proxies via delegating serializer user defined exposed unwrap wrapped failure obtain target falls back existing behaviour added creates based CGLIB"
-      },
-      "stemblindWords": 60,
-      "gold": [
-        "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/context/properties/ConfigurationPropertiesReportEndpoint.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/context/properties/ConfigurationPropertiesReportEndpoint.java",
-        "spring-boot-project/spring-boot-actuator/src/test/java/org/springframework/boot/actuate/context/properties/ConfigurationPropertiesReportEndpointSerializationTests.java"
-      ],
-      "droppedForLeak": [
-        "configurationpropertiesreportendpoint",
-        "endpoint",
-        "configuration",
-        "properties",
-        "test"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50303,
-      "title": "Created StackTracePrinter instances have no access to the Environment",
-      "querySource": "pr",
-      "base": "9b00740823bf57ebd96c0c3b854625db39a89581",
-      "mergeCommit": "328c65daeaeaa3e821bf0264433fa078325d9922",
-      "queries": {
-        "natural": "Created StackTracePrinter instances access Environment able create StackTracePrinter delegates StandardStackTracePrinter lacks flexibility custom StackTracePrinter access Environment change add Environment StackTracePrinter instantiator custom StackTracePrinter implementations customize StandardStackTracePrinter according environment property values",
-        "stemblind": "Created StackTracePrinter instances access Environment able create StackTracePrinter delegates StandardStackTracePrinter lacks flexibility custom StackTracePrinter access Environment change add Environment StackTracePrinter instantiator custom StackTracePrinter implementations customize StandardStackTracePrinter according environment property values"
-      },
-      "stemblindWords": 30,
-      "gold": [
-        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/StructuredLogFormatterFactory.java",
-        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/StructuredLoggingJsonProperties.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/StructuredLogFormatterFactory.java",
-        "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/structured/StructuredLoggingJsonProperties.java",
-        "spring-boot-project/spring-boot/src/test/java/org/springframework/boot/logging/structured/StructuredLoggingJsonPropertiesTests.java"
-      ],
-      "droppedForLeak": []
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50373,
-      "title": "MappingsEndpoint reports the context's own ID as parentId when a parent exists",
-      "querySource": "issue#50368",
-      "base": "f6ef0c1f69ae9ae0b4d6c7066c670f3cde5c1b6a",
-      "mergeCommit": "9b00740823bf57ebd96c0c3b854625db39a89581",
-      "queries": {
-        "natural": "MappingsEndpoint reports context parentId parent exists sets context parent exists rather parent already keys response map descriptor ends equal map key parent present prevents reconstructing context tree response actuator endpoints field use separate parity observation between two classes webmvc wraps static provider list webflux uses size mutable via submit accepted Let know whether bundle skip alignment",
-        "stemblind": "reports context parentId parent exists sets context parent exists rather parent already keys response map descriptor ends equal map key parent present prevents reconstructing context tree response actuator endpoints field use separate parity observation between two classes webmvc wraps static provider list webflux uses size mutable via submit accepted Let know whether bundle skip alignment"
-      },
-      "stemblindWords": 55,
-      "gold": [
-        "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/web/mappings/MappingsEndpoint.java"
-      ],
-      "changedAll": [
-        "module/spring-boot-actuator/src/test/java/org/springframework/boot/actuate/web/mappings/MappingsEndpointTests.java",
-        "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/web/mappings/MappingsEndpoint.java"
-      ],
-      "droppedForLeak": [
-        "mappingsendpoint"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50382,
-      "title": "Buildpack module does not validate long-to-int casts",
-      "querySource": "pr",
-      "base": "0ecdaa659e8ee465b30ec950f2ca59a8f75380e3",
-      "mergeCommit": "f6ef0c1f69ae9ae0b4d6c7066c670f3cde5c1b6a",
-      "queries": {
-        "natural": "Buildpack module validate long int casts Add explicit size checks casting values two locations buildpack module external data file sizes Docker stream headers exceed returns cast without validation Files larger 2GB silently produce incorrect possibly negative size values corrupting tar entry headers Now throws actual file size message parameter parsed Docker multiplexed stream header unsigned bytes max 4GB Values exceeding",
-        "stemblind": "module validate long int casts Add explicit size checks casting values two locations module external data file sizes stream headers exceed returns cast without validation Files larger 2GB silently produce incorrect possibly negative size values corrupting tar entry headers Now throws actual file size message parameter parsed multiplexed stream header unsigned bytes max 4GB Values exceeding cause allocating byte array"
-      },
-      "stemblindWords": 60,
-      "gold": [
-        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/docker/LogUpdateEvent.java",
-        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/io/Content.java"
-      ],
-      "changedAll": [
-        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/docker/LogUpdateEvent.java",
-        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/io/Content.java",
-        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/test/java/org/springframework/boot/buildpack/platform/docker/LogUpdateEventTests.java",
-        "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/test/java/org/springframework/boot/buildpack/platform/io/ContentTests.java"
-      ],
-      "droppedForLeak": [
-        "buildpack",
-        "docker"
-      ]
-    },
-    {
-      "repo": "spring-boot",
-      "slug": "spring-projects/spring-boot",
-      "lang": "java",
-      "pr": 50405,
-      "title": "Gradle gRPC support fails if protobuf-java dependency is used instead of protobuf-java-util",
-      "querySource": "issue#50401",
-      "base": "8a449c52e638b2adeb766d87ccd7816dbad947c8",
-      "mergeCommit": "1bd43a0f4229dbd46127f41326434666669e11e8",
-      "queries": {
-        "natural": "gRPC client project build fails Spring Boot Gradle plugin helpfully tries set gRPC plugin dependencies knows gRPC project works server starter fails client seems line plugin problem dependency version null",
-        "stemblind": "gRPC client project build fails Spring helpfully tries set gRPC dependencies knows gRPC project works server starter fails client seems line problem dependency version null"
-      },
-      "stemblindWords": 25,
-      "gold": [
-        "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/plugin/ProtobufPluginAction.java"
-      ],
-      "changedAll": [
-        "build-plugin/spring-boot-gradle-plugin/src/main/java/org/springframework/boot/gradle/plugin/ProtobufPluginAction.java",
-        "build-plugin/spring-boot-gradle-plugin/src/test/java/org/springframework/boot/gradle/plugin/ProtobufPluginActionIntegrationTests.java",
-        "build-plugin/spring-boot-gradle-plugin/src/test/resources/org/springframework/boot/gradle/plugin/ProtobufPluginActionIntegrationTests.gradle"
-      ],
-      "droppedForLeak": [
-        "boot",
-        "gradle",
-        "plugin"
       ]
     }
   ]

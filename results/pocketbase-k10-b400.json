@@ -10,7 +10,7 @@
   },
   "k": 10,
   "budget": 400,
-  "generatedAt": "2026-08-26T20:24:28.391Z",
+  "generatedAt": "2026-08-26T21:27:59.916Z",
   "summary": {
     "natural": {
       "graft": {
@@ -26,8 +26,8 @@
         ],
         "packTokens": 532.88,
         "budgetRecall": 0.5204444444444444,
-        "ms": 238.96,
-        "buildMs": 4642.32,
+        "ms": 237.6,
+        "buildMs": 4642.44,
         "errors": 0
       },
       "bm25": {
@@ -43,7 +43,7 @@
         ],
         "packTokens": 60.24,
         "budgetRecall": 0.6524444444444444,
-        "ms": 110.08,
+        "ms": 110.88,
         "buildMs": null,
         "errors": 0
       },
@@ -60,7 +60,7 @@
         ],
         "packTokens": 56.48,
         "budgetRecall": 0.5764444444444444,
-        "ms": 165.52,
+        "ms": 157.96,
         "buildMs": null,
         "errors": 0
       }
@@ -79,8 +79,8 @@
         ],
         "packTokens": 538.2,
         "budgetRecall": 0.3324444444444444,
-        "ms": 228.36,
-        "buildMs": 4642.32,
+        "ms": 223.6,
+        "buildMs": 4642.44,
         "errors": 0
       },
       "bm25": {
@@ -96,7 +96,7 @@
         ],
         "packTokens": 59.76,
         "budgetRecall": 0.5524444444444444,
-        "ms": 107.6,
+        "ms": 107.44,
         "buildMs": null,
         "errors": 0
       },
@@ -113,7 +113,7 @@
         ],
         "packTokens": 55.8,
         "budgetRecall": 0.49644444444444447,
-        "ms": 163.96,
+        "ms": 156.24,
         "buildMs": null,
         "errors": 0
       }
@@ -142,8 +142,8 @@
             "anyHit": false,
             "packTokens": 829,
             "budgetRecall": 0,
-            "ms": 374,
-            "buildMs": 10232,
+            "ms": 389,
+            "buildMs": 10299,
             "error": null,
             "top": [
               "ui/src/utils/CommonHelper.js",
@@ -161,7 +161,7 @@
             "anyHit": true,
             "packTokens": 63,
             "budgetRecall": 1,
-            "ms": 236,
+            "ms": 247,
             "buildMs": null,
             "error": null,
             "top": [
@@ -180,7 +180,7 @@
             "anyHit": false,
             "packTokens": 65,
             "budgetRecall": 0,
-            "ms": 190,
+            "ms": 192,
             "buildMs": null,
             "error": null,
             "top": [
@@ -201,8 +201,8 @@
             "anyHit": false,
             "packTokens": 802,
             "budgetRecall": 0,
-            "ms": 313,
-            "buildMs": 10232,
+            "ms": 334,
+            "buildMs": 10299,
             "error": null,
             "top": [
               "ui/src/utils/CommonHelper.js",
@@ -219,7 +219,7 @@
             "anyHit": true,
             "packTokens": 65,
             "budgetRecall": 0.5,
-            "ms": 197,
+            "ms": 205,
             "buildMs": null,
             "error": null,
             "top": [
@@ -238,7 +238,7 @@
             "anyHit": false,
             "packTokens": 65,
             "budgetRecall": 0,
-            "ms": 186,
+            "ms": 183,
             "buildMs": null,
             "error": null,
             "top": [
@@ -273,8 +273,8 @@
             "anyHit": false,
             "packTokens": 499,
             "budgetRecall": 0,
-            "ms": 361,
-            "buildMs": 10058,
+            "ms": 351,
+            "buildMs": 10162,
             "error": null,
             "top": [
               "plugins/jsvm/internal/types/generated/types.d.ts",
@@ -292,7 +292,7 @@
             "anyHit": false,
             "packTokens": 71,
             "budgetRecall": 0,
-            "ms": 203,
+            "ms": 209,
             "buildMs": null,
             "error": null,
             "top": [
@@ -311,7 +311,7 @@
             "anyHit": true,
             "packTokens": 48,
             "budgetRecall": 1,
-            "ms": 191,
+            "ms": 196,
             "buildMs": null,
             "error": null,
             "top": [
@@ -332,8 +332,8 @@
             "anyHit": false,
             "packTokens": 278,
             "budgetRecall": 0,
-            "ms": 334,
-            "buildMs": 10058,
+            "ms": 329,
+            "buildMs": 10162,
             "error": null,
             "top": [
               "ui/src/stores/collections.js",
@@ -351,7 +351,7 @@
             "anyHit": false,
             "packTokens": 70,
             "budgetRecall": 0,
-            "ms": 198,
+            "ms": 202,
             "buildMs": null,
             "error": null,
             "top": [
@@ -370,7 +370,7 @@
             "anyHit": true,
             "packTokens": 55,
             "budgetRecall": 1,
-            "ms": 188,
+            "ms": 192,
             "buildMs": null,
             "error": null,
             "top": [
@@ -405,8 +405,8 @@
             "anyHit": true,
             "packTokens": 732,
             "budgetRecall": 1,
-            "ms": 404,
-            "buildMs": 10134,
+            "ms": 414,
+            "buildMs": 10090,
             "error": null,
             "top": [
               "tools/security/random_by_regex.go",
@@ -424,7 +424,7 @@
             "anyHit": true,
             "packTokens": 70,
             "budgetRecall": 1,
-            "ms": 201,
+            "ms": 202,
             "buildMs": null,
             "error": null,
             "top": [
@@ -443,7 +443,7 @@
             "anyHit": true,
             "packTokens": 62,
             "budgetRecall": 1,
-            "ms": 193,
+            "ms": 185,
             "buildMs": null,
             "error": null,
             "top": [
@@ -464,8 +464,8 @@
             "anyHit": false,
             "packTokens": 942,
             "budgetRecall": 0,
-            "ms": 411,
-            "buildMs": 10134,
+            "ms": 410,
+            "buildMs": 10090,
             "error": null,
             "top": [
               "plugins/jsvm/internal/types/generated/types.d.ts",
@@ -483,7 +483,7 @@
             "anyHit": true,
             "packTokens": 74,
             "budgetRecall": 1,
-            "ms": 201,
+            "ms": 200,
             "buildMs": null,
             "error": null,
             "top": [
@@ -502,7 +502,7 @@
             "anyHit": false,
             "packTokens": 52,
             "budgetRecall": 0,
-            "ms": 189,
+            "ms": 186,
             "buildMs": null,
             "error": null,
             "top": [
@@ -537,8 +537,8 @@
             "anyHit": false,
             "packTokens": 568,
             "budgetRecall": 0,
-            "ms": 354,
-            "buildMs": 10087,
+            "ms": 436,
+            "buildMs": 10163,
             "error": null,
             "top": [
               "core/collection_model_view_options_test.go",
@@ -556,7 +556,7 @@
             "anyHit": true,
             "packTokens": 58,
             "budgetRecall": 1,
-            "ms": 198,
+            "ms": 217,
             "buildMs": null,
             "error": null,
             "top": [
@@ -575,7 +575,7 @@
             "anyHit": true,
             "packTokens": 49,
             "budgetRecall": 1,
-            "ms": 190,
+            "ms": 191,
             "buildMs": null,
             "error": null,
             "top": [
@@ -596,8 +596,8 @@
             "anyHit": false,
             "packTokens": 1030,
             "budgetRecall": 0,
-            "ms": 332,
-            "buildMs": 10087,
+            "ms": 361,
+            "buildMs": 10163,
             "error": null,
             "top": [
               "ui/src/stores/collections.js",
@@ -615,7 +615,7 @@
             "anyHit": true,
             "packTokens": 59,
             "budgetRecall": 1,
-            "ms": 198,
+            "ms": 201,
             "buildMs": null,
             "error": null,
             "top": [
@@ -634,7 +634,7 @@
             "anyHit": true,
             "packTokens": 53,
             "budgetRecall": 1,
-            "ms": 189,
+            "ms": 186,
             "buildMs": null,
             "error": null,
             "top": [
@@ -669,8 +669,8 @@
             "anyHit": true,
             "packTokens": 555,
             "budgetRecall": 1,
-            "ms": 296,
-            "buildMs": 10199,
+            "ms": 303,
+            "buildMs": 10186,
             "error": null,
             "top": [
               "tools/auth/patreon.go",
@@ -688,7 +688,7 @@
             "anyHit": true,
             "packTokens": 69,
             "budgetRecall": 1,
-            "ms": 201,
+            "ms": 222,
             "buildMs": null,
             "error": null,
             "top": [
@@ -728,8 +728,8 @@
             "anyHit": false,
             "packTokens": 644,
             "budgetRecall": 0,
-            "ms": 281,
-            "buildMs": 10199,
+            "ms": 284,
+            "buildMs": 10186,
             "error": null,
             "top": [
               "apis/record_auth_email_change_request.go",
@@ -747,7 +747,7 @@
             "anyHit": false,
             "packTokens": 62,
             "budgetRecall": 0,
-            "ms": 196,
+            "ms": 204,
             "buildMs": null,
             "error": null,
             "top": [
@@ -801,8 +801,8 @@
             "anyHit": true,
             "packTokens": 545,
             "budgetRecall": 1,
-            "ms": 269,
-            "buildMs": 8725,
+            "ms": 260,
+            "buildMs": 8733,
             "error": null,
             "top": [
               "daos/log.go",
@@ -820,7 +820,7 @@
             "anyHit": true,
             "packTokens": 63,
             "budgetRecall": 1,
-            "ms": 140,
+            "ms": 146,
             "buildMs": null,
             "error": null,
             "top": [
@@ -839,7 +839,7 @@
             "anyHit": true,
             "packTokens": 56,
             "budgetRecall": 1,
-            "ms": 173,
+            "ms": 169,
             "buildMs": null,
             "error": null,
             "top": [
@@ -860,8 +860,8 @@
             "anyHit": true,
             "packTokens": 545,
             "budgetRecall": 1,
-            "ms": 261,
-            "buildMs": 8725,
+            "ms": 256,
+            "buildMs": 8733,
             "error": null,
             "top": [
               "daos/log.go",
@@ -879,7 +879,7 @@
             "anyHit": true,
             "packTokens": 63,
             "budgetRecall": 1,
-            "ms": 140,
+            "ms": 141,
             "buildMs": null,
             "error": null,
             "top": [
@@ -898,7 +898,7 @@
             "anyHit": true,
             "packTokens": 56,
             "budgetRecall": 1,
-            "ms": 169,
+            "ms": 167,
             "buildMs": null,
             "error": null,
             "top": [
@@ -933,8 +933,8 @@
             "anyHit": false,
             "packTokens": 870,
             "budgetRecall": 0,
-            "ms": 315,
-            "buildMs": 8196,
+            "ms": 301,
+            "buildMs": 8308,
             "error": null,
             "top": [
               "ui/src/utils/ApiClient.js",
@@ -952,7 +952,7 @@
             "anyHit": false,
             "packTokens": 61,
             "budgetRecall": 0,
-            "ms": 126,
+            "ms": 125,
             "buildMs": null,
             "error": null,
             "top": [
@@ -971,7 +971,7 @@
             "anyHit": false,
             "packTokens": 65,
             "budgetRecall": 0,
-            "ms": 168,
+            "ms": 169,
             "buildMs": null,
             "error": null,
             "top": [
@@ -992,8 +992,8 @@
             "anyHit": false,
             "packTokens": 870,
             "budgetRecall": 0,
-            "ms": 298,
-            "buildMs": 8196,
+            "ms": 296,
+            "buildMs": 8308,
             "error": null,
             "top": [
               "ui/src/utils/ApiClient.js",
@@ -1011,7 +1011,7 @@
             "anyHit": false,
             "packTokens": 61,
             "budgetRecall": 0,
-            "ms": 123,
+            "ms": 125,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1030,7 +1030,7 @@
             "anyHit": false,
             "packTokens": 65,
             "budgetRecall": 0,
-            "ms": 168,
+            "ms": 167,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1065,8 +1065,8 @@
             "anyHit": true,
             "packTokens": 971,
             "budgetRecall": 1,
-            "ms": 275,
-            "buildMs": 8135,
+            "ms": 272,
+            "buildMs": 8341,
             "error": null,
             "top": [
               "apis/api_error.go",
@@ -1084,7 +1084,7 @@
             "anyHit": true,
             "packTokens": 52,
             "budgetRecall": 1,
-            "ms": 124,
+            "ms": 122,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1103,7 +1103,7 @@
             "anyHit": true,
             "packTokens": 56,
             "budgetRecall": 1,
-            "ms": 167,
+            "ms": 166,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1124,8 +1124,8 @@
             "anyHit": true,
             "packTokens": 971,
             "budgetRecall": 1,
-            "ms": 266,
-            "buildMs": 8135,
+            "ms": 265,
+            "buildMs": 8341,
             "error": null,
             "top": [
               "apis/api_error.go",
@@ -1197,8 +1197,8 @@
             "anyHit": true,
             "packTokens": 439,
             "budgetRecall": 0,
-            "ms": 270,
-            "buildMs": 7625,
+            "ms": 273,
+            "buildMs": 7694,
             "error": null,
             "top": [
               "ui/src/stores/admin.js",
@@ -1216,7 +1216,7 @@
             "anyHit": true,
             "packTokens": 51,
             "budgetRecall": 1,
-            "ms": 117,
+            "ms": 111,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1256,8 +1256,8 @@
             "anyHit": true,
             "packTokens": 439,
             "budgetRecall": 0,
-            "ms": 279,
-            "buildMs": 7625,
+            "ms": 264,
+            "buildMs": 7694,
             "error": null,
             "top": [
               "ui/src/stores/admin.js",
@@ -1275,7 +1275,7 @@
             "anyHit": true,
             "packTokens": 51,
             "budgetRecall": 1,
-            "ms": 115,
+            "ms": 111,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1294,7 +1294,7 @@
             "anyHit": false,
             "packTokens": 45,
             "budgetRecall": 0,
-            "ms": 164,
+            "ms": 161,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1329,8 +1329,8 @@
             "anyHit": false,
             "packTokens": 415,
             "budgetRecall": 0,
-            "ms": 248,
-            "buildMs": 7764,
+            "ms": 234,
+            "buildMs": 7658,
             "error": null,
             "top": [
               "resolvers/record_field_resolve_runner.go",
@@ -1348,7 +1348,7 @@
             "anyHit": false,
             "packTokens": 66,
             "budgetRecall": 0,
-            "ms": 118,
+            "ms": 115,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1367,7 +1367,7 @@
             "anyHit": false,
             "packTokens": 71,
             "budgetRecall": 0,
-            "ms": 189,
+            "ms": 159,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1388,8 +1388,8 @@
             "anyHit": false,
             "packTokens": 415,
             "budgetRecall": 0,
-            "ms": 241,
-            "buildMs": 7764,
+            "ms": 231,
+            "buildMs": 7658,
             "error": null,
             "top": [
               "resolvers/record_field_resolve_runner.go",
@@ -1407,7 +1407,7 @@
             "anyHit": false,
             "packTokens": 66,
             "budgetRecall": 0,
-            "ms": 117,
+            "ms": 111,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1426,7 +1426,7 @@
             "anyHit": false,
             "packTokens": 71,
             "budgetRecall": 0,
-            "ms": 178,
+            "ms": 163,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1461,8 +1461,8 @@
             "anyHit": true,
             "packTokens": 261,
             "budgetRecall": 1,
-            "ms": 200,
-            "buildMs": 2061,
+            "ms": 197,
+            "buildMs": 2012,
             "error": null,
             "top": [
               "tools/filesystem/file.go",
@@ -1480,7 +1480,7 @@
             "anyHit": true,
             "packTokens": 73,
             "budgetRecall": 1,
-            "ms": 97,
+            "ms": 91,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1499,7 +1499,7 @@
             "anyHit": true,
             "packTokens": 58,
             "budgetRecall": 1,
-            "ms": 173,
+            "ms": 152,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1520,8 +1520,8 @@
             "anyHit": false,
             "packTokens": 242,
             "budgetRecall": 0,
-            "ms": 191,
-            "buildMs": 2061,
+            "ms": 188,
+            "buildMs": 2012,
             "error": null,
             "top": [
               "tools/filesystem/file.go",
@@ -1539,7 +1539,7 @@
             "anyHit": true,
             "packTokens": 67,
             "budgetRecall": 1,
-            "ms": 97,
+            "ms": 109,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1558,7 +1558,7 @@
             "anyHit": false,
             "packTokens": 50,
             "budgetRecall": 0,
-            "ms": 166,
+            "ms": 154,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1593,8 +1593,8 @@
             "anyHit": true,
             "packTokens": 791,
             "budgetRecall": 1,
-            "ms": 212,
-            "buildMs": 2025,
+            "ms": 183,
+            "buildMs": 1987,
             "error": null,
             "top": [
               "tools/filesystem/file_test.go",
@@ -1612,7 +1612,7 @@
             "anyHit": true,
             "packTokens": 67,
             "budgetRecall": 1,
-            "ms": 88,
+            "ms": 87,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1631,7 +1631,7 @@
             "anyHit": false,
             "packTokens": 60,
             "budgetRecall": 0,
-            "ms": 173,
+            "ms": 153,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1652,8 +1652,8 @@
             "anyHit": true,
             "packTokens": 595,
             "budgetRecall": 1,
-            "ms": 201,
-            "buildMs": 2025,
+            "ms": 188,
+            "buildMs": 1987,
             "error": null,
             "top": [
               "tools/filesystem/file.go",
@@ -1671,7 +1671,7 @@
             "anyHit": false,
             "packTokens": 67,
             "budgetRecall": 0,
-            "ms": 93,
+            "ms": 85,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1690,7 +1690,7 @@
             "anyHit": false,
             "packTokens": 48,
             "budgetRecall": 0,
-            "ms": 165,
+            "ms": 155,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1725,8 +1725,8 @@
             "anyHit": true,
             "packTokens": 777,
             "budgetRecall": 1,
-            "ms": 210,
-            "buildMs": 1954,
+            "ms": 186,
+            "buildMs": 1946,
             "error": null,
             "top": [
               "tools/filesystem/filesystem.go",
@@ -1744,7 +1744,7 @@
             "anyHit": true,
             "packTokens": 60,
             "budgetRecall": 1,
-            "ms": 86,
+            "ms": 84,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1763,7 +1763,7 @@
             "anyHit": true,
             "packTokens": 72,
             "budgetRecall": 1,
-            "ms": 168,
+            "ms": 153,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1784,8 +1784,8 @@
             "anyHit": true,
             "packTokens": 777,
             "budgetRecall": 1,
-            "ms": 200,
-            "buildMs": 1954,
+            "ms": 179,
+            "buildMs": 1946,
             "error": null,
             "top": [
               "tools/filesystem/filesystem.go",
@@ -1803,7 +1803,7 @@
             "anyHit": true,
             "packTokens": 60,
             "budgetRecall": 1,
-            "ms": 87,
+            "ms": 85,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1822,7 +1822,7 @@
             "anyHit": true,
             "packTokens": 72,
             "budgetRecall": 1,
-            "ms": 163,
+            "ms": 152,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1857,8 +1857,8 @@
             "anyHit": false,
             "packTokens": 303,
             "budgetRecall": 0,
-            "ms": 185,
-            "buildMs": 1929,
+            "ms": 187,
+            "buildMs": 1934,
             "error": null,
             "top": [
               "plugins/migratecmd/templates.go",
@@ -1895,7 +1895,7 @@
             "anyHit": false,
             "packTokens": 48,
             "budgetRecall": 0,
-            "ms": 158,
+            "ms": 154,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1916,8 +1916,8 @@
             "anyHit": false,
             "packTokens": 303,
             "budgetRecall": 0,
-            "ms": 184,
-            "buildMs": 1929,
+            "ms": 176,
+            "buildMs": 1934,
             "error": null,
             "top": [
               "plugins/migratecmd/templates.go",
@@ -1935,7 +1935,7 @@
             "anyHit": false,
             "packTokens": 61,
             "budgetRecall": 0,
-            "ms": 86,
+            "ms": 83,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1954,7 +1954,7 @@
             "anyHit": false,
             "packTokens": 48,
             "budgetRecall": 0,
-            "ms": 155,
+            "ms": 145,
             "buildMs": null,
             "error": null,
             "top": [
@@ -1991,7 +1991,7 @@
             "packTokens": 406,
             "budgetRecall": 0.5,
             "ms": 205,
-            "buildMs": 1748,
+            "buildMs": 1742,
             "error": null,
             "top": [
               "tools/auth/base_provider.go",
@@ -2009,7 +2009,7 @@
             "anyHit": false,
             "packTokens": 56,
             "budgetRecall": 0,
-            "ms": 75,
+            "ms": 78,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2028,7 +2028,7 @@
             "anyHit": true,
             "packTokens": 59,
             "budgetRecall": 1,
-            "ms": 158,
+            "ms": 148,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2049,8 +2049,8 @@
             "anyHit": false,
             "packTokens": 537,
             "budgetRecall": 0,
-            "ms": 200,
-            "buildMs": 1748,
+            "ms": 192,
+            "buildMs": 1742,
             "error": null,
             "top": [
               "forms/record_oauth2_login.go",
@@ -2087,7 +2087,7 @@
             "anyHit": true,
             "packTokens": 59,
             "budgetRecall": 1,
-            "ms": 157,
+            "ms": 145,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2131,8 +2131,8 @@
             "anyHit": false,
             "packTokens": 68,
             "budgetRecall": 0,
-            "ms": 162,
-            "buildMs": 1623,
+            "ms": 163,
+            "buildMs": 1625,
             "error": null,
             "top": [
               "ui/src/utils/CommonHelper.js",
@@ -2148,7 +2148,7 @@
             "anyHit": false,
             "packTokens": 61,
             "budgetRecall": 0,
-            "ms": 70,
+            "ms": 69,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2167,7 +2167,7 @@
             "anyHit": false,
             "packTokens": 53,
             "budgetRecall": 0,
-            "ms": 156,
+            "ms": 145,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2188,8 +2188,8 @@
             "anyHit": false,
             "packTokens": 68,
             "budgetRecall": 0,
-            "ms": 160,
-            "buildMs": 1623,
+            "ms": 156,
+            "buildMs": 1625,
             "error": null,
             "top": [
               "ui/src/utils/CommonHelper.js",
@@ -2205,7 +2205,7 @@
             "anyHit": false,
             "packTokens": 61,
             "budgetRecall": 0,
-            "ms": 72,
+            "ms": 69,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2224,7 +2224,7 @@
             "anyHit": false,
             "packTokens": 53,
             "budgetRecall": 0,
-            "ms": 190,
+            "ms": 146,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2259,8 +2259,8 @@
             "anyHit": false,
             "packTokens": 478,
             "budgetRecall": 0,
-            "ms": 180,
-            "buildMs": 1630,
+            "ms": 168,
+            "buildMs": 1575,
             "error": null,
             "top": [
               "ui/src/utils/ApiClient.js",
@@ -2278,7 +2278,7 @@
             "anyHit": true,
             "packTokens": 57,
             "budgetRecall": 1,
-            "ms": 76,
+            "ms": 70,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2297,7 +2297,7 @@
             "anyHit": true,
             "packTokens": 49,
             "budgetRecall": 1,
-            "ms": 158,
+            "ms": 157,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2318,8 +2318,8 @@
             "anyHit": false,
             "packTokens": 478,
             "budgetRecall": 0,
-            "ms": 172,
-            "buildMs": 1630,
+            "ms": 163,
+            "buildMs": 1575,
             "error": null,
             "top": [
               "ui/src/utils/ApiClient.js",
@@ -2337,7 +2337,7 @@
             "anyHit": true,
             "packTokens": 57,
             "budgetRecall": 1,
-            "ms": 74,
+            "ms": 68,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2356,7 +2356,7 @@
             "anyHit": true,
             "packTokens": 49,
             "budgetRecall": 1,
-            "ms": 159,
+            "ms": 154,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2391,8 +2391,8 @@
             "anyHit": true,
             "packTokens": 322,
             "budgetRecall": 1,
-            "ms": 181,
-            "buildMs": 1652,
+            "ms": 176,
+            "buildMs": 1643,
             "error": null,
             "top": [
               "tools/search/simple_field_resolver.go",
@@ -2410,7 +2410,7 @@
             "anyHit": true,
             "packTokens": 68,
             "budgetRecall": 1,
-            "ms": 71,
+            "ms": 73,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2429,7 +2429,7 @@
             "anyHit": true,
             "packTokens": 57,
             "budgetRecall": 1,
-            "ms": 159,
+            "ms": 146,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2450,8 +2450,8 @@
             "anyHit": true,
             "packTokens": 322,
             "budgetRecall": 1,
-            "ms": 182,
-            "buildMs": 1652,
+            "ms": 171,
+            "buildMs": 1643,
             "error": null,
             "top": [
               "tools/search/simple_field_resolver.go",
@@ -2469,7 +2469,7 @@
             "anyHit": true,
             "packTokens": 68,
             "budgetRecall": 1,
-            "ms": 76,
+            "ms": 68,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2488,7 +2488,7 @@
             "anyHit": true,
             "packTokens": 57,
             "budgetRecall": 1,
-            "ms": 162,
+            "ms": 146,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2523,8 +2523,8 @@
             "anyHit": true,
             "packTokens": 449,
             "budgetRecall": 1,
-            "ms": 182,
-            "buildMs": 1483,
+            "ms": 208,
+            "buildMs": 1424,
             "error": null,
             "top": [
               "tools/auth/github.go",
@@ -2542,7 +2542,7 @@
             "anyHit": true,
             "packTokens": 54,
             "budgetRecall": 1,
-            "ms": 68,
+            "ms": 64,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2561,7 +2561,7 @@
             "anyHit": true,
             "packTokens": 51,
             "budgetRecall": 1,
-            "ms": 156,
+            "ms": 149,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2582,8 +2582,8 @@
             "anyHit": false,
             "packTokens": 222,
             "budgetRecall": 0,
-            "ms": 167,
-            "buildMs": 1483,
+            "ms": 148,
+            "buildMs": 1424,
             "error": null,
             "top": [
               "ui/src/stores/toasts.js",
@@ -2599,7 +2599,7 @@
             "anyHit": true,
             "packTokens": 54,
             "budgetRecall": 1,
-            "ms": 62,
+            "ms": 61,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2618,7 +2618,7 @@
             "anyHit": true,
             "packTokens": 56,
             "budgetRecall": 1,
-            "ms": 154,
+            "ms": 144,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2653,8 +2653,8 @@
             "anyHit": true,
             "packTokens": 744,
             "budgetRecall": 1,
-            "ms": 191,
-            "buildMs": 1472,
+            "ms": 176,
+            "buildMs": 1428,
             "error": null,
             "top": [
               "cmd/migrate.go",
@@ -2672,7 +2672,7 @@
             "anyHit": true,
             "packTokens": 61,
             "budgetRecall": 1,
-            "ms": 64,
+            "ms": 59,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2691,7 +2691,7 @@
             "anyHit": true,
             "packTokens": 57,
             "budgetRecall": 1,
-            "ms": 158,
+            "ms": 144,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2712,8 +2712,8 @@
             "anyHit": true,
             "packTokens": 590,
             "budgetRecall": 1,
-            "ms": 179,
-            "buildMs": 1472,
+            "ms": 169,
+            "buildMs": 1428,
             "error": null,
             "top": [
               "migrations/1640988000_init.go",
@@ -2731,7 +2731,7 @@
             "anyHit": true,
             "packTokens": 58,
             "budgetRecall": 1,
-            "ms": 62,
+            "ms": 58,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2750,7 +2750,7 @@
             "anyHit": true,
             "packTokens": 54,
             "budgetRecall": 1,
-            "ms": 155,
+            "ms": 144,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2794,8 +2794,8 @@
             "anyHit": true,
             "packTokens": 337,
             "budgetRecall": 0.2,
-            "ms": 195,
-            "buildMs": 1501,
+            "ms": 171,
+            "buildMs": 1399,
             "error": null,
             "top": [
               "models/schema/schema.go",
@@ -2813,7 +2813,7 @@
             "anyHit": true,
             "packTokens": 58,
             "budgetRecall": 0.2,
-            "ms": 65,
+            "ms": 59,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2832,7 +2832,7 @@
             "anyHit": true,
             "packTokens": 60,
             "budgetRecall": 0.3,
-            "ms": 161,
+            "ms": 144,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2853,8 +2853,8 @@
             "anyHit": true,
             "packTokens": 337,
             "budgetRecall": 0.2,
-            "ms": 180,
-            "buildMs": 1501,
+            "ms": 169,
+            "buildMs": 1399,
             "error": null,
             "top": [
               "models/schema/schema.go",
@@ -2872,7 +2872,7 @@
             "anyHit": true,
             "packTokens": 58,
             "budgetRecall": 0.2,
-            "ms": 60,
+            "ms": 62,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2891,7 +2891,7 @@
             "anyHit": true,
             "packTokens": 60,
             "budgetRecall": 0.3,
-            "ms": 156,
+            "ms": 144,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2930,8 +2930,8 @@
             "anyHit": true,
             "packTokens": 722,
             "budgetRecall": 0.2,
-            "ms": 204,
-            "buildMs": 1496,
+            "ms": 188,
+            "buildMs": 1438,
             "error": null,
             "top": [
               "tools/security/jwt.go",
@@ -2949,7 +2949,7 @@
             "anyHit": false,
             "packTokens": 49,
             "budgetRecall": 0,
-            "ms": 64,
+            "ms": 58,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2968,7 +2968,7 @@
             "anyHit": false,
             "packTokens": 58,
             "budgetRecall": 0,
-            "ms": 159,
+            "ms": 143,
             "buildMs": null,
             "error": null,
             "top": [
@@ -2989,8 +2989,8 @@
             "anyHit": false,
             "packTokens": 801,
             "budgetRecall": 0,
-            "ms": 187,
-            "buildMs": 1496,
+            "ms": 181,
+            "buildMs": 1438,
             "error": null,
             "top": [
               "tools/auth/base_provider.go",
@@ -3008,7 +3008,7 @@
             "anyHit": false,
             "packTokens": 50,
             "budgetRecall": 0,
-            "ms": 60,
+            "ms": 68,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3027,7 +3027,7 @@
             "anyHit": false,
             "packTokens": 58,
             "budgetRecall": 0,
-            "ms": 149,
+            "ms": 146,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3063,8 +3063,8 @@
             "anyHit": true,
             "packTokens": 427,
             "budgetRecall": 1,
-            "ms": 175,
-            "buildMs": 1508,
+            "ms": 157,
+            "buildMs": 1439,
             "error": null,
             "top": [
               "cmd/version.go",
@@ -3082,7 +3082,7 @@
             "anyHit": true,
             "packTokens": 48,
             "budgetRecall": 1,
-            "ms": 60,
+            "ms": 58,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3101,7 +3101,7 @@
             "anyHit": true,
             "packTokens": 47,
             "budgetRecall": 1,
-            "ms": 143,
+            "ms": 145,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3122,8 +3122,8 @@
             "anyHit": true,
             "packTokens": 433,
             "budgetRecall": 1,
-            "ms": 156,
-            "buildMs": 1508,
+            "ms": 157,
+            "buildMs": 1439,
             "error": null,
             "top": [
               "cmd/migrate.go",
@@ -3141,7 +3141,7 @@
             "anyHit": true,
             "packTokens": 48,
             "budgetRecall": 1,
-            "ms": 61,
+            "ms": 58,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3160,7 +3160,7 @@
             "anyHit": true,
             "packTokens": 46,
             "budgetRecall": 1,
-            "ms": 151,
+            "ms": 142,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3195,8 +3195,8 @@
             "anyHit": true,
             "packTokens": 394,
             "budgetRecall": 1,
-            "ms": 161,
-            "buildMs": 1444,
+            "ms": 166,
+            "buildMs": 1395,
             "error": null,
             "top": [
               "cmd/version.go",
@@ -3214,7 +3214,7 @@
             "anyHit": true,
             "packTokens": 44,
             "budgetRecall": 1,
-            "ms": 60,
+            "ms": 61,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3233,7 +3233,7 @@
             "anyHit": true,
             "packTokens": 51,
             "budgetRecall": 1,
-            "ms": 93,
+            "ms": 92,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3254,8 +3254,8 @@
             "anyHit": true,
             "packTokens": 394,
             "budgetRecall": 1,
-            "ms": 164,
-            "buildMs": 1444,
+            "ms": 160,
+            "buildMs": 1395,
             "error": null,
             "top": [
               "cmd/version.go",
@@ -3273,7 +3273,7 @@
             "anyHit": true,
             "packTokens": 44,
             "budgetRecall": 1,
-            "ms": 59,
+            "ms": 58,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3292,7 +3292,7 @@
             "anyHit": true,
             "packTokens": 51,
             "budgetRecall": 1,
-            "ms": 92,
+            "ms": 91,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3335,8 +3335,8 @@
             "anyHit": true,
             "packTokens": 420,
             "budgetRecall": 0.1111111111111111,
-            "ms": 165,
-            "buildMs": 1377,
+            "ms": 176,
+            "buildMs": 1440,
             "error": null,
             "top": [
               "tools/security/encrypt.go",
@@ -3354,7 +3354,7 @@
             "anyHit": true,
             "packTokens": 65,
             "budgetRecall": 0.1111111111111111,
-            "ms": 58,
+            "ms": 59,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3373,7 +3373,7 @@
             "anyHit": true,
             "packTokens": 53,
             "budgetRecall": 0.1111111111111111,
-            "ms": 151,
+            "ms": 144,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3394,8 +3394,8 @@
             "anyHit": true,
             "packTokens": 420,
             "budgetRecall": 0.1111111111111111,
-            "ms": 170,
-            "buildMs": 1377,
+            "ms": 163,
+            "buildMs": 1440,
             "error": null,
             "top": [
               "tools/security/encrypt.go",
@@ -3413,7 +3413,7 @@
             "anyHit": true,
             "packTokens": 65,
             "budgetRecall": 0.1111111111111111,
-            "ms": 58,
+            "ms": 56,
             "buildMs": null,
             "error": null,
             "top": [
@@ -3432,7 +3432,7 @@
             "anyHit": true,
             "packTokens": 53,
             "budgetRecall": 0.1111111111111111,
-            "ms": 144,
+            "ms": 143,
             "buildMs": null,
             "error": null,
             "top": [

@@ -21,7 +21,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildQuery, auditQuery } from './lib/query.mjs';
+import { buildQuery, auditQuery, repoBoilerplate } from './lib/query.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CORPUS = JSON.parse(
@@ -118,11 +118,12 @@ async function main() {
   }
 
   const cases = [];
+  const candidates = [];
   const rejected = { title: 0, files: 0, base: 0, query: 0, leak: 0 };
 
   const admitted = new Set();
   for (const pr of prs) {
-    if (cases.length >= limit) break;
+    if (candidates.length >= limit) break;
     if (admitted.has(pr.number)) continue; // belt and braces alongside the paging dedupe
     admitted.add(pr.number);
     if (SKIP_TITLE.test(pr.title || '')) { rejected.title++; continue; }
@@ -149,10 +150,24 @@ async function main() {
     const issue = linkedIssue(repo.slug, pr.body);
     const primary = issue || { title: pr.title, body: pr.body };
 
+    candidates.push({ pr, base, changed, gold, issue, primary });
+  }
+
+  // ---- pass 2: strip this repo's PR-template boilerplate, then build queries ----
+  // Must happen after all candidates are known: boilerplate is defined by what
+  // repeats ACROSS this repo's PRs, which is not observable one PR at a time.
+  const boilerplate = repoBoilerplate(
+    candidates.map((c) => `${c.primary.title || ''} ${c.primary.body || ''}`),
+  );
+  process.stderr.write(`  repo boilerplate: ${boilerplate.size} token(s) in >=50% of PR texts\n`);
+
+  for (const { pr, base, changed, gold, issue, primary } of candidates) {
+    if (cases.length >= limit) break;
+
     // Contamination defense runs against EVERY changed file, not just gold —
     // a test filename leaks the source filename just as effectively.
-    const natural = buildQuery(primary, changed, { mode: 'natural' });
-    const stemblind = buildQuery(primary, changed, { mode: 'stemblind' });
+    const natural = buildQuery(primary, changed, { mode: 'natural', boilerplate });
+    const stemblind = buildQuery(primary, changed, { mode: 'stemblind', boilerplate });
 
     // The NATURAL query sets admission: it is the realistic condition. A case
     // whose stem-blind variant collapses is still admitted and simply scores
@@ -180,6 +195,9 @@ async function main() {
         stemblind: stemblind.query,
       },
       stemblindWords: stemblind.query.split(/\s+/).filter(Boolean).length,
+      rawTitle: primary.title || '',
+      rawBody: (primary.body || '').slice(0, 8000),
+      droppedBoilerplate: natural.droppedBoilerplate,
       gold,
       changedAll: changed,
       droppedForLeak: stemblind.droppedForLeak,
@@ -190,7 +208,11 @@ async function main() {
   const outDir = join(ROOT, 'data', 'cases');
   mkdirSync(outDir, { recursive: true });
   const out = join(outDir, `${repo.id}.json`);
-  writeFileSync(out, JSON.stringify({ repo, generatedAt: new Date().toISOString(), rejected, cases }, null, 2));
+  writeFileSync(out, JSON.stringify({
+    repo, generatedAt: new Date().toISOString(), rejected,
+    boilerplate: [...boilerplate].sort(),
+    cases,
+  }, null, 2));
 
   console.log(`\n${cases.length} cases → ${out}`);
   console.log(`rejected: ${JSON.stringify(rejected)}`);
