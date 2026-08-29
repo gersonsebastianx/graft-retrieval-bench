@@ -1,3 +1,9 @@
+> **Historical.** Statistical review of the **v1** figures (n=186), written
+> 2026-08-15. Two of its inputs were later found to be wrong (duplicate PR rows,
+> PR-template boilerplate), so its tables no longer match the current data.
+> Its Warning 3 — that the pooled one-hop rate describes no repo in particular —
+> still holds and is now carried in [the README](README.md#why-it-under-retrieves--two-diagnoses-tested).
+
 # Revisión estadística — graft-retrieval-bench
 
 Recálculo de dos cifras publicadas: el **5.5× de tokens por consulta** y el

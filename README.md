@@ -97,6 +97,13 @@ file `ask` missed, is it one edge (`imports`/`calls`/`extends`) from a file it
 
 The extractor builds the right edges; the ranker doesn't walk them.
 
+**The pooled 33.6% describes no repo in particular.** Per-repo capture spans
+8.1% (nest) to 51.3% (pocketbase), and pocketbase alone supplies 20 of the 50
+captures. Every repo clears its own chance level, so the direction is
+consistent — but quote the per-repo row, not the aggregate. (Raised in
+`STATS-REVISION.md` against the v1 data, where the skew was worse: pocketbase
+then carried 40 of 79 captures, partly because its rows were duplicated.)
+
 The three middle columns are @Frankie-Xu's decomposition
 ([trailhq/Graft#117](https://github.com/trailhq/Graft/issues/117)), extended here
 from pocketbase to all four repos. It splits the finding in half: **19.5% of
@@ -118,6 +125,30 @@ improves ranking" — pulling neighbours in also pulls in wrong files, and naive
 expansion can cost precision. And it is weakest on nest (8.1% capture), where
 60–90% of misses are neither one hop away nor in the overfetch window, so
 whatever is happening in TypeScript is a different problem.
+
+### Across graft versions (0.10.1 → 0.13.0)
+
+`--graft-bin` runs the same cases, queries and scoring against a different
+release. Doing that reproduces @Frankie-Xu's independent pocketbase re-run
+exactly — 38 misses, 22 one hop, 22 in tail — and resolves the 13–32% bound they
+could only estimate from marginals to **18.4%** on pocketbase, 19.2% pooled.
+
+| | 0.10.1 | 0.13.0 |
+|---|---|---|
+| already generated, ranked below k | 19.5% | **43.2%** |
+| 1 hop, not in the tail | 20.1% | **19.2%** |
+| neither | 60.4% | **37.7%** |
+| R@10 | 55.0% | 56.5% |
+
+Between those releases (PRs #126 and #137) gold moved out of "never generated"
+and into "generated but ranked below the cut", while the bucket that would need
+new candidates stayed where it was — noisy per repo (pocketbase 28.2 → 18.4,
+nest 8.1 → 19.4, django 21.2 → 15.2, spring-boot 22.5 → 22.7), flat in
+aggregate. R@10 barely moved either way.
+
+Read that as two distinct residuals rather than one: candidate generation, and
+selection over candidates already returned past `k`. Which is worth doing is a
+question for that project's maintainers, not this harness.
 
 ### Scope — please read before quoting this
 

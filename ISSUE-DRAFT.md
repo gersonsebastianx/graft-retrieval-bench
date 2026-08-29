@@ -1,3 +1,10 @@
+> **Historical.** This is the text posted as the opening comment of
+> [trailhq/Graft#117](https://github.com/trailhq/Graft/issues/117) on 2026-08-14.
+> Its figures are **v1 and superseded** — n=186 double-counted half of pocketbase
+> and every query carried PR-template boilerplate. Current numbers and the full
+> errata are in [the README](README.md#corrections). Kept as the record of what
+> was actually said, not as a result.
+
 # Retrieval measurement: `ask` misses files its own graph holds one edge away (186 PRs, 4 languages)
 
 Hi — I wanted to evaluate graft properly before adopting it, so I built a
